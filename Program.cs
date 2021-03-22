@@ -18,8 +18,8 @@ namespace ProjectTest
 
             Dictionary<string, string> Gebruikers = new Dictionary<string, string>
             {
-                { "Gebruikersnaam", Gebruikersnaam },
-                { "Wachtwoord", Wachtwoord },
+                { "Gebruikersnaam:", Gebruikersnaam },
+                { "Wachtwoord:", Wachtwoord },
             };
 
             string json = JsonConvert.SerializeObject(Gebruikers, Formatting.Indented);
