@@ -10,7 +10,7 @@ namespace ProjectB
     {
         static void Main(string[] args)
         {
-            Registreren.registreren();
+            Registreren.registreren(); 
         }
     }
 }
