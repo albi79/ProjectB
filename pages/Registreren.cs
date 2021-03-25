@@ -4,7 +4,7 @@ using System.IO;
 using Newtonsoft;
 using Newtonsoft.Json;
 
-namespace ProjectB
+namespace ProjectB.pages
 {
     class Registreren
     {
