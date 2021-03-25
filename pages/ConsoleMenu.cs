@@ -8,8 +8,8 @@ using Newtonsoft.Json;
 namespace ProjectB.pages
 {
     class ConsoleMenu
-    { 
-        static void Menu(int[] args)
+    {
+        public static void consoleMenu()
         {
             string menuinput;
             int menuchoice;
