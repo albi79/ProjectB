@@ -12,13 +12,5 @@ namespace ProjectB
 
             return Console.ReadLine();
         }
-
-        public static void CreateAccount()
-        {
-            string naam = Input("Wat is je naam?: ");
-            int Leetijd = int.Parse(Input("Wat is je leeftijd?: "));
-
-            Console.WriteLine($"Naam {naam} leeftijd: {Leetijd}");
-        }
     }
 }

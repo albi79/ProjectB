@@ -36,16 +36,6 @@ namespace ProjectB.pages
 
             var Option = new Menuchoice(menuchoice);
         }
-
-        internal int welkom()
-        {
-            throw new NotImplementedException();
-        }
-
-        internal void DisplayOptions()
-        {
-            throw new NotImplementedException();
-        }
     }
     public class Menuchoice
     {

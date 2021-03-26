@@ -5,6 +5,6 @@ namespace ProjectB.Classes
 {
     public class DataStorage
     {
-        public List<Person> Personen { get; set; } = new List<Person>();
+        public List<Person> Persons { get; set; } = new List<Person>();
     }
 }

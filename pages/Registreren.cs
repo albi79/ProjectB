@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using Newtonsoft;
-using Newtonsoft.Json;
 using ProjectB.Classes;
 using ProjectB.DAL;
 
@@ -25,7 +21,7 @@ namespace ProjectB.pages
                 wachtwoord = Beheer.Input("Wachtwoord: "),
                 wachtwoord2 = Beheer.Input("Wachtwoord bevestiging: "),
             };
-            DataStorageHandler.Storage.Personen.Add(Gast);            
+            DataStorageHandler.Storage.Persons.Add(Gast);            
         }
     }
 }
