@@ -9,6 +9,15 @@ namespace ProjectB.pages
 {
     class ConsoleMenu
     {
+        private string prompt;
+        private string[] options;
+
+        public ConsoleMenu(string prompt, string[] options)
+        {
+            this.prompt = prompt;
+            this.options = options;
+        }
+
         public static void consoleMenu()
         {
             string menuinput;
@@ -27,30 +36,44 @@ namespace ProjectB.pages
 
             var Option = new Menuchoice(menuchoice);
         }
+
+        internal int welkom()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void DisplayOptions()
+        {
+            throw new NotImplementedException();
+        }
     }
     public class Menuchoice
     {
         public Menuchoice(int numberchoice)
         {
-            int Numberchoice = numberchoice;
             string Optionname = "";
 
-            if (Numberchoice == 0)
+            if (numberchoice == 0)
             {
                 Optionname = "Uitloggen";
             }
-            else if (Numberchoice == 1)
+            else if (numberchoice == 1)
             {
                 Optionname = "Sales overview";
             }
-            else if (Numberchoice == 2)
+            else if (numberchoice == 2)
             {
                 Optionname = "Filmprogramma beheren";
             }
-            else if (Numberchoice == 3)
+            else if (numberchoice == 3)
             {
                 Optionname = "Ticket terugvinden";
             }
+            else
+            {
+                Optionname = "ERROR";
+            }
+            Console.WriteLine(Optionname);
         }
     }
 }

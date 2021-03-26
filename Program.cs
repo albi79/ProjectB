@@ -1,5 +1,6 @@
 ﻿using System;
 using ProjectB.pages;
+using ProjectB.Classes;
 
 namespace ProjectB
 {
@@ -8,7 +9,6 @@ namespace ProjectB
         static void Main(string[] args)
         {
             Registreren.registreren();
-            ConsoleMenu.consoleMenu();
         }
     }
 }
