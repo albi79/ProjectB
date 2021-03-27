@@ -34,12 +34,12 @@ namespace ProjectB.pages
             // convert to integer
             menuchoice = Convert.ToInt32(menuinput);
 
-            var Option = new Menuchoice(menuchoice);
+            var Option = new MenuChoice(menuchoice);
         }
     }
-    public class Menuchoice
+    public class MenuChoice
     {
-        public Menuchoice(int numberchoice)
+        public MenuChoice(int numberchoice)
         {
             string Optionname = "";
 

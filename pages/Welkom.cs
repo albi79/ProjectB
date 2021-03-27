@@ -7,7 +7,7 @@ namespace ProjectB.pages
 {
     public class Welkom
     {
-        public static void welkom()
+        public static void Welkom()
         {
 
         }

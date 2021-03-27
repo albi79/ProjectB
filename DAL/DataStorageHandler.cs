@@ -34,7 +34,7 @@ namespace ProjectB.DAL
             }
         }
 
-        public static void Opslaan()
+        public static void SaveChanges()
         {
             string JsonString = JsonConvert.SerializeObject(Storage, Formatting.Indented);
             File.WriteAllText(StorageFileLocation, JsonString);

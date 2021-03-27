@@ -21,7 +21,9 @@ namespace ProjectB.pages
                 wachtwoord = Beheer.Input("Wachtwoord: "),
                 wachtwoord2 = Beheer.Input("Wachtwoord bevestiging: "),
             };
-            DataStorageHandler.Storage.Persons.Add(Gast);            
+            DataStorageHandler.Storage.Persons.Add(Gast);
+            DataStorageHandler.SaveChanges();
+            Console.Clear();
         }
     }
 }
