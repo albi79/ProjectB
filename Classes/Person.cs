@@ -8,9 +8,7 @@ namespace ProjectB.Classes
         public string achternaam { get; set; }
         public string geboortedatum { get; set; }
         public string email { get; set; }
-        public string email2 { get; set; }
         public string gebruikersnaam { get; set; }
         public string wachtwoord { get; set; }
-        public string wachtwoord2 { get; set; }
     }
 }
