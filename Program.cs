@@ -7,8 +7,7 @@ namespace ProjectB
     {
         static void Main(string[] args)
         {
-            Registreren.registreren();
-            ConsoleMenu.consoleMenu();
+            Startscherm.startscherm();
         }
     }
 }
