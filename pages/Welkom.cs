@@ -45,7 +45,8 @@ namespace ProjectB.pages
 
             if (numberchoice == 0)
             {
-                Optionname = "Inloggen";
+                Login.login();
+                //Optionname = "Inloggen";
             }
             else if (numberchoice == 1)
             {
