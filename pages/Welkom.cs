@@ -24,12 +24,12 @@ namespace ProjectB.pages
             int menuchoice;
 
             Console.Clear();
-            Console.WriteLine("Welkom bij de menu:");
+            Console.WriteLine("Welkom bij de biscoop app:");
             Console.WriteLine("0. Inloggen");
             Console.WriteLine("1. Registreren");
             Console.WriteLine("2. Verder zonder account");
 
-            menuinput = Console.ReadLine();
+            menuinput = Beheer.Input("\n: ");
 
             // convert to integer
             menuchoice = Convert.ToInt32(menuinput);
@@ -55,7 +55,9 @@ namespace ProjectB.pages
             }
             else if (numberchoice == 2)
             {
-                Optionname = "Verder zonder account";
+                Console.Clear();
+                ConsoleMenu.consoleMenu();
+               // Optionname = "Verder zonder account";
             }
             else
             {

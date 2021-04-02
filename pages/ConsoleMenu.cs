@@ -23,7 +23,7 @@ namespace ProjectB.pages
             string menuinput;
             int menuchoice;
 
-            Console.WriteLine("Welkom bij de menu:");
+            Console.WriteLine("Welkom bij het menu:");
             Console.WriteLine("0. Uitloggen");
             Console.WriteLine("1. Sales overview");
             Console.WriteLine("2. Filmprogramma beheren");
@@ -45,6 +45,7 @@ namespace ProjectB.pages
 
             if (numberchoice == 0)
             {
+                Welkom.consoleMenu();
                 Optionname = "Uitloggen";
             }
             else if (numberchoice == 1)

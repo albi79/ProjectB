@@ -16,9 +16,11 @@ namespace ProjectB.pages
             Person guest = new Person();
             guest.gebruikersnaam = "Daniel22";
             guest.wachtwoord = "RotterdamAbi";
+            DataStorageHandler.Storage.Persons.Add(guest);
+            DataStorageHandler.SaveChanges();
 
             //Input krijgen
-            Console.WriteLine("Loginscherm\n");
+            Console.WriteLine("Login-scherm\n");
             string loginGebruikersnaam = Beheer.Input("Gebruikersnaam: ");
             string loginWachtwoord = Beheer.Input("Wachtwoord: ");
 
@@ -27,13 +29,15 @@ namespace ProjectB.pages
             {
                 if (loginGebruikersnaam == guest.gebruikersnaam && loginWachtwoord == guest.wachtwoord)
                 {
+                    Console.Clear();
                     ConsoleMenu.consoleMenu();
                 }
 
                 //verkeerd wachtwoord
                 else if (loginGebruikersnaam != guest.gebruikersnaam && loginWachtwoord == guest.wachtwoord)
                 {
-                    Console.WriteLine("Verkeerd wachtwoord opgegeven\nKlik R voor opnieuw registreren\nKlik I voor opnieuw inloggen\nKlik M voor menu-scherm zonder inloggen");
+                    Console.Clear();
+                    Console.WriteLine("Verkeerd wachtwoord opgegeven\n\nKlik: 'R' voor opnieuw registreren\nKlik: 'I' voor opnieuw inloggen\nKlik: 'M' voor menu-scherm zonder inloggen");
                     string foutGebruiker = Beheer.Input(": ");
 
                     if (foutGebruiker == "i")
@@ -52,6 +56,7 @@ namespace ProjectB.pages
                 //onbestaande gebruiker
                 else
                 {
+                    Console.Clear();
                     Console.WriteLine("Gebruiker niet bekend\nKlik R voor registreren\nKlik I voor opnieuw inloggen\nKlik M voor menu-scherm zonder inloggen");
                     string foutGebruiker = Beheer.Input(": ");
 
