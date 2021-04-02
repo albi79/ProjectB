@@ -10,9 +10,11 @@ namespace ProjectB.pages
     {
         public static void login()
         {
+            Console.Clear();
+
             //Gebruiker aangemaakt om code mee te checken
             Person guest = new Person();
-            guest.gebruikersnaam = "Daniel";
+            guest.gebruikersnaam = "Daniel22";
             guest.wachtwoord = "RotterdamAbi";
 
             //Input krijgen
@@ -24,10 +26,12 @@ namespace ProjectB.pages
             foreach (Person person in DataStorageHandler.Storage.Persons)
             {
                 if (loginGebruikersnaam == guest.gebruikersnaam && loginWachtwoord == guest.wachtwoord)
+                {
                     ConsoleMenu.consoleMenu();
+                }
 
                 //verkeerd wachtwoord
-                else if(loginGebruikersnaam != guest.gebruikersnaam && loginWachtwoord == guest.wachtwoord)
+                else if (loginGebruikersnaam != guest.gebruikersnaam && loginWachtwoord == guest.wachtwoord)
                 {
                     Console.WriteLine("Verkeerd wachtwoord opgegeven\nKlik R voor opnieuw registreren\nKlik I voor opnieuw inloggen\nKlik M voor menu-scherm zonder inloggen");
                     string foutGebruiker = Beheer.Input(": ");
@@ -37,7 +41,7 @@ namespace ProjectB.pages
 
                     else if (foutGebruiker == "r")
                         Registreren.registreren();
-                    
+
                     else if (foutGebruiker == "m")
                         ConsoleMenu.consoleMenu();
 

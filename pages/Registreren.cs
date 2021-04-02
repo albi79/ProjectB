@@ -86,9 +86,12 @@ namespace ProjectB.pages
                 gebruikersnaam = gebruikersnaam2,
                 wachtwoord = wachtwoord2,
             };
+
+            
             DataStorageHandler.Storage.Persons.Add(Gast);
             DataStorageHandler.SaveChanges();
             Console.Clear();
+            ConsoleMenu.consoleMenu();
         }
     }
 }
