@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using ProjectB.pages;
 using ProjectB.Classes;
 using ProjectB.DAL;
