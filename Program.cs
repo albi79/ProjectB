@@ -10,7 +10,7 @@ namespace ProjectB
         static void Main(string[] args)
         {
             DataStorageHandler.Init("ProjectB.json");
-            Welkom.consoleMenu();
+            Startscherm.startscherm();
         }
     }
 }

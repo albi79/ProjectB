@@ -41,7 +41,7 @@ namespace ProjectB.pages
                 if (opnieuwMail == "n")
                 {
                     Console.Clear();
-                    Welkom.consoleMenu();
+                    Startscherm.startscherm();
                 }
                 if (opnieuwMail == "j")
                 {
@@ -78,7 +78,7 @@ namespace ProjectB.pages
                 if (opnieuwWachtwoord == "n")
                 {
                     Console.Clear();
-                    Welkom.consoleMenu();
+                    Startscherm.startscherm();
                 }
                 else if (opnieuwWachtwoord == "j")
                 {

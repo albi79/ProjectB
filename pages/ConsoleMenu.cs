@@ -9,61 +9,96 @@ namespace ProjectB.pages
 {
     class ConsoleMenu
     {
-        private string prompt;
-        private string[] options;
-
-        public ConsoleMenu(string prompt, string[] options)
-        {
-            this.prompt = prompt;
-            this.options = options;
-        }
-
         public static void consoleMenu()
         {
             string menuinput;
-            int menuchoice;
+            //int menuchoice;
+
+            string menuexit;
+            //int menuExit;
+
+            bool validinputmenu = false;
+            bool validinputlogout = false;
 
             Console.WriteLine("Welkom bij de menu:");
-            Console.WriteLine("0. Uitloggen");
-            Console.WriteLine("1. Sales overview");
-            Console.WriteLine("2. Filmprogramma beheren");
-            Console.WriteLine("3. Ticket terugvinden");
+            Console.WriteLine("1. Uitloggen");
+            Console.WriteLine("2. Sales overview");
+            Console.WriteLine("3. Filmprogramma beheren");
+            Console.WriteLine("4. Ticket terugvinden");
+            Console.WriteLine("---------------------------");
+            Console.WriteLine("Voer uw optienummer in");
 
-            menuinput = Console.ReadLine();
+            while (validinputmenu == false)
+            {
+                menuinput = Console.ReadLine();
 
-            // convert to integer
-            menuchoice = Convert.ToInt32(menuinput);
+                // convert to integer
+                //menuchoice = Convert.ToInt32(menuinput);
 
-            var Option = new MenuChoice(menuchoice);
-        }
-    }
-    public class MenuChoice
-    {
-        public MenuChoice(int numberchoice)
-        {
-            string Optionname = "";
+                if (menuinput == "1")
+                {
+                    Console.Clear();
+                    Console.WriteLine("Weet u zeker dat u wilt uitloggen?\n1. JA\n2. NEE");
+                    validinputmenu = true;
 
-            if (numberchoice == 0)
-            {
-                Optionname = "Uitloggen";
+                    while (validinputlogout == false)
+                    {
+                        menuexit = Console.ReadLine();
+                        //menuExit = Convert.ToInt32(menuexit);
+
+                        if (menuexit == "1")
+                        {
+                            Console.Clear();
+                            //Console.WriteLine("Hier wordt de welkomscherm aangeroepen");
+                            Startscherm.startscherm();
+                            validinputlogout = true;
+                        }
+
+                        else if (menuexit == "2")
+                        {
+                            Console.Clear();
+                            ConsoleMenu.consoleMenu();
+                            validinputlogout = true;
+                        }
+
+                        else
+                        {
+                            Console.WriteLine("FOUTMELDING: er is een niet bestaande optie gekozen. Kies uit de nummers: 1 of 2");
+                            validinputlogout = false;
+                        }
+                    }
+                }
+
+                else if (menuinput == "2")
+                {
+                    Console.Clear();
+                    //Console.WriteLine("Hier wordt de sales overview scherm aangeroepen");
+                    SalesOverview.salesOverview();
+                    validinputmenu = true;
+                }
+
+                else if (menuinput == "3")
+                {
+                    Console.Clear();
+                    //Console.WriteLine("Hier wordt de filmprogramma scherm aangeroepen");
+                    FilmprogrammaBeheren.filmprogrammaBeheren();
+                    validinputmenu = true;
+                }
+
+                else if (menuinput == "4")
+                {
+                    Console.Clear();
+                    //Console.WriteLine("Hier wordt de ticket terugvinden scherm aangeroepen");
+                    TicketTerugvinden.ticketTerugvinden();
+                    validinputmenu = true;
+                }
+
+                else
+                {
+                    Console.WriteLine("FOUTMELDING: er is een niet bestaande optie gekozen. Kies uit de nummers: 1, 2, 3, of 4");
+                    validinputmenu = false;
+                }
             }
-            else if (numberchoice == 1)
-            {
-                Optionname = "Sales overview";
-            }
-            else if (numberchoice == 2)
-            {
-                Optionname = "Filmprogramma beheren";
-            }
-            else if (numberchoice == 3)
-            {
-                Optionname = "Ticket terugvinden";
-            }
-            else
-            {
-                Optionname = "ERROR";
-            }
-            Console.WriteLine(Optionname);
         }
     }
 }
