@@ -12,13 +12,6 @@ namespace ProjectB.pages
         {
             Console.Clear();
 
-            //Gebruiker aangemaakt om code mee te checken
-            Person guest = new Person();
-            guest.gebruikersnaam = "Daniel22";
-            guest.wachtwoord = "RotterdamAbi";
-            DataStorageHandler.Storage.Persons.Add(guest);
-            DataStorageHandler.SaveChanges();
-
             //Input krijgen
             Console.WriteLine("Login-scherm\n");
             string loginGebruikersnaam = Beheer.Input("Gebruikersnaam: ");
@@ -27,56 +20,32 @@ namespace ProjectB.pages
             //Check of input correct is
             foreach (Person person in DataStorageHandler.Storage.Persons)
             {
-                if (loginGebruikersnaam == guest.gebruikersnaam && loginWachtwoord == guest.wachtwoord)
+                if (loginGebruikersnaam == person.gebruikersnaam && loginWachtwoord == person.wachtwoord)
                 {
                     Console.Clear();
                     ConsoleMenu.consoleMenu();
                 }
+            }
 
-                //verkeerd wachtwoord
-                else if (loginGebruikersnaam != guest.gebruikersnaam && loginWachtwoord == guest.wachtwoord)
-                {
-                    Console.Clear();
-                    Console.WriteLine("Verkeerd wachtwoord opgegeven\n\nKlik: 'R' voor opnieuw registreren\nKlik: 'I' voor opnieuw inloggen\nKlik: 'M' voor menu-scherm zonder inloggen");
-                    string foutGebruiker = Beheer.Input(": ");
+            Console.Clear();
+            Console.WriteLine("Gebruiker onbekend\n\nKlik: 'r' voor opnieuw registreren\nKlik: 'i' voor opnieuw inloggen\nKlik: 'm' voor menu-scherm zonder inloggen");
+            string foutGebruiker = Beheer.Input(": ");
 
-                    if (foutGebruiker == "i")
-                        Login.login();
+            if (foutGebruiker == "i")
+                Login.login();
 
-                    else if (foutGebruiker == "r")
-                        Registreren.registreren();
+            else if (foutGebruiker == "r")
+                Registreren.registreren();
 
-                    else if (foutGebruiker == "m")
-                        ConsoleMenu.consoleMenu();
+            else if (foutGebruiker == "m")
+                ConsoleMenu.consoleMenu();
 
-                    else
-                        Console.WriteLine("Er ging iets fout");
-                }
+            else
+                Console.WriteLine("Er ging iets fout");
 
-                //onbestaande gebruiker
-                else
-                {
-                    Console.Clear();
-                    Console.WriteLine("Gebruiker niet bekend\nKlik R voor registreren\nKlik I voor opnieuw inloggen\nKlik M voor menu-scherm zonder inloggen");
-                    string foutGebruiker = Beheer.Input(": ");
-
-                    if (foutGebruiker == "i")
-                        Login.login();
-
-                    else if (foutGebruiker == "r")
-                        Registreren.registreren();
-
-                    else if (foutGebruiker == "m")
-                        ConsoleMenu.consoleMenu();
-
-                    else
-                        Console.WriteLine("Er ging iets fout");
-                }
-
-                //Kladblaadje
-
-                /*guest.gebruikersnaam == Beheer.Input("Gebruiker: ");
-                Registreren.registreren();*/
+            while (foutGebruiker != "i" || foutGerbuiker != "r" || foutGebruiker !=)
+            {
+                continue;
             }
         }
     }
