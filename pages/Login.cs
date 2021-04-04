@@ -20,10 +20,20 @@ namespace ProjectB.pages
             //Check of input correct is
             foreach (Person person in DataStorageHandler.Storage.Persons)
             {
+                // Code die checkt of gebruiker bestaat
                 if (loginGebruikersnaam == person.gebruikersnaam && loginWachtwoord == person.wachtwoord)
                 {
-                    Console.Clear();
-                    ConsoleMenu.consoleMenu();
+                    if (loginGebruikersnaam == "AdminBios" && loginWachtwoord == "Nimda2021")
+                    {
+                        Console.Clear();
+                        AdminMenu.adminMenu();
+                    }
+
+                    else
+                    {
+                        Console.Clear();
+                        ConsoleMenu.consoleMenu();
+                    }
                 }
             }
 
