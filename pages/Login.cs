@@ -28,32 +28,32 @@ namespace ProjectB.pages
             }
 
             Console.Clear();
-            Console.WriteLine("Gebruikersnaam en/of Wachtwoord komen niet overeen.\n\nKlik: 'r' voor opnieuw registreren\nKlik: 'i' voor opnieuw inloggen\nKlik: 'm' voor menu-scherm zonder inloggen");
+            Console.WriteLine("Gebruikersnaam en/of Wachtwoord komen niet overeen.\n\nKlik: '1' voor opnieuw registreren\nKlik: '2' voor opnieuw inloggen\nKlik: '3' voor terug naar het startscherm.");
             string foutGebruiker = Beheer.Input("");
 
-            if (foutGebruiker == "i")
+            if (foutGebruiker == "1")
                 Login.login();
 
-            else if (foutGebruiker == "r")
+            else if (foutGebruiker == "2")
                 Registreren.registreren();
 
-            else if (foutGebruiker == "m")
-                ConsoleMenu.consoleMenu();
+            else if (foutGebruiker == "3")
+                Startscherm.startscherm();
 
             else
             {
                 while (foutGebruiker != "i" || foutGebruiker != "r" || foutGebruiker != "m")
                 {
-                    Console.WriteLine("Er ging iets fout, probeer het opnieuw.");
+                    Console.WriteLine("Er ging iets fout, probeer het opnieuw. Keuze uit 1 (registreren), 2 (inloggen) en 3 (startscherm)."); ;
                     foutGebruiker = Beheer.Input("");
-                    if (foutGebruiker == "i")
+                    if (foutGebruiker == "1")
                         Login.login();
 
-                    else if (foutGebruiker == "r")
+                    else if (foutGebruiker == "2")
                         Registreren.registreren();
 
-                    else if (foutGebruiker == "m")
-                        ConsoleMenu.consoleMenu();
+                    else if (foutGebruiker == "3")
+                        Startscherm.startscherm();
                 }
             }
         }
