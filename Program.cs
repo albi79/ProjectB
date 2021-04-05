@@ -1,5 +1,7 @@
-﻿using System;
+using System;
 using ProjectB.pages;
+using ProjectB.Classes;
+using ProjectB.DAL;
 
 namespace ProjectB
 {
@@ -7,7 +9,9 @@ namespace ProjectB
     {
         static void Main(string[] args)
         {
-            Startscherm.startscherm();
+            DataStorageHandler.Init("ProjectB.json");
+            AdminAanmaken.adminAanmaken();
+            //Startscherm.startscherm();
         }
     }
 }

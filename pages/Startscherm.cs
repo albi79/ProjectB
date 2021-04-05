@@ -33,7 +33,7 @@ namespace ProjectB.pages
                 if (menuinput == "1")
                 {
                     Console.Clear();
-                    Console.WriteLine("Hier wordt de inlogscherm aangeroepen");
+                    Login.login();
                     validinputmenu = true;
                 }
 
@@ -48,7 +48,7 @@ namespace ProjectB.pages
                 else if (menuinput == "3")
                 {
                     Console.Clear();
-                    Console.WriteLine("Weet u zeker dat u wilt verder gaan zonder account?\nLET OP: VOOR HET RESERVEREN IS HET AANMAKEN VAN EEN ACCOUNT AANBEVOLEN\n--------------------------\n1. JA\n2. NEE");
+                    ConsoleMenu.consoleMenu();
                     validinputmenu = true;
 
                     while (vldinptwthaccount == false)
