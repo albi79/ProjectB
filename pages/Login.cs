@@ -17,10 +17,17 @@ namespace ProjectB.pages
             string loginGebruikersnaam = Beheer.Input("Gebruikersnaam: ");
             string loginWachtwoord = Beheer.Input("Wachtwoord: ");
 
+
             //Check of input correct is
             foreach (Person person in DataStorageHandler.Storage.Persons)
             {
-                if (loginGebruikersnaam == person.gebruikersnaam && loginWachtwoord == person.wachtwoord)
+                if (loginGebruikersnaam == "AdminBios" && loginWachtwoord == "Nimda2021")
+                {
+                    Console.Clear();
+                    AdminMenu.adminMenu();
+                }
+
+                else if (loginGebruikersnaam == person.gebruikersnaam && loginWachtwoord == person.wachtwoord)
                 {
                     Console.Clear();
                     ConsoleMenu.consoleMenu();
