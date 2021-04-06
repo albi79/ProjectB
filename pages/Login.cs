@@ -39,10 +39,10 @@ namespace ProjectB.pages
             string foutGebruiker = Beheer.Input("");
 
             if (foutGebruiker == "1")
-                Login.login();
+                Registreren.registreren();
 
             else if (foutGebruiker == "2")
-                Registreren.registreren();
+                Login.login();
 
             else if (foutGebruiker == "3")
                 Startscherm.startscherm();
@@ -54,10 +54,10 @@ namespace ProjectB.pages
                     Console.WriteLine("Er ging iets fout, probeer het opnieuw. Keuze uit 1 (registreren), 2 (inloggen) en 3 (startscherm)."); ;
                     foutGebruiker = Beheer.Input("");
                     if (foutGebruiker == "1")
-                        Login.login();
+                        Registreren.registreren();
 
                     else if (foutGebruiker == "2")
-                        Registreren.registreren();
+                        Login.login();
 
                     else if (foutGebruiker == "3")
                         Startscherm.startscherm();
