@@ -13,6 +13,8 @@ namespace ProjectB.pages
             Console.Clear();
 
 
+
+
             string naam2 = Beheer.Input("Naam: ");
             naam2 = Beheer.ControlEmpty(naam2);
             naam2 = OnlyString(naam2);
