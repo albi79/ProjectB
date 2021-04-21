@@ -10,7 +10,8 @@ namespace ProjectB
         static void Main(string[] args)
         {
             DataStorageHandler.Init("ProjectB.json");
-            Startscherm.startscherm();
+            AdminAanmaken.adminAanmaken();
+            //Startscherm.startscherm();
         }
     }
 }

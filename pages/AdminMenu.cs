@@ -4,12 +4,14 @@ using System.Text;
 using System.IO;
 using Newtonsoft;
 using Newtonsoft.Json;
+using ProjectB.Classes;
+using ProjectB.DAL;
 
 namespace ProjectB.pages
 {
-    class ConsoleMenu
+    class AdminMenu
     {
-        public static void consoleMenu()
+        public static void adminMenu()
         {
             string menuinput;
             //int menuchoice;
@@ -20,10 +22,11 @@ namespace ProjectB.pages
             bool validinputmenu = false;
             bool validinputlogout = false;
 
-            Console.WriteLine("Welkom bij de menu:");
+            Console.WriteLine("Welkom bij de Admin-menu:");
             Console.WriteLine("1. Uitloggen");
-            Console.WriteLine("2. Film programma");
-            Console.WriteLine("3. Ticket terugvinden");
+            Console.WriteLine("2. Sales overview");
+            Console.WriteLine("3. Filmprogramma beheren");
+            Console.WriteLine("4. Ticket terugvinden");
             Console.WriteLine("---------------------------");
             Console.WriteLine("Voer uw optienummer in");
 
@@ -56,7 +59,7 @@ namespace ProjectB.pages
                         else if (menuexit == "2")
                         {
                             Console.Clear();
-                            ConsoleMenu.consoleMenu();
+                            AdminMenu.adminMenu();
                             validinputlogout = true;
                         }
 
@@ -68,15 +71,15 @@ namespace ProjectB.pages
                     }
                 }
 
-                else if (menuinput == "3")
+                else if (menuinput == "2")
                 {
                     Console.Clear();
                     //Console.WriteLine("Hier wordt de sales overview scherm aangeroepen");
-                    TicketTerugvinden.ticketTerugvinden();
+                    SalesOverview.salesOverview();
                     validinputmenu = true;
                 }
 
-                else if (menuinput == "2")
+                else if (menuinput == "3")
                 {
                     Console.Clear();
                     //Console.WriteLine("Hier wordt de filmprogramma scherm aangeroepen");
@@ -84,9 +87,17 @@ namespace ProjectB.pages
                     validinputmenu = true;
                 }
 
+                else if (menuinput == "4")
+                {
+                    Console.Clear();
+                    //Console.WriteLine("Hier wordt de ticket terugvinden scherm aangeroepen");
+                    TicketTerugvinden.ticketTerugvinden();
+                    validinputmenu = true;
+                }
+
                 else
                 {
-                    Console.WriteLine("FOUTMELDING: er is een niet bestaande optie gekozen. Kies uit de nummers: 1, 2, of 3");
+                    Console.WriteLine("FOUTMELDING: er is een niet bestaande optie gekozen. Kies uit de nummers: 1, 2, 3, of 4");
                     validinputmenu = false;
                 }
             }
