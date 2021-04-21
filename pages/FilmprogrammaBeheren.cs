@@ -11,7 +11,7 @@ namespace ProjectB.pages
 {
     class FilmprogrammaBeheren
     {
-        public static List<Film> films = new List<Film>(); 
+        
 
         public static void filmprogrammaBeheren()
         {
@@ -21,7 +21,7 @@ namespace ProjectB.pages
             Console.WriteLine("Dit zijn de huidige films die in het programma voortkomen:\n(Titel - Categorie - Leeftijd)\n-------------------------------------------");
 
             //loop door de lijst
-            foreach (Film filmItem in films)
+            foreach (Film filmItem in DataStorageHandler.Storage.Films)
             {
                 //consolewriteline voor elke item in de list
                 Console.WriteLine(filmItem.Titel + " - " + filmItem.Categorie + " - " + filmItem.Leeftijd);
@@ -45,7 +45,8 @@ namespace ProjectB.pages
                     Leeftijd = nLeeftijd
                 };
 
-                films.Add(nieuweFilm);
+                DataStorageHandler.Storage.Films.Add(nieuweFilm);
+                DataStorageHandler.SaveChanges();
                 FilmprogrammaBeheren.filmprogrammaBeheren();
             }
 
@@ -55,11 +56,11 @@ namespace ProjectB.pages
 
                 string nTitel = Beheer.Input("Welke film wilt u verwijderen? (VOER EXACT TITEL IN) \n");
 
-                foreach (Film filmItem in films)
+                foreach (Film filmItem in DataStorageHandler.Storage.Films)
                 {
                     if (nTitel == filmItem.Titel)
                     {
-                        films.Remove(filmItem);
+                        DataStorageHandler.Storage.Films.Remove(filmItem);
                         break;
                     }
                 }

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using ProjectB.DAL;
+using ProjectB.pages;
 
 namespace ProjectB.Classes
 {
@@ -9,5 +11,5 @@ namespace ProjectB.Classes
         public string Titel { get; set; }
         public string Categorie { get; set; }
         public int Leeftijd { get; set; }
-    }
+    } 
 }
