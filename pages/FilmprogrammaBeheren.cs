@@ -11,8 +11,6 @@ namespace ProjectB.pages
 {
     class FilmprogrammaBeheren
     {
-        
-
         public static void filmprogrammaBeheren()
         {
             Console.Clear();
