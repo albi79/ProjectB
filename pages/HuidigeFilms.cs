@@ -12,7 +12,7 @@ namespace ProjectB.pages
     {
         public static void huidigeFilms()
         {
-            Film huidigeFilms = new Film
+            /*Film huidigeFilms = new Film
             {
                 Titel = "niew",
                 Categorie = "niew",
@@ -20,7 +20,7 @@ namespace ProjectB.pages
             };
 
             DataStorageHandler.Storage.Films.Add(huidigeFilms);
-            DataStorageHandler.SaveChanges();
+            DataStorageHandler.SaveChanges();*/
             AdminAanmaken.adminAanmaken();
         }
     }

@@ -33,14 +33,26 @@ namespace ProjectB.pages
                 string nTitel = Beheer.Input("Wat is de titel van de nieuwe film?\n");
                 string nCategorie = Beheer.Input("Wat is de categorie van de nieuwe film?\n");
                 int nLeeftijd = Convert.ToInt32(Beheer.Input("Wat is de minimum leeftijd van de nieuwe film?\n"));
+                string nBescijving = Beheer.Input("Schrijf een korte filmbeschrijving\n");
+                string nProjectie = Beheer.Input("Wat voor projectie heeft de film? (2D/3D/IMAX)\n");
+                string nTaal = Beheer.Input("Wat is de Hoofdtaal van de film?\n");
+                string nOndertieteling = Beheer.Input("In welke taal is de ondertieteling?\n");
+                string nActeurs = Beheer.Input("Welke grote acteurs spelen in de film?\n");
+                string nRegiseur = Beheer.Input("Wie is de regiseur van de film?\n");
 
-                //TODO: FOUTMELDING
+        //TODO: FOUTMELDING
 
                 Film nieuweFilm = new Film
                 {
                     Titel = nTitel,
                     Categorie = nCategorie,
-                    Leeftijd = nLeeftijd
+                    Leeftijd = nLeeftijd,
+                    Beschrijving = nBescijving,
+                    Projectie = nProjectie,
+                    Taal = nTaal,
+                    Ondertieteling = nOndertieteling,
+                    Acteurs = nActeurs,
+                    Regiseur = nRegiseur,
                 };
 
                 DataStorageHandler.Storage.Films.Add(nieuweFilm);
