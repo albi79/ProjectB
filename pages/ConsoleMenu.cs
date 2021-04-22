@@ -80,7 +80,8 @@ namespace ProjectB.pages
                 {
                     Console.Clear();
                     //Console.WriteLine("Hier wordt de filmprogramma scherm aangeroepen");
-                    FilmprogrammaBeheren.filmprogrammaBeheren();
+                    //FilmprogrammaBeheren.filmprogrammaBeheren();
+                    FilmSelect.filmSelect();
                     validinputmenu = true;
                 }
 
