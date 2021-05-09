@@ -12,9 +12,9 @@
   ],
   "Films": [
     {
-      "Titel": "Rambo",
-      "Categorie": "Actie",
-      "Leeftijd": 16
+        "Titel": "Rambo",
+        "Categorie": "Actie",
+        "Leeftijd": 16
     }
   ]
 }
