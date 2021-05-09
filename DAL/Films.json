@@ -1,0 +1,20 @@
+{
+  "Persons": [
+    {
+      "naam": "",
+      "tussenvoegsel": "",
+      "achternaam": "",
+      "geboortedatum": "",
+      "email": "AdminBios",
+      "gebruikersnaam": "AdminBios",
+      "wachtwoord": "Nimda2021"
+    }
+  ],
+  "Films": [
+    {
+      "Titel": "Rambo",
+      "Categorie": "Actie",
+      "Leeftijd": 16
+    }
+  ]
+}
