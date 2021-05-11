@@ -14,9 +14,9 @@ namespace ProjectB.Classes
         public string Beschrijving { get; set; }
         public string Projectie { get; set; } //Imax / 2D / 3D ....
         public string Taal { get; set; }
-        public string Ondertieteling { get; set; }
+        public string Ondertiteling { get; set; }
         public string Acteurs { get; set; }
-        public string Regiseur { get; set; }
+        public string Regisseur { get; set; }
 
     } 
 }

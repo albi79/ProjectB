@@ -11,11 +11,12 @@ namespace ProjectB.pages
     {
         public static void filmSelect()
         {
+            string jsonString = File.ReadAllText(fileName);
+            int filmNummer = 0;
+
             Console.Clear();
             Console.WriteLine("Film Programma\n\nWelke film bent u in geïnteresseerd?");
             Console.WriteLine();
-            
-            int filmNummer = 0;
             
             foreach (var film in DataStorageHandler.Storage.Films)
             {
@@ -34,9 +35,9 @@ namespace ProjectB.pages
             Console.WriteLine("Beschrijving: " + DataStorageHandler.Storage.Films[selectedFilm].Beschrijving);
             Console.WriteLine("Projectie: " + DataStorageHandler.Storage.Films[selectedFilm].Projectie);
             Console.WriteLine("Taal: " + DataStorageHandler.Storage.Films[selectedFilm].Taal);
-            Console.WriteLine("Ondertieteling: " + DataStorageHandler.Storage.Films[selectedFilm].Ondertieteling);
+            Console.WriteLine("Ondertiteling: " + DataStorageHandler.Storage.Films[selectedFilm].Ondertiteling);
             Console.WriteLine("Acteurs: " + DataStorageHandler.Storage.Films[selectedFilm].Acteurs);
-            Console.WriteLine("Regiseur: " + DataStorageHandler.Storage.Films[selectedFilm].Regiseur);
+            Console.WriteLine("Regiseur: " + DataStorageHandler.Storage.Films[selectedFilm].Regisseur);
 
             Console.WriteLine("\nToets 1. voor kaartjes reserveren");
             Console.WriteLine("Toets 2. voor terug naar overzicht films");
@@ -44,8 +45,7 @@ namespace ProjectB.pages
 
             if (toets == "1")
             {
-                return;
-                //ReserveerScherm
+                Reserveren.reserveren();
             }
             
             else if (toets == "2")
