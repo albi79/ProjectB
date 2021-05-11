@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.Text.RegularExpressions;
 using ProjectB.Classes;
@@ -12,9 +12,12 @@ namespace ProjectB.pages
         {
             Console.Clear();
 
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> master
             string naam2 = Beheer.Input("Naam: ");
             naam2 = Beheer.ControlEmpty(naam2);
             naam2 = OnlyString(naam2);
