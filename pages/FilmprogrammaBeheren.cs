@@ -13,6 +13,25 @@ namespace ProjectB.pages
     {
         public static void filmprogrammaBeheren()
         {
+            Console.WriteLine("1. Huidige films beheren");
+            Console.WriteLine("2. Toekomstige films beheren"); 
+            Console.WriteLine("b. Om terug te gaan");
+            string HuidigOfToekomstig = Beheer.Input("");
+            if (HuidigOfToekomstig == "b")
+                Startscherm.startscherm();
+
+            while (HuidigOfToekomstig != "1" || HuidigOfToekomstig != "2" || HuidigOfToekomstig != "b")
+            {
+                Console.WriteLine("Er ging iets mis, kunt u uit de volgende keuzes kiezen:");
+                Console.WriteLine("1. Huidige films beheren");
+                Console.WriteLine("2. Toekomstige films beheren");
+                Console.WriteLine("b. Om terug te gaan");
+                HuidigOfToekomstig = Beheer.Input("");
+                if (HuidigOfToekomstig == "b")
+                    Startscherm.startscherm();
+            }
+
+
             Console.Clear();
             Console.WriteLine("1. Film toevoegen");
             Console.WriteLine("2. Film verwijderen");
@@ -27,20 +46,28 @@ namespace ProjectB.pages
 
             string gegeven = Beheer.Input("");
 
-            if(gegeven == "1")
-            {
-                Console.Clear();
-                string nTitel = Beheer.Input("Wat is de titel van de nieuwe film?\n");
-                string nCategorie = Beheer.Input("Wat is de categorie van de nieuwe film?\n");
-                int nLeeftijd = Convert.ToInt32(Beheer.Input("Wat is de minimum leeftijd van de nieuwe film?\n"));
-                string nBeschrijving = Beheer.Input("Schrijf een korte filmbeschrijving\n");
-                string nProjectie = Beheer.Input("Wat voor projectie heeft de film? (2D/3D/IMAX)\n");
-                string nTaal = Beheer.Input("Wat is de Hoofdtaal van de film?\n");
-                string nOndertiteling = Beheer.Input("In welke taal is de ondertiteling?\n");
-                string nActeurs = Beheer.Input("Welke grote acteurs spelen in de film?\n");
-                string nRegisseur = Beheer.Input("Wie is de regiseur van de film?\n");
+            if (gegeven == "1")
+                toevoegen();
 
-        //TODO: FOUTMELDING
+
+            else if (gegeven == "2")
+                verwijderen();
+        }
+
+        public static void toevoegen()
+        {
+            Console.Clear();
+            string nTitel = Beheer.Input("Wat is de titel van de nieuwe film?\n");
+            string nCategorie = Beheer.Input("Wat is de categorie van de nieuwe film?\n");
+            int nLeeftijd = Convert.ToInt32(Beheer.Input("Wat is de minimum leeftijd van de nieuwe film?\n"));
+            string nBeschrijving = Beheer.Input("Schrijf een korte filmbeschrijving\n");
+            string nProjectie = Beheer.Input("Wat voor projectie heeft de film? (2D/3D/IMAX)\n");
+            string nTaal = Beheer.Input("Wat is de Hoofdtaal van de film?\n");
+            string nOndertiteling = Beheer.Input("In welke taal is de ondertiteling?\n");
+            string nActeurs = Beheer.Input("Welke grote acteurs spelen in de film?\n");
+            string nRegisseur = Beheer.Input("Wie is de regiseur van de film?\n");
+            {
+                //TODO: FOUTMELDING
 
                 Film nieuweFilm = new Film
                 {
@@ -59,24 +86,24 @@ namespace ProjectB.pages
                 DataStorageHandler.SaveChanges();
                 FilmprogrammaBeheren.filmprogrammaBeheren();
             }
+        }
 
-            else if(gegeven == "2")
+        public static void verwijderen()
+        {
+            Console.Clear();
+
+            string nTitel = Beheer.Input("Welke film wilt u verwijderen? (VOER EXACT TITEL IN) \n");
+
+            foreach (Film filmItem in DataStorageHandler.Storage.Films)
             {
-                Console.Clear();
-
-                string nTitel = Beheer.Input("Welke film wilt u verwijderen? (VOER EXACT TITEL IN) \n");
-
-                foreach (Film filmItem in DataStorageHandler.Storage.Films)
+                if (nTitel == filmItem.Titel)
                 {
-                    if (nTitel == filmItem.Titel)
-                    {
-                        DataStorageHandler.Storage.Films.Remove(filmItem);
-                        break;
-                    }
+                    DataStorageHandler.Storage.Films.Remove(filmItem);
+                    break;
                 }
-
-                FilmprogrammaBeheren.filmprogrammaBeheren();
             }
+
+            FilmprogrammaBeheren.filmprogrammaBeheren();
         }
     }
 }

@@ -10,5 +10,10 @@ namespace ProjectB.pages
         {
             Console.WriteLine("Dit zijn de actuele films die in het programma voortkomen:\n(Titel - Categorie - Leeftijd)\n-------------------------------------------");
         }
+
+        public static void ToekomstigefilmProgramma()
+        {
+            Console.WriteLine("Dit zijn de Toekomstige films die in het programma voortkomen:\n(Titel - Categorie - Leeftijd)\n-------------------------------------------");
+        }
     }
 }

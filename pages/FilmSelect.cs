@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using ProjectB.Classes;
 using ProjectB.DAL;
+using System.IO;
 
 namespace ProjectB.pages
 {
@@ -11,7 +12,7 @@ namespace ProjectB.pages
     {
         public static void filmSelect()
         {
-            string jsonString = File.ReadAllText(fileName);
+            
             int filmNummer = 0;
 
             Console.Clear();

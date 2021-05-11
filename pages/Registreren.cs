@@ -12,12 +12,6 @@ namespace ProjectB.pages
         {
             Console.Clear();
 
-<<<<<<< HEAD
-
-
-
-=======
->>>>>>> master
             string naam2 = Beheer.Input("Naam: ");
             naam2 = Beheer.ControlEmpty(naam2);
             naam2 = OnlyString(naam2);
@@ -118,7 +112,7 @@ namespace ProjectB.pages
             DataStorageHandler.Storage.Persons.Add(Gast);
             DataStorageHandler.SaveChanges();
             Console.Clear();
-<<<<<<< HEAD
+
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Uw gebruiker is met succes aangemaakt!");
             Console.ForegroundColor = ConsoleColor.DarkMagenta;
@@ -147,16 +141,11 @@ namespace ProjectB.pages
                 }
             }
 
-=======
             ConsoleMenu.consoleMenu();
->>>>>>> origin/Dong
+
         }
         private static string WachtwoordControle(string wachtwoord2)
         {
-            Console.WriteLine(Regex.IsMatch(wachtwoord2, "[A-Z]"));
-            Console.WriteLine(Regex.IsMatch(wachtwoord2, "[a-z]"));
-            Console.WriteLine(Regex.IsMatch(wachtwoord2, "[0-9]"));
-            Console.WriteLine(wachtwoord2.Length > 8);
             if (Regex.IsMatch(wachtwoord2, "[A-Z]") && Regex.IsMatch(wachtwoord2, "[a-z]") && Regex.IsMatch(wachtwoord2, "[0-9]") && wachtwoord2.Length > 8)
             {
                 Console.ForegroundColor = ConsoleColor.Green;

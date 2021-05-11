@@ -1,0 +1,46 @@
+{
+  "Persons": [
+    {
+      "naam": "",
+      "tussenvoegsel": "",
+      "achternaam": "",
+      "geboortedatum": "",
+      "email": "AdminBios",
+      "gebruikersnaam": "AdminBios",
+      "wachtwoord": "Nimda2021"
+    },
+    {
+      "naam": "gebruiker",
+      "tussenvoegsel": "",
+      "achternaam": "gebruiker",
+      "geboortedatum": "09-03-2001",
+      "email": "info@nisatutucu.nl",
+      "gebruikersnaam": "nisatutucu",
+      "wachtwoord": "Nisa2021"
+    }
+  ],
+  "Films": [
+    {
+      "Titel": "The Little Things",
+      "Categorie": "Thriller",
+      "Leeftijd": 16,
+      "Beschrijving": "Hulpsheriff van Kern County Joe “Deke” Deacon wordt naar Los Angeles gestuurd om bewijs te verzamelen. Dat had een routineklus moeten zijn, maar hij raakt betrokken bij de zoektocht naar een seriemoordenaar die de stad onveilig maakt.",
+      "Projectie": "2D",
+      "Taal": "Engels",
+      "Ondertiteling": "Nederlands",
+      "Acteurs": "Denzel WashingtonRami MalekJared LetoSofia Vassilieva",
+      "Regisseur": "John Lee Hancock"
+    },
+    {
+      "Titel": "Army of One",
+      "Categorie": "Actie / Thriller",
+      "Leeftijd": 16,
+      "Beschrijving": "Dillion en Brenner gaan wandelen in een bos en vinden daar een drugs- en wapenopslag. Voordat ze het beseffen worden ze betrapt en gemarteld door leden van een drugskartel. Dillion sterft, maar Brenner blijft in leven en zint op wraak.",
+      "Projectie": "2D",
+      "Taal": "Engels",
+      "Ondertiteling": "Nederlands",
+      "Acteurs": "Ellen HollmanMatt PassmoreGeraldine SingerStephen Dunlevy",
+      "Regisseur": "Stephen Durham"
+    }
+  ]
+}
