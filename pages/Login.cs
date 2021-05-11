@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using ProjectB.Classes;
@@ -17,23 +17,20 @@ namespace ProjectB.pages
             string loginGebruikersnaam = Beheer.Input("Gebruikersnaam: ");
             string loginWachtwoord = Beheer.Input("Wachtwoord: ");
 
+
             //Check of input correct is
             foreach (Person person in DataStorageHandler.Storage.Persons)
             {
-                // Code die checkt of gebruiker bestaat
-                if (loginGebruikersnaam == person.gebruikersnaam && loginWachtwoord == person.wachtwoord)
+                if (loginGebruikersnaam == "AdminBios" && loginWachtwoord == "Nimda2021")
                 {
-                    if (loginGebruikersnaam == "AdminBios" && loginWachtwoord == "Nimda2021")
-                    {
-                        Console.Clear();
-                        AdminMenu.adminMenu();
-                    }
+                    Console.Clear();
+                    AdminMenu.adminMenu();
+                }
 
-                    else
-                    {
-                        Console.Clear();
-                        ConsoleMenu.consoleMenu();
-                    }
+                else if (loginGebruikersnaam == person.gebruikersnaam && loginWachtwoord == person.wachtwoord)
+                {
+                    Console.Clear();
+                    ConsoleMenu.consoleMenu();
                 }
             }
 
@@ -42,11 +39,19 @@ namespace ProjectB.pages
             string foutGebruiker = Beheer.Input("");
 
             if (foutGebruiker == "1")
+<<<<<<< HEAD
                 Login.login();
 
             else if (foutGebruiker == "2")
                 Registreren.registreren();
 
+=======
+                Registreren.registreren();
+
+            else if (foutGebruiker == "2")
+                Login.login();
+
+>>>>>>> origin/Dong
             else if (foutGebruiker == "3")
                 Startscherm.startscherm();
 
@@ -57,11 +62,19 @@ namespace ProjectB.pages
                     Console.WriteLine("Er ging iets fout, probeer het opnieuw. Keuze uit 1 (registreren), 2 (inloggen) en 3 (startscherm)."); ;
                     foutGebruiker = Beheer.Input("");
                     if (foutGebruiker == "1")
+<<<<<<< HEAD
                         Login.login();
 
                     else if (foutGebruiker == "2")
                         Registreren.registreren();
 
+=======
+                        Registreren.registreren();
+
+                    else if (foutGebruiker == "2")
+                        Login.login();
+
+>>>>>>> origin/Dong
                     else if (foutGebruiker == "3")
                         Startscherm.startscherm();
                 }

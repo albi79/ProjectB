@@ -11,8 +11,6 @@ namespace ProjectB.pages
 {
     class FilmprogrammaBeheren
     {
-        public static List<Film> films = new List<Film>(); 
-
         public static void filmprogrammaBeheren()
         {
             Console.Clear();
@@ -21,7 +19,7 @@ namespace ProjectB.pages
             Console.WriteLine("Dit zijn de huidige films die in het programma voortkomen:\n(Titel - Categorie - Leeftijd)\n-------------------------------------------");
 
             //loop door de lijst
-            foreach (Film filmItem in films)
+            foreach (Film filmItem in DataStorageHandler.Storage.Films)
             {
                 //consolewriteline voor elke item in de list
                 Console.WriteLine(filmItem.Titel + " - " + filmItem.Categorie + " - " + filmItem.Leeftijd);
@@ -35,17 +33,30 @@ namespace ProjectB.pages
                 string nTitel = Beheer.Input("Wat is de titel van de nieuwe film?\n");
                 string nCategorie = Beheer.Input("Wat is de categorie van de nieuwe film?\n");
                 int nLeeftijd = Convert.ToInt32(Beheer.Input("Wat is de minimum leeftijd van de nieuwe film?\n"));
+                string nBeschrijving = Beheer.Input("Schrijf een korte filmbeschrijving\n");
+                string nProjectie = Beheer.Input("Wat voor projectie heeft de film? (2D/3D/IMAX)\n");
+                string nTaal = Beheer.Input("Wat is de Hoofdtaal van de film?\n");
+                string nOndertiteling = Beheer.Input("In welke taal is de ondertiteling?\n");
+                string nActeurs = Beheer.Input("Welke grote acteurs spelen in de film?\n");
+                string nRegisseur = Beheer.Input("Wie is de regiseur van de film?\n");
 
-                //TODO: FOUTMELDING
+        //TODO: FOUTMELDING
 
                 Film nieuweFilm = new Film
                 {
                     Titel = nTitel,
                     Categorie = nCategorie,
-                    Leeftijd = nLeeftijd
+                    Leeftijd = nLeeftijd,
+                    Beschrijving = nBeschrijving,
+                    Projectie = nProjectie,
+                    Taal = nTaal,
+                    Ondertiteling = nOndertiteling,
+                    Acteurs = nActeurs,
+                    Regisseur = nRegisseur,
                 };
 
-                films.Add(nieuweFilm);
+                DataStorageHandler.Storage.Films.Add(nieuweFilm);
+                DataStorageHandler.SaveChanges();
                 FilmprogrammaBeheren.filmprogrammaBeheren();
             }
 
@@ -55,11 +66,11 @@ namespace ProjectB.pages
 
                 string nTitel = Beheer.Input("Welke film wilt u verwijderen? (VOER EXACT TITEL IN) \n");
 
-                foreach (Film filmItem in films)
+                foreach (Film filmItem in DataStorageHandler.Storage.Films)
                 {
                     if (nTitel == filmItem.Titel)
                     {
-                        films.Remove(filmItem);
+                        DataStorageHandler.Storage.Films.Remove(filmItem);
                         break;
                     }
                 }

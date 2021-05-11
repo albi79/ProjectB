@@ -113,9 +113,12 @@ namespace ProjectB.pages
                 gebruikersnaam = gebruikersnaam2,
                 wachtwoord = wachtwoord2,
             };
+
+            
             DataStorageHandler.Storage.Persons.Add(Gast);
             DataStorageHandler.SaveChanges();
             Console.Clear();
+<<<<<<< HEAD
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Uw gebruiker is met succes aangemaakt!");
             Console.ForegroundColor = ConsoleColor.DarkMagenta;
@@ -144,6 +147,9 @@ namespace ProjectB.pages
                 }
             }
 
+=======
+            ConsoleMenu.consoleMenu();
+>>>>>>> origin/Dong
         }
         private static string WachtwoordControle(string wachtwoord2)
         {

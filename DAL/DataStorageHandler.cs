@@ -39,5 +39,6 @@ namespace ProjectB.DAL
             string JsonString = JsonConvert.SerializeObject(Storage, Formatting.Indented);
             File.WriteAllText(StorageFileLocation, JsonString);
         }
+
     }
 }
