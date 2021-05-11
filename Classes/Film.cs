@@ -16,7 +16,7 @@ namespace ProjectB.Classes
         public string Taal { get; set; }
         public string Ondertiteling { get; set; }
         public string Acteurs { get; set; }
-        public string Regiseur { get; set; }
+        public string Regisseur { get; set; }
 
     } 
 }

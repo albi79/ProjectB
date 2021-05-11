@@ -9,7 +9,7 @@ namespace ProjectB
     {
         static void Main(string[] args)
         {
-            DataStorageHandler.Init("ProjectB.json");
+            DataStorageHandler.Init("../../../DAL/ProjectB.json");
             HuidigeFilms.huidigeFilms();
             //Startscherm.startscherm();
         }

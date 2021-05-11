@@ -17,53 +17,50 @@ namespace ProjectB.pages
             string loginGebruikersnaam = Beheer.Input("Gebruikersnaam: ");
             string loginWachtwoord = Beheer.Input("Wachtwoord: ");
 
+
             //Check of input correct is
             foreach (Person person in DataStorageHandler.Storage.Persons)
             {
-                // Code die checkt of gebruiker bestaat
-                if (loginGebruikersnaam == person.gebruikersnaam && loginWachtwoord == person.wachtwoord)
+                if (loginGebruikersnaam == "AdminBios" && loginWachtwoord == "Nimda2021")
                 {
-                    if (loginGebruikersnaam == "AdminBios" && loginWachtwoord == "Nimda2021")
-                    {
-                        Console.Clear();
-                        AdminMenu.adminMenu();
-                    }
+                    Console.Clear();
+                    AdminMenu.adminMenu();
+                }
 
-                    else
-                    {
-                        Console.Clear();
-                        ConsoleMenu.consoleMenu();
-                    }
+                else if (loginGebruikersnaam == person.gebruikersnaam && loginWachtwoord == person.wachtwoord)
+                {
+                    Console.Clear();
+                    ConsoleMenu.consoleMenu();
                 }
             }
 
             Console.Clear();
-            Console.WriteLine("Gebruikersnaam en/of Wachtwoord komen niet overeen.\n\nKlik: 'r' voor opnieuw registreren\nKlik: 'i' voor opnieuw inloggen\nKlik: 'm' voor menu-scherm zonder inloggen");
+            Console.WriteLine("Gebruikersnaam en/of Wachtwoord komen niet overeen.\n\nKlik: '1' voor opnieuw registreren\nKlik: '2' voor opnieuw inloggen\nKlik: '3' voor terug naar het startscherm.");
             string foutGebruiker = Beheer.Input("");
 
-            if (foutGebruiker == "i")
-                Login.login();
-
-            else if (foutGebruiker == "r")
+            if (foutGebruiker == "1")
                 Registreren.registreren();
 
-            else if (foutGebruiker == "m")
-                ConsoleMenu.consoleMenu();
+            else if (foutGebruiker == "2")
+                Login.login();
+
+            else if (foutGebruiker == "3")
+                Startscherm.startscherm();
 
             else
             {
                 while (foutGebruiker != "i" || foutGebruiker != "r" || foutGebruiker != "m")
                 {
-                    Console.WriteLine("Er ging iets fout, probeer het opnieuw.");
+                    Console.WriteLine("Er ging iets fout, probeer het opnieuw. Keuze uit 1 (registreren), 2 (inloggen) en 3 (startscherm)."); ;
                     foutGebruiker = Beheer.Input("");
-                    if (foutGebruiker == "i")
-                        Login.login();
-
-                    else if (foutGebruiker == "r")
+                    if (foutGebruiker == "1")
                         Registreren.registreren();
 
-                    else if (foutGebruiker == "m")
-                        ConsoleMenu.consoleMenu();
+                    else if (foutGebruiker == "2")
+                        Login.login();
+
+                    else if (foutGebruiker == "3")
+                        Startscherm.startscherm();
                 }
             }
         }

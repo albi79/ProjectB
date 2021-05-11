@@ -27,7 +27,7 @@ namespace ProjectB.pages
 
             string gegeven = Beheer.Input("");
 
-            if (gegeven == "1")
+            if(gegeven == "1")
             {
                 Console.Clear();
                 string nTitel = Beheer.Input("Wat is de titel van de nieuwe film?\n");
@@ -36,11 +36,11 @@ namespace ProjectB.pages
                 string nBeschrijving = Beheer.Input("Schrijf een korte filmbeschrijving\n");
                 string nProjectie = Beheer.Input("Wat voor projectie heeft de film? (2D/3D/IMAX)\n");
                 string nTaal = Beheer.Input("Wat is de Hoofdtaal van de film?\n");
-                string nOndertiteling = Beheer.Input("In welke taal is de ondertieteling?\n");
+                string nOndertiteling = Beheer.Input("In welke taal is de ondertiteling?\n");
                 string nActeurs = Beheer.Input("Welke grote acteurs spelen in de film?\n");
-                string nRegiseur = Beheer.Input("Wie is de regiseur van de film?\n");
+                string nRegisseur = Beheer.Input("Wie is de regiseur van de film?\n");
 
-                //TODO: FOUTMELDING
+        //TODO: FOUTMELDING
 
                 Film nieuweFilm = new Film
                 {
@@ -52,7 +52,7 @@ namespace ProjectB.pages
                     Taal = nTaal,
                     Ondertiteling = nOndertiteling,
                     Acteurs = nActeurs,
-                    Regiseur = nRegiseur,
+                    Regisseur = nRegisseur,
                 };
 
                 DataStorageHandler.Storage.Films.Add(nieuweFilm);
@@ -60,7 +60,7 @@ namespace ProjectB.pages
                 FilmprogrammaBeheren.filmprogrammaBeheren();
             }
 
-            else if (gegeven == "2")
+            else if(gegeven == "2")
             {
                 Console.Clear();
 
@@ -76,12 +76,6 @@ namespace ProjectB.pages
                 }
 
                 FilmprogrammaBeheren.filmprogrammaBeheren();
-            }
-
-            else
-            {
-                Console.WriteLine("Er ging iets fout");
-                filmprogrammaBeheren();
             }
         }
     }
