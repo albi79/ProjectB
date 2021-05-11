@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Globalization;
 using System.Collections.Generic;
 using System.Text;
@@ -12,7 +12,10 @@ namespace ProjectB.pages
     {
         public static void filmSelect()
         {
+<<<<<<< HEAD
             
+=======
+>>>>>>> origin/Dong
             int filmNummer = 0;
 
             Console.Clear();
@@ -40,13 +43,65 @@ namespace ProjectB.pages
             Console.WriteLine("Acteurs: " + DataStorageHandler.Storage.Films[selectedFilm].Acteurs);
             Console.WriteLine("Regiseur: " + DataStorageHandler.Storage.Films[selectedFilm].Regisseur);
 
-            Console.WriteLine("\nToets 1. voor kaartjes reserveren");
-            Console.WriteLine("Toets 2. voor terug naar overzicht films");
+            Console.WriteLine("\n1. voor kaartjes reserveren");
+            Console.WriteLine("2. voor terug naar overzicht films");
             string toets = Beheer.Input("");
 
             if (toets == "1")
             {
-                Reserveren.reserveren();
+                if (DataStorageHandler.Storage.Films[selectedFilm].Leeftijd >= 16)
+                {
+                    Console.WriteLine("\nBent u " + DataStorageHandler.Storage.Films[selectedFilm].Leeftijd + " of ouder?");
+                    Console.WriteLine("\n1. JA");
+                    Console.WriteLine("2. NEE");
+                    bool agecheck = false;
+                    var ageinput = "";
+                    var backinginput = "";
+                    bool backingoption = false;
+
+                    while (agecheck == false)
+                    {
+                        ageinput = Console.ReadLine();
+
+                        if (ageinput == "1")
+                        {
+                            Console.Clear();
+                            Reserveren.reserveren();
+                            agecheck = true;
+                        }
+
+                        else if (ageinput == "2")
+                        {
+                            Console.WriteLine("\nU voldoet niet aan de minimum leeftijd" + "\nToets b om terug te gaan");
+
+                            while (backingoption == false)
+                            {
+                                backinginput = Console.ReadLine();
+
+                                if (backinginput == "b")
+                                {
+                                    FilmSelect.filmSelect();
+                                    backingoption = true;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("\nFOUTMELDING: er is een ongeldige toets ingevoerd. Toets b om terug te gaan.");
+                                    backingoption = false;
+                                }
+                            }
+                        }
+
+                        else
+                        {
+                            Console.WriteLine("\nFOUTMELDING: er is een niet bestaande optie gekozen. Kies uit de nummers: 1 of 2");
+                            agecheck = false;
+                        }
+                    }
+                }
+                else
+                {
+                    Reserveren.reserveren();
+                }
             }
             
             else if (toets == "2")

@@ -5,11 +5,87 @@
       "tussenvoegsel": "",
       "achternaam": "",
       "geboortedatum": "",
+<<<<<<< HEAD
+=======
+      "email": "AdminBIOS",
+      "gebruikersnaam": "albert",
+      "wachtwoord": "ak357159"
+    },
+    {
+      "naam": "",
+      "tussenvoegsel": "",
+      "achternaam": "",
+      "geboortedatum": "",
       "email": "AdminBios",
       "gebruikersnaam": "AdminBios",
       "wachtwoord": "Nimda2021"
     },
     {
+      "naam": "",
+      "tussenvoegsel": "",
+      "achternaam": "",
+      "geboortedatum": "",
+      "email": "AdminBios",
+      "gebruikersnaam": "AdminBios",
+      "wachtwoord": "Nimda2021"
+    },
+    {
+      "naam": "",
+      "tussenvoegsel": "",
+      "achternaam": "",
+      "geboortedatum": "",
+      "email": "AdminBios",
+      "gebruikersnaam": "AdminBios",
+      "wachtwoord": "Nimda2021"
+    },
+    {
+      "naam": "",
+      "tussenvoegsel": "",
+      "achternaam": "",
+      "geboortedatum": "",
+      "email": "AdminBios",
+      "gebruikersnaam": "AdminBios",
+      "wachtwoord": "Nimda2021"
+    },
+    {
+      "naam": "",
+      "tussenvoegsel": "",
+      "achternaam": "",
+      "geboortedatum": "",
+      "email": "AdminBios",
+      "gebruikersnaam": "AdminBios",
+      "wachtwoord": "Nimda2021"
+    },
+    {
+      "naam": "",
+      "tussenvoegsel": "",
+      "achternaam": "",
+      "geboortedatum": "",
+      "email": "AdminBios",
+      "gebruikersnaam": "AdminBios",
+      "wachtwoord": "Nimda2021"
+    },
+    {
+      "naam": "",
+      "tussenvoegsel": "",
+      "achternaam": "",
+      "geboortedatum": "",
+      "email": "AdminBios",
+      "gebruikersnaam": "AdminBios",
+      "wachtwoord": "Nimda2021"
+    },
+    {
+      "naam": "",
+      "tussenvoegsel": "",
+      "achternaam": "",
+      "geboortedatum": "",
+>>>>>>> origin/Dong
+      "email": "AdminBios",
+      "gebruikersnaam": "AdminBios",
+      "wachtwoord": "Nimda2021"
+    },
+    {
+<<<<<<< HEAD
       "naam": "gebruiker",
       "tussenvoegsel": "",
       "achternaam": "gebruiker",
@@ -17,10 +93,65 @@
       "email": "info@nisatutucu.nl",
       "gebruikersnaam": "nisatutucu",
       "wachtwoord": "Nisa2021"
+=======
+      "naam": "",
+      "tussenvoegsel": "",
+      "achternaam": "",
+      "geboortedatum": "",
+      "email": "AdminBios",
+      "gebruikersnaam": "AdminBios",
+      "wachtwoord": "Nimda2021"
+    },
+    {
+      "naam": "",
+      "tussenvoegsel": "",
+      "achternaam": "",
+      "geboortedatum": "",
+      "email": "AdminBios",
+      "gebruikersnaam": "AdminBios",
+      "wachtwoord": "Nimda2021"
+    },
+    {
+      "naam": "",
+      "tussenvoegsel": "",
+      "achternaam": "",
+      "geboortedatum": "",
+      "email": "AdminBios",
+      "gebruikersnaam": "AdminBios",
+      "wachtwoord": "Nimda2021"
+    },
+    {
+      "naam": "",
+      "tussenvoegsel": "",
+      "achternaam": "",
+      "geboortedatum": "",
+      "email": "AdminBios",
+      "gebruikersnaam": "AdminBios",
+      "wachtwoord": "Nimda2021"
+    },
+    {
+      "naam": "",
+      "tussenvoegsel": "",
+      "achternaam": "",
+      "geboortedatum": "",
+      "email": "AdminBios",
+      "gebruikersnaam": "AdminBios",
+      "wachtwoord": "Nimda2021"
+    },
+    {
+      "naam": "",
+      "tussenvoegsel": "",
+      "achternaam": "",
+      "geboortedatum": "",
+      "email": "AdminBios",
+      "gebruikersnaam": "AdminBios",
+      "wachtwoord": "Nimda2021"
+>>>>>>> origin/Dong
     }
   ],
   "Films": [
     {
+<<<<<<< HEAD
       "Titel": "The Little Things",
       "Categorie": "Thriller",
       "Leeftijd": 16,
@@ -41,6 +172,28 @@
       "Ondertiteling": "Nederlands",
       "Acteurs": "Ellen HollmanMatt PassmoreGeraldine SingerStephen Dunlevy",
       "Regisseur": "Stephen Durham"
+=======
+      "Titel": "niew",
+      "Categorie": "niew",
+      "Leeftijd": 2,
+      "Beschrijving": null,
+      "Projectie": null,
+      "Taal": null,
+      "Ondertiteling": null,
+      "Acteurs": null,
+      "Regisseur": null
+    },
+    {
+      "Titel": "Albert",
+      "Categorie": "actie",
+      "Leeftijd": 17,
+      "Beschrijving": "asddvsg",
+      "Projectie": "@D",
+      "Taal": "nd",
+      "Ondertiteling": "en",
+      "Acteurs": "a",
+      "Regisseur": "a"
+>>>>>>> origin/Dong
     }
   ]
 }
