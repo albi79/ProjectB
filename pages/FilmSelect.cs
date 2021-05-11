@@ -12,11 +12,7 @@ namespace ProjectB.pages
     {
         public static void filmSelect()
         {
-<<<<<<< HEAD
-            
-=======
->>>>>>> origin/Dong
-            int filmNummer = 0;
+            int filmNummer = 1;
 
             Console.Clear();
             Console.WriteLine("Film Programma\n\nWelke film bent u in geïnteresseerd?");
@@ -24,12 +20,13 @@ namespace ProjectB.pages
             
             foreach (var film in DataStorageHandler.Storage.Films)
             {
-                Console.WriteLine($"{filmNummer}: {film.Titel}");
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine($"------------------ Film nummer {filmNummer} ------------------");
+                Console.ResetColor();
+                Console.WriteLine($"     {film.Leeftijd}+     {film.Titel}\n     {film.Categorie}\n\n");
                 filmNummer++;
             }
-
-            int selectedFilm = Int32.Parse(Beheer.Input());
-
+            int selectedFilm = Int32.Parse(Beheer.Input("Vul een film nummer in: " )) - 1;
             Console.Clear();
             Console.WriteLine("Informatie geselecteerde film");
             Console.WriteLine();
