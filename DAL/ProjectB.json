@@ -1,0 +1,163 @@
+{
+  "Persons": [
+    {
+      "naam": "",
+      "tussenvoegsel": "",
+      "achternaam": "",
+      "geboortedatum": "",
+      "email": "AdminBIOS",
+      "gebruikersnaam": "albert",
+      "wachtwoord": "ak357159"
+    },
+    {
+      "naam": "",
+      "tussenvoegsel": "",
+      "achternaam": "",
+      "geboortedatum": "",
+      "email": "AdminBios",
+      "gebruikersnaam": "AdminBios",
+      "wachtwoord": "Nimda2021"
+    },
+    {
+      "naam": "",
+      "tussenvoegsel": "",
+      "achternaam": "",
+      "geboortedatum": "",
+      "email": "AdminBios",
+      "gebruikersnaam": "AdminBios",
+      "wachtwoord": "Nimda2021"
+    },
+    {
+      "naam": "",
+      "tussenvoegsel": "",
+      "achternaam": "",
+      "geboortedatum": "",
+      "email": "AdminBios",
+      "gebruikersnaam": "AdminBios",
+      "wachtwoord": "Nimda2021"
+    },
+    {
+      "naam": "",
+      "tussenvoegsel": "",
+      "achternaam": "",
+      "geboortedatum": "",
+      "email": "AdminBios",
+      "gebruikersnaam": "AdminBios",
+      "wachtwoord": "Nimda2021"
+    },
+    {
+      "naam": "",
+      "tussenvoegsel": "",
+      "achternaam": "",
+      "geboortedatum": "",
+      "email": "AdminBios",
+      "gebruikersnaam": "AdminBios",
+      "wachtwoord": "Nimda2021"
+    },
+    {
+      "naam": "",
+      "tussenvoegsel": "",
+      "achternaam": "",
+      "geboortedatum": "",
+      "email": "AdminBios",
+      "gebruikersnaam": "AdminBios",
+      "wachtwoord": "Nimda2021"
+    },
+    {
+      "naam": "",
+      "tussenvoegsel": "",
+      "achternaam": "",
+      "geboortedatum": "",
+      "email": "AdminBios",
+      "gebruikersnaam": "AdminBios",
+      "wachtwoord": "Nimda2021"
+    },
+    {
+      "naam": "",
+      "tussenvoegsel": "",
+      "achternaam": "",
+      "geboortedatum": "",
+      "email": "AdminBios",
+      "gebruikersnaam": "AdminBios",
+      "wachtwoord": "Nimda2021"
+    },
+    {
+      "naam": "",
+      "tussenvoegsel": "",
+      "achternaam": "",
+      "geboortedatum": "",
+      "email": "AdminBios",
+      "gebruikersnaam": "AdminBios",
+      "wachtwoord": "Nimda2021"
+    },
+    {
+      "naam": "",
+      "tussenvoegsel": "",
+      "achternaam": "",
+      "geboortedatum": "",
+      "email": "AdminBios",
+      "gebruikersnaam": "AdminBios",
+      "wachtwoord": "Nimda2021"
+    },
+    {
+      "naam": "",
+      "tussenvoegsel": "",
+      "achternaam": "",
+      "geboortedatum": "",
+      "email": "AdminBios",
+      "gebruikersnaam": "AdminBios",
+      "wachtwoord": "Nimda2021"
+    },
+    {
+      "naam": "",
+      "tussenvoegsel": "",
+      "achternaam": "",
+      "geboortedatum": "",
+      "email": "AdminBios",
+      "gebruikersnaam": "AdminBios",
+      "wachtwoord": "Nimda2021"
+    },
+    {
+      "naam": "",
+      "tussenvoegsel": "",
+      "achternaam": "",
+      "geboortedatum": "",
+      "email": "AdminBios",
+      "gebruikersnaam": "AdminBios",
+      "wachtwoord": "Nimda2021"
+    },
+    {
+      "naam": "",
+      "tussenvoegsel": "",
+      "achternaam": "",
+      "geboortedatum": "",
+      "email": "AdminBios",
+      "gebruikersnaam": "AdminBios",
+      "wachtwoord": "Nimda2021"
+    }
+  ],
+  "Films": [
+    {
+      "Titel": "niew",
+      "Categorie": "niew",
+      "Leeftijd": 2,
+      "Beschrijving": null,
+      "Projectie": null,
+      "Taal": null,
+      "Ondertiteling": null,
+      "Acteurs": null,
+      "Regisseur": null
+    },
+    {
+      "Titel": "Albert",
+      "Categorie": "actie",
+      "Leeftijd": 17,
+      "Beschrijving": "asddvsg",
+      "Projectie": "@D",
+      "Taal": "nd",
+      "Ondertiteling": "en",
+      "Acteurs": "a",
+      "Regisseur": "a"
+    }
+  ]
+}
