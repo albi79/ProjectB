@@ -18,5 +18,14 @@ namespace ProjectB.Classes
         public string Acteurs { get; set; }
         public string Regisseur { get; set; }
 
-    } 
+    }
+    public class ToekomstigeFilm
+    {
+        public string Titel { get; set; }
+        public string Categorie { get; set; }
+        public int Leeftijd { get; set; }
+        public string Beschrijving { get; set; }
+        public string Release { get; set; }
+    }
+
 }

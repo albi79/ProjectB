@@ -7,5 +7,6 @@ namespace ProjectB.Classes
     {
         public List<Person> Persons { get; set; } = new List<Person>();
         public List<Film> Films { get; set; } = new List<Film>();
+        public List<ToekomstigeFilm> ToekomstigeFilms { get; set; } = new List<ToekomstigeFilm>();
     }
 }
