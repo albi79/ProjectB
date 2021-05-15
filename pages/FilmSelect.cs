@@ -11,7 +11,7 @@ namespace ProjectB.pages
     {
         public static void filmSelect()
         {
-            int filmNummer = 0;
+            int filmNummer = 1;
 
             Console.Clear();
             Console.WriteLine("Film Programma\n\nWelke film bent u in geïnteresseerd?");
@@ -23,7 +23,7 @@ namespace ProjectB.pages
                 filmNummer++;
             }
 
-            int selectedFilm = Int32.Parse(Beheer.Input());
+            int selectedFilm = Int32.Parse(Beheer.Input()) -1;
 
             Console.Clear();
             Console.WriteLine("Informatie geselecteerde film");

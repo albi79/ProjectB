@@ -16,6 +16,7 @@ namespace ProjectB.pages
             Console.Clear();
             Console.WriteLine("1. Film toevoegen");
             Console.WriteLine("2. Film verwijderen");
+            Console.WriteLine("2. Film info wijzigen");
             Console.WriteLine("Dit zijn de huidige films die in het programma voortkomen:\n(Titel - Categorie - Leeftijd)\n-------------------------------------------");
 
             //loop door de lijst
@@ -76,6 +77,21 @@ namespace ProjectB.pages
                 }
 
                 FilmprogrammaBeheren.filmprogrammaBeheren();
+            }
+
+            else if(gegeven == "3")
+            {
+                Console.Clear();
+                Console.WriteLine("Film info bewerken\n\nWelke film wilt u wijzigen:\n");
+                
+                int filmNummer = 1;
+                foreach (var film in DataStorageHandler.Storage.Films)
+                {
+                    Console.WriteLine($"{filmNummer}: {film.Titel}");
+                    filmNummer++;
+                }
+                int selectedFilm = Int32.Parse(Beheer.Input("\n")) -1;
+                FilmInfoWijzigen.filmInfoWijzigen(selectedFilm);
             }
         }
     }
