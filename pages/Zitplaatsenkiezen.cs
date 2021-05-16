@@ -1,4 +1,7 @@
-﻿using System;
+﻿using ProjectB;
+using ProjectB.Classes.Seats;
+using ProjectB.DAL;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,17 +9,35 @@ namespace ProjectB.pages
 {
     class Zitplaatsenkiezen
     {
-        public static void zitplaatsenkiezen()
+        public static BaseSeat zitplaatsenkiezen()
         {
-            Console.Clear();
-            Console.WriteLine("Kies uw zitplaats(en):");
-            Console.WriteLine("   1  2  3  4  5  6  7  8  9  10 11 12");
-            Console.WriteLine("A       [O][O][O][O][O][O][O][O]");
-            Console.WriteLine("B [O][O][O][O][O][O][O][O][O][O][O][O]");
-            Console.WriteLine("C [O][O][O][O][O][O][O][O][O][O][O][O]");
-            Console.WriteLine("D [O][O][O][O][O][O][O][O][O][O][O][O]");
-            Console.WriteLine("E       [O][O][O][O][O][O][O][O]");
+            object[][] seats = new object[][]
+            {
+            new object[]{ new VipSeat(), new VipSeat() , new VipSeat()  },
+            new object[]{ new VipSeat() , new VipSeat() , null },
+            new object[]{ new VipSeat() , new VipSeat() , new MasterSeat() },
+            };
+            string prompt = "Welkom bij de Bioscoop";
+            SeatsMenu zaal1 = new SeatsMenu(prompt, seats);
+            zaal1.Display();
+            BaseSeat selectedSeat = zaal1.Run();
 
+            try
+            {
+
+                foreach (var item in DataStorageHandler.Storage.Reservations)
+                {
+                    if (selectedSeat.Row == item.Seats.Row && selectedSeat.Column == item.Seats.Column)
+                    {
+                        selectedSeat = null;
+                        zitplaatsenkiezen();
+                    }
+                }
+
+            }
+            catch (Exception) { };
+
+            return selectedSeat;
         }
     }
 }

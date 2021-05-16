@@ -134,6 +134,15 @@
       "email": "AdminBios",
       "gebruikersnaam": "AdminBios",
       "wachtwoord": "Nimda2021"
+    },
+    {
+      "naam": "",
+      "tussenvoegsel": "",
+      "achternaam": "",
+      "geboortedatum": "",
+      "email": "AdminBios",
+      "gebruikersnaam": "AdminBios",
+      "wachtwoord": "Nimda2021"
     }
   ],
   "Films": [
@@ -158,6 +167,24 @@
       "Ondertiteling": "en",
       "Acteurs": "a",
       "Regisseur": "a"
+    }
+  ],
+  "Customers": [],
+  "Reservations": [
+    {
+      "ID": "hallotest",
+      "Seats": {
+        "Customer": null,
+        "Row": 1,
+        "Column": 1,
+        "Price": 15.0
+      },
+      "Snack": "Popcorn Zoet"
+    },
+    {
+      "ID": "hallotest2",
+      "Seats": null,
+      "Snack": "Popcorn Zout"
     }
   ]
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ProjectB.Classes;
+using ProjectB.DAL;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -23,7 +25,20 @@ namespace ProjectB.pages
                 {
                     Console.Clear();
                     validticketinput = true;
-                    Zitplaatsenkiezen.zitplaatsenkiezen();
+
+                    var selectedSeat = Zitplaatsenkiezen.zitplaatsenkiezen();
+                    string snack = Snackskiezen.snackskiezen();
+
+                    Reservation nieuweReservering = new Reservation
+
+                    {
+                        ID = "hallotest2",
+                        Seats = selectedSeat,
+                        Snack = snack,
+                    };
+
+                    DataStorageHandler.Storage.Reservations.Add(nieuweReservering);
+                    DataStorageHandler.SaveChanges();
                 }
 
                 else
