@@ -93,7 +93,11 @@ namespace ProjectB.pages
 
             else if (infoIndex == "3")
             {
-                int nieuweInfo = Int32.Parse(Beheer.Input("Wat is de nieuwe minimale leeftijd: "));
+                int nieuweInfo = 0;
+
+                try { nieuweInfo = Int32.Parse(Beheer.Input("Wat is de nieuwe minimale leeftijd: ")); }
+                catch { FilmInfoWijzigen.filmInfoWijzigen(selectedFilm);  }
+                
                 DataStorageHandler.Storage.Films[selectedFilm].Leeftijd = nieuweInfo;
                 FilmprogrammaBeheren.filmprogrammaBeheren();
             }
