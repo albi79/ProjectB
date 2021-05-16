@@ -48,7 +48,7 @@ namespace ProjectB.pages
                 else if (menuinput == "3")
                 {
                     Console.Clear();
-                    Console.WriteLine("Weet u zeker dat u zonder account verder wilt gaan?\nMet een account kunt u gemakkelijker reserveren.\n1. JA\n2. NEE");
+                    Console.WriteLine("Weet u zeker dat u zonder account verder wilt gaan?\nMet een account kunt u gemakkelijker reserveren.\n1. Ja \n2. Nee");
                     validinputmenu = true;
 
                     while (vldinptwthaccount == false)

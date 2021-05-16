@@ -24,6 +24,7 @@ namespace ProjectB.pages
             Console.WriteLine("1. Uitloggen");
             Console.WriteLine("2. Film programma");
             Console.WriteLine("3. Ticket terugvinden");
+            Console.WriteLine("4. Veelgestelde vragen");
             Console.WriteLine("---------------------------");
             Console.WriteLine("Voer uw optienummer in");
 
@@ -37,7 +38,7 @@ namespace ProjectB.pages
                 if (menuinput == "1")
                 {
                     Console.Clear();
-                    Console.WriteLine("Weet u zeker dat u wilt uitloggen?\n1. JA\n2. NEE");
+                    Console.WriteLine("Weet u zeker dat u wilt uitloggen?\n1. Ja\n2. Nee");
                     validinputmenu = true;
 
                     while (validinputlogout == false)
@@ -68,14 +69,6 @@ namespace ProjectB.pages
                     }
                 }
 
-                else if (menuinput == "3")
-                {
-                    Console.Clear();
-                    //Console.WriteLine("Hier wordt de sales overview scherm aangeroepen");
-                    TicketTerugvinden.ticketTerugvinden();
-                    validinputmenu = true;
-                }
-
                 else if (menuinput == "2")
                 {
                     Console.Clear();
@@ -85,9 +78,25 @@ namespace ProjectB.pages
                     validinputmenu = true;
                 }
 
+                else if (menuinput == "3")
+                {
+                    Console.Clear();
+                    //Console.WriteLine("Hier wordt de sales overview scherm aangeroepen");
+                    TicketTerugvinden.ticketTerugvinden();
+                    validinputmenu = true;
+                }
+
+                else if (menuinput == "4")
+                {
+                    Console.Clear();
+                    //Console.WriteLine("Hier wordt de sales overview scherm aangeroepen");
+                    FAQ.faq();
+                    validinputmenu = true;
+                }
+
                 else
                 {
-                    Console.WriteLine("FOUTMELDING: er is een niet bestaande optie gekozen. Kies uit de nummers: 1, 2, of 3");
+                    Console.WriteLine("FOUTMELDING: er is een niet bestaande optie gekozen. Kies uit de nummers: 1, 2, 3 of 4");
                     validinputmenu = false;
                 }
             }

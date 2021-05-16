@@ -125,7 +125,7 @@ namespace ProjectB.pages
 
                 else if (HuidigOfToekomstig == "ToekomstigeFilms")
                 {
-                    string nRelease = Beheer.Input("Wanneer komt deze film online?\n");
+                    string nRelease = Beheer.Input("Wanneer wordt de film gereleased?\n");
                     ToekomstigeFilm nieuweToekomstigeFilm = new ToekomstigeFilm
                     {
                         Titel = nTitel,
