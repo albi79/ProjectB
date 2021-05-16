@@ -179,6 +179,60 @@
       "email": "AdminBios",
       "gebruikersnaam": "AdminBios",
       "wachtwoord": "Nimda2021"
+    },
+    {
+      "naam": "",
+      "tussenvoegsel": "",
+      "achternaam": "",
+      "geboortedatum": "",
+      "email": "AdminBios",
+      "gebruikersnaam": "AdminBios",
+      "wachtwoord": "Nimda2021"
+    },
+    {
+      "naam": "",
+      "tussenvoegsel": "",
+      "achternaam": "",
+      "geboortedatum": "",
+      "email": "AdminBios",
+      "gebruikersnaam": "AdminBios",
+      "wachtwoord": "Nimda2021"
+    },
+    {
+      "naam": "",
+      "tussenvoegsel": "",
+      "achternaam": "",
+      "geboortedatum": "",
+      "email": "AdminBios",
+      "gebruikersnaam": "AdminBios",
+      "wachtwoord": "Nimda2021"
+    },
+    {
+      "naam": "",
+      "tussenvoegsel": "",
+      "achternaam": "",
+      "geboortedatum": "",
+      "email": "AdminBios",
+      "gebruikersnaam": "AdminBios",
+      "wachtwoord": "Nimda2021"
+    },
+    {
+      "naam": "",
+      "tussenvoegsel": "",
+      "achternaam": "",
+      "geboortedatum": "",
+      "email": "AdminBios",
+      "gebruikersnaam": "AdminBios",
+      "wachtwoord": "Nimda2021"
+    },
+    {
+      "naam": "",
+      "tussenvoegsel": "",
+      "achternaam": "",
+      "geboortedatum": "",
+      "email": "AdminBios",
+      "gebruikersnaam": "AdminBios",
+      "wachtwoord": "Nimda2021"
     }
   ],
   "Films": [
@@ -192,6 +246,17 @@
       "Ondertiteling": "Bulgaars",
       "Acteurs": "Daniel",
       "Regisseur": "Dani"
+    },
+    {
+      "Titel": "The good the bad and the ugly",
+      "Categorie": "Western",
+      "Leeftijd": 16,
+      "Beschrijving": "cowboy's die op elkaar schieten",
+      "Projectie": "IMAX",
+      "Taal": "?????????",
+      "Ondertiteling": "Engels",
+      "Acteurs": "Elon musk",
+      "Regisseur": "Sjaakie"
     }
   ]
 }

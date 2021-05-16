@@ -14,10 +14,11 @@ namespace ProjectB.pages
         public static void filmprogrammaBeheren()
         {
             Console.Clear();
+            Console.WriteLine("Beheer filmprogramma\n");
             Console.WriteLine("1. Film toevoegen");
             Console.WriteLine("2. Film verwijderen");
-            Console.WriteLine("2. Film info wijzigen");
-            Console.WriteLine("Dit zijn de huidige films die in het programma voortkomen:\n(Titel - Categorie - Leeftijd)\n-------------------------------------------");
+            Console.WriteLine("3. Film info wijzigen");
+            Console.WriteLine("\nDit zijn de huidige films die in het programma voortkomen:\n(Titel - Categorie - Leeftijd)\n-------------------------------------------");
 
             //loop door de lijst
             foreach (Film filmItem in DataStorageHandler.Storage.Films)
@@ -36,7 +37,7 @@ namespace ProjectB.pages
                 int nLeeftijd = Convert.ToInt32(Beheer.Input("Wat is de minimum leeftijd van de nieuwe film?\n"));
                 string nBeschrijving = Beheer.Input("Schrijf een korte filmbeschrijving\n");
                 string nProjectie = Beheer.Input("Wat voor projectie heeft de film? (2D/3D/IMAX)\n");
-                string nTaal = Beheer.Input("Wat is de Hoofdtaal van de film?\n");
+                string nTaal = Beheer.Input("Wat is de hoofdtaal van de film?\n");
                 string nOndertiteling = Beheer.Input("In welke taal is de ondertiteling?\n");
                 string nActeurs = Beheer.Input("Welke grote acteurs spelen in de film?\n");
                 string nRegisseur = Beheer.Input("Wie is de regiseur van de film?\n");
@@ -91,7 +92,15 @@ namespace ProjectB.pages
                     filmNummer++;
                 }
                 int selectedFilm = Int32.Parse(Beheer.Input("\n")) -1;
-                FilmInfoWijzigen.filmInfoWijzigen(selectedFilm);
+                
+                try
+                {
+                    FilmInfoWijzigen.filmInfoWijzigen(selectedFilm);
+                }
+                catch
+                {
+                    FilmprogrammaBeheren.filmprogrammaBeheren();
+                }
             }
         }
     }

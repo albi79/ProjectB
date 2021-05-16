@@ -14,10 +14,10 @@ namespace ProjectB.pages
         public static bool inputCheck(string wat)
         {
             Console.Clear();
-            Console.WriteLine("Klopt de informatie die u wilt toevoegen?");
+            Console.WriteLine("Klopt de nieuwe informatie die u wilt toevoegen?");
             Console.WriteLine();
             Console.WriteLine(wat);
-            Console.WriteLine("1. Ja\n2. Nee");
+            Console.WriteLine("\n1. Ja\n2. Annuleren");
 
             string antwoord = Beheer.Input();
 
@@ -27,12 +27,12 @@ namespace ProjectB.pages
                 return false;
 
             Console.Clear();
-            Console.WriteLine("\nEr ging iets fout");
+            Console.WriteLine("Er ging iets fout");
             Console.WriteLine();
             Console.WriteLine("Wilt u deze informatie definitief aan de film informatie toevoegen?");
             Console.WriteLine();
             Console.WriteLine(wat);
-            Console.WriteLine("1. Ja\n2. Nee");
+            Console.WriteLine("\n1. Ja\n2. Annuleren");
 
             antwoord = Beheer.Input();
 
@@ -60,13 +60,14 @@ namespace ProjectB.pages
             Console.WriteLine("7: Ondertiteling: " + DataStorageHandler.Storage.Films[selectedFilm].Ondertiteling);
             Console.WriteLine("8: Acteurs: " + DataStorageHandler.Storage.Films[selectedFilm].Acteurs);
             Console.WriteLine("9: Regiseur: " + DataStorageHandler.Storage.Films[selectedFilm].Regisseur);
+            Console.WriteLine();
+            Console.WriteLine("0. Terug naar filmprogramma beheren");
 
             string infoIndex = Beheer.Input("");
             bool correctAntwoord = infoIndex == "1" || infoIndex == "2" || infoIndex == "3" || infoIndex == "4" || infoIndex == "5" || infoIndex == "6" || infoIndex == "7" || infoIndex == "8" || infoIndex == "9";
 
             if (infoIndex == "1")
             {
-                Console.WriteLine(DataStorageHandler.Storage.Films[selectedFilm].Titel);
                 string nieuweInfo = Beheer.Input("Wat is de nieuwe titel: ");
 
                 if (inputCheck(nieuweInfo))
@@ -80,7 +81,6 @@ namespace ProjectB.pages
 
             else if (infoIndex == "2")
             {
-                Console.WriteLine(DataStorageHandler.Storage.Films[selectedFilm].Categorie);
                 string nieuweInfo = Beheer.Input("Wat is de nieuwe categorie: ");
                 if (inputCheck(nieuweInfo))
                 {
@@ -93,7 +93,6 @@ namespace ProjectB.pages
 
             else if (infoIndex == "3")
             {
-                Console.WriteLine(DataStorageHandler.Storage.Films[selectedFilm].Leeftijd);
                 int nieuweInfo = Int32.Parse(Beheer.Input("Wat is de nieuwe minimale leeftijd: "));
                 DataStorageHandler.Storage.Films[selectedFilm].Leeftijd = nieuweInfo;
                 FilmprogrammaBeheren.filmprogrammaBeheren();
@@ -101,7 +100,6 @@ namespace ProjectB.pages
 
             else if (infoIndex == "4")
             {
-                Console.WriteLine(DataStorageHandler.Storage.Films[selectedFilm].Beschrijving);
                 string nieuweInfo = Beheer.Input("Wat is de nieuwe beschrijving: ");
                 if (inputCheck(nieuweInfo))
                 {
@@ -114,8 +112,7 @@ namespace ProjectB.pages
 
             else if (infoIndex == "5")
             {
-                Console.WriteLine(DataStorageHandler.Storage.Films[selectedFilm].Projectie);
-                string nieuweInfo = Beheer.Input("Wat is de nieuwe titel: ");
+                string nieuweInfo = Beheer.Input("Wat is de juiste projectie: ");
                 if (inputCheck(nieuweInfo))
                 {
                     DataStorageHandler.Storage.Films[selectedFilm].Projectie = nieuweInfo;
@@ -127,7 +124,6 @@ namespace ProjectB.pages
 
             else if (infoIndex == "6")
             {
-                Console.WriteLine(DataStorageHandler.Storage.Films[selectedFilm].Taal);
                 string nieuweInfo = Beheer.Input("Welke taal is de nieuwe hoofdtaal: ");
                 if (inputCheck(nieuweInfo))
                 {
@@ -140,7 +136,6 @@ namespace ProjectB.pages
 
             else if (infoIndex == "7")
             {
-                Console.WriteLine(DataStorageHandler.Storage.Films[selectedFilm].Ondertiteling);
                 string nieuweInfo = Beheer.Input("Wat is de nieuwe taal van de ondertiteling: ");
                 if (inputCheck(nieuweInfo))
                 {
@@ -153,7 +148,6 @@ namespace ProjectB.pages
 
             else if (infoIndex == "8")
             {
-                Console.WriteLine(DataStorageHandler.Storage.Films[selectedFilm].Acteurs);
                 string nieuweInfo = Beheer.Input("Wie zijn de nieuwe acteurs: ");
                 if (inputCheck(nieuweInfo))
                 {
@@ -166,7 +160,6 @@ namespace ProjectB.pages
 
             else if (infoIndex == "9")
             {
-                Console.WriteLine(DataStorageHandler.Storage.Films[selectedFilm].Regisseur);
                 string nieuweInfo = Beheer.Input("Wie is de nieuwe regisseur: ");
                 if (inputCheck(nieuweInfo))
                 {
@@ -177,6 +170,10 @@ namespace ProjectB.pages
                     filmInfoWijzigen(selectedFilm);
             }
 
+            else if(infoIndex == "0")
+            {
+                FilmprogrammaBeheren.filmprogrammaBeheren();
+            }
             if (!correctAntwoord)
                 filmInfoWijzigen(selectedFilm);
         }
