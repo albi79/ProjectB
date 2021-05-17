@@ -60,6 +60,9 @@ namespace ProjectB.pages
             Console.WriteLine("7: Ondertiteling: " + DataStorageHandler.Storage.Films[selectedFilm].Ondertiteling);
             Console.WriteLine("8: Acteurs: " + DataStorageHandler.Storage.Films[selectedFilm].Acteurs);
             Console.WriteLine("9: Regiseur: " + DataStorageHandler.Storage.Films[selectedFilm].Regisseur);
+            Console.WriteLine("10 Tijd van projectie: " + DataStorageHandler.Storage.Films[selectedFilm].Tijd);
+            Console.WriteLine("11: Projectie datum/data:" + DataStorageHandler.Storage.Films[selectedFilm].Tijd);
+            Console.WriteLine("12: Zaal: " + DataStorageHandler.Storage.Films[selectedFilm].Tijd);
             Console.WriteLine();
             Console.WriteLine("0. Terug naar filmprogramma beheren");
 
@@ -168,6 +171,42 @@ namespace ProjectB.pages
                 if (inputCheck(nieuweInfo))
                 {
                     DataStorageHandler.Storage.Films[selectedFilm].Regisseur = nieuweInfo;
+                    FilmprogrammaBeheren.filmprogrammaBeheren();
+                }
+                else
+                    filmInfoWijzigen(selectedFilm);
+            }
+
+            else if (infoIndex == "10")
+            {
+                string nieuweInfo = Beheer.Input("Op welk tijdstip is de projectie: ");
+                if (inputCheck(nieuweInfo))
+                {
+                    DataStorageHandler.Storage.Films[selectedFilm].Tijd = nieuweInfo;
+                    FilmprogrammaBeheren.filmprogrammaBeheren();
+                }
+                else
+                    filmInfoWijzigen(selectedFilm);
+            }
+
+            else if (infoIndex == "11")
+            {
+                string nieuweInfo = Beheer.Input("Op welke data/datum draait de film: ");
+                if (inputCheck(nieuweInfo))
+                {
+                    DataStorageHandler.Storage.Films[selectedFilm].Data = nieuweInfo;
+                    FilmprogrammaBeheren.filmprogrammaBeheren();
+                }
+                else
+                    filmInfoWijzigen(selectedFilm);
+            }
+
+            else if (infoIndex == "12")
+            {
+                string nieuweInfo = Beheer.Input("In welke zaal speelt de film:");
+                if (inputCheck(nieuweInfo))
+                {
+                    DataStorageHandler.Storage.Films[selectedFilm].Zaal = nieuweInfo;
                     FilmprogrammaBeheren.filmprogrammaBeheren();
                 }
                 else

@@ -37,6 +37,14 @@ namespace ProjectB.pages
             Console.WriteLine("Ondertiteling: " + DataStorageHandler.Storage.Films[selectedFilm].Ondertiteling);
             Console.WriteLine("Acteurs: " + DataStorageHandler.Storage.Films[selectedFilm].Acteurs);
             Console.WriteLine("Regiseur: " + DataStorageHandler.Storage.Films[selectedFilm].Regisseur);
+            Console.WriteLine("Speeltijd: " + DataStorageHandler.Storage.Films[selectedFilm].Tijd);
+            Console.WriteLine("Speelt op: " + DataStorageHandler.Storage.Films[selectedFilm].Data);
+            Console.WriteLine("Zaal: " + DataStorageHandler.Storage.Films[selectedFilm].Zaal);
+            if (DataStorageHandler.Storage.Films[selectedFilm].Beoordeling != 0)
+                Console.Write("Beoordeling: ");
+                for (int i = 0; i < DataStorageHandler.Storage.Films[selectedFilm].Beoordeling; i++)
+                    Console.Write("*");
+            Console.WriteLine();
 
             Console.WriteLine("\n1. voor kaartjes reserveren");
             Console.WriteLine("2. voor terug naar overzicht films");

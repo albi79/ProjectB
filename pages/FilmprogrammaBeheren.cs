@@ -41,7 +41,9 @@ namespace ProjectB.pages
                 string nOndertiteling = Beheer.Input("In welke taal is de ondertiteling?\n");
                 string nActeurs = Beheer.Input("Welke grote acteurs spelen in de film?\n");
                 string nRegisseur = Beheer.Input("Wie is de regiseur van de film?\n");
-
+                string nZaal = Beheer.Input("In welke zaal speelt de film?\n");
+                string nTijd = Beheer.Input("Op welk tijdstip is de projectie?\n");
+                string nData = Beheer.Input("Op welke data/datum draait de film?\n");
         //TODO: FOUTMELDING
 
                 Film nieuweFilm = new Film
@@ -55,6 +57,9 @@ namespace ProjectB.pages
                     Ondertiteling = nOndertiteling,
                     Acteurs = nActeurs,
                     Regisseur = nRegisseur,
+                    Zaal = nZaal,
+                    Tijd = nTijd,
+                    Data = nData,
                 };
 
                 DataStorageHandler.Storage.Films.Add(nieuweFilm);

@@ -17,6 +17,12 @@ namespace ProjectB.Classes
         public string Ondertiteling { get; set; }
         public string Acteurs { get; set; }
         public string Regisseur { get; set; }
+        public string Zaal { get; set; }
+        public string Tijd { get; set; } 
+        public string Data { get; set; }
+        public int Beoordeling { get; set; }
+        public int AantalBeoordelingen { get; set; }
+        public int BeoordelingCumulatief { get; set; }
 
     } 
 }
