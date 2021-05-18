@@ -8,6 +8,6 @@ namespace ProjectB.Classes.Seats
     {
         public override double Price { get; set; } = 30.00;
         public override string Icon { get; set; } = "[M]";
-        public override ConsoleColor SelectedForegroundColor { get; set; } = ConsoleColor.DarkBlue;
+        public override ConsoleColor SelectedForegroundColor { get; set; } = ConsoleColor.Red;
     }
 }

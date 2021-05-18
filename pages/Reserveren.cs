@@ -26,6 +26,12 @@ namespace ProjectB.pages
                     Console.Clear();
                     validticketinput = true;
 
+                    //if (DataStorageHandler.Storage.Films[selectedFilm].Projectie == "2D" of "3D" of "IMAX")
+                    //{
+                    //hall = 1 of 2 of 3
+                    //var selectedSeat = Zitplaatsenkiezen2.zitplaatsenkiezen2(); of 
+                    //}
+
                     var selectedSeat = Zitplaatsenkiezen.zitplaatsenkiezen();
                     string snack = Snackskiezen.snackskiezen();
 
@@ -33,12 +39,46 @@ namespace ProjectB.pages
 
                     {
                         ID = "hallotest2",
+                        Hall = "",
                         Seats = selectedSeat,
                         Snack = snack,
                     };
 
                     DataStorageHandler.Storage.Reservations.Add(nieuweReservering);
                     DataStorageHandler.SaveChanges();
+
+                    Console.WriteLine("\nDit is de informatie over uw bestelling:\n");
+
+                    foreach (var reservationItem in DataStorageHandler.Storage.Reservations)
+                    {
+                        Console.WriteLine("\nKlantnaam: " + reservationItem.Seats.Customer + "\nZaal: " + reservationItem.Hall + "\nRij: " + reservationItem.Seats.Row + "\nKolom: " + reservationItem.Seats.Column + "\nPrijs: " + reservationItem.Seats.Price + "\nSnacks: " + reservationItem.Snack);
+                    }
+
+                    Console.WriteLine("\nDoor verder te gaan, gaat u akkoord met dat alle bestelgegevens hierboven correct is.\n1. JA\n2. NEE");
+
+                    string option = Console.ReadLine();
+                    bool validoption = false;
+
+                    while(validoption == false)
+                    {
+                        if (option == "1")
+                        {
+                            validoption = true;
+                            Console.Clear();
+                            Console.WriteLine("Het reserveren is gelukt!");
+                            ConsoleMenu.consoleMenu();
+                        }
+                        else if (option == "2")
+                        {
+                            validoption = true;
+                            Console.WriteLine("hier komt een bewerkingsfunctie");
+                        }
+                        else
+                        {
+                            Console.WriteLine("\nFOUTMELDING: er is een niet bestaande optie gekozen. Kies uit de nummers: 1 of 2");
+                            validoption = false;
+                        }
+                    }
                 }
 
                 else

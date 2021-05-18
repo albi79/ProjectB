@@ -72,9 +72,21 @@ namespace ProjectB
                         }
                         res += seat2.Icon;
                     }
-                    if(!(choosenSeat is VipSeat || choosenSeat is MasterSeat))
+                    else if (choosenSeat is RegularSeat seat3)
                     {
-                        res += "NO VIP SEAT]";
+                        ForegroundColor = seat3.SelectedForegroundColor;
+                        BackgroundColor = seat3.SelectedBackgroundColor;
+                        if (!SelectedSeat)
+                        {
+                            ForegroundColor = seat3.NotSelectedForegroundColor;
+                            BackgroundColor = seat3.NotSelectedBackgroundColor;
+                        }
+                        res += seat3.Icon;
+                    }
+
+                    if (!(choosenSeat is VipSeat || choosenSeat is MasterSeat || choosenSeat is RegularSeat))
+                    {
+                        res += "[X]";
                     }
                     Write(res);
                 }
@@ -132,6 +144,7 @@ namespace ProjectB
             }
             var obj = seats[SelectedRow][SelectedColumn];
             double p = 0.0;
+            if (obj is RegularSeat) { RegularSeat s = (RegularSeat)obj; p = s.Price; }
             if (obj is VipSeat) { VipSeat s = (VipSeat)obj; p = s.Price; }
             if (obj is MasterSeat) { MasterSeat s = (MasterSeat)obj; p = s.Price; }
             BaseSeat selectedseat = new BaseSeat

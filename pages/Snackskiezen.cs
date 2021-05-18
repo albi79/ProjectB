@@ -11,7 +11,7 @@ namespace ProjectB.pages
         {
             DataStorageHandler.SaveChanges();
             Console.Clear();
-            string prompt = "Welkom bij de Bioscoop";
+            string prompt = "Kies uw snacks";
             string[] options = { "Popcorn Zoet", "Popcorn Zout", "Popcorn Mix" };
             ConsoleMenu2 StartPagina = new ConsoleMenu2(prompt, options);
             StartPagina.DisplayOptions();
