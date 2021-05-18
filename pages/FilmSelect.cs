@@ -104,7 +104,7 @@ namespace ProjectB.pages
                                                 //var selectedSeat = Zitplaatsenkiezen2.zitplaatsenkiezen2(); of 
                                                 //}
 
-                                                var selectedSeat = Zitplaatsenkiezen.zitplaatsenkiezen();
+                                                var selectedSeat = Zitplaatsenkiezen.zitplaatsenkiezen(DataStorageHandler.Storage.Films[selectedFilm].Projectie);
                                                 string snack = Snackskiezen.snackskiezen();
 
                                                 Reservation nieuweReservering = new Reservation
@@ -117,7 +117,6 @@ namespace ProjectB.pages
                                                 };
 
                                                 DataStorageHandler.Storage.Reservations.Add(nieuweReservering);
-                                                DataStorageHandler.SaveChanges();
 
                                                 Console.WriteLine("\nDit is de informatie over uw bestelling:\n");
 
@@ -136,6 +135,7 @@ namespace ProjectB.pages
                                                     if (option == "1")
                                                     {
                                                         validoption = true;
+                                                        DataStorageHandler.SaveChanges();
                                                         Console.Clear();
                                                         Console.WriteLine("Het reserveren is gelukt!");
                                                         ConsoleMenu.consoleMenu();

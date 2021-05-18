@@ -9,7 +9,7 @@ namespace ProjectB.pages
 {
     class Zitplaatsenkiezen
     {
-        public static BaseSeat zitplaatsenkiezen()
+        public static BaseSeat zitplaatsenkiezen(string )
         {
             object[][] seats150 = new object[][]
             {

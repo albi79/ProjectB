@@ -10,7 +10,7 @@ namespace ProjectB
         static void Main(string[] args)
         {
             DataStorageHandler.Init("../../../DAL/ProjectB.json");
-            Zitplaatsenkiezen3.zitplaatsenkiezen3();
+            Startscherm.startscherm();
             //Startscherm.startscherm();
         }
     }

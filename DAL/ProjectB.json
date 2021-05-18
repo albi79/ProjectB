@@ -485,5 +485,17 @@
     }
   ],
   "Customers": [],
-  "Reservations": []
+  "Reservations": [
+    {
+      "ID": "hallotest2",
+      "Hall": "",
+      "Seats": {
+        "Customer": null,
+        "Row": 5,
+        "Column": 4,
+        "Price": 15.0
+      },
+      "Snack": "Popcorn Mix"
+    }
+  ]
 }
