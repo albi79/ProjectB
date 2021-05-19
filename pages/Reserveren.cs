@@ -57,25 +57,22 @@ namespace ProjectB.pages
                         Snack = snack,
                     };
 
-                    DataStorageHandler.Storage.Reservations.Add(nieuweReservering);
-
                     Console.WriteLine("\nDit is de informatie over uw bestelling:\n");
 
-                    foreach (var reservationItem in DataStorageHandler.Storage.Reservations)
-                    {
-                        Console.WriteLine("\nKlantnaam: " + reservationItem.Seats.Customer + "\nZaal: " + reservationItem.Zaal + "\nRij: " + reservationItem.Seats.Rij + "\nKolom: " + reservationItem.Seats.Column + "\nPrijs: " + reservationItem.Seats.Price + "\nSnacks: " + reservationItem.Snack);
-                    }
+                    Console.WriteLine("\nKlantnaam: " + nieuweReservering.Seats.Customer + "\nZaal: " + nieuweReservering.Zaal + "\nRij: " + nieuweReservering.Seats.Rij + "\nKolom: " + nieuweReservering.Seats.Column + "\nPrijs: " + nieuweReservering.Seats.Price + "\nSnacks: " + nieuweReservering.Snack);
 
                     Console.WriteLine("\nDoor verder te gaan, gaat u akkoord met dat alle bestelgegevens hierboven correct is.\n1. JA\n2. NEE");
 
-                    string option = Console.ReadLine();
                     bool validoption = false;
 
                     while(validoption == false)
                     {
+                        string option = Console.ReadLine();
+
                         if (option == "1")
                         {
                             validoption = true;
+                            DataStorageHandler.Storage.Reservations.Add(nieuweReservering);
                             DataStorageHandler.SaveChanges();
                             Console.Clear();
                             Console.WriteLine("Het reserveren is gelukt!");

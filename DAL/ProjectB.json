@@ -507,6 +507,39 @@
         "Price": 7.5
       },
       "Snack": "Popcorn Zoet"
+    },
+    {
+      "ID": "hallotest2",
+      "Zaal": "3",
+      "Seats": {
+        "Customer": null,
+        "Rij": 8,
+        "Column": 29,
+        "Price": 7.5
+      },
+      "Snack": "Popcorn Zoet"
+    },
+    {
+      "ID": "hallotest2",
+      "Zaal": "3",
+      "Seats": {
+        "Customer": null,
+        "Rij": 7,
+        "Column": 27,
+        "Price": 7.5
+      },
+      "Snack": "Popcorn Zoet"
+    },
+    {
+      "ID": "hallotest2",
+      "Zaal": "3",
+      "Seats": {
+        "Customer": null,
+        "Rij": 6,
+        "Column": 18,
+        "Price": 30.0
+      },
+      "Snack": "Popcorn Zout"
     }
   ]
 }

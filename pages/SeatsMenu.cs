@@ -10,8 +10,8 @@ namespace ProjectB
 {
     public class SeatsMenu
     {
-        public  int SelectedRow;
-        public  int SelectedColumn;
+        public  int selectedRow;
+        public  int selectedColumn;
         public  object[][] seats;
         public readonly  string Prompt;
 
@@ -21,8 +21,8 @@ namespace ProjectB
         {
             Prompt = prompt;
             seats = seats_;
-            SelectedColumn = 22;
-            SelectedRow = 0;
+            selectedColumn = 22;
+            selectedRow = 0;
           
         }
 
@@ -35,9 +35,9 @@ namespace ProjectB
                 string row = "";
                 for(int j =0; j < seats[i].Length; j++)
                 {
-                    bool SelectedSeat = i == SelectedRow && j == SelectedColumn;
-                    object choosenSeat = seats[i][j];             
-                    row += choosenSeat;
+                    bool SelectedSeat = i == selectedRow && j == selectedColumn;
+                    object currentSeat = seats[i][j];
+                    row += currentSeat;
                     string res = "";
                     if (SelectedSeat)
                     {
@@ -50,7 +50,7 @@ namespace ProjectB
                         ForegroundColor = ConsoleColor.White;
                         BackgroundColor = ConsoleColor.Black;
                     }
-                    if (choosenSeat is MasterSeat Mseat)
+                    if (currentSeat is MasterSeat Mseat)
                     {
                         ForegroundColor = Mseat.SelectedForegroundColor;
                         BackgroundColor = Mseat.SelectedBackgroundColor;
@@ -62,7 +62,7 @@ namespace ProjectB
 
                         res += Mseat.Icon;
                     }
-                    else if (choosenSeat is VipSeat seat2)
+                    else if (currentSeat is VipSeat seat2)
                     {
                         ForegroundColor = seat2.SelectedForegroundColor;
                         BackgroundColor = seat2.SelectedBackgroundColor;
@@ -73,7 +73,7 @@ namespace ProjectB
                         }
                         res += seat2.Icon;
                     }
-                    else if (choosenSeat is RegularSeat seat3)
+                    else if (currentSeat is RegularSeat seat3)
                     {
                         ForegroundColor = seat3.SelectedForegroundColor;
                         BackgroundColor = seat3.SelectedBackgroundColor;
@@ -85,18 +85,22 @@ namespace ProjectB
                         res += seat3.Icon;
                     }
 
-                    if (!(choosenSeat is VipSeat || choosenSeat is MasterSeat || choosenSeat is RegularSeat))
+                    if (currentSeat is VipSeat || currentSeat is MasterSeat || currentSeat is RegularSeat)
                     {
-                        foreach (var reservation in DataStorageHandler.Storage.Reservations)
+                        foreach (Reservation reservation in DataStorageHandler.Storage.Reservations)
                         {
-                            foreach (var seat in reservation.Seats);
-                            if (seats.column == SelectedColumn && seats.Rij == SelectedRow)
+                            if (reservation.Seats.Column == j && reservation.Seats.Rij == i)
                             {
-                                res += "[X]";
+                                res = "[ ]";
                             }
-
                         }
                     }
+
+                    else
+                    {
+                        res = "[ ]";
+                    }
+
                     Write(res);
                 }
                 WriteLine("");
@@ -107,7 +111,7 @@ namespace ProjectB
         public BaseSeat Run()
         {
             ConsoleKey keyPressed = ConsoleKey.B;
-            while (keyPressed != ConsoleKey.Enter)
+            while (keyPressed != ConsoleKey.Enter || reservationcheck(selectedRow, selectedColumn) == false)
             {
                 Clear();
                 Display();
@@ -116,42 +120,42 @@ namespace ProjectB
 
                 if (keyPressed == ConsoleKey.DownArrow)
                 {
-                    SelectedRow++;
+                    selectedRow++;
 
-                    if (SelectedRow > seats.Length - 1)
+                    if (selectedRow > seats.Length - 1)
                     {
-                        SelectedRow = seats.Length - 1;
+                        selectedRow = seats.Length - 1;
                     }
                 }
                 if (keyPressed == ConsoleKey.UpArrow)
                 {
-                    SelectedRow--;
-                    if (SelectedRow < 0)
+                    selectedRow--;
+                    if (selectedRow < 0)
                     {
-                        SelectedRow = 0;
+                        selectedRow = 0;
                     }
                 }
 
                 if (keyPressed == ConsoleKey.LeftArrow)
                 {
-                    SelectedColumn--;
-                    if (SelectedColumn < 0)
+                    selectedColumn--;
+                    if (selectedColumn < 0)
                     {
-                        SelectedColumn = 0;
+                        selectedColumn = 0;
                     }
                 }
                 if (keyPressed == ConsoleKey.RightArrow)
                 {
-                    SelectedColumn++;
-                    if (SelectedColumn > seats.Length -1)
+                    selectedColumn++;
+                    if (selectedColumn > seats.Length -1)
                     {
-                        SelectedColumn %= 30 ;
+                        selectedColumn %= 30 ;
                     }
                 }
                 ResetColor();
 
             }
-            var obj = seats[SelectedRow][SelectedColumn];
+            object obj = seats[selectedRow][selectedColumn];
             double p = 0.0;
             if (obj is RegularSeat) { RegularSeat s = (RegularSeat)obj; p = s.Price; }
             if (obj is VipSeat) { VipSeat s = (VipSeat)obj; p = s.Price; }
@@ -159,12 +163,24 @@ namespace ProjectB
             BaseSeat selectedseat = new BaseSeat
             (
                 null,
-                SelectedRow,
-                SelectedColumn,
+                selectedRow,
+                selectedColumn,
                 p
             );
          
             return selectedseat;
         }
+        public bool reservationcheck (int selectedRow, int selectedColumn)
+        {
+            foreach (Reservation reservation in DataStorageHandler.Storage.Reservations)
+            {
+                if (reservation.Seats.Column == selectedColumn && reservation.Seats.Rij == selectedRow)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
     }
 }
