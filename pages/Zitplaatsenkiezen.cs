@@ -9,7 +9,7 @@ namespace ProjectB.pages
 {
     class Zitplaatsenkiezen
     {
-        public static BaseSeat zitplaatsenkiezen(string )
+        public static BaseSeat zitplaatsenkiezen()
         {
             object[][] seats150 = new object[][]
             {
@@ -39,7 +39,7 @@ namespace ProjectB.pages
 
                 foreach (var item in DataStorageHandler.Storage.Reservations)
                 {
-                    if (selectedSeat.Row == item.Seats.Row && selectedSeat.Column == item.Seats.Column)
+                    if (selectedSeat.Rij == item.Seats.Rij && selectedSeat.Column == item.Seats.Column)
                     {
                         selectedSeat = null;
                         zitplaatsenkiezen();

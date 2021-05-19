@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using ProjectB.Classes;
 using ProjectB.Classes.Seats;
+using ProjectB.DAL;
 using static System.Console;
 
 namespace ProjectB
@@ -20,7 +21,7 @@ namespace ProjectB
         {
             Prompt = prompt;
             seats = seats_;
-            SelectedColumn = 0;
+            SelectedColumn = 22;
             SelectedRow = 0;
           
         }
@@ -86,7 +87,15 @@ namespace ProjectB
 
                     if (!(choosenSeat is VipSeat || choosenSeat is MasterSeat || choosenSeat is RegularSeat))
                     {
-                        res += "[X]";
+                        foreach (var reservation in DataStorageHandler.Storage.Reservations)
+                        {
+                            foreach (var seat in reservation.Seats);
+                            if (seats.column == SelectedColumn && seats.Rij == SelectedRow)
+                            {
+                                res += "[X]";
+                            }
+
+                        }
                     }
                     Write(res);
                 }
@@ -136,7 +145,7 @@ namespace ProjectB
                     SelectedColumn++;
                     if (SelectedColumn > seats.Length -1)
                     {
-                        SelectedColumn = seats.Length -1 ;
+                        SelectedColumn %= 30 ;
                     }
                 }
                 ResetColor();

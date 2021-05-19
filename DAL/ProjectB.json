@@ -473,13 +473,13 @@
       "Regisseur": null
     },
     {
-      "Titel": "Albert",
+      "Titel": "Baghwandin",
       "Categorie": "actie",
       "Leeftijd": 17,
       "Beschrijving": "asddvsg",
-      "Projectie": "@D",
-      "Taal": "nd",
-      "Ondertiteling": "en",
+      "Projectie": "IMAX",
+      "Taal": "Nederlands",
+      "Ondertiteling": "Engels",
       "Acteurs": "a",
       "Regisseur": "a"
     }
@@ -488,14 +488,25 @@
   "Reservations": [
     {
       "ID": "hallotest2",
-      "Hall": "",
+      "Zaal": "2",
       "Seats": {
         "Customer": null,
-        "Row": 5,
-        "Column": 4,
-        "Price": 15.0
+        "Rij": -1,
+        "Column": 1,
+        "Price": 7.5
       },
-      "Snack": "Popcorn Mix"
+      "Snack": "Popcorn Zoet"
+    },
+    {
+      "ID": "hallotest2",
+      "Zaal": "3",
+      "Seats": {
+        "Customer": null,
+        "Rij": 9,
+        "Column": 29,
+        "Price": 7.5
+      },
+      "Snack": "Popcorn Zoet"
     }
   ]
 }

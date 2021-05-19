@@ -1,14 +1,16 @@
 ﻿using ProjectB.Classes;
+using ProjectB.Classes.Seats;
 using ProjectB.DAL;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace ProjectB.pages
 {
     class Reserveren
     {
-        public static void reserveren()
+        public static void reserveren(string projectie)
         {
             Console.Clear();
             Console.WriteLine("Hoeveel kaartjes wilt u bestellen?");
@@ -21,37 +23,47 @@ namespace ProjectB.pages
             {
                 ticketinput = Console.ReadLine();
 
-                if (ticketinput == "1" | ticketinput == "2" | ticketinput == "3" | ticketinput == "4" | ticketinput == "5" | ticketinput == "6" | ticketinput == "7" | ticketinput == "8" | ticketinput == "9" | ticketinput == "10")
-                {
+                if (new string[]{ "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}.Contains(ticketinput)) {
                     Console.Clear();
                     validticketinput = true;
+                    string zaal = "0";
+                    BaseSeat selectedSeat= null;
 
-                    //if (DataStorageHandler.Storage.Films[selectedFilm].Projectie == "2D" of "3D" of "IMAX")
-                    //{
-                    //hall = 1 of 2 of 3
-                    //var selectedSeat = Zitplaatsenkiezen2.zitplaatsenkiezen2(); of 
-                    //}
+                    if (projectie.ToLower() == "2d" || projectie == "2D")
+                    {
+                        zaal = "1";
+                        selectedSeat = Zitplaatsenkiezen.zitplaatsenkiezen(); 
+                    }
+                    
+                    else if (projectie == "3D")
+                    {
+                        zaal = "2";
+                        selectedSeat = Zitplaatsenkiezen2.zitplaatsenkiezen2();
+                    }
 
-                    var selectedSeat = Zitplaatsenkiezen.zitplaatsenkiezen();
+                    else if (projectie == "IMAX")
+                    {
+                        zaal = "3";
+                        selectedSeat = Zitplaatsenkiezen3.zitplaatsenkiezen3();
+                    }
+
                     string snack = Snackskiezen.snackskiezen();
-
                     Reservation nieuweReservering = new Reservation
 
                     {
                         ID = "hallotest2",
-                        Hall = "",
+                        Zaal = zaal,
                         Seats = selectedSeat,
                         Snack = snack,
                     };
 
                     DataStorageHandler.Storage.Reservations.Add(nieuweReservering);
-                    DataStorageHandler.SaveChanges();
 
                     Console.WriteLine("\nDit is de informatie over uw bestelling:\n");
 
                     foreach (var reservationItem in DataStorageHandler.Storage.Reservations)
                     {
-                        Console.WriteLine("\nKlantnaam: " + reservationItem.Seats.Customer + "\nZaal: " + reservationItem.Hall + "\nRij: " + reservationItem.Seats.Row + "\nKolom: " + reservationItem.Seats.Column + "\nPrijs: " + reservationItem.Seats.Price + "\nSnacks: " + reservationItem.Snack);
+                        Console.WriteLine("\nKlantnaam: " + reservationItem.Seats.Customer + "\nZaal: " + reservationItem.Zaal + "\nRij: " + reservationItem.Seats.Rij + "\nKolom: " + reservationItem.Seats.Column + "\nPrijs: " + reservationItem.Seats.Price + "\nSnacks: " + reservationItem.Snack);
                     }
 
                     Console.WriteLine("\nDoor verder te gaan, gaat u akkoord met dat alle bestelgegevens hierboven correct is.\n1. JA\n2. NEE");
@@ -64,6 +76,7 @@ namespace ProjectB.pages
                         if (option == "1")
                         {
                             validoption = true;
+                            DataStorageHandler.SaveChanges();
                             Console.Clear();
                             Console.WriteLine("Het reserveren is gelukt!");
                             ConsoleMenu.consoleMenu();

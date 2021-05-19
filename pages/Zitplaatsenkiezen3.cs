@@ -44,7 +44,7 @@ namespace ProjectB.pages
 
                 foreach (var item in DataStorageHandler.Storage.Reservations)
                 {
-                    if (selectedSeat3.Row == item.Seats.Row && selectedSeat3.Column == item.Seats.Column)
+                    if (selectedSeat3.Rij == item.Seats.Rij && selectedSeat3.Column == item.Seats.Column)
                     {
                         selectedSeat3 = null;
                         zitplaatsenkiezen3();
