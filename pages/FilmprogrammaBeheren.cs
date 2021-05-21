@@ -18,10 +18,12 @@ namespace ProjectB.pages
             Console.WriteLine("b. Om terug te gaan");
 
             string HuidigOfToekomstig = Beheer.Input("");
-            Console.WriteLine(HuidigOfToekomstig);
             if (HuidigOfToekomstig == "b")
+            {
+                Console.Clear();
                 Startscherm.startscherm();
-            
+            }
+
             while (HuidigOfToekomstig != "1" && HuidigOfToekomstig != "2" && HuidigOfToekomstig != "b")
             {
                 Console.WriteLine("Er ging iets mis, kunt u uit de volgende keuzes kiezen:");
@@ -30,7 +32,10 @@ namespace ProjectB.pages
                 Console.WriteLine("b. Om terug te gaan");
                 HuidigOfToekomstig = Beheer.Input("");
                 if (HuidigOfToekomstig == "b")
+                {
+                    Console.Clear();
                     Startscherm.startscherm();
+                }
             }
             HuidigOfToekomstig = ("1" == HuidigOfToekomstig) ? "HuidigeFilms" : "ToekomstigeFilms";
             Overzicht(HuidigOfToekomstig);

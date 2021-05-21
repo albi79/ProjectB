@@ -12,26 +12,33 @@ namespace ProjectB.pages
     {
         public static void filmSelect()
         {
-            Console.WriteLine("1. Huidige films beheren");
-            Console.WriteLine("2. Toekomstige films beheren");
+            Console.WriteLine("1. Huidige films");
+            Console.WriteLine("2. Toekomstige films");
             Console.WriteLine("b. Om terug te gaan");
 
             string HuidigOfToekomstig = Beheer.Input("");
             Console.WriteLine(HuidigOfToekomstig);
             if (HuidigOfToekomstig == "b")
+            {
+                Console.Clear();
                 Startscherm.startscherm();
+            }
 
             while (HuidigOfToekomstig != "1" && HuidigOfToekomstig != "2" && HuidigOfToekomstig != "b")
             {
                 Console.WriteLine("Er ging iets mis, kunt u uit de volgende keuzes kiezen:");
-                Console.WriteLine("1. Huidige films beheren");
-                Console.WriteLine("2. Toekomstige films beheren");
+                Console.WriteLine("1. Huidige films");
+                Console.WriteLine("2. Toekomstige films");
                 Console.WriteLine("b. Om terug te gaan");
                 HuidigOfToekomstig = Beheer.Input("");
                 if (HuidigOfToekomstig == "b")
+                {
+                    Console.Clear();
                     Startscherm.startscherm();
+                }
             }
             HuidigOfToekomstig = ("1" == HuidigOfToekomstig) ? "HuidigeFilms" : "ToekomstigeFilms";
+            Console.Clear();
             Overzicht(HuidigOfToekomstig);
 
 

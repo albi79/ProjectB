@@ -9,8 +9,9 @@ namespace ProjectB.pages
 {
     class ConsoleMenu
     {
-        public static void consoleMenu()
+        public static void consoleMenu(string gebruikersnaam)
         {
+            Console.Clear();
             string menuinput;
             //int menuchoice;
 
@@ -19,11 +20,13 @@ namespace ProjectB.pages
 
             bool validinputmenu = false;
             bool validinputlogout = false;
-
-            Console.WriteLine("Welkom bij de menu:");
+            Console.Write($"Welkom bij de menu ");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.Write($"{gebruikersnaam}\n");
+            Console.ResetColor();
             Console.WriteLine("1. Uitloggen");
             Console.WriteLine("2. Film programma");
-            Console.WriteLine("3. Ticket terugvinden");
+            Console.WriteLine("3. Ticket geschiedenis");
             Console.WriteLine("4. Veelgestelde vragen");
             Console.WriteLine("---------------------------");
             Console.WriteLine("Voer uw optienummer in");
@@ -32,8 +35,6 @@ namespace ProjectB.pages
             {
                 menuinput = Console.ReadLine();
 
-                // convert to integer
-                //menuchoice = Convert.ToInt32(menuinput);
 
                 if (menuinput == "1")
                 {
@@ -49,7 +50,6 @@ namespace ProjectB.pages
                         if (menuexit == "1")
                         {
                             Console.Clear();
-                            //Console.WriteLine("Hier wordt de welkomscherm aangeroepen");
                             Startscherm.startscherm();
                             validinputlogout = true;
                         }
@@ -57,7 +57,7 @@ namespace ProjectB.pages
                         else if (menuexit == "2")
                         {
                             Console.Clear();
-                            ConsoleMenu.consoleMenu();
+                            ConsoleMenu.consoleMenu(gebruikersnaam);
                             validinputlogout = true;
                         }
 
@@ -81,8 +81,7 @@ namespace ProjectB.pages
                 else if (menuinput == "3")
                 {
                     Console.Clear();
-                    //Console.WriteLine("Hier wordt de sales overview scherm aangeroepen");
-                    TicketTerugvinden.ticketTerugvinden();
+                    TicketTerugvinden.ticketTerugvinden(gebruikersnaam);
                     validinputmenu = true;
                 }
 

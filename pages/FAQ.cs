@@ -23,7 +23,7 @@ namespace ProjectB.pages
                 if (antwoord == "b")
                 {
                     Console.Clear();
-                    ConsoleMenu.consoleMenu();
+                    ConsoleMenu.consoleMenu("");
                 }
                 Console.WriteLine("\nEr ging iets mis.");
             }

@@ -17,6 +17,15 @@
       "email": "info@nisatutucu.nl",
       "gebruikersnaam": "nisatutucu",
       "wachtwoord": "Nisa2021"
+    },
+    {
+      "naam": "dani",
+      "tussenvoegsel": "",
+      "achternaam": "gebruiker",
+      "geboortedatum": "09-03-2001",
+      "email": "info@nisatutucu.nl",
+      "gebruikersnaam": "dani",
+      "wachtwoord": "dani1"
     }
   ],
   "Films": [
@@ -176,6 +185,52 @@
       "Leeftijd": 16,
       "Beschrijving": "In de 25e James Bond-film No Time to Die heeft James Bond zijn turbulente leven als geheim agent achter zich gelaten en leidt hij een rustig bestaan op Jamaica.",
       "Release": "30-09-2021"
+    }
+  ],
+  "Reservations": [
+    {
+      "ID": 1,
+      "Customer": "nisatutucu",
+      "Hall": "",
+      "Seats": {
+        "Row": 5,
+        "Column": 4,
+        "Price": 15.0
+      },
+      "Snack": "Popcorn Mix"
+    },
+    {
+      "ID": 2,
+      "Customer": "nisatutucu",
+      "Hall": "",
+      "Seats": {
+        "Row": 5,
+        "Column": 4,
+        "Price": 12.2
+      },
+      "Snack": "Popcorn sss"
+    },
+    {
+      "ID": 3,
+      "Customer": "nisatutucu",
+      "Hall": "",
+      "Seats": {
+        "Row": 5,
+        "Column": 4,
+        "Price": 12.24
+      },
+      "Snack": "Popcorn ads"
+    },
+    {
+      "ID": 3,
+      "Customer": "dani",
+      "Hall": "",
+      "Seats": {
+        "Row": 5,
+        "Column": 4,
+        "Price": 12.24
+      },
+      "Snack": "Popcorn ads"
     }
   ]
 }

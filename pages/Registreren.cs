@@ -125,7 +125,7 @@ namespace ProjectB.pages
                 Startscherm.startscherm();
 
             else if (GebruikerInput == "2")
-                ConsoleMenu.consoleMenu();
+                ConsoleMenu.consoleMenu(gebruikersnaam2);
 
             else
             {
@@ -137,11 +137,11 @@ namespace ProjectB.pages
                         Startscherm.startscherm();
 
                     else if (GebruikerInput == "2")
-                        ConsoleMenu.consoleMenu();
+                        ConsoleMenu.consoleMenu(gebruikersnaam2);
                 }
             }
 
-            ConsoleMenu.consoleMenu();
+            ConsoleMenu.consoleMenu(gebruikersnaam2);
 
         }
         private static string WachtwoordControle(string wachtwoord2)
