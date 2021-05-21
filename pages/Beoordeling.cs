@@ -17,8 +17,6 @@ namespace ProjectB.pages
 
             int selectedFilm = 0;//Tijdelijk
             Console.Clear();
-            
-            Console.WriteLine(DataStorageHandler.Storage.Films[selectedFilm].Beoordeling);//Tijdelijk
 
             Console.WriteLine("Beoordeling "+ DataStorageHandler.Storage.Films[selectedFilm].Titel + "\n");
             string ShuidigeBeoordeling = Beheer.Input("typ 1(slecht) tot 5(geweldig) om de film te beoordelen: ");

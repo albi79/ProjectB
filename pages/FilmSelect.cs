@@ -32,7 +32,7 @@ namespace ProjectB.pages
             Console.WriteLine("Categorie: " + DataStorageHandler.Storage.Films[selectedFilm].Categorie);
             Console.WriteLine("Minimum leeftijd: " + DataStorageHandler.Storage.Films[selectedFilm].Leeftijd);
             Console.WriteLine("Beschrijving: " + DataStorageHandler.Storage.Films[selectedFilm].Beschrijving);
-            Console.WriteLine("Projectie: " + DataStorageHandler.Storage.Films[selectedFilm].Projectie);
+            //Console.WriteLine("Projectie: " + DataStorageHandler.Storage.Films[selectedFilm].Projectie);
             Console.WriteLine("Taal: " + DataStorageHandler.Storage.Films[selectedFilm].Taal);
             Console.WriteLine("Ondertiteling: " + DataStorageHandler.Storage.Films[selectedFilm].Ondertiteling);
             Console.WriteLine("Acteurs: " + DataStorageHandler.Storage.Films[selectedFilm].Acteurs);
@@ -44,6 +44,7 @@ namespace ProjectB.pages
                 Console.Write("Beoordeling: ");
                 for (int i = 0; i < DataStorageHandler.Storage.Films[selectedFilm].Beoordeling; i++)
                     Console.Write("*");
+            Console.Write(" / *****");
             Console.WriteLine();
 
             Console.WriteLine("\n1. voor kaartjes reserveren");
