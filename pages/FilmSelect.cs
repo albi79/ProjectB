@@ -11,7 +11,7 @@ namespace ProjectB.pages
     {
         public static void filmSelect()
         {
-            int filmNummer = 0;
+            int filmNummer = 1;
 
             Console.Clear();
             Console.WriteLine("Film Programma\n\nWelke film bent u in geïnteresseerd?");
@@ -23,7 +23,7 @@ namespace ProjectB.pages
                 filmNummer++;
             }
 
-            int selectedFilm = Int32.Parse(Beheer.Input());
+            int selectedFilm = Int32.Parse(Beheer.Input()) -1;
 
             Console.Clear();
             Console.WriteLine("Informatie geselecteerde film");
@@ -32,11 +32,20 @@ namespace ProjectB.pages
             Console.WriteLine("Categorie: " + DataStorageHandler.Storage.Films[selectedFilm].Categorie);
             Console.WriteLine("Minimum leeftijd: " + DataStorageHandler.Storage.Films[selectedFilm].Leeftijd);
             Console.WriteLine("Beschrijving: " + DataStorageHandler.Storage.Films[selectedFilm].Beschrijving);
-            Console.WriteLine("Projectie: " + DataStorageHandler.Storage.Films[selectedFilm].Projectie);
+            //Console.WriteLine("Projectie: " + DataStorageHandler.Storage.Films[selectedFilm].Projectie);
             Console.WriteLine("Taal: " + DataStorageHandler.Storage.Films[selectedFilm].Taal);
             Console.WriteLine("Ondertiteling: " + DataStorageHandler.Storage.Films[selectedFilm].Ondertiteling);
             Console.WriteLine("Acteurs: " + DataStorageHandler.Storage.Films[selectedFilm].Acteurs);
             Console.WriteLine("Regiseur: " + DataStorageHandler.Storage.Films[selectedFilm].Regisseur);
+            Console.WriteLine("Speeltijd: " + DataStorageHandler.Storage.Films[selectedFilm].Tijd);
+            Console.WriteLine("Speelt op: " + DataStorageHandler.Storage.Films[selectedFilm].Data);
+            Console.WriteLine("Zaal: " + DataStorageHandler.Storage.Films[selectedFilm].Zaal);
+            if (DataStorageHandler.Storage.Films[selectedFilm].Beoordeling != 0)
+                Console.Write("Beoordeling: ");
+                for (int i = 0; i < DataStorageHandler.Storage.Films[selectedFilm].Beoordeling; i++)
+                    Console.Write("*");
+            Console.Write(" / *****");
+            Console.WriteLine();
 
             Console.WriteLine("\n1. voor kaartjes reserveren");
             Console.WriteLine("2. voor terug naar overzicht films");

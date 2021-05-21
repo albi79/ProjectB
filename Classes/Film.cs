@@ -12,11 +12,17 @@ namespace ProjectB.Classes
         public string Categorie { get; set; }
         public int Leeftijd { get; set; }
         public string Beschrijving { get; set; }
-        public string Projectie { get; set; } //Imax / 2D / 3D ....
+        //public string Projectie { get; set; } //Imax / 2D / 3D ....
         public string Taal { get; set; }
         public string Ondertiteling { get; set; }
         public string Acteurs { get; set; }
         public string Regisseur { get; set; }
+        public int Zaal { get; set; }
+        public string[] Tijd { get; set; } //Type aanpassen
+        public string Data { get; set; } //Type aanpassen
+        public int Beoordeling { get; set; }
+        public int AantalBeoordelingen { get; set; }
+        public int BeoordelingCumulatief { get; set; }
 
     } 
 }
