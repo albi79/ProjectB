@@ -75,7 +75,7 @@ namespace ProjectB.pages
                             if (ageinput == "1")
                             {
                                 Console.Clear();
-                                Reserveren.reserveren(DataStorageHandler.Storage.Films[selectedFilm].Projectie);
+                                Reserveren.reserveren(DataStorageHandler.Storage.Films[selectedFilm].Zaal);
                                 agecheck = true;
                             }
 
@@ -110,7 +110,7 @@ namespace ProjectB.pages
                     }
                     else
                     {
-                        Reserveren.reserveren(DataStorageHandler.Storage.Films[selectedFilm].Projectie);
+                        Reserveren.reserveren(DataStorageHandler.Storage.Films[selectedFilm].Zaal);
                     }
                 }
             }

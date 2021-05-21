@@ -10,7 +10,7 @@ namespace ProjectB.pages
 {
     class Reserveren
     {
-        public static void reserveren(string projectie)
+        public static void reserveren(int zaalnummer)
         {
             Console.Clear();
             Console.WriteLine("Hoeveel kaartjes wilt u bestellen?");
@@ -26,24 +26,24 @@ namespace ProjectB.pages
                 if (new string[]{ "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}.Contains(ticketinput)) {
                     Console.Clear();
                     validticketinput = true;
-                    string zaal = "0";
+                    string projectie = "";
                     BaseSeat selectedSeat= null;
 
-                    if (projectie.ToLower() == "2d" || projectie == "2D")
+                    if (zaalnummer == 1)
                     {
-                        zaal = "1";
+                        projectie = "2D";
                         selectedSeat = Zitplaatsenkiezen.zitplaatsenkiezen(); 
                     }
                     
-                    else if (projectie == "3D")
+                    else if (zaalnummer == 2)
                     {
-                        zaal = "2";
+                        projectie = "3D";
                         selectedSeat = Zitplaatsenkiezen2.zitplaatsenkiezen2();
                     }
 
-                    else if (projectie == "IMAX")
+                    else if (zaalnummer == 3)
                     {
-                        zaal = "3";
+                        projectie = "IMAX";
                         selectedSeat = Zitplaatsenkiezen3.zitplaatsenkiezen3();
                     }
 
@@ -52,7 +52,7 @@ namespace ProjectB.pages
 
                     {
                         ID = "hallotest2",
-                        Zaal = zaal,
+                        Zaal = zaalnummer,
                         Seats = selectedSeat,
                         Snack = snack,
                     };

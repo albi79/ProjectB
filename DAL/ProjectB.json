@@ -115,5 +115,7 @@
       "AantalBeoordelingen": 0,
       "BeoordelingCumulatief": 0
     }
-  ]
+  ],
+  "Customers": [],
+  "Reservations": []
 }
