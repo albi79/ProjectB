@@ -12,7 +12,7 @@ namespace ProjectB.pages
             DataStorageHandler.SaveChanges();
             Console.Clear();
             string prompt = "Kies uw snacks";
-            string[] options = { "Popcorn Zoet", "Popcorn Zout", "Popcorn Mix" };
+            string[] options = { "Popcorn Zoet", "Popcorn Zout", "Popcorn Mix", "Geen" };
             ConsoleMenu2 StartPagina = new ConsoleMenu2(prompt, options);
             StartPagina.DisplayOptions();
             int selectedIndex = StartPagina.Run();
