@@ -169,6 +169,17 @@
         "Price": 15.0
       },
       "Snack": "Popcorn Zout"
+    },
+    {
+      "ID": "hallotest2",
+      "Zaal": 1,
+      "Seats": {
+        "Customer": null,
+        "Rij": 5,
+        "Column": 5,
+        "Price": 30.0
+      },
+      "Snack": "Popcorn Mix"
     }
   ]
 }

@@ -74,14 +74,14 @@ namespace ProjectB.pages
                         {
                             ageinput = Console.ReadLine();
 
-                            /*if (ageinput == "1")
+                            if (ageinput == "1")
                             {
                                 Console.Clear();
                                 Reserveren.reserveren(DataStorageHandler.Storage.Films[selectedFilm].Zaal);
                                 agecheck = true;
                             }
 
-                            else */if (ageinput == "2")
+                            else if (ageinput == "2")
                             {
                                 Console.WriteLine("\nU voldoet niet aan de minimum leeftijd" + "\nToets b om terug te gaan");
 
@@ -110,10 +110,10 @@ namespace ProjectB.pages
                             }
                         }
                     }
-                    /*else
+                    else
                     {
                         Reserveren.reserveren(DataStorageHandler.Storage.Films[selectedFilm].Zaal);
-                    }*/
+                    }
                 }
             }
             else if (toets == "2")

@@ -21,7 +21,7 @@ namespace ProjectB
         {
             Prompt = prompt;
             seats = seats_;
-            selectedColumn = 22;
+            selectedColumn = 0;
             selectedRow = 0;
           
         }
