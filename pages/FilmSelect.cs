@@ -37,15 +37,17 @@ namespace ProjectB.pages
             Console.WriteLine("Ondertiteling: " + DataStorageHandler.Storage.Films[selectedFilm].Ondertiteling);
             Console.WriteLine("Acteurs: " + DataStorageHandler.Storage.Films[selectedFilm].Acteurs);
             Console.WriteLine("Regiseur: " + DataStorageHandler.Storage.Films[selectedFilm].Regisseur);
-            Console.WriteLine("Speeltijd: " + DataStorageHandler.Storage.Films[selectedFilm].Tijd);
-            Console.WriteLine("Speelt op: " + DataStorageHandler.Storage.Films[selectedFilm].Data);
+            //Console.WriteLine("Speeltijd: " + DataStorageHandler.Storage.Films[selectedFilm].Tijd);
+            //Console.WriteLine("Speelt op: " + DataStorageHandler.Storage.Films[selectedFilm].Data);
             Console.WriteLine("Zaal: " + DataStorageHandler.Storage.Films[selectedFilm].Zaal);
             if (DataStorageHandler.Storage.Films[selectedFilm].Beoordeling != 0)
+            {
                 Console.Write("Beoordeling: ");
                 for (int i = 0; i < DataStorageHandler.Storage.Films[selectedFilm].Beoordeling; i++)
                     Console.Write("*");
-            Console.Write(" / *****");
-            Console.WriteLine();
+                Console.Write(" / *****");
+                Console.WriteLine();
+            }
 
             Console.WriteLine("\n1. voor kaartjes reserveren");
             Console.WriteLine("2. voor terug naar overzicht films");
@@ -72,14 +74,14 @@ namespace ProjectB.pages
                         {
                             ageinput = Console.ReadLine();
 
-                            if (ageinput == "1")
+                            /*if (ageinput == "1")
                             {
                                 Console.Clear();
                                 Reserveren.reserveren(DataStorageHandler.Storage.Films[selectedFilm].Zaal);
                                 agecheck = true;
                             }
 
-                            else if (ageinput == "2")
+                            else */if (ageinput == "2")
                             {
                                 Console.WriteLine("\nU voldoet niet aan de minimum leeftijd" + "\nToets b om terug te gaan");
 
@@ -108,10 +110,10 @@ namespace ProjectB.pages
                             }
                         }
                     }
-                    else
+                    /*else
                     {
                         Reserveren.reserveren(DataStorageHandler.Storage.Films[selectedFilm].Zaal);
-                    }
+                    }*/
                 }
             }
             else if (toets == "2")

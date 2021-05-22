@@ -84,13 +84,7 @@
       "Acteurs": "Eric Cartmen",
       "Regisseur": "Toba",
       "Zaal": 3,
-      "Tijd": [
-        "12:00",
-        "14:20",
-        "17:00",
-        "21:00"
-      ],
-      "Data": "6 maart",
+      "Projectiemoment": null,
       "Beoordeling": 0,
       "AantalBeoordelingen": 0,
       "BeoordelingCumulatief": 0
@@ -105,17 +99,76 @@
       "Acteurs": "simba",
       "Regisseur": "Nisa",
       "Zaal": 3,
-      "Tijd": [
-        "12:00",
-        "14:25",
-        "16:10"
+      "Projectiemoment": null,
+      "Beoordeling": 0,
+      "AantalBeoordelingen": 0,
+      "BeoordelingCumulatief": 0
+    },
+    {
+      "Titel": "The 'Notorius' Conor Mc Gregor",
+      "Categorie": "Documentaire",
+      "Leeftijd": 4,
+      "Beschrijving": "Zie hoe een mixed martial artist van diep in schulde naar multi-millionair gaat dankzij wilskracht, geloof & discipline",
+      "Taal": "Iers",
+      "Ondertiteling": "Nederlands",
+      "Acteurs": "Conor McGregor",
+      "Regisseur": "Ali",
+      "Zaal": 1,
+      "Projectiemoment": [
+        [
+          "23-05-2021",
+          "16:00",
+          "23:30"
+        ],
+        [
+          "01-06-2021",
+          "09:10",
+          "13:40",
+          "16:27"
+        ]
       ],
-      "Data": "06-06-2021",
+      "Beoordeling": 0,
+      "AantalBeoordelingen": 0,
+      "BeoordelingCumulatief": 0
+    },
+    {
+      "Titel": "The 'notorious' Conor Mc Gregor",
+      "Categorie": "Documentaire",
+      "Leeftijd": 4,
+      "Beschrijving": "Zie hoe Conor van schulde, naar multi-millionaire gaat. Dankzij geloof, Wilskracht, discipline & de Mixed Martial Art!",
+      "Taal": "Iers",
+      "Ondertiteling": "Nederlands",
+      "Acteurs": "Conor Mc Gregor",
+      "Regisseur": "Ali Baba",
+      "Zaal": 1,
+      "Projectiemoment": [
+        [
+          "23-05-2021",
+          "18:00",
+          "23:20"
+        ],
+        [
+          "01-06-2021",
+          "21:05"
+        ]
+      ],
       "Beoordeling": 0,
       "AantalBeoordelingen": 0,
       "BeoordelingCumulatief": 0
     }
   ],
   "Customers": [],
-  "Reservations": []
+  "Reservations": [
+    {
+      "ID": "hallotest2",
+      "Zaal": 3,
+      "Seats": {
+        "Customer": null,
+        "Rij": 3,
+        "Column": 20,
+        "Price": 15.0
+      },
+      "Snack": "Popcorn Zout"
+    }
+  ]
 }

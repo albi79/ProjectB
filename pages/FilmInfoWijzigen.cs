@@ -61,13 +61,13 @@ namespace ProjectB.pages
             Console.WriteLine("8: Acteurs: " + DataStorageHandler.Storage.Films[selectedFilm].Acteurs);
             Console.WriteLine("9: Regiseur: " + DataStorageHandler.Storage.Films[selectedFilm].Regisseur);
             
-            Console.Write("10 Tijd van projectie: ");
+            /*Console.Write("10 Tijd van projectie: ");
             for (int i = 0; i < DataStorageHandler.Storage.Films[selectedFilm].Tijd.Length; i++) 
             {
                 Console.Write(DataStorageHandler.Storage.Films[selectedFilm].Tijd[i] + " / ");
             }
 
-            Console.WriteLine("\n11: Projectie datum/data:" + DataStorageHandler.Storage.Films[selectedFilm].Data);
+            Console.WriteLine("\n11: Projectie datum/data:" + DataStorageHandler.Storage.Films[selectedFilm].Data);*/
             Console.WriteLine("12: Zaal: " + DataStorageHandler.Storage.Films[selectedFilm].Zaal);
             Console.WriteLine();
             Console.WriteLine("0. Terug naar filmprogramma beheren");
@@ -183,7 +183,7 @@ namespace ProjectB.pages
                     filmInfoWijzigen(selectedFilm);
             }
 
-            else if (infoIndex == "10")
+            /*else if (infoIndex == "10")
             {
                 //Bij verkeerde tijd input moet je via de app bewerken filmInfoWijzigen()
                 int hoeveelTijden = Int32.Parse(Beheer.Input("\nHoe vaak wordt de film op een dag gedraait? "));
@@ -206,7 +206,7 @@ namespace ProjectB.pages
                 }
                 else
                     filmInfoWijzigen(selectedFilm);
-            }
+            }*/
 
             else if (infoIndex == "12")
             {

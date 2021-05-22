@@ -65,17 +65,83 @@ namespace ProjectB.pages
                 }
 
                 //Bij verkeerde tijd input moet je via de app bewerken filmInfoWijzigen()
-                int hoeveelTijden = Int32.Parse(Beheer.Input("\nHoe vaak wordt de film op een dag gedraaid? "));
+                /*int hoeveelTijden = Int32.Parse(Beheer.Input("\nHoe vaak wordt de film op een dag gedraaid? "));
                 string[] nTijd = new string[hoeveelTijden];
                 for (int i = 0; i < hoeveelTijden; i++)
                 {
                     Console.WriteLine($"\nOp welk tijdstip begint de {i + 1}e projectie (HH:MM) ?");
                     nTijd[i] = Beheer.Input("");
                 }
+                */
+                //string nData = Beheer.Input("\nOp welke data/datum draait de film?\n");
 
-                string nData = Beheer.Input("\nOp welke data/datum draait de film?\n");
-        
+                int hoeveelDagen = 0;
+                bool dagenInput = false;
+                while (dagenInput != true)
+                {
+                    try
+                    {
+                        hoeveelDagen = Int32.Parse(Beheer.Input("\nOp hoeveel dagen totaal wordt de film gedraaid? "));
+                        dagenInput = true;
+                    }
+                    catch { Console.WriteLine("Verkeerde input!\nTyp Enter"); Beheer.Input(); }
+                }
+                string[][] nProjectiemoment = new string[hoeveelDagen][];
                 
+                for(int i = 0; i < hoeveelDagen; i++)
+                {
+                    string datum = "";
+                    bool datumInput = false;
+                    while(datumInput != true)
+                    {
+                        Console.WriteLine($"\nWelke datum is de {i+1}e projectie?\n(DD-MM-JJJJ)");
+                        datum = Beheer.Input("");
+                        if (datum.Length == 10)
+                            datumInput = true;
+                        else
+                        {
+                            Console.WriteLine("Verkeerde input!\nTyp Enter");
+                            Beheer.Input();
+                        }
+                    }
+
+                    int hoeveelTijden = 0;
+                    bool tijdenInput = false;
+                    while (tijdenInput != true)
+                    {
+                        try 
+                        { 
+                            hoeveelTijden = Int32.Parse(Beheer.Input($"\nHoe vaak wordt de film op {datum} gedraaid? \n"));
+                            nProjectiemoment[i] = new string[hoeveelTijden+1];
+                            nProjectiemoment[i][0] = datum;
+                            tijdenInput = true;
+                        }
+                        catch { Console.WriteLine("Verkeerde input!\nTyp Enter"); Beheer.Input(); }
+                    }
+                    
+
+                    for (int x = 1; x < hoeveelTijden + 1; x++)
+                    {
+                        bool huidigeTijdInput = false;
+                        while (huidigeTijdInput != true)
+                        {
+                            Console.WriteLine($"\nOp welk tijdstip begint de {x}e projectie op {nProjectiemoment[i][0]}\n(HH:MM) ?");
+                            string huidigeTijd = Beheer.Input("");
+                            if (huidigeTijd.Length == 5)
+                            {
+                                huidigeTijdInput = true;
+                                nProjectiemoment[i][x] = huidigeTijd;
+                            }
+                            else
+                            {
+                                Console.WriteLine("\nVerkeerde input!\nTyp Enter"); 
+                                Beheer.Input();
+                            }
+                        }
+                    }
+                }
+
+                Beheer.Input();
                 //TODO: FOUTMELDING
 
                 Film nieuweFilm = new Film
@@ -90,8 +156,9 @@ namespace ProjectB.pages
                     Acteurs = nActeurs,
                     Regisseur = nRegisseur,
                     Zaal = nZaal,
-                    Tijd = nTijd,
-                    Data = nData,
+                    Projectiemoment = nProjectiemoment
+                    //Tijd = nTijd,
+                    //Data = nData,
                 };
 
                 DataStorageHandler.Storage.Films.Add(nieuweFilm);
