@@ -11,7 +11,7 @@ namespace ProjectB.pages
 {
     class Beoordeling
     {
-        public static void beoordeling(/*selectedFilm*/)
+        public static void beoordeling(/*selectedFilm*/string gebruikersnaam)
         {
             int huidigeBeoordeling = 0;
 
@@ -28,10 +28,10 @@ namespace ProjectB.pages
                 {
                     Console.WriteLine("Verkeerde input!\n\nTyp Enter");
                     Beheer.Input();
-                    beoordeling();
+                    beoordeling(gebruikersnaam);
                 }
             }
-            catch {Console.WriteLine("Verkeerde input!\n\nTyp Enter"); Beheer.Input(); beoordeling(); }
+            catch {Console.WriteLine("Verkeerde input!\n\nTyp Enter"); Beheer.Input(); beoordeling(gebruikersnaam); }
 
             DataStorageHandler.Storage.Films[selectedFilm].AantalBeoordelingen++; 
             DataStorageHandler.Storage.Films[selectedFilm].BeoordelingCumulatief += huidigeBeoordeling;
@@ -47,7 +47,7 @@ namespace ProjectB.pages
 
             Beheer.Input();
 
-            ConsoleMenu.consoleMenu();
+            ConsoleMenu.consoleMenu(gebruikersnaam);
         }
     }
 }

@@ -155,15 +155,41 @@
       "Beoordeling": 0,
       "AantalBeoordelingen": 0,
       "BeoordelingCumulatief": 0
+    },
+    {
+      "Titel": "Xayah",
+      "Categorie": "Actie",
+      "Leeftijd": 12,
+      "Beschrijving": "Xayah en rakan",
+      "Taal": "Nederlands",
+      "Ondertiteling": "geen",
+      "Acteurs": "John",
+      "Regisseur": "Baba",
+      "Zaal": 3,
+      "Projectiemoment": [
+        [
+          "30-07-2021",
+          "10:30",
+          "11:40",
+          "12:40"
+        ],
+        [
+          "30-08-2021",
+          "12:20"
+        ]
+      ],
+      "Beoordeling": 0,
+      "AantalBeoordelingen": 0,
+      "BeoordelingCumulatief": 0
     }
   ],
-  "Customers": [],
+  "ToekomstigeFilms": [],
   "Reservations": [
     {
       "ID": "hallotest2",
+      "Customer": null,
       "Zaal": 3,
       "Seats": {
-        "Customer": null,
         "Rij": 3,
         "Column": 20,
         "Price": 15.0
@@ -172,9 +198,9 @@
     },
     {
       "ID": "hallotest2",
+      "Customer": null,
       "Zaal": 1,
       "Seats": {
-        "Customer": null,
         "Rij": 5,
         "Column": 5,
         "Price": 30.0

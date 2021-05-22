@@ -162,7 +162,6 @@ namespace ProjectB
             if (obj is MasterSeat) { MasterSeat s = (MasterSeat)obj; p = s.Price; }
             BaseSeat selectedseat = new BaseSeat
             (
-                null,
                 selectedRow,
                 selectedColumn,
                 p

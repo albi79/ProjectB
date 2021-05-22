@@ -18,7 +18,7 @@ namespace ProjectB.DAL
             }
 
             StorageFileLocation = filename;
-            string fileContent = File.ReadAllText(StorageFileLocation);
+            string fileContent = File.ReadAllText("../../../DAL/ProjectB.json");
 
             try
             {

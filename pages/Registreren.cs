@@ -12,7 +12,6 @@ namespace ProjectB.pages
         {
             Console.Clear();
 
-
             string naam2 = Beheer.Input("Naam: ");
             naam2 = Beheer.ControlEmpty(naam2);
             naam2 = OnlyString(naam2);
@@ -26,7 +25,7 @@ namespace ProjectB.pages
 
             string email2 = Beheer.Input("E-mail: ");
             email2 = Beheer.ControlEmpty(email2);
-            string email3 = EmailControle(email2);     
+            string email3 = EmailControle(email2);
 
             string email22 = Beheer.Input("E-mail bevestiging: ");
 
@@ -63,12 +62,12 @@ namespace ProjectB.pages
 
             string gebruikersnaam2 = Beheer.Input("Gebruikersnaam: ");
             gebruikersnaam2 = Beheer.ControlEmpty(gebruikersnaam2);
-            Console.WriteLine("Wachtwoord moet voldoen aan de volgende eisen, minimaal één hoofdletter, minimaal één kleine letter en minimaal één cijfer.");
+            Console.WriteLine("Wachtwoord moet voldoen aan de volgende eisen, minimaal achter characters, één hoofdletter, één kleine letter en één cijfer bevatten.");
             string wachtwoord2 = Beheer.Input("Wachtwoord: ");
-            string wachtwoord3 = WachtwoordControle(wachtwoord2);
+            wachtwoord2 = WachtwoordControle(wachtwoord2);
             string wachtwoord22 = Beheer.Input("Wachtwoord bevestiging: ");
             string opnieuwWachtwoord = "j";
-            while (wachtwoord3 != wachtwoord22)
+            while (wachtwoord2 != wachtwoord22)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Uw wachtwoord komt niet over een. Wilt u het opnieuw proberen?");
@@ -83,9 +82,9 @@ namespace ProjectB.pages
                 else if (opnieuwWachtwoord == "j")
                 {
                     wachtwoord2 = Beheer.Input("Wachtwoord: ");
-                    wachtwoord3 = WachtwoordControle(wachtwoord2);
+                    wachtwoord2 = WachtwoordControle(wachtwoord2);
                     wachtwoord22 = Beheer.Input("Wachtwoord bevestiging: ");
-                    if (wachtwoord3 == wachtwoord22)
+                    if (wachtwoord2 == wachtwoord22)
                     {
                         Console.ResetColor();
                         opnieuwWachtwoord = "n";
@@ -109,15 +108,45 @@ namespace ProjectB.pages
                 wachtwoord = wachtwoord2,
             };
 
-            
+
             DataStorageHandler.Storage.Persons.Add(Gast);
             DataStorageHandler.SaveChanges();
             Console.Clear();
-            ConsoleMenu.consoleMenu();
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Uw gebruiker is met succes aangemaakt!");
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
+            Console.WriteLine("Waar wilt u nu naar toe?");
+            Console.WriteLine("1. Terug naar startscherm");
+            Console.WriteLine("2. Verder naar het applicatie menu");
+            string GebruikerInput = Beheer.Input("");
+
+            if (GebruikerInput == "1")
+                Startscherm.startscherm();
+
+            else if (GebruikerInput == "2")
+                ConsoleMenu.consoleMenu(gebruikersnaam2);
+
+            else
+            {
+                while (GebruikerInput != "1" || GebruikerInput != "2")
+                {
+                    Console.WriteLine("Er ging iets fout, probeer het opnieuw. Keuze uit 1 (startscherm) en 2 (applicatie menu).");
+                    GebruikerInput = Beheer.Input("");
+                    if (GebruikerInput == "1")
+                        Startscherm.startscherm();
+
+                    else if (GebruikerInput == "2")
+                        ConsoleMenu.consoleMenu(gebruikersnaam2);
+                }
+            }
+
+            ConsoleMenu.consoleMenu(gebruikersnaam2);
+
         }
         private static string WachtwoordControle(string wachtwoord2)
         {
-            if (Regex.IsMatch(wachtwoord2, "[A-Z]") && Regex.IsMatch(wachtwoord2, "[a-z]") && Regex.IsMatch(wachtwoord2, "[0-9]"))
+            if (Regex.IsMatch(wachtwoord2, "[A-Z]") && Regex.IsMatch(wachtwoord2, "[a-z]") && Regex.IsMatch(wachtwoord2, "[0-9]") && wachtwoord2.Length > 8)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Uw wachtwoord is goedgekeurd");
@@ -125,42 +154,84 @@ namespace ProjectB.pages
             }
             else
             {
-                while (!(Regex.IsMatch(wachtwoord2, "[A-Z]")) || !(Regex.IsMatch(wachtwoord2, "[a-z]")) || !(Regex.IsMatch(wachtwoord2, "[0-9]")))
+                while (!(Regex.IsMatch(wachtwoord2, "[A-Z]")) || !(Regex.IsMatch(wachtwoord2, "[a-z]")) || !(Regex.IsMatch(wachtwoord2, "[0-9]")) || wachtwoord2.Length < 8)
                 {
-                    if (Regex.IsMatch(wachtwoord2, "[A-Z]") && Regex.IsMatch(wachtwoord2, "[a-z]") && !(Regex.IsMatch(wachtwoord2, "[0-9]")))
+                    if (Regex.IsMatch(wachtwoord2, "[A-Z]") && Regex.IsMatch(wachtwoord2, "[a-z]") && !(Regex.IsMatch(wachtwoord2, "[0-9]")) && wachtwoord2.Length > 8)
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("Uw wachtwoord mist een cijfer.");
                     }
-                    else if (Regex.IsMatch(wachtwoord2, "[A-Z]") && !(Regex.IsMatch(wachtwoord2, "[a-z]")) && !(Regex.IsMatch(wachtwoord2, "[0-9]")))
+                    else if (Regex.IsMatch(wachtwoord2, "[A-Z]") && !(Regex.IsMatch(wachtwoord2, "[a-z]")) && !(Regex.IsMatch(wachtwoord2, "[0-9]")) && wachtwoord2.Length > 8)
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("Uw wachtwoord mist een cijfer en een kleine letter.");
                     }
-                    else if (!(Regex.IsMatch(wachtwoord2, "[A-Z]")) && !(Regex.IsMatch(wachtwoord2, "[a-z]")) && !(Regex.IsMatch(wachtwoord2, "[0-9]")))
+                    else if (!(Regex.IsMatch(wachtwoord2, "[A-Z]")) && !(Regex.IsMatch(wachtwoord2, "[a-z]")) && !(Regex.IsMatch(wachtwoord2, "[0-9]")) && wachtwoord2.Length > 8)
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("Uw wachtwoord mist een cijfer, een kleine letter en een hoofdletter.");
                     }
-                    else if (!(Regex.IsMatch(wachtwoord2, "[A-Z]")) && Regex.IsMatch(wachtwoord2, "[a-z]") && !(Regex.IsMatch(wachtwoord2, "[0-9]")))
+                    else if (!(Regex.IsMatch(wachtwoord2, "[A-Z]")) && Regex.IsMatch(wachtwoord2, "[a-z]") && !(Regex.IsMatch(wachtwoord2, "[0-9]")) && wachtwoord2.Length > 8)
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("Uw wachtwoord is mist een cijfer en een hoofdletter.");
                     }
-                    else if (Regex.IsMatch(wachtwoord2, "[A-Z]") && !(Regex.IsMatch(wachtwoord2, "[a-z]")) && Regex.IsMatch(wachtwoord2, "[0-9]"))
+                    else if (Regex.IsMatch(wachtwoord2, "[A-Z]") && !(Regex.IsMatch(wachtwoord2, "[a-z]")) && Regex.IsMatch(wachtwoord2, "[0-9]") && wachtwoord2.Length > 8)
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("Uw wachtwoord mist een kleine letter.");
                     }
-                    else if (!(Regex.IsMatch(wachtwoord2, "[A-Z]")) && !(Regex.IsMatch(wachtwoord2, "[a-z]")) && Regex.IsMatch(wachtwoord2, "[0-9]"))
+                    else if (!(Regex.IsMatch(wachtwoord2, "[A-Z]")) && !(Regex.IsMatch(wachtwoord2, "[a-z]")) && Regex.IsMatch(wachtwoord2, "[0-9]") && wachtwoord2.Length > 8)
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("Uw wachtwoord mist een kleine letter en een hoofdletter.");
                     }
-                    else if (!(Regex.IsMatch(wachtwoord2, "[A-Z]")) && Regex.IsMatch(wachtwoord2, "[a-z]") && Regex.IsMatch(wachtwoord2, "[0-9]"))
+                    else if (!(Regex.IsMatch(wachtwoord2, "[A-Z]")) && Regex.IsMatch(wachtwoord2, "[a-z]") && Regex.IsMatch(wachtwoord2, "[0-9]") && wachtwoord2.Length > 8)
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("Uw wachtwoord mist een hoofdletter.");
+                    }
+
+
+                    else if (!(Regex.IsMatch(wachtwoord2, "[A-Z]")) && !(Regex.IsMatch(wachtwoord2, "[a-z]")) && !(Regex.IsMatch(wachtwoord2, "[0-9]")) && !(wachtwoord2.Length > 8))
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Uw wachtwoord mist een cijfer, een kleine letter, een hoofdletter en is korter dan acht characters.");
+                    }
+                    else if (Regex.IsMatch(wachtwoord2, "[A-Z]") && !(Regex.IsMatch(wachtwoord2, "[a-z]")) && Regex.IsMatch(wachtwoord2, "[0-9]") && !(wachtwoord2.Length > 8))
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Uw wachtwoord mist een kleine letter en is korter dan acht characters.");
+                    }
+                    else if (!(Regex.IsMatch(wachtwoord2, "[A-Z]")) && !(Regex.IsMatch(wachtwoord2, "[a-z]")) && Regex.IsMatch(wachtwoord2, "[0-9]") && !(wachtwoord2.Length > 8))
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Uw wachtwoord mist een kleine letter, een hoofdletter en is korter dan acht characters.");
+                    }
+                    else if (!(Regex.IsMatch(wachtwoord2, "[A-Z]")) && Regex.IsMatch(wachtwoord2, "[a-z]") && Regex.IsMatch(wachtwoord2, "[0-9]") && !(wachtwoord2.Length > 8))
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Uw wachtwoord mist een hoofdletter en is korter dan acht characters.");
+                    }
+                    else if (Regex.IsMatch(wachtwoord2, "[A-Z]") && Regex.IsMatch(wachtwoord2, "[a-z]") && !(Regex.IsMatch(wachtwoord2, "[0-9]")) && !(wachtwoord2.Length > 8))
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Uw wachtwoord mist een cijfer en is korter dan acht characters.");
+                    }
+                    else if (Regex.IsMatch(wachtwoord2, "[A-Z]") && !(Regex.IsMatch(wachtwoord2, "[a-z]")) && !(Regex.IsMatch(wachtwoord2, "[0-9]")) && !(wachtwoord2.Length > 8))
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Uw wachtwoord mist een kleine letter, cijfer en is korter dan acht characters.");
+                    }
+                    else if (!(Regex.IsMatch(wachtwoord2, "[A-Z]")) && Regex.IsMatch(wachtwoord2, "[a-z]") && !(Regex.IsMatch(wachtwoord2, "[0-9]")) && !(wachtwoord2.Length > 8))
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Uw wachtwoord mist een hoofdletter, cijfer en is korter dan acht characters.");
+                    }
+                    else if (Regex.IsMatch(wachtwoord2, "[A-Z]") && Regex.IsMatch(wachtwoord2, "[a-z]") && Regex.IsMatch(wachtwoord2, "[0-9]") && !(wachtwoord2.Length > 8))
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Uw wachtwoord is korter dan acht characters.");
                     }
                     else
                     {
@@ -202,7 +273,7 @@ namespace ProjectB.pages
                     OnlyString(var2);
                     return var2;
                 }
-                
+
             }
             return var;
         }

@@ -9,7 +9,7 @@ namespace ProjectB.Classes
     {
         public List<Person> Persons { get; set; } = new List<Person>();
         public List<Film> Films { get; set; } = new List<Film>();
-        public List<Customer> Customers { get; set; } = new List<Customer>();
+        public List<ToekomstigeFilm> ToekomstigeFilms { get; set; } = new List<ToekomstigeFilm>();
         public List<Reservation> Reservations { get; set; } = new List<Reservation>();
     }
 }

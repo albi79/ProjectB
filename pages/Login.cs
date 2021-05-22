@@ -30,7 +30,7 @@ namespace ProjectB.pages
                 else if (loginGebruikersnaam == person.gebruikersnaam && loginWachtwoord == person.wachtwoord)
                 {
                     Console.Clear();
-                    ConsoleMenu.consoleMenu();
+                    ConsoleMenu.consoleMenu(loginGebruikersnaam);
                 }
             }
 

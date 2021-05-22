@@ -13,6 +13,7 @@ namespace ProjectB.pages
     {
         public static void adminMenu()
         {
+            Console.Clear();
             string menuinput;
             //int menuchoice;
 
@@ -24,9 +25,8 @@ namespace ProjectB.pages
 
             Console.WriteLine("Welkom bij de Admin-menu:");
             Console.WriteLine("1. Uitloggen");
-            Console.WriteLine("2. Sales overview");
+            Console.WriteLine("2. Sales overview en tickets terug vinden");
             Console.WriteLine("3. Filmprogramma beheren");
-            Console.WriteLine("4. Ticket terugvinden");
             Console.WriteLine("---------------------------");
             Console.WriteLine("Voer uw optienummer in");
 
@@ -87,17 +87,9 @@ namespace ProjectB.pages
                     validinputmenu = true;
                 }
 
-                else if (menuinput == "4")
-                {
-                    Console.Clear();
-                    //Console.WriteLine("Hier wordt de ticket terugvinden scherm aangeroepen");
-                    TicketTerugvinden.ticketTerugvinden();
-                    validinputmenu = true;
-                }
-
                 else
                 {
-                    Console.WriteLine("FOUTMELDING: er is een niet bestaande optie gekozen. Kies uit de nummers: 1, 2, 3, of 4");
+                    Console.WriteLine("FOUTMELDING: er is een niet bestaande optie gekozen. Kies uit de nummers: 1, 2, 3");
                     validinputmenu = false;
                 }
             }

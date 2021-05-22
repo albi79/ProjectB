@@ -62,7 +62,7 @@ namespace ProjectB.pages
                     {
                         Console.Clear();
                         //Console.WriteLine("Hier wordt de welkomscherm aangeroepen");
-                        ConsoleMenu.consoleMenu();
+                        ConsoleMenu.consoleMenu("");
                         vldinptwthaccount = true;
                     }
 

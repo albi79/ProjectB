@@ -10,7 +10,7 @@ namespace ProjectB.pages
 {
     class Reserveren
     {
-        public static void reserveren(int zaalnummer)
+        public static void reserveren(int zaalnummer, string gebruikersnaam)
         {
             Console.Clear();
             Console.WriteLine("Hoeveel kaartjes wilt u bestellen?");
@@ -59,7 +59,7 @@ namespace ProjectB.pages
 
                     Console.WriteLine("\nDit is de informatie over uw bestelling:\n");
 
-                    Console.WriteLine("\nKlantnaam: " + nieuweReservering.Seats.Customer + "\nZaal: " + nieuweReservering.Zaal + "\nRij: " + nieuweReservering.Seats.Rij + "\nKolom: " + nieuweReservering.Seats.Column + "\nPrijs: " + nieuweReservering.Seats.Price + "\nSnacks: " + nieuweReservering.Snack);
+                    Console.WriteLine("\nKlantnaam: " + "" + "\nZaal: " + nieuweReservering.Zaal + "\nRij: " + nieuweReservering.Seats.Rij + "\nKolom: " + nieuweReservering.Seats.Column + "\nPrijs: " + nieuweReservering.Seats.Price + "\nSnacks: " + nieuweReservering.Snack);
 
                     Console.WriteLine("\nDoor verder te gaan, gaat u akkoord met dat alle bestelgegevens hierboven correct is.\n1. JA\n2. NEE");
 
@@ -76,7 +76,7 @@ namespace ProjectB.pages
                             DataStorageHandler.SaveChanges();
                             Console.Clear();
                             Console.WriteLine("Het reserveren is gelukt!");
-                            ConsoleMenu.consoleMenu();
+                            ConsoleMenu.consoleMenu(gebruikersnaam);
                         }
                         else if (option == "2")
                         {
