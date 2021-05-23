@@ -21,7 +21,7 @@ namespace ProjectB.pages
 
             DataStorageHandler.Storage.Films.Add(huidigeFilms);
             DataStorageHandler.SaveChanges();*/
-            //AdminAanmaken.adminAanmaken();
+            AdminAanmaken.adminAanmaken();
         }
     }
 }
