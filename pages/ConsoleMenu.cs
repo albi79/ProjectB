@@ -9,6 +9,7 @@ namespace ProjectB.pages
 {
     class ConsoleMenu
     {
+        public string gebruikersnaam { get; }
         public static void consoleMenu(string gebruikersnaam)
         {
             Console.Clear();
