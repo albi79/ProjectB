@@ -13,5 +13,7 @@ namespace ProjectB.Classes
         public int Zaal { get; set; } 
         public BaseSeat Seats { get; set; } = new BaseSeat( -1, -1, -1.00);
         public string Snack { get; set; }
+        public double Snackprice { get; set; }
+        public double Sumprice { get; set; }
     }
 }

@@ -71,6 +71,15 @@
       "email": "AdminBios",
       "gebruikersnaam": "AdminBios",
       "wachtwoord": "Nimda2021"
+    },
+    {
+      "naam": "albert",
+      "tussenvoegsel": "",
+      "achternaam": "kang",
+      "geboortedatum": "30-07-1999",
+      "email": "albertkang420@gmail.com",
+      "gebruikersnaam": "albi79",
+      "wachtwoord": "Albert52855!"
     }
   ],
   "Films": [
@@ -194,26 +203,43 @@
   ],
   "Reservations": [
     {
-      "ID": "hallotest2",
-      "Customer": null,
-      "Zaal": 3,
-      "Seats": {
-        "Rij": 3,
-        "Column": 20,
-        "Price": 15.0
-      },
-      "Snack": "Popcorn Zout"
-    },
-    {
-      "ID": "hallotest2",
-      "Customer": null,
+      "ID": "0",
+      "Customer": "",
       "Zaal": 1,
       "Seats": {
-        "Rij": 5,
-        "Column": 5,
-        "Price": 30.0
+        "Rij": 2,
+        "Column": 2,
+        "Price": 7.5
       },
-      "Snack": "Popcorn Mix"
+      "Snack": "Popcorn Zout",
+      "Snackprice": 6.5,
+      "Sumprice": 14.0
+    },
+    {
+      "ID": "1",
+      "Customer": "",
+      "Zaal": 1,
+      "Seats": {
+        "Rij": 0,
+        "Column": 3,
+        "Price": 7.5
+      },
+      "Snack": "Popcorn Mix",
+      "Snackprice": 6.5,
+      "Sumprice": 14.0
+    },
+    {
+      "ID": "2",
+      "Customer": "albi79",
+      "Zaal": 1,
+      "Seats": {
+        "Rij": 0,
+        "Column": 6,
+        "Price": 7.5
+      },
+      "Snack": "Popcorn Zoet",
+      "Snackprice": 6.5,
+      "Sumprice": 14.0
     }
   ]
 }

@@ -48,19 +48,33 @@ namespace ProjectB.pages
                     }
 
                     string snack = Snackskiezen.snackskiezen();
+                    double snackPrice = 0.0;
+
+                    if (snack.IndexOf("Geen") == -1)
+                    {
+                        snackPrice = 6.50;
+                    }
+
+                    string Reservationcounter = DataStorageHandler.Storage.Reservations.Count.ToString();
+
+                    double sumPrice = selectedSeat.Price + snackPrice;
+
                     Reservation nieuweReservering = new Reservation
 
                     {
-                        ID = "hallotest2",
+                        ID = Reservationcounter,
+                        Customer = gebruikersnaam,
                         Zaal = zaalnummer,
                         Seats = selectedSeat,
                         Snack = snack,
+                        Snackprice = snackPrice,
+                        Sumprice = sumPrice,
                     };
 
                     Console.WriteLine("\nDit is de informatie over uw bestelling:\n");
 
-                    Console.WriteLine("\nKlantnaam: " + "" + "\nZaal: " + nieuweReservering.Zaal + "\nRij: " + nieuweReservering.Seats.Rij + "\nKolom: " + nieuweReservering.Seats.Column + "\nPrijs: " + nieuweReservering.Seats.Price + "\nSnacks: " + nieuweReservering.Snack);
-
+                    Console.WriteLine("\nKlantnaam: " + nieuweReservering.Customer + "\nZaal: " + nieuweReservering.Zaal + "\nRij: " + nieuweReservering.Seats.Rij + "\nZitplaatsnummer: " + nieuweReservering.Seats.Column + "\nPrijs: " + nieuweReservering.Seats.Price + "\nSnacks: " + nieuweReservering.Snack + "\nSnackprijs: " + nieuweReservering.Snackprice + "\nTotale prijs: " + nieuweReservering.Sumprice);
+                    
                     Console.WriteLine("\nDoor verder te gaan, gaat u akkoord met dat alle bestelgegevens hierboven correct is.\n1. JA\n2. NEE");
 
                     bool validoption = false;
