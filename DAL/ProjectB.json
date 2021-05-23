@@ -183,7 +183,15 @@
       "BeoordelingCumulatief": 0
     }
   ],
-  "ToekomstigeFilms": [],
+  "ToekomstigeFilms": [
+    {
+      "Titel": "The wolf of wallstreet",
+      "Categorie": "Comedy",
+      "Leeftijd": 18,
+      "Beschrijving": "Heel veel geld",
+      "Release": "6 maart"
+    }
+  ],
   "Reservations": [
     {
       "ID": "hallotest2",

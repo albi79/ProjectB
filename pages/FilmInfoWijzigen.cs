@@ -55,20 +55,12 @@ namespace ProjectB.pages
             Console.WriteLine("2: Categorie: " + DataStorageHandler.Storage.Films[selectedFilm].Categorie);
             Console.WriteLine("3: Minimum leeftijd: " + DataStorageHandler.Storage.Films[selectedFilm].Leeftijd);
             Console.WriteLine("4: Beschrijving: " + DataStorageHandler.Storage.Films[selectedFilm].Beschrijving);
-            //Console.WriteLine("5: Projectie: " + DataStorageHandler.Storage.Films[selectedFilm].Projectie);
+            Console.WriteLine("5: Projectie: " + DataStorageHandler.Storage.Films[selectedFilm].Projectiemoment);
             Console.WriteLine("6: Taal: " + DataStorageHandler.Storage.Films[selectedFilm].Taal);
             Console.WriteLine("7: Ondertiteling: " + DataStorageHandler.Storage.Films[selectedFilm].Ondertiteling);
             Console.WriteLine("8: Acteurs: " + DataStorageHandler.Storage.Films[selectedFilm].Acteurs);
             Console.WriteLine("9: Regiseur: " + DataStorageHandler.Storage.Films[selectedFilm].Regisseur);
-            
-            /*Console.Write("10 Tijd van projectie: ");
-            for (int i = 0; i < DataStorageHandler.Storage.Films[selectedFilm].Tijd.Length; i++) 
-            {
-                Console.Write(DataStorageHandler.Storage.Films[selectedFilm].Tijd[i] + " / ");
-            }
-
-            Console.WriteLine("\n11: Projectie datum/data:" + DataStorageHandler.Storage.Films[selectedFilm].Data);*/
-            Console.WriteLine("12: Zaal: " + DataStorageHandler.Storage.Films[selectedFilm].Zaal);
+            Console.WriteLine("10: Zaal: " + DataStorageHandler.Storage.Films[selectedFilm].Zaal);
             Console.WriteLine();
             Console.WriteLine("0. Terug naar filmprogramma beheren");
 
@@ -123,17 +115,75 @@ namespace ProjectB.pages
                     filmInfoWijzigen(selectedFilm);
             }
 
-            /*else if (infoIndex == "5")
+            else if (infoIndex == "5")
             {
-                string nieuweInfo = Beheer.Input("Wat is de juiste projectie: ");
-                if (inputCheck(nieuweInfo))
+                int hoeveelDagen = 0;
+                bool dagenInput = false;
+                while (dagenInput != true)
                 {
-                    DataStorageHandler.Storage.Films[selectedFilm].Projectie = nieuweInfo;
-                    FilmprogrammaBeheren.filmprogrammaBeheren();
+                    try
+                    {
+                        hoeveelDagen = Int32.Parse(Beheer.Input("\nOp hoeveel dagen totaal wordt de film gedraaid? "));
+                        dagenInput = true;
+                    }
+                    catch { Console.WriteLine("Verkeerde input!\nTyp Enter"); Beheer.Input(); }
                 }
-                else
-                    filmInfoWijzigen(selectedFilm);
-            }*/
+                string[][] nProjectiemoment = new string[hoeveelDagen][];
+
+                for (int i = 0; i < hoeveelDagen; i++)
+                {
+                    string datum = "";
+                    bool datumInput = false;
+                    while (datumInput != true)
+                    {
+                        Console.WriteLine($"\nWelke datum is de {i + 1}e projectie?\n(DD-MM-JJJJ)");
+                        datum = Beheer.Input("");
+                        if (datum.Length == 10)
+                            datumInput = true;
+                        else
+                        {
+                            Console.WriteLine("Verkeerde input!\nTyp Enter");
+                            Beheer.Input();
+                        }
+                    }
+
+                    int hoeveelTijden = 0;
+                    bool tijdenInput = false;
+                    while (tijdenInput != true)
+                    {
+                        try
+                        {
+                            hoeveelTijden = Int32.Parse(Beheer.Input($"\nHoe vaak wordt de film op {datum} gedraaid? \n"));
+                            nProjectiemoment[i] = new string[hoeveelTijden + 1];
+                            nProjectiemoment[i][0] = datum;
+                            tijdenInput = true;
+                        }
+                        catch { Console.WriteLine("Verkeerde input!\nTyp Enter"); Beheer.Input(); }
+                    }
+
+
+                    for (int x = 1; x < hoeveelTijden + 1; x++)
+                    {
+                        bool huidigeTijdInput = false;
+                        while (huidigeTijdInput != true)
+                        {
+                            Console.WriteLine($"\nOp welk tijdstip begint de {x}e projectie op {nProjectiemoment[i][0]}\n(HH:MM) ?");
+                            string huidigeTijd = Beheer.Input("");
+                            if (huidigeTijd.Length == 5)
+                            {
+                                huidigeTijdInput = true;
+                                nProjectiemoment[i][x] = huidigeTijd;
+                            }
+                            else
+                            {
+                                Console.WriteLine("\nVerkeerde input!\nTyp Enter");
+                                Beheer.Input();
+                            }
+                        }
+                    }
+                }
+                DataStorageHandler.Storage.Films[selectedFilm].Projectiemoment = nProjectiemoment;
+            }
 
             else if (infoIndex == "6")
             {
@@ -183,32 +233,7 @@ namespace ProjectB.pages
                     filmInfoWijzigen(selectedFilm);
             }
 
-            /*else if (infoIndex == "10")
-            {
-                //Bij verkeerde tijd input moet je via de app bewerken filmInfoWijzigen()
-                int hoeveelTijden = Int32.Parse(Beheer.Input("\nHoe vaak wordt de film op een dag gedraait? "));
-                string[] nTijd = new string[hoeveelTijden];
-                for (int i = 0; i < hoeveelTijden; i++)
-                {
-                    Console.WriteLine($"\nOp welk tijdstip begint de {i + 1}e projectie (HH:MM) ?");
-                    nTijd[i] = Beheer.Input("");
-                }
-                DataStorageHandler.Storage.Films[selectedFilm].Tijd = nTijd;
-            }
-
-            else if (infoIndex == "11")
-            {
-                string nieuweInfo = Beheer.Input("Op welke data/datum draait de film: ");
-                if (inputCheck(nieuweInfo))
-                {
-                    DataStorageHandler.Storage.Films[selectedFilm].Data = nieuweInfo;
-                    FilmprogrammaBeheren.filmprogrammaBeheren();
-                }
-                else
-                    filmInfoWijzigen(selectedFilm);
-            }*/
-
-            else if (infoIndex == "12")
+            else if (infoIndex == "10")
             {
                 int nZaal = 0;
                 while (nZaal != 1 && nZaal != 2 && nZaal != 3)

@@ -15,6 +15,7 @@ namespace ProjectB.pages
         {
                 Console.WriteLine("1. Huidige films beheren");
                 Console.WriteLine("2. Toekomstige films beheren");
+                Console.WriteLine("3. Film uit huidige films bewerken");
                 Console.WriteLine("b. Om terug te gaan");
 
                 string HuidigOfToekomstig = Beheer.Input("");
@@ -93,28 +94,28 @@ namespace ProjectB.pages
                 verwijderen(HuidigOfToekomstig);
 
             //WIJZIGEN NOG NIET KUNNEN SAMENVOEGEN(DANI & NISA)
-            //else if(gegeven == 3)
-            //{
-            //    Console.Clear();
-            //    Console.WriteLine("Film info bewerken\n\nWelke film wilt u wijzigen:\n");
+            else if(gegeven == "3")
+            {
+                Console.Clear();
+                Console.WriteLine("Film info bewerken\n\nWelke film wilt u wijzigen:\n");
 
-            //    int filmNummer = 1;
-            //    foreach (var film in DataStorageHandler.Storage.Films)
-            //    {
-            //        Console.WriteLine($"{filmNummer}: {film.Titel}");
-            //        filmNummer++;
-            //    }
-            //    int selectedFilm = Int32.Parse(Beheer.Input("\n")) -1;
+                int filmNummer = 1;
+                foreach (var film in DataStorageHandler.Storage.Films)
+                {
+                    Console.WriteLine($"{filmNummer}: {film.Titel}");
+                    filmNummer++;
+                }
+                int selectedFilm = Int32.Parse(Beheer.Input("\n")) -1;
 
-            //    try
-            //    {
-            //        FilmInfoWijzigen.filmInfoWijzigen(selectedFilm);
-            //    }
-            //    catch
-            //    {
-            //        FilmprogrammaBeheren.filmprogrammaBeheren();
-            //    }
-            //}
+                try
+                {
+                    FilmInfoWijzigen.filmInfoWijzigen(selectedFilm);
+                  }
+                catch
+                {
+                    FilmprogrammaBeheren.filmprogrammaBeheren();
+                }
+            }
         }
         public static void toevoegen(string HuidigOfToekomstig)
         {
