@@ -12,7 +12,7 @@ namespace ProjectB.pages
 {
     class Reserveren
     {
-        public static void reserveren(int zaalnummer, string gebruikersnaam)
+        public static void reserveren(int zaalnummer, string gebruikersnaam, int selectedFilm)
         {
             Console.Clear();
             Console.WriteLine("Hoeveel kaartjes wilt u bestellen?");
@@ -50,6 +50,9 @@ namespace ProjectB.pages
                     }
 
                     string snack = Snackskiezen.snackskiezen();
+
+                    string tijd = Datumentijdkiezen.datumentijdkiezen(selectedFilm);
+
                     double snackPrice = 0.0;
 
                     if (snack.IndexOf("Geen") == -1)

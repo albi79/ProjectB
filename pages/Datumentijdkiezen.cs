@@ -7,7 +7,7 @@ namespace ProjectB.pages
 {
     class Datumentijdkiezen
     {
-        public static string datumentijdkiezen()
+        public static string datumentijdkiezen(int selectedfilm)
         {
             DataStorageHandler.SaveChanges();
             Console.Clear();
