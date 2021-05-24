@@ -3,8 +3,10 @@ using ProjectB.Classes.Seats;
 using ProjectB.DAL;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace ProjectB.pages
 {
@@ -59,11 +61,59 @@ namespace ProjectB.pages
 
                     double sumPrice = selectedSeat.Price + snackPrice;
 
+                    if (gebruikersnaam == null)
+                    {
+
+                        Console.Clear();
+
+                        string naam2 = Beheer.Input("\nWat is uw naam?");
+                        naam2 = Beheer.ControlEmpty(naam2);
+                        naam2 = OnlyString(naam2);
+
+                        string tussenvoegsel2 = Beheer.Input("Tussenvoegsel: ");
+                        string achternaam2 = Beheer.Input("Achternaam: ");
+                        achternaam2 = OnlyString(achternaam2);
+                        achternaam2 = Beheer.ControlEmpty(achternaam2);
+
+                        string email2 = Beheer.Input("E-mail: ");
+                        email2 = Beheer.ControlEmpty(email2);
+                        string email3 = EmailControle(email2);
+
+                        string email22 = Beheer.Input("E-mail bevestiging: ");
+
+                        string opnieuwMail = "j";
+                        while (email3 != email22 && opnieuwMail == "j")
+                        {
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("Uw e-mail komt niet over een. Voer j in om opnieuw in te voeren.");
+                            opnieuwMail = Beheer.Input("");
+                            if (opnieuwMail == "j")
+                            {
+                                email2 = Beheer.Input("E-mail: ");
+                                email3 = EmailControle(email2);
+                                email22 = Beheer.Input("E-mail bevestiging: ");
+                                if (email3 == email22)
+                                {
+                                    Console.ResetColor();
+                                    opnieuwMail = "n";
+                                }
+                            }
+                            else
+                            {
+                                Console.WriteLine("Verkeerd invoer, probeer het nogmaals.");
+                                opnieuwMail = "j";
+                            }
+                        }
+                        gebruikersnaam = naam2 + achternaam2;
+
+                    }
+
                     Reservation nieuweReservering = new Reservation
 
                     {
                         ID = Reservationcounter,
                         Customer = gebruikersnaam,
+                        Projectie = projectie,
                         Zaal = zaalnummer,
                         Seats = selectedSeat,
                         Snack = snack,
@@ -73,7 +123,7 @@ namespace ProjectB.pages
 
                     Console.WriteLine("\nDit is de informatie over uw bestelling:\n");
 
-                    Console.WriteLine("\nKlantnaam: " + nieuweReservering.Customer + "\nZaal: " + nieuweReservering.Zaal + "\nRij: " + nieuweReservering.Seats.Rij + "\nZitplaatsnummer: " + nieuweReservering.Seats.Column + "\nPrijs: " + nieuweReservering.Seats.Price + "\nSnacks: " + nieuweReservering.Snack + "\nSnackprijs: " + nieuweReservering.Snackprice + "\nTotale prijs: " + nieuweReservering.Sumprice);
+                    Console.WriteLine("\nKlantnaam: " + nieuweReservering.Customer + "\nProjectie: " + nieuweReservering.Projectie + "\nZaal: " + nieuweReservering.Zaal + "\nRij: " + nieuweReservering.Seats.Rij + "\nZitplaatsnummer: " + nieuweReservering.Seats.Column + "\nPrijs: " + nieuweReservering.Seats.Price + "\nSnacks: " + nieuweReservering.Snack + "\nSnackprijs: " + nieuweReservering.Snackprice + "\nTotale prijs: " + nieuweReservering.Sumprice);
                     
                     Console.WriteLine("\nDoor verder te gaan, gaat u akkoord met dat alle bestelgegevens hierboven correct is.\n1. JA\n2. NEE");
 
@@ -111,6 +161,40 @@ namespace ProjectB.pages
                     validticketinput = false;
                 }
             }
+        }
+        private static string OnlyString(string var)
+        {
+            if (Regex.IsMatch(var, "[0-9]"))
+            {
+                while (Regex.IsMatch(var, "[0-9]"))
+                {
+                    Console.WriteLine("Dit veld mag geen cijfers bevatten.");
+                    string var2 = "";
+                    var2 = Beheer.Input("Probeer het nogmaals: ");
+                    OnlyString(var2);
+                    return var2;
+                }
+
+            }
+            return var;
+        }
+        private static string EmailControle(string email2)
+        {
+            if (new EmailAddressAttribute().IsValid(email2))
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Uw mail is goedgekeurd!");
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Uw mail is foutgekeurd!");
+                email2 = Beheer.Input("E-mail: ");
+                email2 = Beheer.ControlEmpty(email2);
+                email2 = EmailControle(email2);
+            }
+            Console.ResetColor();
+            return email2;
         }
     }
 }

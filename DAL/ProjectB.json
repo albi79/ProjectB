@@ -240,6 +240,19 @@
       "Snack": "Popcorn Zoet",
       "Snackprice": 6.5,
       "Sumprice": 14.0
+    },
+    {
+      "ID": "3",
+      "Customer": "albi79",
+      "Zaal": 3,
+      "Seats": {
+        "Rij": 4,
+        "Column": 5,
+        "Price": 7.5
+      },
+      "Snack": "Popcorn Zoet",
+      "Snackprice": 6.5,
+      "Sumprice": 14.0
     }
   ]
 }
