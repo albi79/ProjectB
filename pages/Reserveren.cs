@@ -15,6 +15,11 @@ namespace ProjectB.pages
         public static void reserveren(int zaalnummer, string gebruikersnaam, int selectedFilm)
         {
             Console.Clear();
+
+            string datum = Datumkiezen.datumkiezen(selectedFilm);
+
+            string tijd = Tijdkiezen.tijdkiezen(selectedFilm);
+
             Console.WriteLine("STAP 1: Hoeveel kaartjes wilt u bestellen?");
 
             bool validticketinput = false;
@@ -50,8 +55,6 @@ namespace ProjectB.pages
                     }
 
                     string snack = Snackskiezen.snackskiezen();
-
-                    string tijd = Datumentijdkiezen.datumentijdkiezen(selectedFilm);
 
                     double snackPrice = 0.0;
 
@@ -116,6 +119,7 @@ namespace ProjectB.pages
                     {
                         ID = Reservationcounter,
                         Customer = gebruikersnaam,
+                        Datum = datum,
                         Projectie = projectie,
                         Zaal = zaalnummer,
                         Seats = selectedSeat,
@@ -126,7 +130,7 @@ namespace ProjectB.pages
 
                     Console.WriteLine("\nDit is de informatie over uw bestelling:\n");
 
-                    Console.WriteLine("\nKlantnaam: " + nieuweReservering.Customer + "\nProjectie: " + nieuweReservering.Projectie + "\nZaal: " + nieuweReservering.Zaal + "\nRij: " + nieuweReservering.Seats.Rij + "\nZitplaatsnummer: " + nieuweReservering.Seats.Column + "\nPrijs: " + nieuweReservering.Seats.Price + "\nSnacks: " + nieuweReservering.Snack + "\nSnackprijs: " + nieuweReservering.Snackprice + "\nTotale prijs: " + nieuweReservering.Sumprice);
+                    Console.WriteLine("\nKlantnaam: " + nieuweReservering.Customer + "\nDatum: "+ nieuweReservering.Datum + "\nProjectie: " + nieuweReservering.Projectie + "\nZaal: " + nieuweReservering.Zaal + "\nRij: " + nieuweReservering.Seats.Rij + "\nZitplaatsnummer: " + nieuweReservering.Seats.Column + "\nPrijs: " + nieuweReservering.Seats.Price + "\nSnacks: " + nieuweReservering.Snack + "\nSnackprijs: " + nieuweReservering.Snackprice + "\nTotale prijs: " + nieuweReservering.Sumprice);
                     
                     Console.WriteLine("\nDoor verder te gaan, gaat u akkoord met dat alle bestelgegevens hierboven correct is.\n1. JA\n2. NEE");
 

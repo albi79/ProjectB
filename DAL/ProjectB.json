@@ -84,36 +84,6 @@
   ],
   "Films": [
     {
-      "Titel": "South Park",
-      "Categorie": "Comedy",
-      "Leeftijd": 6,
-      "Beschrijving": "Cartoons maken grapjes",
-      "Taal": "Engels",
-      "Ondertiteling": "Nederlands",
-      "Acteurs": "Eric Cartmen",
-      "Regisseur": "Toba",
-      "Zaal": 3,
-      "Projectiemoment": null,
-      "Beoordeling": 0,
-      "AantalBeoordelingen": 0,
-      "BeoordelingCumulatief": 0
-    },
-    {
-      "Titel": "101 Dolmatiers",
-      "Categorie": "Family",
-      "Leeftijd": 4,
-      "Beschrijving": "Honden gaan op avontuur",
-      "Taal": "Nederlands",
-      "Ondertiteling": "Geen",
-      "Acteurs": "simba",
-      "Regisseur": "Nisa",
-      "Zaal": 3,
-      "Projectiemoment": null,
-      "Beoordeling": 0,
-      "AantalBeoordelingen": 0,
-      "BeoordelingCumulatief": 0
-    },
-    {
       "Titel": "The 'Notorius' Conor Mc Gregor",
       "Categorie": "Documentaire",
       "Leeftijd": 4,
@@ -205,6 +175,7 @@
     {
       "ID": "0",
       "Customer": "",
+      "Datum": null,
       "Projectie": null,
       "Zaal": 1,
       "Seats": {
@@ -219,6 +190,7 @@
     {
       "ID": "1",
       "Customer": "",
+      "Datum": null,
       "Projectie": null,
       "Zaal": 1,
       "Seats": {
@@ -233,6 +205,7 @@
     {
       "ID": "2",
       "Customer": "albi79",
+      "Datum": null,
       "Projectie": null,
       "Zaal": 1,
       "Seats": {
@@ -247,6 +220,7 @@
     {
       "ID": "3",
       "Customer": "albi79",
+      "Datum": null,
       "Projectie": null,
       "Zaal": 3,
       "Seats": {
@@ -261,6 +235,7 @@
     {
       "ID": "4",
       "Customer": "albi79",
+      "Datum": null,
       "Projectie": "IMAX",
       "Zaal": 3,
       "Seats": {
@@ -275,6 +250,7 @@
     {
       "ID": "5",
       "Customer": "albertKang",
+      "Datum": null,
       "Projectie": "IMAX",
       "Zaal": 3,
       "Seats": {
