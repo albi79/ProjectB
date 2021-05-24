@@ -18,8 +18,6 @@ namespace ProjectB.Classes
         public string Regisseur { get; set; }
         public int Zaal { get; set; }
         public string[][] Projectiemoment { get; set; }
-        //public string[] Tijd { get; set; }
-        //public string Data { get; set; } //Type aanpassen
         public int Beoordeling { get; set; }
         public int AantalBeoordelingen { get; set; }
         public int BeoordelingCumulatief { get; set; }
