@@ -128,7 +128,7 @@ namespace ProjectB.pages
                                 if (ageinput == "1")
                                 {
                                     Console.Clear();
-                                    Reserveren.reserveren(DataStorageHandler.Storage.Films[selectedFilm].Zaal, gebruikersnaam);
+                                    Reserveren.reserveren(DataStorageHandler.Storage.Films[selectedFilm].Zaal, gebruikersnaam, selectedFilm);
                                     agecheck = true;
                                 }
 
@@ -163,7 +163,7 @@ namespace ProjectB.pages
                         }
                         else
                         {
-                            Reserveren.reserveren(DataStorageHandler.Storage.Films[selectedFilm].Zaal, gebruikersnaam);
+                            Reserveren.reserveren(DataStorageHandler.Storage.Films[selectedFilm].Zaal, gebruikersnaam, selectedFilm);
                         }
                     }
                 }
@@ -214,7 +214,7 @@ namespace ProjectB.pages
                                 if (ageinput == "1")
                                 {
                                     Console.Clear();
-                                    Reserveren.reserveren(DataStorageHandler.Storage.Films[selectedFilm].Zaal, gebruikersnaam);
+                                    Reserveren.reserveren(DataStorageHandler.Storage.Films[selectedFilm].Zaal, gebruikersnaam, selectedFilm);
                                     agecheck = true;
                                 }
 
@@ -249,7 +249,7 @@ namespace ProjectB.pages
                         }
                         else
                         {
-                            Reserveren.reserveren(DataStorageHandler.Storage.Films[selectedFilm].Zaal, gebruikersnaam);
+                            Reserveren.reserveren(DataStorageHandler.Storage.Films[selectedFilm].Zaal, gebruikersnaam, selectedFilm);
                         }
                     }
                 }
