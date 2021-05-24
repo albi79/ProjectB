@@ -15,7 +15,7 @@ namespace ProjectB.pages
         public static void reserveren(int zaalnummer, string gebruikersnaam, int selectedFilm)
         {
             Console.Clear();
-            Console.WriteLine("Hoeveel kaartjes wilt u bestellen?");
+            Console.WriteLine("STAP 1: Hoeveel kaartjes wilt u bestellen?");
 
             bool validticketinput = false;
 

@@ -205,6 +205,7 @@
     {
       "ID": "0",
       "Customer": "",
+      "Projectie": null,
       "Zaal": 1,
       "Seats": {
         "Rij": 2,
@@ -218,6 +219,7 @@
     {
       "ID": "1",
       "Customer": "",
+      "Projectie": null,
       "Zaal": 1,
       "Seats": {
         "Rij": 0,
@@ -231,6 +233,7 @@
     {
       "ID": "2",
       "Customer": "albi79",
+      "Projectie": null,
       "Zaal": 1,
       "Seats": {
         "Rij": 0,
@@ -244,6 +247,7 @@
     {
       "ID": "3",
       "Customer": "albi79",
+      "Projectie": null,
       "Zaal": 3,
       "Seats": {
         "Rij": 4,
@@ -253,6 +257,34 @@
       "Snack": "Popcorn Zoet",
       "Snackprice": 6.5,
       "Sumprice": 14.0
+    },
+    {
+      "ID": "4",
+      "Customer": "albi79",
+      "Projectie": "IMAX",
+      "Zaal": 3,
+      "Seats": {
+        "Rij": 9,
+        "Column": 12,
+        "Price": 30.0
+      },
+      "Snack": "Popcorn Mix",
+      "Snackprice": 6.5,
+      "Sumprice": 36.5
+    },
+    {
+      "ID": "5",
+      "Customer": "albertKang",
+      "Projectie": "IMAX",
+      "Zaal": 3,
+      "Seats": {
+        "Rij": 7,
+        "Column": 9,
+        "Price": 15.0
+      },
+      "Snack": "Geen",
+      "Snackprice": 0.0,
+      "Sumprice": 15.0
     }
   ]
 }
