@@ -226,8 +226,6 @@ namespace ProjectB.pages
                         }
                     }
 
-                    Beheer.Input();
-
                     Film nieuweFilm = new Film
                     {
                         Titel = nTitel,

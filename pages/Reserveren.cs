@@ -15,6 +15,9 @@ namespace ProjectB.pages
         public static void reserveren(int zaalnummer, string gebruikersnaam, int selectedFilm)
         {
             Console.Clear();
+
+            string tijd = Datumkiezen.datumkiezen(selectedFilm);
+
             Console.WriteLine("Hoeveel kaartjes wilt u bestellen?");
 
             bool validticketinput = false;
@@ -50,8 +53,6 @@ namespace ProjectB.pages
                     }
 
                     string snack = Snackskiezen.snackskiezen();
-
-                    string tijd = Datumentijdkiezen.datumentijdkiezen(selectedFilm);
 
                     double snackPrice = 0.0;
 
