@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
@@ -33,6 +33,7 @@ namespace ProjectB.pages
             string Select = Beheer.Input("");
             int SelectSale = 0;
             if (Select == "b")
+<<<<<<< HEAD
             { 
                 Console.Clear();
                 AdminMenu.adminMenu();
@@ -41,6 +42,17 @@ namespace ProjectB.pages
                 try
                 {
                     SelectSale = Int32.Parse(Select)-1;
+=======
+            {
+                Console.Clear();
+                AdminMenu.adminMenu();
+            }
+            else
+            {
+                try
+                {
+                    SelectSale = Int32.Parse(Select) - 1;
+>>>>>>> origin/Dong
                 }
                 catch
                 {
@@ -66,9 +78,15 @@ namespace ProjectB.pages
                     break;
                 }
             }
+<<<<<<< HEAD
             Console.WriteLine("Zaal: " + DataStorageHandler.Storage.Reservations[SelectSale].Hall);
             Console.WriteLine("Projectie: ");
             Console.WriteLine("Rij: " + DataStorageHandler.Storage.Reservations[SelectSale].Seats.Row);
+=======
+            Console.WriteLine("Zaal: " + DataStorageHandler.Storage.Reservations[SelectSale].Zaal);
+            Console.WriteLine("Projectie: ");
+            Console.WriteLine("Rij: " + DataStorageHandler.Storage.Reservations[SelectSale].Seats.Rij);
+>>>>>>> origin/Dong
             Console.WriteLine("Stoelnumer: " + DataStorageHandler.Storage.Reservations[SelectSale].Seats.Column);
             if (DataStorageHandler.Storage.Reservations[SelectSale].Seats.Price == (int)DataStorageHandler.Storage.Reservations[SelectSale].Seats.Price)
                 Console.WriteLine("Projectie: €" + DataStorageHandler.Storage.Reservations[SelectSale].Seats.Price + ",-");

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
@@ -9,6 +9,7 @@ namespace ProjectB.pages
 {
     class ConsoleMenu
     {
+        public string gebruikersnaam { get; }
         public static void consoleMenu(string gebruikersnaam)
         {
             Console.Clear();
@@ -74,7 +75,11 @@ namespace ProjectB.pages
                     Console.Clear();
                     //Console.WriteLine("Hier wordt de filmprogramma scherm aangeroepen");
                     //FilmprogrammaBeheren.filmprogrammaBeheren();
+<<<<<<< HEAD
                     FilmSelect.filmSelect();
+=======
+                    FilmSelect.filmSelect(gebruikersnaam);
+>>>>>>> origin/Dong
                     validinputmenu = true;
                 }
 

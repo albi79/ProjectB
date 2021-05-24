@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
@@ -27,9 +27,9 @@ namespace ProjectB.pages
                     Console.ResetColor();
                     Console.WriteLine("\nFilmtitel: " + reservation.ID);
 
-                    Console.WriteLine("Zaal: " + reservation.Hall);
+                    Console.WriteLine("Zaal: " + reservation.Zaal);
                     Console.WriteLine("Projectie: ");
-                    Console.WriteLine("Rij: " + reservation.Seats.Row);
+                    Console.WriteLine("Rij: " + reservation.Seats.Rij);
                     Console.WriteLine("Stoelnumer: " + reservation.Seats.Column);
                     if (reservation.Seats.Price == (int)reservation.Seats.Price)
                         Console.WriteLine("Projectie: €" + reservation.Seats.Price + ",-");

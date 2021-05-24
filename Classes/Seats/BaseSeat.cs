@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -11,10 +11,11 @@ namespace ProjectB.Classes.Seats
         public int Column;
         public double Price;
 
-        public BaseSeat(int row, int column, double price)
+        public BaseSeat( int rij, int column, double price)
         {
             //Customer = customer;
             Row = row;
+
             Column = column;
             Price = price;
         }

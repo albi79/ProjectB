@@ -25,7 +25,7 @@ namespace ProjectB.pages
 
             string email2 = Beheer.Input("E-mail: ");
             email2 = Beheer.ControlEmpty(email2);
-            string email3 = EmailControle(email2);     
+            string email3 = EmailControle(email2);
 
             string email22 = Beheer.Input("E-mail bevestiging: ");
 
@@ -108,7 +108,7 @@ namespace ProjectB.pages
                 wachtwoord = wachtwoord2,
             };
 
-            
+
             DataStorageHandler.Storage.Persons.Add(Gast);
             DataStorageHandler.SaveChanges();
             Console.Clear();
@@ -273,7 +273,7 @@ namespace ProjectB.pages
                     OnlyString(var2);
                     return var2;
                 }
-                
+
             }
             return var;
         }

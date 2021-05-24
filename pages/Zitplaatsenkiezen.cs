@@ -1,4 +1,7 @@
-﻿using System;
+﻿using ProjectB;
+using ProjectB.Classes.Seats;
+using ProjectB.DAL;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,17 +9,47 @@ namespace ProjectB.pages
 {
     class Zitplaatsenkiezen
     {
-        public static void zitplaatsenkiezen()
+        public static BaseSeat zitplaatsenkiezen()
         {
-            Console.Clear();
-            Console.WriteLine("Kies uw zitplaats(en):");
-            Console.WriteLine("   1  2  3  4  5  6  7  8  9  10 11 12");
-            Console.WriteLine("A       [O][O][O][O][O][O][O][O]");
-            Console.WriteLine("B [O][O][O][O][O][O][O][O][O][O][O][O]");
-            Console.WriteLine("C [O][O][O][O][O][O][O][O][O][O][O][O]");
-            Console.WriteLine("D [O][O][O][O][O][O][O][O][O][O][O][O]");
-            Console.WriteLine("E       [O][O][O][O][O][O][O][O]");
+            object[][] seats150 = new object[][]
+            {
+            new object[]{ null, null, new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), null, null },
+            new object[]{ null, new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), null },
+            new object[]{ null, new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), null },
+            new object[]{ new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new VipSeat(), new VipSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat() },
+            new object[]{ new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new VipSeat(), new VipSeat(), new VipSeat(), new VipSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat() },
+            new object[]{ new RegularSeat(), new RegularSeat(), new RegularSeat(), new VipSeat(), new VipSeat(), new MasterSeat(), new MasterSeat(), new VipSeat(), new VipSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat() },
+            new object[]{ new RegularSeat(), new RegularSeat(), new RegularSeat(), new VipSeat(), new VipSeat(), new MasterSeat(), new MasterSeat(), new VipSeat(), new VipSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat() },
+            new object[]{ new RegularSeat(), new RegularSeat(), new RegularSeat(), new VipSeat(), new VipSeat(), new MasterSeat(), new MasterSeat(), new VipSeat(), new VipSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat() },
+            new object[]{ new RegularSeat(), new RegularSeat(), new RegularSeat(), new VipSeat(), new VipSeat(), new MasterSeat(), new MasterSeat(), new VipSeat(), new VipSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat() },
+            new object[]{ new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new VipSeat(), new VipSeat(), new VipSeat(), new VipSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat() },
+            new object[]{ new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new VipSeat(), new VipSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat() },
+            new object[]{ null, new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), null },
+            new object[]{ null, new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), null },
+            new object[]{ null, null, new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), null, null },
+            new object[]{ null, null, new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), null, null },
+            };
+            string prompt = "Selecteer uw zitplaats in Zaal1";
+            SeatsMenu zaal1 = new SeatsMenu(prompt, seats150);
+            zaal1.Display();
+            BaseSeat selectedSeat = zaal1.Run();
 
+            try
+            {
+
+                foreach (var item in DataStorageHandler.Storage.Reservations)
+                {
+                    if (selectedSeat.Rij == item.Seats.Rij && selectedSeat.Column == item.Seats.Column)
+                    {
+                        selectedSeat = null;
+                        zitplaatsenkiezen();
+                    }
+                }
+
+            }
+            catch (Exception) { };
+
+            return selectedSeat;
         }
     }
 }

@@ -96,6 +96,7 @@
       "Regisseur": "Michael Bay"
     },
     {
+<<<<<<< HEAD
       "Titel": "Transformers: The Last Knight",
       "Categorie": "Actie / Science Fiction",
       "Leeftijd": 12,
@@ -231,6 +232,196 @@
         "Price": 12.24
       },
       "Snack": "Popcorn ads"
+=======
+      "naam": "albert",
+      "tussenvoegsel": "",
+      "achternaam": "kang",
+      "geboortedatum": "30-07-1999",
+      "email": "albertkang420@gmail.com",
+      "gebruikersnaam": "albi79",
+      "wachtwoord": "Albert52855!"
+    }
+  ],
+  "Films": [
+    {
+      "Titel": "The 'Notorius' Conor Mc Gregor",
+      "Categorie": "Documentaire",
+      "Leeftijd": 4,
+      "Beschrijving": "Zie hoe een mixed martial artist van diep in schulde naar multi-millionair gaat dankzij wilskracht, geloof & discipline",
+      "Taal": "Iers",
+      "Ondertiteling": "Nederlands",
+      "Acteurs": "Conor McGregor",
+      "Regisseur": "Ali",
+      "Zaal": 1,
+      "Projectiemoment": [
+        [
+          "23-05-2021",
+          "16:00",
+          "23:30"
+        ],
+        [
+          "01-06-2021",
+          "09:10",
+          "13:40",
+          "16:27"
+        ]
+      ],
+      "Beoordeling": 0,
+      "AantalBeoordelingen": 0,
+      "BeoordelingCumulatief": 0
+    },
+    {
+      "Titel": "The 'notorious' Conor Mc Gregor",
+      "Categorie": "Documentaire",
+      "Leeftijd": 4,
+      "Beschrijving": "Zie hoe Conor van schulde, naar multi-millionaire gaat. Dankzij geloof, Wilskracht, discipline & de Mixed Martial Art!",
+      "Taal": "Iers",
+      "Ondertiteling": "Nederlands",
+      "Acteurs": "Conor Mc Gregor",
+      "Regisseur": "Ali Baba",
+      "Zaal": 1,
+      "Projectiemoment": [
+        [
+          "23-05-2021",
+          "18:00",
+          "23:20"
+        ],
+        [
+          "01-06-2021",
+          "21:05"
+        ]
+      ],
+      "Beoordeling": 0,
+      "AantalBeoordelingen": 0,
+      "BeoordelingCumulatief": 0
+    },
+    {
+      "Titel": "Xayah",
+      "Categorie": "Actie",
+      "Leeftijd": 12,
+      "Beschrijving": "Xayah en rakan",
+      "Taal": "Nederlands",
+      "Ondertiteling": "geen",
+      "Acteurs": "John",
+      "Regisseur": "Baba",
+      "Zaal": 3,
+      "Projectiemoment": [
+        [
+          "30-07-2021",
+          "10:30",
+          "11:40",
+          "12:40"
+        ],
+        [
+          "30-08-2021",
+          "12:20"
+        ]
+      ],
+      "Beoordeling": 0,
+      "AantalBeoordelingen": 0,
+      "BeoordelingCumulatief": 0
+    }
+  ],
+  "ToekomstigeFilms": [
+    {
+      "Titel": "The wolf of wallstreet",
+      "Categorie": "Comedy",
+      "Leeftijd": 18,
+      "Beschrijving": "Heel veel geld",
+      "Release": "6 maart"
+    }
+  ],
+  "Reservations": [
+    {
+      "ID": "0",
+      "Customer": "",
+      "Datum": null,
+      "Projectie": null,
+      "Zaal": 1,
+      "Seats": {
+        "Rij": 2,
+        "Column": 2,
+        "Price": 7.5
+      },
+      "Snack": "Popcorn Zout",
+      "Snackprice": 6.5,
+      "Sumprice": 14.0
+    },
+    {
+      "ID": "1",
+      "Customer": "",
+      "Datum": null,
+      "Projectie": null,
+      "Zaal": 1,
+      "Seats": {
+        "Rij": 0,
+        "Column": 3,
+        "Price": 7.5
+      },
+      "Snack": "Popcorn Mix",
+      "Snackprice": 6.5,
+      "Sumprice": 14.0
+    },
+    {
+      "ID": "2",
+      "Customer": "albi79",
+      "Datum": null,
+      "Projectie": null,
+      "Zaal": 1,
+      "Seats": {
+        "Rij": 0,
+        "Column": 6,
+        "Price": 7.5
+      },
+      "Snack": "Popcorn Zoet",
+      "Snackprice": 6.5,
+      "Sumprice": 14.0
+    },
+    {
+      "ID": "3",
+      "Customer": "albi79",
+      "Datum": null,
+      "Projectie": null,
+      "Zaal": 3,
+      "Seats": {
+        "Rij": 4,
+        "Column": 5,
+        "Price": 7.5
+      },
+      "Snack": "Popcorn Zoet",
+      "Snackprice": 6.5,
+      "Sumprice": 14.0
+    },
+    {
+      "ID": "4",
+      "Customer": "albi79",
+      "Datum": null,
+      "Projectie": "IMAX",
+      "Zaal": 3,
+      "Seats": {
+        "Rij": 9,
+        "Column": 12,
+        "Price": 30.0
+      },
+      "Snack": "Popcorn Mix",
+      "Snackprice": 6.5,
+      "Sumprice": 36.5
+    },
+    {
+      "ID": "5",
+      "Customer": "albertKang",
+      "Datum": null,
+      "Projectie": "IMAX",
+      "Zaal": 3,
+      "Seats": {
+        "Rij": 7,
+        "Column": 9,
+        "Price": 15.0
+      },
+      "Snack": "Geen",
+      "Snackprice": 0.0,
+      "Sumprice": 15.0
+>>>>>>> origin/Dong
     }
   ]
 }
