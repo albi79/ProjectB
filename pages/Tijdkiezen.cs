@@ -7,24 +7,26 @@ namespace ProjectB.pages
 {
     class Tijdkiezen
     {
-        public static string tijdkiezen(int selectedfilm)
+        public static string tijdkiezen(int selectedfilm/*, int Geselecteerde datum Index*/)
         {
+            int datumIndex = 0; // Tijdelijk
+
             DataStorageHandler.SaveChanges();
             Console.Clear();
-            string prompt = "Kies uw datum en tijd";
-            int aantalData = DataStorageHandler.Storage.Films[selectedfilm].Projectiemoment.Length;
+            string prompt = "Kies uw tijd";
+            
+            int aantalTijden = DataStorageHandler.Storage.Films[selectedfilm].Projectiemoment[datumIndex].Length;
+            string[] tijdenOptions = new string[aantalTijden-1];
 
-            string[] dataOptions = new string[aantalData];
-
-            for (int x = 0; x < DataStorageHandler.Storage.Films[selectedfilm].Projectiemoment.Length; x++)
+            for(int i = 0; i < aantalTijden-1; i++)
             {
-                dataOptions[x] = DataStorageHandler.Storage.Films[selectedfilm].Projectiemoment[x][0];
+                tijdenOptions[i] = DataStorageHandler.Storage.Films[selectedfilm].Projectiemoment[datumIndex][i+1];
             }
 
-            ConsoleMenu2 StartPagina = new ConsoleMenu2(prompt, dataOptions);
+            ConsoleMenu2 StartPagina = new ConsoleMenu2(prompt, tijdenOptions);
             StartPagina.DisplayOptions();
             int selectedIndex = StartPagina.Run();
-            return dataOptions[selectedIndex];
+            return tijdenOptions[selectedIndex];
         }
     }
 }

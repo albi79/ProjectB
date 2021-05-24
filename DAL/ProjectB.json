@@ -261,6 +261,21 @@
       "Snack": "Geen",
       "Snackprice": 0.0,
       "Sumprice": 15.0
+    },
+    {
+      "ID": "6",
+      "Customer": "DanieJong",
+      "Datum": "30-07-2021",
+      "Projectie": "IMAX",
+      "Zaal": 3,
+      "Seats": {
+        "Rij": 1,
+        "Column": 8,
+        "Price": 7.5
+      },
+      "Snack": "Geen",
+      "Snackprice": 0.0,
+      "Sumprice": 7.5
     }
   ]
 }

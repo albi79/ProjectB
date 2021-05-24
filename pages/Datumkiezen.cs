@@ -16,7 +16,7 @@ namespace ProjectB.pages
 
             string[] dataOptions = new string[aantalData];
 
-            for(int x = 0; x < DataStorageHandler.Storage.Films[selectedfilm].Projectiemoment.Length; x++)
+            for(int x = 0; x < aantalData; x++)
             {
                 dataOptions[x] = DataStorageHandler.Storage.Films[selectedfilm].Projectiemoment[x][0];
             }
