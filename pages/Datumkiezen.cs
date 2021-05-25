@@ -7,11 +7,11 @@ namespace ProjectB.pages
 {
     class Datumkiezen
     {
-        public static string datumkiezen(int selectedfilm)
+        public static string datumkiezen(int selectedfilm, ref int selectedDate)
         {
             DataStorageHandler.SaveChanges();
             Console.Clear();
-            string prompt = "Kies uw datum en tijd";
+            string prompt = "STAP 1: Kies uw datum";
             int aantalData = DataStorageHandler.Storage.Films[selectedfilm].Projectiemoment.Length;
 
             string[] dataOptions = new string[aantalData];
@@ -24,6 +24,7 @@ namespace ProjectB.pages
             ConsoleMenu2 StartPagina = new ConsoleMenu2(prompt, dataOptions);
             StartPagina.DisplayOptions();
             int selectedIndex = StartPagina.Run();
+            selectedDate = selectedIndex;
             return dataOptions[selectedIndex];
         }
     }

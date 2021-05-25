@@ -33,7 +33,7 @@ namespace ProjectB.pages
             new object[]{ null, null, null, new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), null, null, null },
             new object[]{ null, null, null, new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), null, null, null },
             };
-            string prompt2 = "Selecteer uw zitplaats in Zaal2";
+            string prompt2 = "STAP 4: Selecteer uw zitplaats in Zaal2";
             SeatsMenu zaal2 = new SeatsMenu(prompt2, seats300);
             zaal2.Display();
             BaseSeat selectedSeat2 = zaal2.Run();

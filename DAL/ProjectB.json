@@ -111,7 +111,7 @@
       "BeoordelingCumulatief": 0
     },
     {
-      "Titel": "The 'notorious' Conor Mc Gregor",
+      "Titel": "The 'notorious' Conor Mc Gregor2",
       "Categorie": "Documentaire",
       "Leeftijd": 4,
       "Beschrijving": "Zie hoe Conor van schulde, naar multi-millionaire gaat. Dankzij geloof, Wilskracht, discipline & de Mixed Martial Art!",
@@ -176,6 +176,7 @@
       "ID": "0",
       "Customer": "",
       "Datum": null,
+      "Tijd": null,
       "Projectie": null,
       "Zaal": 1,
       "Seats": {
@@ -191,6 +192,7 @@
       "ID": "1",
       "Customer": "",
       "Datum": null,
+      "Tijd": null,
       "Projectie": null,
       "Zaal": 1,
       "Seats": {
@@ -206,6 +208,7 @@
       "ID": "2",
       "Customer": "albi79",
       "Datum": null,
+      "Tijd": null,
       "Projectie": null,
       "Zaal": 1,
       "Seats": {
@@ -221,6 +224,7 @@
       "ID": "3",
       "Customer": "albi79",
       "Datum": null,
+      "Tijd": null,
       "Projectie": null,
       "Zaal": 3,
       "Seats": {
@@ -236,6 +240,7 @@
       "ID": "4",
       "Customer": "albi79",
       "Datum": null,
+      "Tijd": null,
       "Projectie": "IMAX",
       "Zaal": 3,
       "Seats": {
@@ -251,6 +256,7 @@
       "ID": "5",
       "Customer": "albertKang",
       "Datum": null,
+      "Tijd": null,
       "Projectie": "IMAX",
       "Zaal": 3,
       "Seats": {
@@ -266,6 +272,7 @@
       "ID": "6",
       "Customer": "DanieJong",
       "Datum": "30-07-2021",
+      "Tijd": null,
       "Projectie": "IMAX",
       "Zaal": 3,
       "Seats": {
@@ -276,6 +283,22 @@
       "Snack": "Geen",
       "Snackprice": 0.0,
       "Sumprice": 7.5
+    },
+    {
+      "ID": "7",
+      "Customer": "albertkong",
+      "Datum": "30-07-2021",
+      "Tijd": "11:40",
+      "Projectie": "IMAX",
+      "Zaal": 3,
+      "Seats": {
+        "Rij": 2,
+        "Column": 4,
+        "Price": 7.5
+      },
+      "Snack": "Popcorn Zout",
+      "Snackprice": 6.5,
+      "Sumprice": 14.0
     }
   ]
 }

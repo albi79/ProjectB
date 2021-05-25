@@ -15,12 +15,13 @@ namespace ProjectB.pages
         public static void reserveren(int zaalnummer, string gebruikersnaam, int selectedFilm)
         {
             Console.Clear();
+            int selectedDate = 0;
+            string filmtitel = DataStorageHandler.Storage.Films[selectedFilm].Titel;
 
-            string datum = Datumkiezen.datumkiezen(selectedFilm);
+            string datum = Datumkiezen.datumkiezen(selectedFilm, ref selectedDate);
+            string tijd = Tijdkiezen.tijdkiezen(selectedFilm, selectedDate);
 
-            string tijd = Tijdkiezen.tijdkiezen(selectedFilm);
-
-            Console.WriteLine("STAP 1: Hoeveel kaartjes wilt u bestellen?");
+            Console.WriteLine("STAP 3: Hoeveel kaartjes wilt u bestellen?");
 
             bool validticketinput = false;
 
@@ -54,6 +55,23 @@ namespace ProjectB.pages
                         selectedSeat = Zitplaatsenkiezen3.zitplaatsenkiezen3();
                     }
 
+                    string zitplaatstype = "";
+
+                    if (selectedSeat.Price == 15.00)
+                    {
+                        zitplaatstype = "VIP";
+                    }
+
+                    else if (selectedSeat.Price == 30.00)
+                    {
+                        zitplaatstype = "MASTER";
+                    }
+
+                    else
+                    {
+                        zitplaatstype = "REGULIERE";
+                    }
+
                     string snack = Snackskiezen.snackskiezen();
 
                     double snackPrice = 0.0;
@@ -63,16 +81,23 @@ namespace ProjectB.pages
                         snackPrice = 6.50;
                     }
 
-                    string Reservationcounter = DataStorageHandler.Storage.Reservations.Count.ToString();
+                    //checkt hoeveel reserveringen er zijn. Vervolgens wordt er naar de laatste ID gezocht met "counter - 1" omdat ID vanaf 0 start. 
+                    int reservationcounter = DataStorageHandler.Storage.Reservations.Count;
+                    Reservation lastreservation = DataStorageHandler.Storage.Reservations[reservationcounter - 1];
+
+                    string reservationstring = (Int32.Parse(lastreservation.ID) + 1).ToString();
 
                     double sumPrice = selectedSeat.Price + snackPrice;
 
+                    bool newaccount = false;
+                    string prompt = "";
+                    
                     if (gebruikersnaam == null)
                     {
-
+                        newaccount = true;
                         Console.Clear();
 
-                        string naam2 = Beheer.Input("\nWat is uw naam?");
+                        string naam2 = Beheer.Input("\nSTAP 6: Voer uw gegevens in\n\nNaam: ");
                         naam2 = Beheer.ControlEmpty(naam2);
                         naam2 = OnlyString(naam2);
 
@@ -117,22 +142,38 @@ namespace ProjectB.pages
                     Reservation nieuweReservering = new Reservation
 
                     {
-                        ID = Reservationcounter,
+                        ID = reservationstring,
                         Customer = gebruikersnaam,
+                        Filmtitel = filmtitel,
                         Datum = datum,
+                        Tijd = tijd,
                         Projectie = projectie,
                         Zaal = zaalnummer,
                         Seats = selectedSeat,
+                        Zitplaatstype = zitplaatstype,
                         Snack = snack,
                         Snackprice = snackPrice,
                         Sumprice = sumPrice,
                     };
 
-                    Console.WriteLine("\nDit is de informatie over uw bestelling:\n");
+                    if (newaccount == false)
+                    {
+                        prompt = "STAP 6: ";
+                    }
+                    else
+                    {
+                        gebruikersnaam = null;
+                        prompt = "STAP 7: "; 
+                    }
 
-                    Console.WriteLine("\nKlantnaam: " + nieuweReservering.Customer + "\nDatum: "+ nieuweReservering.Datum + "\nProjectie: " + nieuweReservering.Projectie + "\nZaal: " + nieuweReservering.Zaal + "\nRij: " + nieuweReservering.Seats.Rij + "\nZitplaatsnummer: " + nieuweReservering.Seats.Column + "\nPrijs: " + nieuweReservering.Seats.Price + "\nSnacks: " + nieuweReservering.Snack + "\nSnackprijs: " + nieuweReservering.Snackprice + "\nTotale prijs: " + nieuweReservering.Sumprice);
+                    Console.Clear();
+                    Console.WriteLine("\n" + prompt + "Controleer uw bestelgegevens\nDit is de informatie over uw bestelling:\n");
+
+                    Console.WriteLine("\nKlantnaam: " + nieuweReservering.Customer + "\nFilmtitel: " + nieuweReservering.Filmtitel + "\nDatum: " + nieuweReservering.Datum + "\nTijd: " + nieuweReservering.Tijd + "\nProjectie: " + nieuweReservering.Projectie + "\nZaal: " + nieuweReservering.Zaal + "\nRij: " + nieuweReservering.Seats.Rij + "\nZitplaatsnummer: " + nieuweReservering.Seats.Column + "\nZitplaatstype: " + nieuweReservering.Zitplaatstype + "\nZitplaatsrijs: " + nieuweReservering.Seats.Price + "\nSnacks: " + nieuweReservering.Snack + "\nSnackprijs: " + nieuweReservering.Snackprice + "\nTotale prijs: " + nieuweReservering.Sumprice);
                     
                     Console.WriteLine("\nDoor verder te gaan, gaat u akkoord met dat alle bestelgegevens hierboven correct is.\n1. JA\n2. NEE");
+
+                    
 
                     bool validoption = false;
 
