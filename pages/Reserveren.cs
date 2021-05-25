@@ -81,11 +81,20 @@ namespace ProjectB.pages
                         snackPrice = 6.50;
                     }
 
-                    //checkt hoeveel reserveringen er zijn. Vervolgens wordt er naar de laatste ID gezocht met "counter - 1" omdat ID vanaf 0 start. 
+                    //checkt hoeveel reserveringen er zijn. Vervolgens wordt er naar de laatste ID gezocht met "counter - 1" omdat ID vanaf 0 start.
                     int reservationcounter = DataStorageHandler.Storage.Reservations.Count;
-                    Reservation lastreservation = DataStorageHandler.Storage.Reservations[reservationcounter - 1];
+                    string reservationstring = "";
 
-                    string reservationstring = (Int32.Parse(lastreservation.ID) + 1).ToString();
+                    if (reservationcounter != 0)
+                    {
+                        Reservation lastreservation = DataStorageHandler.Storage.Reservations[reservationcounter - 1];
+                        reservationstring = (Int32.Parse(lastreservation.ID) + 1).ToString();
+                    }
+
+                    else
+                    {
+                        reservationstring = reservationcounter.ToString();
+                    }
 
                     double sumPrice = selectedSeat.Price + snackPrice;
 

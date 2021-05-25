@@ -174,129 +174,37 @@
   "Reservations": [
     {
       "ID": "0",
-      "Customer": "",
-      "Datum": null,
-      "Tijd": null,
-      "Projectie": null,
-      "Zaal": 1,
+      "Customer": "AlbertKang",
+      "Filmtitel": "Xayah",
+      "Datum": "30-07-2021",
+      "Tijd": "12:40",
+      "Projectie": "IMAX",
+      "Zaal": 3,
       "Seats": {
-        "Rij": 2,
-        "Column": 2,
-        "Price": 7.5
+        "Rij": 5,
+        "Column": 8,
+        "Price": 15.0
       },
-      "Snack": "Popcorn Zout",
+      "Zitplaatstype": "VIP",
+      "Snack": "Popcorn Zoet",
       "Snackprice": 6.5,
-      "Sumprice": 14.0
+      "Sumprice": 21.5
     },
     {
       "ID": "1",
-      "Customer": "",
-      "Datum": null,
-      "Tijd": null,
-      "Projectie": null,
-      "Zaal": 1,
-      "Seats": {
-        "Rij": 0,
-        "Column": 3,
-        "Price": 7.5
-      },
-      "Snack": "Popcorn Mix",
-      "Snackprice": 6.5,
-      "Sumprice": 14.0
-    },
-    {
-      "ID": "2",
-      "Customer": "albi79",
-      "Datum": null,
-      "Tijd": null,
-      "Projectie": null,
-      "Zaal": 1,
-      "Seats": {
-        "Rij": 0,
-        "Column": 6,
-        "Price": 7.5
-      },
-      "Snack": "Popcorn Zoet",
-      "Snackprice": 6.5,
-      "Sumprice": 14.0
-    },
-    {
-      "ID": "3",
-      "Customer": "albi79",
-      "Datum": null,
-      "Tijd": null,
-      "Projectie": null,
-      "Zaal": 3,
-      "Seats": {
-        "Rij": 4,
-        "Column": 5,
-        "Price": 7.5
-      },
-      "Snack": "Popcorn Zoet",
-      "Snackprice": 6.5,
-      "Sumprice": 14.0
-    },
-    {
-      "ID": "4",
-      "Customer": "albi79",
-      "Datum": null,
-      "Tijd": null,
-      "Projectie": "IMAX",
-      "Zaal": 3,
-      "Seats": {
-        "Rij": 9,
-        "Column": 12,
-        "Price": 30.0
-      },
-      "Snack": "Popcorn Mix",
-      "Snackprice": 6.5,
-      "Sumprice": 36.5
-    },
-    {
-      "ID": "5",
-      "Customer": "albertKang",
-      "Datum": null,
-      "Tijd": null,
-      "Projectie": "IMAX",
-      "Zaal": 3,
-      "Seats": {
-        "Rij": 7,
-        "Column": 9,
-        "Price": 15.0
-      },
-      "Snack": "Geen",
-      "Snackprice": 0.0,
-      "Sumprice": 15.0
-    },
-    {
-      "ID": "6",
-      "Customer": "DanieJong",
+      "Customer": "ak",
+      "Filmtitel": "Xayah",
       "Datum": "30-07-2021",
-      "Tijd": null,
+      "Tijd": "10:30",
       "Projectie": "IMAX",
       "Zaal": 3,
       "Seats": {
         "Rij": 1,
-        "Column": 8,
-        "Price": 7.5
-      },
-      "Snack": "Geen",
-      "Snackprice": 0.0,
-      "Sumprice": 7.5
-    },
-    {
-      "ID": "7",
-      "Customer": "albertkong",
-      "Datum": "30-07-2021",
-      "Tijd": "11:40",
-      "Projectie": "IMAX",
-      "Zaal": 3,
-      "Seats": {
-        "Rij": 2,
         "Column": 4,
         "Price": 7.5
       },
-      "Snack": "Popcorn Zout",
+      "Zitplaatstype": "REGULIERE",
+      "Snack": "Popcorn Zoet",
       "Snackprice": 6.5,
       "Sumprice": 14.0
     }
