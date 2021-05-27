@@ -34,7 +34,7 @@ namespace ProjectB.pages
             new object[]{ null, null, null, null, null, null, null, new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), null, null, null, null, null, null, null },
             new object[]{ null, null, null, null, null, null, null, null, new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), null, null, null, null, null, null, null, null }
             };
-            string prompt3 = "STAP 4: Selecteer uw zitplaats in Zaal3";
+            string prompt3 = "STAP 4: Selecteer uw zitplaats in Zaal3\n\n";
             SeatsMenu zaal3 = new SeatsMenu(prompt3, seats500);
             zaal3.Display(selectedFilm, datum, tijd);
             BaseSeat selectedSeat3 = zaal3.Run(selectedFilm, datum, tijd);

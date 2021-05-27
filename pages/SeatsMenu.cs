@@ -22,14 +22,13 @@ namespace ProjectB
         {
             Prompt = prompt;
             seats = seats_;
-            selectedColumn = 0;
-            selectedRow = 0;
+            selectedColumn = seats[0].Length / 2;
+            selectedRow = seats.Length / 2;
           
         }
 
         public void Display(int selectedFilm, string datum, string tijd)
         {
-            Clear();
             WriteLine(Prompt);
             for (int i =0; i < seats.Length; i++)
             {
@@ -135,6 +134,16 @@ namespace ProjectB
             {
                 Clear();
                 Display(selectedFilm, datum, tijd);
+                Console.WriteLine("\nLEGENDA:\n[R] = Reguliere zitplaats\n[V] = VIP zitplaats\n[M] = Master zitplaats");
+                if (reservationcheck(selectedRow, selectedColumn, selectedFilm, datum, tijd) == false)
+                {
+                    Console.WriteLine("\nOPMERKING: Deze zitplaats is al gereserveerd.\n");
+                }
+                else if (seats[selectedRow][selectedColumn] == null)
+                {
+                    Console.WriteLine("\nOPMERKING: Deze zitplaats kunt u helaas niet reserveren.\n");
+                }
+
                 ConsoleKeyInfo keyInfo = ReadKey(true);
                 keyPressed = keyInfo.Key;
 

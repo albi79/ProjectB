@@ -29,7 +29,7 @@ namespace ProjectB.pages
             new object[]{ null, null, new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), null, null },
             new object[]{ null, null, new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), null, null },
             };
-            string prompt = "STAP 4: Selecteer uw zitplaats in Zaal1";
+            string prompt = "STAP 4: Selecteer uw zitplaats in Zaal1\n\n";
             SeatsMenu zaal1 = new SeatsMenu(prompt, seats150);
             zaal1.Display(selectedFilm, datum, tijd);
             BaseSeat selectedSeat = zaal1.Run(selectedFilm, datum, tijd);
