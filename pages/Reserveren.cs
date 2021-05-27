@@ -40,19 +40,19 @@ namespace ProjectB.pages
                     if (zaalnummer == 1)
                     {
                         projectie = "2D";
-                        selectedSeat = Zitplaatsenkiezen.zitplaatsenkiezen(); 
+                        selectedSeat = Zitplaatsenkiezen.zitplaatsenkiezen(selectedFilm, datum, tijd); 
                     }
                     
                     else if (zaalnummer == 2)
                     {
                         projectie = "3D";
-                        selectedSeat = Zitplaatsenkiezen2.zitplaatsenkiezen2();
+                        selectedSeat = Zitplaatsenkiezen2.zitplaatsenkiezen2(selectedFilm, datum, tijd);
                     }
 
                     else if (zaalnummer == 3)
                     {
                         projectie = "IMAX";
-                        selectedSeat = Zitplaatsenkiezen3.zitplaatsenkiezen3();
+                        selectedSeat = Zitplaatsenkiezen3.zitplaatsenkiezen3(selectedFilm, datum, tijd);
                     }
 
                     string zitplaatstype = "";

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using ProjectB.Classes;
 using ProjectB.Classes.Seats;
@@ -26,7 +27,7 @@ namespace ProjectB
           
         }
 
-        public void Display()
+        public void Display(int selectedFilm, string datum, string tijd)
         {
             Clear();
             WriteLine(Prompt);
@@ -85,13 +86,32 @@ namespace ProjectB
                         res += seat3.Icon;
                     }
 
+                    //int filmdatumIndex = 0;
+                    //int filmtijdIndex = 0;
+
+                    //for (int k = 0; k < DataStorageHandler.Storage.Films[selectedFilm].Projectiemoment.Length; k++)
+                    //{ 
+                    //    if (DataStorageHandler.Storage.Films[selectedFilm].Projectiemoment[k][0] == datum) 
+                    //    {
+                    //        filmdatumIndex = k;
+                    //    }
+                    //}
+
+                    //for (int l = 0; l < DataStorageHandler.Storage.Films[selectedFilm].Projectiemoment[filmdatumIndex].Length; l++)
+                    //{
+                    //    if (DataStorageHandler.Storage.Films[selectedFilm].Projectiemoment[filmdatumIndex][l] == tijd)
+                    //    {
+                    //        filmtijdIndex = l;
+                    //    }
+                    //}
+
                     if (currentSeat is VipSeat || currentSeat is MasterSeat || currentSeat is RegularSeat)
                     {
-                        foreach (Reservation reservation in DataStorageHandler.Storage.Reservations)
+                        foreach (Reservation reservation in DataStorageHandler.Storage.Reservations.Where(per => per.Datum == datum && per.Tijd == tijd && per.Filmtitel == DataStorageHandler.Storage.Films[selectedFilm].Titel))
                         {
                             if (reservation.Seats.Column == j && reservation.Seats.Rij == i)
                             {
-                                res = "[ ]";
+                                res = "[_]";
                             }
                         }
                     }
@@ -108,13 +128,13 @@ namespace ProjectB
            
         }
 
-        public BaseSeat Run()
+        public BaseSeat Run(int selectedFilm, string datum, string tijd)
         {
             ConsoleKey keyPressed = ConsoleKey.B;
-            while (keyPressed != ConsoleKey.Enter || reservationcheck(selectedRow, selectedColumn) == false)
+            while (keyPressed != ConsoleKey.Enter || reservationcheck(selectedRow, selectedColumn, selectedFilm, datum, tijd) == false || seats[selectedRow][selectedColumn] == null)
             {
                 Clear();
-                Display();
+                Display(selectedFilm, datum, tijd);
                 ConsoleKeyInfo keyInfo = ReadKey(true);
                 keyPressed = keyInfo.Key;
 
@@ -169,9 +189,9 @@ namespace ProjectB
          
             return selectedseat;
         }
-        public bool reservationcheck (int selectedRow, int selectedColumn)
+        public bool reservationcheck (int selectedRow, int selectedColumn, int selectedFilm, string datum, string tijd)
         {
-            foreach (Reservation reservation in DataStorageHandler.Storage.Reservations)
+            foreach (Reservation reservation in DataStorageHandler.Storage.Reservations.Where(per => per.Datum == datum && per.Tijd == tijd && per.Filmtitel == DataStorageHandler.Storage.Films[selectedFilm].Titel))
             {
                 if (reservation.Seats.Column == selectedColumn && reservation.Seats.Rij == selectedRow)
                 {
@@ -180,5 +200,6 @@ namespace ProjectB
             }
             return true;
         }
+
     }
 }

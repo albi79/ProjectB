@@ -9,7 +9,7 @@ namespace ProjectB.pages
 {
     class Zitplaatsenkiezen2
     {
-        public static BaseSeat zitplaatsenkiezen2()
+        public static BaseSeat zitplaatsenkiezen2(int selectedFilm, string datum, string tijd)
         {
             object[][] seats300 = new object[][]
             {
@@ -35,8 +35,8 @@ namespace ProjectB.pages
             };
             string prompt2 = "STAP 4: Selecteer uw zitplaats in Zaal2";
             SeatsMenu zaal2 = new SeatsMenu(prompt2, seats300);
-            zaal2.Display();
-            BaseSeat selectedSeat2 = zaal2.Run();
+            zaal2.Display(selectedFilm, datum, tijd);
+            BaseSeat selectedSeat2 = zaal2.Run(selectedFilm, datum, tijd);
 
             try
             {
@@ -46,7 +46,7 @@ namespace ProjectB.pages
                     if (selectedSeat2.Rij == item.Seats.Rij && selectedSeat2.Column == item.Seats.Column)
                     {
                         selectedSeat2 = null;
-                        zitplaatsenkiezen2();
+                        zitplaatsenkiezen2(selectedFilm, datum, tijd);
                     }
                 }
 
