@@ -10,73 +10,51 @@ namespace ProjectB.pages
 {
     class Startscherm
     {
-        
+
         public static void startscherm()
         {
-        //Beoordeling.beoordeling();
-        string menuinput;
-        //int menuchoice;
+            //Beoordeling.beoordeling();
+            string menuinput;
+            //int menuchoice;
 
-        string menuenter;
-        //int menuEnter;
+            string menuenter;
+            //int menuEnter;
 
-        bool validinputmenu = false;
-        bool vldinptwthaccount = false;
+            bool validinputmenu = false;
+            bool vldinptwthaccount = false;
 
-        Console.WriteLine("Welkom bij de bioscoop app!\nKies uw nummer uit de volgende opties:\n1. Inloggen\n2. Registreren\n3. Verder gaan zonder account");
+            Console.WriteLine("Welkom bij de bioscoop app!\nKies uw nummer uit de volgende opties:\n1. Inloggen\n2. Registreren\n3. Verder gaan zonder account");
 
-        while (validinputmenu == false)
-        {
-            menuinput = Console.ReadLine();
-
-            // convert to integer
-            //menuchoice = Convert.ToInt32(menuinput);
-
-            if (menuinput == "1")
+            while (validinputmenu == false)
             {
-                Console.Clear();
-                Login.login();
-                validinputmenu = true;
-            }
+                menuinput = Console.ReadLine();
 
-            else if (menuinput == "2")
-            {
-                Console.Clear();
-                //Console.WriteLine("Hier wordt de registratie scherm aangeroepen");
-                Registreren.registreren();
-                validinputmenu = true;
-            }
+                // convert to integer
+                //menuchoice = Convert.ToInt32(menuinput);
 
-            else if (menuinput == "3")
-            {
-                Console.Clear();
-                Console.WriteLine("Weet u zeker dat u zonder account verder wilt gaan?\nMet een account kunt u gemakkelijker reserveren.\n1. JA\n2. NEE");
-                validinputmenu = true;
-
-                while (vldinptwthaccount == false)
+                if (menuinput == "1")
                 {
-                    menuenter = Console.ReadLine();
-                    //menuEnter = Convert.ToInt32(menuenter);
+                    Console.Clear();
+                    Login.login();
+                    validinputmenu = true;
+                }
 
-<<<<<<< HEAD
+                else if (menuinput == "2")
+                {
+                    Console.Clear();
+                    //Console.WriteLine("Hier wordt de registratie scherm aangeroepen");
+                    Registreren.registreren();
+                    validinputmenu = true;
+                }
+
                 else if (menuinput == "3")
                 {
                     Console.Clear();
-                    Console.WriteLine("Weet u zeker dat u zonder account verder wilt gaan?\nMet een account kunt u gemakkelijker reserveren.\n1. Ja \n2. Nee");
+                    Console.WriteLine("Weet u zeker dat u zonder account verder wilt gaan?\nMet een account kunt u gemakkelijker reserveren.\n1. JA\n2. NEE");
                     validinputmenu = true;
-=======
-                    if (menuenter == "1")
-                    {
-                        Console.Clear();
-                        //Console.WriteLine("Hier wordt de welkomscherm aangeroepen");
-                        ConsoleMenu.consoleMenu(null);
-                        vldinptwthaccount = true;
-                    }
->>>>>>> origin/Dong
 
-                    else if (menuenter == "2")
+                    while (vldinptwthaccount == false)
                     {
-<<<<<<< HEAD
                         menuenter = Console.ReadLine();
                         //menuEnter = Convert.ToInt32(menuenter);
 
@@ -84,7 +62,7 @@ namespace ProjectB.pages
                         {
                             Console.Clear();
                             //Console.WriteLine("Hier wordt de welkomscherm aangeroepen");
-                            ConsoleMenu.consoleMenu("");
+                            ConsoleMenu.consoleMenu(null);
                             vldinptwthaccount = true;
                         }
 
@@ -100,28 +78,15 @@ namespace ProjectB.pages
                             Console.WriteLine("FOUTMELDING: er is een niet bestaande optie gekozen. Kies uit de nummers: 1 of 2");
                             vldinptwthaccount = false;
                         }
-=======
-                        Console.Clear();
-                        Startscherm.startscherm();
-                        vldinptwthaccount = true;
->>>>>>> origin/Dong
-                    }
-
-                    else
-                    {
-                        Console.WriteLine("FOUTMELDING: er is een niet bestaande optie gekozen. Kies uit de nummers: 1 of 2");
-                        vldinptwthaccount = false;
                     }
                 }
-            }
 
-            else
-            {
-                Console.WriteLine("FOUTMELDING: er is een niet bestaande optie gekozen. Kies uit de nummers: 1, 2 of 3");
-                validinputmenu = false;
+                else
+                {
+                    Console.WriteLine("FOUTMELDING: er is een niet bestaande optie gekozen. Kies uit de nummers: 1, 2 of 3");
+                    validinputmenu = false;
+                }
             }
         }
     }
-    }
-
 }

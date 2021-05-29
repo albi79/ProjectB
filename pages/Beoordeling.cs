@@ -11,15 +11,23 @@ namespace ProjectB.pages
 {
     class Beoordeling
     {
-        public static void beoordeling(/*selectedFilm*/string gebruikersnaam)
+        public static void beoordeling(int selectedFilm, string gebruikersnaam)
         {
             int huidigeBeoordeling = 0;
 
-            int selectedFilm = 0;//Tijdelijk
+            selectedFilm = 0;//Tijdelijk
             Console.Clear();
 
             Console.WriteLine("Beoordeling "+ DataStorageHandler.Storage.Films[selectedFilm].Titel + "\n");
-            string ShuidigeBeoordeling = Beheer.Input("typ 1(slecht) tot 5(geweldig) om de film te beoordelen: ");
+            Console.WriteLine("Typ b voor terug");
+            Console.WriteLine("Typ 1(slecht) tot 5(geweldig) om de film te beoordelen:");
+            string ShuidigeBeoordeling = Beheer.Input();
+
+            if(ShuidigeBeoordeling == "b")
+            {
+                Console.Clear();
+                TicketTerugvinden.ticketTerugvinden(gebruikersnaam);
+            }
             try 
             { 
                 huidigeBeoordeling = Int32.Parse(ShuidigeBeoordeling);
@@ -28,10 +36,10 @@ namespace ProjectB.pages
                 {
                     Console.WriteLine("Verkeerde input!\n\nTyp Enter");
                     Beheer.Input();
-                    beoordeling(gebruikersnaam);
+                    beoordeling(selectedFilm, gebruikersnaam);
                 }
             }
-            catch {Console.WriteLine("Verkeerde input!\n\nTyp Enter"); Beheer.Input(); beoordeling(gebruikersnaam); }
+            catch {Console.WriteLine("Verkeerde input!\n\nTyp Enter"); Beheer.Input(); beoordeling(selectedFilm, gebruikersnaam); }
 
             DataStorageHandler.Storage.Films[selectedFilm].AantalBeoordelingen++; 
             DataStorageHandler.Storage.Films[selectedFilm].BeoordelingCumulatief += huidigeBeoordeling;

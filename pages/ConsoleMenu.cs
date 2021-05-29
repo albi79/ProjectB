@@ -75,11 +75,8 @@ namespace ProjectB.pages
                     Console.Clear();
                     //Console.WriteLine("Hier wordt de filmprogramma scherm aangeroepen");
                     //FilmprogrammaBeheren.filmprogrammaBeheren();
-<<<<<<< HEAD
-                    FilmSelect.filmSelect();
-=======
                     FilmSelect.filmSelect(gebruikersnaam);
->>>>>>> origin/Dong
+
                     validinputmenu = true;
                 }
 
