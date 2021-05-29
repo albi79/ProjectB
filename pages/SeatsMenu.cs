@@ -127,14 +127,15 @@ namespace ProjectB
            
         }
 
-        public BaseSeat Run(int selectedFilm, string datum, string tijd)
+        public BaseSeat Run(int selectedFilm, string datum, string tijd, string bioscoopscherm)
         {
             ConsoleKey keyPressed = ConsoleKey.B;
             while (keyPressed != ConsoleKey.Enter || reservationcheck(selectedRow, selectedColumn, selectedFilm, datum, tijd) == false || seats[selectedRow][selectedColumn] == null)
             {
                 Clear();
                 Display(selectedFilm, datum, tijd);
-                Console.WriteLine("\nLEGENDA:\n[R] = Reguliere zitplaats\n[V] = VIP zitplaats\n[M] = Master zitplaats");
+                Console.WriteLine(bioscoopscherm);
+                Console.WriteLine("\nLEGENDA:\n[R] = Reguliere zitplaats\n[V] = VIP zitplaats\n[M] = Master zitplaats\n[ ] = Geen zitplaats\n[_] = Al gereserveerde zitplaats");
                 if (reservationcheck(selectedRow, selectedColumn, selectedFilm, datum, tijd) == false)
                 {
                     Console.WriteLine("\nOPMERKING: Deze zitplaats is al gereserveerd.\n");

@@ -23,6 +23,8 @@ namespace ProjectB.pages
                 tijdenOptions[i] = DataStorageHandler.Storage.Films[selectedfilm].Projectiemoment[datumIndex][i+1];
             }
 
+            //string[] terugoptie = { "Terug gaan" };
+            //tijdenOptions = tijdenOptions + terugoptie;
             ConsoleMenu2 StartPagina = new ConsoleMenu2(prompt, tijdenOptions);
             StartPagina.DisplayOptions();
             int selectedIndex = StartPagina.Run();

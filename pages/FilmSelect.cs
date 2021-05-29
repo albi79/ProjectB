@@ -166,6 +166,10 @@ namespace ProjectB.pages
                             Reserveren.reserveren(DataStorageHandler.Storage.Films[selectedFilm].Zaal, gebruikersnaam, selectedFilm);
                         }
                     }
+                    else if (toets2 == "2")
+                    {
+                        filmSelect(gebruikersnaam);
+                    }
                 }
                 else if (toets == "2")
                     filmSelect(gebruikersnaam);
@@ -192,7 +196,7 @@ namespace ProjectB.pages
 
                 if (toets == "1")
                 {
-                    Console.WriteLine("LET OP: U moet minimaal 12 jaar oud zijn om te mogen reserveren.\nAls u doorgaat, gaat u akkoord met deze voorwaarden.\n");
+                    Console.WriteLine("\nLET OP: U moet minimaal 12 jaar oud zijn om te mogen reserveren.\nAls u doorgaat, gaat u akkoord met deze voorwaarden.\n");
                     Console.WriteLine("1. Doorgaan\n2. Terug");
                     string toets2 = Beheer.Input("");
                     if (toets2 == "1")
