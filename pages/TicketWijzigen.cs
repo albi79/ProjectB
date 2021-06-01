@@ -20,11 +20,17 @@ namespace ProjectB.pages
 
             bool wijzigbaar = true;
 
-            DateTime nu = DateTime.Now;
-            int jaar = nu.Year;
-            int maand = nu.Month;
-            int dag = nu.Day;
-            int uur = nu.Hour;
+            string filmDatum = DataStorageHandler.Storage.Reservations[ticketIndex].Datum;
+            string filmDag = $"{filmDatum[0]}{filmDatum[1]}";
+            string filmMaand = $"{filmDatum[3]}{filmDatum[4]}";
+            string filmJaar = $"{filmDatum[6]}{filmDatum[7]}{filmDatum[8]}{filmDatum[9]}";
+
+            string filmUur = $"{DataStorageHandler.Storage.Reservations[ticketIndex].Tijd[0]}{DataStorageHandler.Storage.Reservations[ticketIndex].Tijd[1]}";
+
+            int jaar = Int32.Parse(filmJaar);
+            int maand = Int32.Parse(filmMaand);
+            int dag = Int32.Parse(filmDag);
+            int uur = Int32.Parse(filmUur);
 
             DateTime loginMoment = DataStorageHandler.Storage.Persons[indexOfGebruiker].loginMoment;
             int loginJaar = loginMoment.Year;
@@ -35,15 +41,17 @@ namespace ProjectB.pages
             if (loginJaar <= jaar)
             {
                 if (loginMaand < maand)
+                {
                     wijzigbaar = true;
+                }
                 else if (loginMaand == maand)
                 {
                     if (loginDag < dag)
                     {
                         if (loginUur < uur)
+                        {
                             wijzigbaar = true;
-                        else
-                            wijzigbaar = false;
+                        }
                     }
                     else
                         wijzigbaar = false;
@@ -56,23 +64,25 @@ namespace ProjectB.pages
 
             if (wijzigbaar == false)
             {
+                Console.Clear();
                 Console.WriteLine("De projectie van de geselecteerde filmticket begint binnen 24 uur of is al geweest.\nU kunt deze ticket niet meer wijzigen of annuleren\n\n");
                 TicketTerugvinden.ticketTerugvinden(gebruikersnaam);
             }
 
-
-
-            Console.WriteLine("1. ticket wijzigen\n2. ticket annuleren\n0. Terug");
+            Console.WriteLine("\n1. ticket wijzigen\n2. ticket annuleren\n0. Terug");
             string optie = Beheer.Input("");
 
             if (optie == "1")
             {
                 Console.Clear();
-                Console.WriteLine("Wat wilt u aan uw ticket veranderen\n1. Snacks\n2.Datum / Tijd\n.0 Terug");
+                Console.WriteLine("Wat wilt u aan uw ticket veranderen\n1. Snacks\n2. Datum / Tijd\n0. Terug\n");
                 string veranderInput = Beheer.Input("");
 
                 if (veranderInput == "0" || veranderInput == "1" || veranderInput == "2")
-                    VeranderTicket.veranderTicket(gebruikersnaam, veranderInput, ticketIndex);
+                {
+                    Console.Clear();
+                    VeranderTicket.veranderTicket(gebruikersnaam, veranderInput, ticketIndex, indexOfGebruiker);
+                }
                 else
                 {
                     Console.Clear();
@@ -86,24 +96,33 @@ namespace ProjectB.pages
                 string inp = Beheer.Input("");
                 if (inp == "1")
                 {
+                    Console.Clear();
                     DataStorageHandler.Storage.Reservations.RemoveAt(ticketIndex);
                     Console.WriteLine("\nUw ticket is succesvol verwijdert.\nTyp Enter");
                     Beheer.Input();
-                    //Moet ik niet nog ?'Data Safe Changes'? toevoegen, of slaat hij automatisch op.
+
+                    DataStorageHandler.SaveChanges();
+
                     TicketTerugvinden.ticketTerugvinden(gebruikersnaam);
                 }
                 else
+                {
+                    Console.Clear();
                     ticketWijzigen(gebruikersnaam, ticketIndex);
+                }
             }
             else if(optie == "0")
             {
+                Console.Clear();
                 TicketTerugvinden.ticketTerugvinden(gebruikersnaam);
             }
             else
             {
+                Console.Clear();
                 Console.WriteLine("Foutieve Input, probeer opnieuw\n");
                 ticketWijzigen(gebruikersnaam, ticketIndex);
             }
         }
     }
 }
+

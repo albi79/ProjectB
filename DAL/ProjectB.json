@@ -7,7 +7,8 @@
       "geboortedatum": "",
       "email": "AdminBios",
       "gebruikersnaam": "AdminBios",
-      "wachtwoord": "Nimda2021"
+      "wachtwoord": "Nimda2021",
+      "loginMoment": "0001-01-01T00:00:00"
     },
     {
       "naam": "albert",
@@ -16,7 +17,18 @@
       "geboortedatum": "30-07-1999",
       "email": "albertkang420@gmail.com",
       "gebruikersnaam": "albi79",
-      "wachtwoord": "Albert52855!"
+      "wachtwoord": "Albert52855!",
+      "loginMoment": "2021-06-01T12:24:46.2342463+02:00"
+    },
+    {
+      "naam": "Daniel",
+      "tussenvoegsel": "",
+      "achternaam": "Jong",
+      "geboortedatum": "22-03-2021",
+      "email": "dkbj22@gmail.com",
+      "gebruikersnaam": "dkbj22",
+      "wachtwoord": "Daniel22",
+      "loginMoment": "2021-06-02T00:05:09.2910772+02:00"
     }
   ],
   "Films": [
@@ -41,31 +53,18 @@
           "09:10",
           "13:40",
           "16:27"
-        ]
-      ],
-      "Beoordeling": 0,
-      "AantalBeoordelingen": 0,
-      "BeoordelingCumulatief": 0
-    },
-    {
-      "Titel": "The 'notorious' Conor Mc Gregor",
-      "Categorie": "Documentaire",
-      "Leeftijd": 4,
-      "Beschrijving": "Zie hoe Conor van schulde, naar multi-millionaire gaat. Dankzij geloof, Wilskracht, discipline & de Mixed Martial Art!",
-      "Taal": "Iers",
-      "Ondertiteling": "Nederlands",
-      "Acteurs": "Conor Mc Gregor",
-      "Regisseur": "Ali Baba",
-      "Zaal": 1,
-      "Projectiemoment": [
-        [
-          "23-05-2021",
-          "18:00",
-          "23:20"
         ],
         [
-          "01-06-2021",
-          "21:05"
+          "10-06-2021",
+          "09:10",
+          "13:40",
+          "16:27"
+        ],
+        [
+          "14-06-2021",
+          "09:10",
+          "13:40",
+          "16:27"
         ]
       ],
       "Beoordeling": 0,
@@ -161,109 +160,58 @@
   ],
   "Reservations": [
     {
-      "ID": "0",
-      "Customer": "",
-      "Datum": null,
-      "Projectie": null,
+      "ID": "7",
+      "Customer": "ad",
+      "Filmtitel": "The 'Notorius' Conor Mc Gregor",
+      "Datum": "23-05-2021",
+      "Tijd": "16:00",
+      "Projectie": "2D",
       "Zaal": 1,
       "Seats": {
-        "Rij": 2,
-        "Column": 2,
-        "Price": 7.5
-      },
-      "Snack": "Popcorn Zout",
-      "Snackprice": 6.5,
-      "Sumprice": 14.0
-    },
-    {
-      "ID": "1",
-      "Customer": "",
-      "Datum": null,
-      "Projectie": null,
-      "Zaal": 1,
-      "Seats": {
-        "Rij": 0,
-        "Column": 3,
-        "Price": 7.5
-      },
-      "Snack": "Popcorn Mix",
-      "Snackprice": 6.5,
-      "Sumprice": 14.0
-    },
-    {
-      "ID": "2",
-      "Customer": "albi79",
-      "Datum": null,
-      "Projectie": null,
-      "Zaal": 1,
-      "Seats": {
-        "Rij": 0,
+        "Rij": 6,
         "Column": 6,
-        "Price": 7.5
-      },
-      "Snack": "Popcorn Zoet",
-      "Snackprice": 6.5,
-      "Sumprice": 14.0
-    },
-    {
-      "ID": "3",
-      "Customer": "albi79",
-      "Datum": null,
-      "Projectie": null,
-      "Zaal": 3,
-      "Seats": {
-        "Rij": 4,
-        "Column": 5,
-        "Price": 7.5
-      },
-      "Snack": "Popcorn Zoet",
-      "Snackprice": 6.5,
-      "Sumprice": 14.0
-    },
-    {
-      "ID": "4",
-      "Customer": "albi79",
-      "Datum": null,
-      "Projectie": "IMAX",
-      "Zaal": 3,
-      "Seats": {
-        "Rij": 9,
-        "Column": 12,
         "Price": 30.0
       },
-      "Snack": "Popcorn Mix",
+      "Zitplaatstype": "MASTER",
+      "Snack": "Popcorn Zoet",
       "Snackprice": 6.5,
       "Sumprice": 36.5
     },
     {
-      "ID": "5",
-      "Customer": "albertKang",
-      "Datum": null,
-      "Projectie": "IMAX",
-      "Zaal": 3,
-      "Seats": {
-        "Rij": 7,
-        "Column": 9,
-        "Price": 15.0
-      },
-      "Snack": "Geen",
-      "Snackprice": 0.0,
-      "Sumprice": 15.0
-    },
-    {
-      "ID": "6",
-      "Customer": "DanieJong",
-      "Datum": "30-07-2021",
-      "Projectie": "IMAX",
-      "Zaal": 3,
+      "ID": "20",
+      "Customer": "dkbj22",
+      "Filmtitel": "The 'Notorius' Conor Mc Gregor",
+      "Datum": "01-06-2021",
+      "Tijd": "01-06-2021",
+      "Projectie": "2D",
+      "Zaal": 1,
       "Seats": {
         "Rij": 1,
-        "Column": 8,
+        "Column": 1,
         "Price": 7.5
       },
+      "Zitplaatstype": "MASTER",
       "Snack": "Geen",
       "Snackprice": 0.0,
       "Sumprice": 7.5
+    },
+    {
+      "ID": "2",
+      "Customer": "dkbj22",
+      "Filmtitel": null,
+      "Datum": "01-06-2021",
+      "Tijd": "16:00",
+      "Projectie": "2D",
+      "Zaal": 1,
+      "Seats": {
+        "Rij": 0,
+        "Column": 4,
+        "Price": 7.5
+      },
+      "Zitplaatstype": "MASTER",
+      "Snack": "Popcorn Zoet",
+      "Snackprice": 6.5,
+      "Sumprice": 14.0
     }
   ]
 }

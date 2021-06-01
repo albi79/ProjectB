@@ -46,10 +46,10 @@ namespace ProjectB.pages
                 }
             }
 
-            Console.WriteLine("Wilt u een ticket annuleren/bewerken (minimaal 24 uur voordat de film draait.)\nTyp dan het ticket ID in");
-            Console.WriteLine("\n\nDruk 0 om terug te gaan.");
+            Console.WriteLine("Wilt u een ticket annuleren/bewerken (minimaal 24 uur voordat de film draait.)    Typ dan het ticket ID in");
+            Console.WriteLine("Typ 0 om terug te gaan.");
             try { Select = Int32.Parse(Beheer.Input("")); }
-            catch { Console.WriteLine("Er ging iets verkeerd!\n"); ticketTerugvinden(gebruikersnaam); }
+            catch { Console.Clear(); Console.WriteLine("Er ging iets verkeerd!\n"); ticketTerugvinden(gebruikersnaam); }
 
 
 
@@ -60,7 +60,7 @@ namespace ProjectB.pages
                 if (Select == 0)
                 {
                     Console.Clear();
-                    AdminMenu.adminMenu();
+                    ConsoleMenu.consoleMenu(gebruikersnaam);
                 }
 
                 foreach (Reservation reservation in DataStorageHandler.Storage.Reservations)
