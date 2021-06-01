@@ -28,7 +28,8 @@ namespace ProjectB.pages
             Console.WriteLine("1. Uitloggen");
             Console.WriteLine("2. Film programma");
             Console.WriteLine("3. Ticket geschiedenis");
-            Console.WriteLine("4. Veelgestelde vragen");
+            Console.WriteLine("4. Gebruikergegevens");
+            Console.WriteLine("5. Veelgestelde vragen");
             Console.WriteLine("---------------------------");
             Console.WriteLine("Voer uw optienummer in");
 
@@ -88,6 +89,14 @@ namespace ProjectB.pages
                 }
 
                 else if (menuinput == "4")
+                {
+                    Console.Clear();
+                    //Console.WriteLine("Hier wordt de sales overview scherm aangeroepen");
+                    Gebruikergegevens.gebruikergegevens(gebruikersnaam);
+                    validinputmenu = true;
+                }
+
+                else if (menuinput == "5")
                 {
                     Console.Clear();
                     //Console.WriteLine("Hier wordt de sales overview scherm aangeroepen");

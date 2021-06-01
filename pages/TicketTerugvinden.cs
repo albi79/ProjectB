@@ -37,13 +37,19 @@ namespace ProjectB.pages
                         Console.WriteLine("Projectie: €" + reservation.Seats.Price + "0");
                     else
                         Console.WriteLine("Projectie: €" + reservation.Seats.Price);
-
-                    Console.WriteLine("Snack: " + reservation.Snack);
-                    Console.Write("-- Typ ");
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.Write(reservation.ID);
-                    Console.ResetColor();
-                    Console.Write(" om deze film te beoordelen\n");
+                    //if (Datumkiezen is geweest)
+                    //{
+                        Console.WriteLine("Snack: " + reservation.Snack);
+                        Console.Write("-- Typ ");
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.Write(reservation.ID);
+                        Console.ResetColor();
+                        Console.Write(" om deze film te beoordelen\n");
+                    //}
+                    //else
+                    //{
+                    //    verwijder of wijzig film
+                    //}
                 }
             }
             Console.WriteLine("\n\nTyp de kaart ID om een film te beoordelen");

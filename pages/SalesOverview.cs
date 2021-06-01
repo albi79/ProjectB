@@ -92,8 +92,8 @@ namespace ProjectB.pages
                 }
                 else
                 {
-                    Console.WriteLine("\nFOUTMELDING: er is een ongeldige toets ingevoerd. Toets b om terug te gaan.");
-                    backingoption = false;
+                    Console.WriteLine("\nFOUTMELDING: er is een ongeldige toets ingevoerd.\nToets b om terug te gaan.");
+                    Terug = Beheer.Input("");
                 }
             }
         }
