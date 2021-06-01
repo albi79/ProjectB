@@ -30,6 +30,7 @@ namespace ProjectB.pages
                 else if (loginGebruikersnaam == person.gebruikersnaam && loginWachtwoord == person.wachtwoord)
                 {
                     Console.Clear();
+                    person.loginMoment = DateTime.Now;
                     ConsoleMenu.consoleMenu(loginGebruikersnaam);
                 }
             }
@@ -43,7 +44,7 @@ namespace ProjectB.pages
 
             else if (foutGebruiker == "2")
                 Login.login();
-
+ 
             else if (foutGebruiker == "3")
                 Startscherm.startscherm();
 

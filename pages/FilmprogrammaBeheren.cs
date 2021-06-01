@@ -121,9 +121,9 @@ namespace ProjectB.pages
         {
             Console.Clear();
             string nTitel = Beheer.Input("Wat is de titel van de nieuwe film?\n");
-            string nCategorie = Beheer.Input("Wat is de categorie van de nieuwe film?\n");
-            int nLeeftijd = Convert.ToInt32(Beheer.Input("Wat is de minimum leeftijd van de nieuwe film?\n"));
-            string nBeschrijving = Beheer.Input("Schrijf een korte filmbeschrijving\n");
+            string nCategorie = Beheer.Input("\nWat is de categorie van de nieuwe film?\n");
+            int nLeeftijd = Convert.ToInt32(Beheer.Input("\nWat is de minimum leeftijd van de nieuwe film?\n"));
+            string nBeschrijving = Beheer.Input("\nSchrijf een korte filmbeschrijving\n");
 
 
             {
@@ -132,10 +132,10 @@ namespace ProjectB.pages
                 if (HuidigOfToekomstig == "HuidigeFilms")
                 {
                         
-                    string nTaal = Beheer.Input("Wat is de Hoofdtaal van de film?\n");
-                    string nOndertiteling = Beheer.Input("In welke taal is de ondertiteling?\n");
-                    string nActeurs = Beheer.Input("Welke grote acteurs spelen in de film?\n");
-                    string nRegisseur = Beheer.Input("Wie is de regiseur van de film?\n");
+                    string nTaal = Beheer.Input("\nWat is de Hoofdtaal van de film?\n");
+                    string nOndertiteling = Beheer.Input("\nIn welke taal is de ondertiteling?\n");
+                    string nActeurs = Beheer.Input("\nWelke grote acteurs spelen in de film?\n");
+                    string nRegisseur = Beheer.Input("\nWie is de regiseur van de film?\n");
 
                     int nZaal = 0;
                     while (nZaal != 1 && nZaal != 2 && nZaal != 3)
@@ -149,27 +149,16 @@ namespace ProjectB.pages
                         catch { Console.WriteLine("Verkeerde zaal input!\nTyp Enter"); Beheer.Input(); }
                     }
 
-                    //Bij verkeerde tijd input moet je via de app bewerken filmInfoWijzigen()
-                    /*int hoeveelTijden = Int32.Parse(Beheer.Input("\nHoe vaak wordt de film op een dag gedraaid? "));
-                    string[] nTijd = new string[hoeveelTijden];
-                    for (int i = 0; i < hoeveelTijden; i++)
-                    {
-                        Console.WriteLine($"\nOp welk tijdstip begint de {i + 1}e projectie (HH:MM) ?");
-                        nTijd[i] = Beheer.Input("");
-                    }
-                    */
-                    //string nData = Beheer.Input("\nOp welke data/datum draait de film?\n");
-
                     int hoeveelDagen = 0;
                     bool dagenInput = false;
                     while (dagenInput != true)
                     {
                         try
                         {
-                            hoeveelDagen = Int32.Parse(Beheer.Input("\nOp hoeveel dagen totaal wordt de film gedraaid? "));
+                            hoeveelDagen = Int32.Parse(Beheer.Input("\nOp hoeveel dagen totaal wordt de film gedraaid? \n"));
                             dagenInput = true;
                         }
-                        catch { Console.WriteLine("Verkeerde input!\nTyp Enter"); Beheer.Input(); }
+                        catch { Console.WriteLine("\nVerkeerde input!\nTyp Enter"); Beheer.Input(); }
                     }
                     string[][] nProjectiemoment = new string[hoeveelDagen][];
 
@@ -185,7 +174,7 @@ namespace ProjectB.pages
                                 datumInput = true;
                             else
                             {
-                                Console.WriteLine("Verkeerde input!\nTyp Enter");
+                                Console.WriteLine("\nVerkeerde input!\nTyp Enter");
                                 Beheer.Input();
                             }
                         }
@@ -201,7 +190,7 @@ namespace ProjectB.pages
                                 nProjectiemoment[i][0] = datum;
                                 tijdenInput = true;
                             }
-                            catch { Console.WriteLine("Verkeerde input!\nTyp Enter"); Beheer.Input(); }
+                            catch { Console.WriteLine("\nVerkeerde input!\nTyp Enter"); Beheer.Input(); }
                         }
 
 

@@ -13,6 +13,9 @@ namespace ProjectB.pages
     {
         public static void ticketTerugvinden(string gebruikersnaam)
         {
+            int indexCount = 1;
+            int Select = 0;
+
             Console.Write($"Welkom bij uw Ticket geschiedenis, ");
             Console.ForegroundColor = ConsoleColor.Magenta;
             Console.Write($"{gebruikersnaam}\n");
@@ -22,6 +25,7 @@ namespace ProjectB.pages
             {
                 if (gebruikersnaam == reservation.Customer)
                 {
+                    Console.WriteLine($"Ticket nummer: {indexCount}.");
                     Console.ForegroundColor = ConsoleColor.DarkBlue;
                     Console.Write($"\nReservering ID {reservation.ID}:");
                     Console.ResetColor();
@@ -41,19 +45,34 @@ namespace ProjectB.pages
                     Console.WriteLine("Snack: " + reservation.Snack + "\n--");
                 }
             }
-            Console.WriteLine("\n\nDruk b om terug te gaan.");
-            string Select = Beheer.Input("");
-            if (Select == "b")
+
+            Console.WriteLine("Wilt u een ticket annuleren/bewerken (minimaal 24 uur voordat de film draait.)\nTyp dan het ticket ID in");
+            Console.WriteLine("\n\nDruk 0 om terug te gaan.");
+            try { Select = Int32.Parse(Beheer.Input("")); }
+            catch { Console.WriteLine("Er ging iets verkeerd!\n"); ticketTerugvinden(gebruikersnaam); }
+
+
+
+            int ticketIndex = 0;
+
+            try 
             {
-                Console.Clear();
-                AdminMenu.adminMenu();
+                if (Select == 0)
+                {
+                    Console.Clear();
+                    AdminMenu.adminMenu();
+                }
+
+                foreach (Reservation reservation in DataStorageHandler.Storage.Reservations)
+                {
+                    if (gebruikersnaam == reservation.Customer)
+                        if (Select == Int32.Parse(reservation.ID))
+                            ticketIndex = DataStorageHandler.Storage.Reservations.IndexOf(reservation);
+                }
+
+                TicketWijzigen.ticketWijzigen(gebruikersnaam, ticketIndex);
             }
-            else
-            {
-                Console.Clear();
-                Console.WriteLine("Er ging iets verkeerd!\n");
-                ticketTerugvinden(gebruikersnaam);
-            }
+            catch { Console.WriteLine("Er ging iets verkeerd!\n"); ticketTerugvinden(gebruikersnaam); }
         }
     }
 }

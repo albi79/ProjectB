@@ -10,69 +10,6 @@
       "wachtwoord": "Nimda2021"
     },
     {
-      "naam": "",
-      "tussenvoegsel": "",
-      "achternaam": "",
-      "geboortedatum": "",
-      "email": "AdminBios",
-      "gebruikersnaam": "AdminBios",
-      "wachtwoord": "Nimda2021"
-    },
-    {
-      "naam": "",
-      "tussenvoegsel": "",
-      "achternaam": "",
-      "geboortedatum": "",
-      "email": "AdminBios",
-      "gebruikersnaam": "AdminBios",
-      "wachtwoord": "Nimda2021"
-    },
-    {
-      "naam": "",
-      "tussenvoegsel": "",
-      "achternaam": "",
-      "geboortedatum": "",
-      "email": "AdminBios",
-      "gebruikersnaam": "AdminBios",
-      "wachtwoord": "Nimda2021"
-    },
-    {
-      "naam": "",
-      "tussenvoegsel": "",
-      "achternaam": "",
-      "geboortedatum": "",
-      "email": "AdminBios",
-      "gebruikersnaam": "AdminBios",
-      "wachtwoord": "Nimda2021"
-    },
-    {
-      "naam": "",
-      "tussenvoegsel": "",
-      "achternaam": "",
-      "geboortedatum": "",
-      "email": "AdminBios",
-      "gebruikersnaam": "AdminBios",
-      "wachtwoord": "Nimda2021"
-    },
-    {
-      "naam": "",
-      "tussenvoegsel": "",
-      "achternaam": "",
-      "geboortedatum": "",
-      "email": "AdminBios",
-      "gebruikersnaam": "AdminBios",
-      "wachtwoord": "Nimda2021"
-    },
-    {
-      "naam": "",
-      "tussenvoegsel": "",
-      "achternaam": "",
-      "geboortedatum": "",
-      "email": "AdminBios",
-      "gebruikersnaam": "AdminBios",
-      "wachtwoord": "Nimda2021"
-    },
-    {
       "naam": "albert",
       "tussenvoegsel": "",
       "achternaam": "kang",
@@ -155,6 +92,57 @@
         [
           "30-08-2021",
           "12:20"
+        ]
+      ],
+      "Beoordeling": 0,
+      "AantalBeoordelingen": 0,
+      "BeoordelingCumulatief": 0
+    },
+    {
+      "Titel": "The Mask",
+      "Categorie": "Comedy",
+      "Leeftijd": 12,
+      "Beschrijving": "Een acteur maakt gekke frapjes",
+      "Taal": "Engels",
+      "Ondertiteling": "Geen",
+      "Acteurs": "Baster",
+      "Regisseur": "Barbara",
+      "Zaal": 1,
+      "Projectiemoment": [
+        [
+          "01-06-2021",
+          "09:10",
+          "13:20",
+          "16:00"
+        ],
+        [
+          "10-06-2021",
+          "19:00"
+        ]
+      ],
+      "Beoordeling": 0,
+      "AantalBeoordelingen": 0,
+      "BeoordelingCumulatief": 0
+    },
+    {
+      "Titel": "Star Wars",
+      "Categorie": "Fantasy",
+      "Leeftijd": 12,
+      "Beschrijving": "oorlog in space",
+      "Taal": "engels",
+      "Ondertiteling": "Nederlands",
+      "Acteurs": "dd",
+      "Regisseur": "asdasd",
+      "Zaal": 1,
+      "Projectiemoment": [
+        [
+          "01-06-2021",
+          "12:00",
+          "14:00"
+        ],
+        [
+          "02-06-2021",
+          "12:00"
         ]
       ],
       "Beoordeling": 0,

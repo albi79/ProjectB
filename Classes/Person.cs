@@ -10,6 +10,7 @@ namespace ProjectB.Classes
         public string email { get; set; } 
         public string gebruikersnaam { get; set; } 
         public string wachtwoord { get; set; } 
+        public DateTime loginMoment { get; set; }
         // Mischien hier boolean maken voor admin die automatisch op false staat behalven bij hardcoded accounts
     }
 }

@@ -46,7 +46,6 @@ namespace ProjectB.pages
             if (HuidigOfToekomstig == "HuidigeFilms")
             {
                 Console.WriteLine("U bevindt nu bij de Huidige Films overzicht");
-                //loop door de lijst
                 int filmNummer = 1;
                 foreach (Film filmItem in DataStorageHandler.Storage.Films)
                 {
@@ -83,13 +82,10 @@ namespace ProjectB.pages
                 Console.WriteLine("Categorie: " + DataStorageHandler.Storage.Films[selectedFilm].Categorie);
                 Console.WriteLine("Minimum leeftijd: " + DataStorageHandler.Storage.Films[selectedFilm].Leeftijd);
                 Console.WriteLine("Beschrijving: " + DataStorageHandler.Storage.Films[selectedFilm].Beschrijving);
-                //Console.WriteLine("Projectie: " + DataStorageHandler.Storage.Films[selectedFilm].Projectie);
                 Console.WriteLine("Taal: " + DataStorageHandler.Storage.Films[selectedFilm].Taal);
                 Console.WriteLine("Ondertiteling: " + DataStorageHandler.Storage.Films[selectedFilm].Ondertiteling);
                 Console.WriteLine("Acteurs: " + DataStorageHandler.Storage.Films[selectedFilm].Acteurs);
                 Console.WriteLine("Regiseur: " + DataStorageHandler.Storage.Films[selectedFilm].Regisseur);
-                //Console.WriteLine("Speeltijd: " + DataStorageHandler.Storage.Films[selectedFilm].Tijd);
-                //Console.WriteLine("Speelt op: " + DataStorageHandler.Storage.Films[selectedFilm].Data);
                 Console.WriteLine("Zaal: " + DataStorageHandler.Storage.Films[selectedFilm].Zaal);
                 if (DataStorageHandler.Storage.Films[selectedFilm].Beoordeling != 0)
                 {
