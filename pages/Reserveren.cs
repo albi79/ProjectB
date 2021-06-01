@@ -323,14 +323,15 @@ namespace ProjectB.pages
                     if (selectedSeat2 == null || selectedSeat2.Price == 0.0) // terug gaan
                     {
                         option = "NEE";
-                        selectedSeat = selectedSeat2;
-
-                        if (selectedSeat.Price == 15.00)
+                    }
+                    else
+                    {
+                        if (selectedSeat2.Price == 15.00)
                         {
                             zitplaatstype = "VIP";
                         }
 
-                        else if (selectedSeat.Price == 30.00)
+                        else if (selectedSeat2.Price == 30.00)
                         {
                             zitplaatstype = "MASTER";
                         }
@@ -339,6 +340,7 @@ namespace ProjectB.pages
                         {
                             zitplaatstype = "REGULIERE";
                         }
+                        selectedSeat = selectedSeat2;
                     }
                 }
 
@@ -367,10 +369,10 @@ namespace ProjectB.pages
                 else if (wijzigingsoptie == "Terug gaan")
                 {
                     sumPrice = selectedSeat.Price + snackPrice;
-                    Console.Clear();
-                    Console.WriteLine("\n" + prompt + "Controleer uw bestelgegevens\nDit is de informatie over uw bestelling:\n");
+                    //Console.Clear();
+                    //Console.WriteLine("\n" + prompt + "Controleer uw bestelgegevens\nDit is de informatie over uw bestelling:\n");
 
-                    Console.WriteLine("\nKlantnaam: " + klantnaam + "\nFilmtitel: " + filmtitel + "\nDatum: " + datum + "\nTijd: " + tijd + "\nProjectie: " + projectie + "\nZaal: " + zaalnummer + "\nRij: " + selectedSeat.Rij + "\nZitplaatsnummer: " + selectedSeat.Column + "\nZitplaatstype: " + zitplaatstype + "\nZitplaatsprijs: " + selectedSeat.Price + "\nSnacks: " + snack + "\nSnackprijs: " + snackPrice + "\nTotale prijs: " + sumPrice);
+                    //Console.WriteLine("\nKlantnaam: " + klantnaam + "\nFilmtitel: " + filmtitel + "\nDatum: " + datum + "\nTijd: " + tijd + "\nProjectie: " + projectie + "\nZaal: " + zaalnummer + "\nRij: " + selectedSeat.Rij + "\nZitplaatsnummer: " + selectedSeat.Column + "\nZitplaatstype: " + zitplaatstype + "\nZitplaatsprijs: " + selectedSeat.Price + "\nSnacks: " + snack + "\nSnackprijs: " + snackPrice + "\nTotale prijs: " + sumPrice);
                     
                     option = Bestelgegevensjanee.bestelgegevensjanee(prompt, klantnaam, filmtitel, datum, tijd, projectie, zaalnummer, selectedSeat.Rij, selectedSeat.Column, zitplaatstype, selectedSeat.Price, snack, snackPrice, sumPrice);
                 }
