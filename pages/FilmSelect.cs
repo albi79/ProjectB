@@ -128,7 +128,7 @@ namespace ProjectB.pages
                                 if (ageinput == "1")
                                 {
                                     Console.Clear();
-                                    Reserveren.reserveren(DataStorageHandler.Storage.Films[selectedFilm].Zaal, gebruikersnaam, selectedFilm);
+                                    Reserveren.reserveren(DataStorageHandler.Storage.Films[selectedFilm].Zaal, gebruikersnaam, selectedFilm, HuidigOfToekomstig);
                                     agecheck = true;
                                 }
 
@@ -163,7 +163,7 @@ namespace ProjectB.pages
                         }
                         else
                         {
-                            Reserveren.reserveren(DataStorageHandler.Storage.Films[selectedFilm].Zaal, gebruikersnaam, selectedFilm);
+                            Reserveren.reserveren(DataStorageHandler.Storage.Films[selectedFilm].Zaal, gebruikersnaam, selectedFilm, HuidigOfToekomstig);
                         }
                     }
                     else if (toets2 == "2")
@@ -218,7 +218,7 @@ namespace ProjectB.pages
                                 if (ageinput == "1")
                                 {
                                     Console.Clear();
-                                    Reserveren.reserveren(DataStorageHandler.Storage.Films[selectedFilm].Zaal, gebruikersnaam, selectedFilm);
+                                    Reserveren.reserveren(DataStorageHandler.Storage.Films[selectedFilm].Zaal, gebruikersnaam, selectedFilm, HuidigOfToekomstig);
                                     agecheck = true;
                                 }
 
@@ -253,7 +253,7 @@ namespace ProjectB.pages
                         }
                         else
                         {
-                            Reserveren.reserveren(DataStorageHandler.Storage.Films[selectedFilm].Zaal, gebruikersnaam, selectedFilm);
+                            Reserveren.reserveren(DataStorageHandler.Storage.Films[selectedFilm].Zaal, gebruikersnaam, selectedFilm, HuidigOfToekomstig);
                         }
                     }
                 }

@@ -130,6 +130,7 @@ namespace ProjectB
         public BaseSeat Run(int selectedFilm, string datum, string tijd, string bioscoopscherm)
         {
             ConsoleKey keyPressed = ConsoleKey.B;
+            //wanneer de key escape is, dan moet hij uit de while loop
             while (keyPressed != ConsoleKey.Enter || reservationcheck(selectedRow, selectedColumn, selectedFilm, datum, tijd) == false || seats[selectedRow][selectedColumn] == null)
             {
                 Clear();
@@ -183,13 +184,28 @@ namespace ProjectB
                     }
                 }
                 ResetColor();
+                if (keyPressed == ConsoleKey.Escape)
+                {
+                    break;
+                }
 
             }
             object obj = seats[selectedRow][selectedColumn];
             double p = 0.0;
-            if (obj is RegularSeat) { RegularSeat s = (RegularSeat)obj; p = s.Price; }
-            if (obj is VipSeat) { VipSeat s = (VipSeat)obj; p = s.Price; }
-            if (obj is MasterSeat) { MasterSeat s = (MasterSeat)obj; p = s.Price; }
+
+            if (keyPressed == ConsoleKey.Escape)
+            {
+                if (obj is RegularSeat) { RegularSeat s = (RegularSeat)obj; p = 0.0; }
+                else if (obj is VipSeat) { VipSeat s = (VipSeat)obj; p = 0.0; }
+                else if (obj is MasterSeat) { MasterSeat s = (MasterSeat)obj; p = 0.0; }
+            }
+            else
+            {
+                if (obj is RegularSeat) { RegularSeat s = (RegularSeat)obj; p = s.Price; }
+                if (obj is VipSeat) { VipSeat s = (VipSeat)obj; p = s.Price; }
+                if (obj is MasterSeat) { MasterSeat s = (MasterSeat)obj; p = s.Price; }
+            }
+
             BaseSeat selectedseat = new BaseSeat
             (
                 selectedRow,

@@ -16,11 +16,18 @@ namespace ProjectB.pages
             string prompt = "STAP 2: Kies uw tijd";
             
             int aantalTijden = DataStorageHandler.Storage.Films[selectedfilm].Projectiemoment[datumIndex].Length;
-            string[] tijdenOptions = new string[aantalTijden-1];
+            string[] tijdenOptions = new string[aantalTijden];
 
-            for(int i = 0; i < aantalTijden-1; i++)
+            for(int i = 0; i < aantalTijden; i++)
             {
-                tijdenOptions[i] = DataStorageHandler.Storage.Films[selectedfilm].Projectiemoment[datumIndex][i+1];
+                if (i < aantalTijden - 1)
+                {
+                    tijdenOptions[i] = DataStorageHandler.Storage.Films[selectedfilm].Projectiemoment[datumIndex][i + 1];
+                }
+                else
+                {
+                    tijdenOptions[i] = "Terug gaan";
+                }
             }
 
             //string[] terugoptie = { "Terug gaan" };

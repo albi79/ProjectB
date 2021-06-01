@@ -29,32 +29,32 @@ namespace ProjectB.pages
             new object[]{ null, null, new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), null, null },
             new object[]{ null, null, new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), null, null },
             };
-            string prompt = "STAP 4: Selecteer uw zitplaats in Zaal1\n\n";
+            string prompt = "STAP 4: Selecteer uw zitplaats in Zaal1\n";
             int totaalColumn = 12 * 3 - 2;
             string bioscoopscherm = "";
             for (int i = 0; i < totaalColumn; i++)
             {
                 bioscoopscherm += "=";
             }
-            bioscoopscherm = "\n|" + bioscoopscherm + "|";
+            bioscoopscherm = "\n|" + bioscoopscherm + "|" + "\n           BIOSCOOPSCHERM";
             SeatsMenu zaal1 = new SeatsMenu(prompt, seats150);
             zaal1.Display(selectedFilm, datum, tijd);
             BaseSeat selectedSeat = zaal1.Run(selectedFilm, datum, tijd, bioscoopscherm);
 
-            try
-            {
+            //try
+            //{
 
-                foreach (var item in DataStorageHandler.Storage.Reservations)
-                {
-                    if (selectedSeat.Rij == item.Seats.Rij && selectedSeat.Column == item.Seats.Column)
-                    {
-                        selectedSeat = null;
-                        zitplaatsenkiezen(selectedFilm, datum, tijd);
-                    }
-                }
+            //    foreach (var item in DataStorageHandler.Storage.Reservations)
+            //    {
+            //        if (selectedSeat.Rij == item.Seats.Rij && selectedSeat.Column == item.Seats.Column)
+            //        {
+            //            selectedSeat = null;
+            //            zitplaatsenkiezen(selectedFilm, datum, tijd);
+            //        }
+            //    }
 
-            }
-            catch (Exception) { };
+            //}
+            //catch (Exception) { };
 
             return selectedSeat;
         }

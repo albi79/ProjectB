@@ -261,6 +261,60 @@
       "Snack": "Popcorn Zoet",
       "Snackprice": 6.5,
       "Sumprice": 21.5
+    },
+    {
+      "ID": "5",
+      "Customer": "aloli",
+      "Filmtitel": "The 'Notorius' Conor Mc Gregor",
+      "Datum": "23-05-2021",
+      "Tijd": "16:00",
+      "Projectie": "2D",
+      "Zaal": 1,
+      "Seats": {
+        "Rij": 7,
+        "Column": 6,
+        "Price": 30.0
+      },
+      "Zitplaatstype": "MASTER",
+      "Snack": "Popcorn Zoet",
+      "Snackprice": 6.5,
+      "Sumprice": 36.5
+    },
+    {
+      "ID": "6",
+      "Customer": "ad",
+      "Filmtitel": "The 'Notorius' Conor Mc Gregor",
+      "Datum": "23-05-2021",
+      "Tijd": "16:00",
+      "Projectie": "2D",
+      "Zaal": 1,
+      "Seats": {
+        "Rij": 7,
+        "Column": 7,
+        "Price": 15.0
+      },
+      "Zitplaatstype": "VIP",
+      "Snack": "Popcorn Zoet",
+      "Snackprice": 6.5,
+      "Sumprice": 21.5
+    },
+    {
+      "ID": "7",
+      "Customer": "ad",
+      "Filmtitel": "The 'Notorius' Conor Mc Gregor",
+      "Datum": "23-05-2021",
+      "Tijd": "16:00",
+      "Projectie": "2D",
+      "Zaal": 1,
+      "Seats": {
+        "Rij": 6,
+        "Column": 6,
+        "Price": 30.0
+      },
+      "Zitplaatstype": "MASTER",
+      "Snack": "Popcorn Zoet",
+      "Snackprice": 6.5,
+      "Sumprice": 36.5
     }
   ]
 }
