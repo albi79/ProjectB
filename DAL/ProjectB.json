@@ -28,7 +28,7 @@
       "email": "dkbj22@gmail.com",
       "gebruikersnaam": "dkbj22",
       "wachtwoord": "Daniel22",
-      "loginMoment": "2021-06-02T00:05:09.2910772+02:00"
+      "loginMoment": "2021-06-02T15:06:45.9235389+02:00"
     }
   ],
   "Films": [
@@ -56,13 +56,19 @@
         ],
         [
           "10-06-2021",
-          "09:10",
+          "09:20",
           "13:40",
           "16:27"
         ],
         [
           "14-06-2021",
-          "09:10",
+          "09:30",
+          "13:40",
+          "16:27"
+        ],
+        [
+          "20-06-2021",
+          "09:40",
           "13:40",
           "16:27"
         ]
@@ -181,8 +187,8 @@
       "ID": "20",
       "Customer": "dkbj22",
       "Filmtitel": "The 'Notorius' Conor Mc Gregor",
-      "Datum": "01-06-2021",
-      "Tijd": "01-06-2021",
+      "Datum": "14-06-2021",
+      "Tijd": "13:40",
       "Projectie": "2D",
       "Zaal": 1,
       "Seats": {
@@ -191,9 +197,9 @@
         "Price": 7.5
       },
       "Zitplaatstype": "MASTER",
-      "Snack": "Geen",
-      "Snackprice": 0.0,
-      "Sumprice": 7.5
+      "Snack": "Popcorn Zoet",
+      "Snackprice": 6.5,
+      "Sumprice": 14.0
     },
     {
       "ID": "2",

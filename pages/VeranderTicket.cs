@@ -16,7 +16,7 @@ namespace ProjectB.pages
         {
             if (keuze == "1")
             {
-                Console.WriteLine($"U heeft nu {DataStorageHandler.Storage.Reservations[ticketIndex].Snack} als snack geselecteerd, naar wat wilt u dit veranderen?\n1. Popcorn zoet\n2. Popcorn zout\n3. Popcorn mix\n4. Geen\n0. Wijzeging annuleren");
+                Console.WriteLine($"U heeft nu {DataStorageHandler.Storage.Reservations[ticketIndex].Snack} als snack geselecteerd, naar wat wilt u dit veranderen?\n0. Wijzeging annuleren\n1. Popcorn zoet\n2. Popcorn zout\n3. Popcorn mix\n4. Geen");
                 string snackKeuze = Beheer.Input("");
                 if (snackKeuze == "0")
                     TicketTerugvinden.ticketTerugvinden(gebruikersnaam);
@@ -70,6 +70,7 @@ namespace ProjectB.pages
                         filmIndex = DataStorageHandler.Storage.Films.IndexOf(filmItem);
 
                 int teller = 0;
+                int datumIndexTeller = 0;
 
                 Console.WriteLine("Kies uw nieuwe datum:");
 
@@ -77,53 +78,60 @@ namespace ProjectB.pages
                 {
                     bool geweest = true;
                     string datum = projectiemoment[0];
-                    Console.WriteLine(datum);
                     int dag = Int32.Parse($"{datum[0]}{datum[1]}");
                     int maand = Int32.Parse($"{datum[3]}{datum[4]}");
                     int jaar = Int32.Parse($"{datum[6]}{datum[7]}{datum[8]}{datum[9]}");
 
+                    Console.WriteLine(datum);
+
                     if (jaar < DateTime.Now.Year)
                     {
-                        Console.WriteLine("jaar < DateTime.Now.Year");
+                        Console.WriteLine("jaar < DateTime.Now.Year - geweest = false");
                         geweest = false;
                     }
                     else if (jaar > DateTime.Now.Year)
                     {
-                        Console.WriteLine("jaar > DateTime.Now.Year");
+                        Console.WriteLine("jaar > DateTime.Now.Year - geweest = true");
                         geweest = true;
                     }
                     else
                     {
+                        Console.WriteLine("jaar == DateTime.now.year - continue");
                         if (maand < DateTime.Now.Month)
                         {
-                            Console.WriteLine("maand < DateTime.Now.Month");
+                            Console.WriteLine("maand < DateTime.Now.Month - geweest = true");
                             geweest = true;
                         }
-                        if (maand > DateTime.Now.Month)
+                        else if (maand > DateTime.Now.Month)
                         {
-                            Console.WriteLine("maand > DateTime.Now.Month");
+                            Console.WriteLine("maand > DateTime.Now.Month - geweest = false");
                             geweest = false;
                         }
                         else
                         {
+                            Console.WriteLine("maand == DateTime.Now.Month - continue");
                             if (dag <= DateTime.Now.Day)
                             {
-                                Console.WriteLine("dag <= DateTime.Now.Day");
+                                Console.WriteLine("dag <= DateTime.Now.Day - geweest = true");
                                 geweest = true;
                             }
                             if (dag > DateTime.Now.Day)
                             {
-                                Console.WriteLine("dag > DateTime.Now.Day");
+                                Console.WriteLine("dag > DateTime.Now.Day - geweest = false");
                                 geweest = false;
                             }
                         }
                     }
+                    
                     Beheer.Input();
+
                     if (geweest == false)
                     {
-                        Console.WriteLine($"{teller+1}. {datum}\n");
+                        Console.WriteLine($"{teller + 1}. {datum}\n");
                         teller++;
                     }
+                    else
+                        datumIndexTeller++;
                 }
 
                 if (teller == 0)
@@ -135,22 +143,22 @@ namespace ProjectB.pages
 
                 int outerIndex = 0;
 
-                try { outerIndex = Int32.Parse(Beheer.Input("Welke datum wilt u selecteren? "))-1; if (outerIndex > teller+1) VeranderTicket.veranderTicket(gebruikersnaam, keuze, ticketIndex, indexOfGebruiker); }
+                try { outerIndex = Int32.Parse(Beheer.Input("Welke datum wilt u selecteren? ")); if (outerIndex > teller+1) VeranderTicket.veranderTicket(gebruikersnaam, keuze, ticketIndex, indexOfGebruiker); }
                 catch { Console.Clear(); Console.WriteLine("Er ging iets fout!"); VeranderTicket.veranderTicket(gebruikersnaam, keuze, ticketIndex, indexOfGebruiker); }
 
                 Console.WriteLine("Kies uw nieuwe tijd:");
 
                 int teller2 = 1;
-                for (int i = 0; i < DataStorageHandler.Storage.Films[filmIndex].Projectiemoment[outerIndex].Length-1; i++, teller2++)
-                    Console.WriteLine($"\n{teller2}. {DataStorageHandler.Storage.Films[filmIndex].Projectiemoment[outerIndex][i+1]}");
+                for (int i = 0; i < DataStorageHandler.Storage.Films[filmIndex].Projectiemoment[outerIndex + datumIndexTeller - 1].Length-1; i++, teller2++)
+                    Console.WriteLine($"\n{teller2}. {DataStorageHandler.Storage.Films[filmIndex].Projectiemoment[outerIndex + datumIndexTeller -1][i+1]}");
                 
                 int innerIndex = 0;
 
-                try { innerIndex = Int32.Parse(Beheer.Input("\nWelk tijdstip wilt u selecteren")) - 1; if (innerIndex > teller2) VeranderTicket.veranderTicket(gebruikersnaam, keuze, ticketIndex, indexOfGebruiker); }
+                try { innerIndex = Int32.Parse(Beheer.Input("\nWelk tijdstip wilt u selecteren ")); if (innerIndex > teller2) VeranderTicket.veranderTicket(gebruikersnaam, keuze, ticketIndex, indexOfGebruiker); }
                 catch { Console.Clear(); Console.WriteLine("Er ging iets fout!"); VeranderTicket.veranderTicket(gebruikersnaam, keuze, ticketIndex, indexOfGebruiker); }
 
-                DataStorageHandler.Storage.Reservations[ticketIndex].Datum = DataStorageHandler.Storage.Films[filmIndex].Projectiemoment[outerIndex][0];
-                DataStorageHandler.Storage.Reservations[ticketIndex].Tijd = DataStorageHandler.Storage.Films[filmIndex].Projectiemoment[outerIndex][innerIndex];
+                DataStorageHandler.Storage.Reservations[ticketIndex].Datum = DataStorageHandler.Storage.Films[filmIndex].Projectiemoment[outerIndex + datumIndexTeller - 1][0];
+                DataStorageHandler.Storage.Reservations[ticketIndex].Tijd = DataStorageHandler.Storage.Films[filmIndex].Projectiemoment[outerIndex + datumIndexTeller - 1][innerIndex];
                 DataStorageHandler.SaveChanges();
                 Console.Clear();
                 Console.WriteLine("Aanpassingen zijn opgeslagen\n");
