@@ -72,7 +72,7 @@ namespace ProjectB.pages
                 int teller = 0;
                 int datumIndexTeller = 0;
 
-                Console.WriteLine("Kies uw nieuwe datum:");
+                Console.WriteLine("Kies uw nieuwe datum:\n");
 
                 foreach (var projectiemoment in DataStorageHandler.Storage.Films[filmIndex].Projectiemoment)
                 {
@@ -82,49 +82,37 @@ namespace ProjectB.pages
                     int maand = Int32.Parse($"{datum[3]}{datum[4]}");
                     int jaar = Int32.Parse($"{datum[6]}{datum[7]}{datum[8]}{datum[9]}");
 
-                    Console.WriteLine(datum);
-
                     if (jaar < DateTime.Now.Year)
                     {
-                        Console.WriteLine("jaar < DateTime.Now.Year - geweest = false");
                         geweest = false;
                     }
                     else if (jaar > DateTime.Now.Year)
                     {
-                        Console.WriteLine("jaar > DateTime.Now.Year - geweest = true");
                         geweest = true;
                     }
                     else
                     {
-                        Console.WriteLine("jaar == DateTime.now.year - continue");
                         if (maand < DateTime.Now.Month)
                         {
-                            Console.WriteLine("maand < DateTime.Now.Month - geweest = true");
                             geweest = true;
                         }
                         else if (maand > DateTime.Now.Month)
                         {
-                            Console.WriteLine("maand > DateTime.Now.Month - geweest = false");
                             geweest = false;
                         }
                         else
                         {
-                            Console.WriteLine("maand == DateTime.Now.Month - continue");
                             if (dag <= DateTime.Now.Day)
                             {
-                                Console.WriteLine("dag <= DateTime.Now.Day - geweest = true");
                                 geweest = true;
                             }
                             if (dag > DateTime.Now.Day)
                             {
-                                Console.WriteLine("dag > DateTime.Now.Day - geweest = false");
                                 geweest = false;
                             }
                         }
                     }
                     
-                    Beheer.Input();
-
                     if (geweest == false)
                     {
                         Console.WriteLine($"{teller + 1}. {datum}\n");
@@ -146,7 +134,7 @@ namespace ProjectB.pages
                 try { outerIndex = Int32.Parse(Beheer.Input("Welke datum wilt u selecteren? ")); if (outerIndex > teller+1) VeranderTicket.veranderTicket(gebruikersnaam, keuze, ticketIndex, indexOfGebruiker); }
                 catch { Console.Clear(); Console.WriteLine("Er ging iets fout!"); VeranderTicket.veranderTicket(gebruikersnaam, keuze, ticketIndex, indexOfGebruiker); }
 
-                Console.WriteLine("Kies uw nieuwe tijd:");
+                Console.WriteLine("\nKies uw nieuwe tijd:");
 
                 int teller2 = 1;
                 for (int i = 0; i < DataStorageHandler.Storage.Films[filmIndex].Projectiemoment[outerIndex + datumIndexTeller - 1].Length-1; i++, teller2++)

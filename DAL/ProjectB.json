@@ -28,7 +28,7 @@
       "email": "dkbj22@gmail.com",
       "gebruikersnaam": "dkbj22",
       "wachtwoord": "Daniel22",
-      "loginMoment": "2021-06-02T15:06:45.9235389+02:00"
+      "loginMoment": "2021-06-02T15:33:50.5158066+02:00"
     }
   ],
   "Films": [
@@ -146,7 +146,7 @@
           "14:00"
         ],
         [
-          "02-06-2021",
+          "10-06-2021",
           "12:00"
         ]
       ],
@@ -188,7 +188,7 @@
       "Customer": "dkbj22",
       "Filmtitel": "The 'Notorius' Conor Mc Gregor",
       "Datum": "14-06-2021",
-      "Tijd": "13:40",
+      "Tijd": "09:30",
       "Projectie": "2D",
       "Zaal": 1,
       "Seats": {
@@ -204,20 +204,20 @@
     {
       "ID": "2",
       "Customer": "dkbj22",
-      "Filmtitel": null,
-      "Datum": "01-06-2021",
-      "Tijd": "16:00",
+      "Filmtitel": "The Mask",
+      "Datum": "10-06-2021",
+      "Tijd": "19:00",
       "Projectie": "2D",
       "Zaal": 1,
       "Seats": {
         "Rij": 0,
-        "Column": 4,
+        "Column": 3,
         "Price": 7.5
       },
-      "Zitplaatstype": "MASTER",
-      "Snack": "Popcorn Zoet",
-      "Snackprice": 6.5,
-      "Sumprice": 14.0
+      "Zitplaatstype": null,
+      "Snack": "Geen",
+      "Snackprice": 0.0,
+      "Sumprice": 7.5
     }
   ]
 }
