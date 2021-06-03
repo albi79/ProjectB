@@ -29,15 +29,30 @@ namespace ProjectB.pages
 
                     Console.WriteLine("Zaal: " + reservation.Zaal);
                     Console.WriteLine("Projectie: ");
-                    Console.WriteLine("Rij: " + reservation.Seats.Rij);
-                    Console.WriteLine("Stoelnumer: " + reservation.Seats.Column);
-                    if (reservation.Seats.Price == (int)reservation.Seats.Price)
-                        Console.WriteLine("Projectie: €" + reservation.Seats.Price + ",-");
-                    else if (reservation.Seats.Price == Math.Round(reservation.Seats.Price, 1))
-                        Console.WriteLine("Projectie: €" + reservation.Seats.Price + "0");
-                    else
-                        Console.WriteLine("Projectie: €" + reservation.Seats.Price);
+                    Console.WriteLine("Rij: " + reservation.Seats[0].Rij);
 
+                    string selectedseatListColumn = "";
+                    double totalseatprice = 0.0;
+
+                    for (int i = 0; i < reservation.Seats.Count; i++)
+                    {
+                        if (reservation.Seats.Count > i + 1)
+                        {
+                            selectedseatListColumn += reservation.Seats[i].Column + ", ";
+                        }
+                        else
+                        {
+                            selectedseatListColumn += reservation.Seats[i].Column;
+                        }
+                        totalseatprice += reservation.Seats[i].Price;
+                    }
+                    Console.WriteLine("Stoelnummer(s): " + selectedseatListColumn);
+                    if (totalseatprice == (int)totalseatprice)
+                        Console.WriteLine("Projectie: €" + totalseatprice + ",-");
+                    else if (totalseatprice == Math.Round(totalseatprice, 1))
+                        Console.WriteLine("Projectie: €" + totalseatprice + "0");
+                    else
+                        Console.WriteLine("Projectie: €" + totalseatprice);
                     Console.WriteLine("Snack: " + reservation.Snack + "\n--");
                 }
             }

@@ -9,7 +9,7 @@ namespace ProjectB.pages
 {
     class Zitplaatsenkiezen2
     {
-        public static BaseSeat zitplaatsenkiezen2(int selectedFilm, string datum, string tijd)
+        public static List<BaseSeat> zitplaatsenkiezen2(int selectedFilm, string datum, string tijd, int ticketInput)
         {
             object[][] seats300 = new object[][]
             {
@@ -41,9 +41,9 @@ namespace ProjectB.pages
                 bioscoopscherm += "=";
             }
             bioscoopscherm = "\n|" + bioscoopscherm + "|" + "\n                 BIOSCOOPSCHERM";
-            SeatsMenu zaal2 = new SeatsMenu(prompt2, seats300);
-            zaal2.Display(selectedFilm, datum, tijd);
-            BaseSeat selectedSeat2 = zaal2.Run(selectedFilm, datum, tijd, bioscoopscherm);
+            SeatsMenu zaal2 = new SeatsMenu(prompt2, seats300, ticketInput);
+            zaal2.Display(selectedFilm, datum, tijd, ticketInput);
+            List<BaseSeat> selectedseatList2 = zaal2.Run(selectedFilm, datum, tijd, bioscoopscherm, ticketInput);
 
             //try
             //{
@@ -60,7 +60,7 @@ namespace ProjectB.pages
             //}
             //catch (Exception) { };
 
-            return selectedSeat2;
+            return selectedseatList2;
         }
     }
 }

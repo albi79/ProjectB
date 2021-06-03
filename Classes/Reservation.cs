@@ -15,7 +15,7 @@ namespace ProjectB.Classes
         public string Tijd { get; set; }
         public string Projectie { get; set; }
         public int Zaal { get; set; } 
-        public BaseSeat Seats { get; set; } = new BaseSeat( -1, -1, -1.00);
+        public List<BaseSeat> Seats { get; set; } = new List<BaseSeat>();
         public string Zitplaatstype { get; set; }
         public string Snack { get; set; }
         public double Snackprice { get; set; }

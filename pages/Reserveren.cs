@@ -46,32 +46,45 @@ namespace ProjectB.pages
                     ticketinput = Aantalticketkiezen.aantalticketkiezen();
                 }
             }
+            int number;
+            int ticketInput = 0;
+            bool isParse = Int32.TryParse(ticketinput, out number);
 
+            if (isParse)
+            {
+                ticketInput = number;
+            }
+            // <<hier moet ticketinput in een integer veranderen en daarom is ticketInput de number>>
             Console.Clear();
             string projectie = "";
-            BaseSeat selectedSeat = null;
+            List<BaseSeat> selectedseatList = null;
 
             if (zaalnummer == 1)
             {
                 projectie = "2D";
-                selectedSeat = Zitplaatsenkiezen.zitplaatsenkiezen(selectedFilm, datum, tijd);
+                selectedseatList = Zitplaatsenkiezen.zitplaatsenkiezen(selectedFilm, datum, tijd, ticketInput);
             }
 
             else if (zaalnummer == 2)
             {
                 projectie = "3D";
-                selectedSeat = Zitplaatsenkiezen2.zitplaatsenkiezen2(selectedFilm, datum, tijd);
+                selectedseatList = Zitplaatsenkiezen2.zitplaatsenkiezen2(selectedFilm, datum, tijd, ticketInput);
             }
 
             else if (zaalnummer == 3)
             {
                 projectie = "IMAX";
-                selectedSeat = Zitplaatsenkiezen3.zitplaatsenkiezen3(selectedFilm, datum, tijd);
+                selectedseatList = Zitplaatsenkiezen3.zitplaatsenkiezen3(selectedFilm, datum, tijd, ticketInput);
             }
 
-            while (selectedSeat == null || selectedSeat.Price == 0.0) //als een stap teruggaat van zitplaatskiezen
+            while (selectedseatList.Count == 0) //als een stap teruggaat van zitplaatskiezen
             {
                 ticketinput = Aantalticketkiezen.aantalticketkiezen();
+                isParse = Int32.TryParse(ticketinput, out number);
+                if (isParse)
+                {
+                    ticketInput = number;
+                }
                 while (ticketinput == "Terug gaan")
                 {
                     tijd = Tijdkiezen.tijdkiezen(selectedFilm, selectedDate);
@@ -82,44 +95,50 @@ namespace ProjectB.pages
                     else
                     {
                         ticketinput = Aantalticketkiezen.aantalticketkiezen();
+                        isParse = Int32.TryParse(ticketinput, out number);
+                        if (isParse)
+                        {
+                            ticketInput = number;
+                        }
                     }
                 }
                 if (zaalnummer == 1)
                 {
                     projectie = "2D";
-                    selectedSeat = Zitplaatsenkiezen.zitplaatsenkiezen(selectedFilm, datum, tijd);
+                    selectedseatList = Zitplaatsenkiezen.zitplaatsenkiezen(selectedFilm, datum, tijd, ticketInput);
                 }
 
                 else if (zaalnummer == 2)
                 {
                     projectie = "3D";
-                    selectedSeat = Zitplaatsenkiezen2.zitplaatsenkiezen2(selectedFilm, datum, tijd);
+                    selectedseatList = Zitplaatsenkiezen2.zitplaatsenkiezen2(selectedFilm, datum, tijd, ticketInput);
                 }
 
                 else if (zaalnummer == 3)
                 {
                     projectie = "IMAX";
-                    selectedSeat = Zitplaatsenkiezen3.zitplaatsenkiezen3(selectedFilm, datum, tijd);
+                    selectedseatList = Zitplaatsenkiezen3.zitplaatsenkiezen3(selectedFilm, datum, tijd, ticketInput);
                 }
             }
 
             string zitplaatstype = "";
-
-            if (selectedSeat.Price == 15.00)
+            for (int i = 0; selectedseatList.Count > i; i++)
             {
-                zitplaatstype = "VIP";
-            }
+                if (selectedseatList[i].Price == 15.00)
+                {
+                    zitplaatstype = "VIP";
+                }
 
-            else if (selectedSeat.Price == 30.00)
-            {
-                zitplaatstype = "MASTER";
-            }
+                else if (selectedseatList[i].Price == 30.00)
+                {
+                    zitplaatstype = "MASTER";
+                }
 
-            else
-            {
-                zitplaatstype = "REGULIERE";
+                else
+                {
+                    zitplaatstype = "REGULIERE";
+                }
             }
-
             string snack = Snackskiezen.snackskiezen();
 
             while (snack == "Terug gaan")
@@ -127,21 +146,21 @@ namespace ProjectB.pages
                 if (zaalnummer == 1)
                 {
                     projectie = "2D";
-                    selectedSeat = Zitplaatsenkiezen.zitplaatsenkiezen(selectedFilm, datum, tijd);
+                    selectedseatList = Zitplaatsenkiezen.zitplaatsenkiezen(selectedFilm, datum, tijd, ticketInput);
                 }
 
                 else if (zaalnummer == 2)
                 {
                     projectie = "3D";
-                    selectedSeat = Zitplaatsenkiezen2.zitplaatsenkiezen2(selectedFilm, datum, tijd);
+                    selectedseatList = Zitplaatsenkiezen2.zitplaatsenkiezen2(selectedFilm, datum, tijd, ticketInput);
                 }
 
                 else if (zaalnummer == 3)
                 {
                     projectie = "IMAX";
-                    selectedSeat = Zitplaatsenkiezen3.zitplaatsenkiezen3(selectedFilm, datum, tijd);
+                    selectedseatList = Zitplaatsenkiezen3.zitplaatsenkiezen3(selectedFilm, datum, tijd, ticketInput);
                 }
-                while (selectedSeat == null || selectedSeat.Price == 0.0)
+                while (selectedseatList.Count == 0)
                 {
                     ticketinput = Aantalticketkiezen.aantalticketkiezen();
                     while (ticketinput == "Terug gaan")
@@ -156,22 +175,27 @@ namespace ProjectB.pages
                             ticketinput = Aantalticketkiezen.aantalticketkiezen();
                         }
                     }
+                    isParse = Int32.TryParse(ticketinput, out number);
+                    if (isParse)
+                    {
+                        ticketInput = number;
+                    }
                     if (zaalnummer == 1)
                     {
                         projectie = "2D";
-                        selectedSeat = Zitplaatsenkiezen.zitplaatsenkiezen(selectedFilm, datum, tijd);
+                        selectedseatList = Zitplaatsenkiezen.zitplaatsenkiezen(selectedFilm, datum, tijd, ticketInput);
                     }
 
                     else if (zaalnummer == 2)
                     {
                         projectie = "3D";
-                        selectedSeat = Zitplaatsenkiezen2.zitplaatsenkiezen2(selectedFilm, datum, tijd);
+                        selectedseatList = Zitplaatsenkiezen2.zitplaatsenkiezen2(selectedFilm, datum, tijd, ticketInput);
                     }
 
                     else if (zaalnummer == 3)
                     {
                         projectie = "IMAX";
-                        selectedSeat = Zitplaatsenkiezen3.zitplaatsenkiezen3(selectedFilm, datum, tijd);
+                        selectedseatList = Zitplaatsenkiezen3.zitplaatsenkiezen3(selectedFilm, datum, tijd, ticketInput);
                     }
                 }
                 snack = Snackskiezen.snackskiezen();
@@ -202,7 +226,14 @@ namespace ProjectB.pages
                 reservationstring = reservationcounter.ToString();
             }
 
-            double sumPrice = selectedSeat.Price + snackPrice;
+            double ticketpriceSum = 0;
+
+            for(int j = 0; selectedseatList.Count > j; j++)
+            {
+                ticketpriceSum += selectedseatList[j].Price;
+            }
+
+            double sumPrice = ticketpriceSum + snackPrice;
 
             bool newaccount = false;
             string prompt = "";
@@ -266,16 +297,16 @@ namespace ProjectB.pages
                 prompt = "STAP 7: ";
             }
 
-            Console.WriteLine("\n" + prompt + "Controleer uw bestelgegevens\nDit is de informatie over uw bestelling:\n");
+            //Console.WriteLine("\n" + prompt + "Controleer uw bestelgegevens\nDit is de informatie over uw bestelling:\n");
 
-            Console.WriteLine("\nKlantnaam: " + klantnaam + "\nFilmtitel: " + filmtitel + "\nDatum: " + datum + "\nTijd: " + tijd + "\nProjectie: " + projectie + "\nZaal: " + zaalnummer + "\nRij: " + selectedSeat.Rij + "\nZitplaatsnummer: " + selectedSeat.Column + "\nZitplaatstype: " + zitplaatstype + "\nZitplaatsprijs: " + selectedSeat.Price + "\nSnacks: " + snack + "\nSnackprijs: " + snackPrice + "\nTotale prijs: " + sumPrice);
+            //Console.WriteLine("\nKlantnaam: " + klantnaam + "\nFilmtitel: " + filmtitel + "\nDatum: " + datum + "\nTijd: " + tijd + "\nProjectie: " + projectie + "\nZaal: " + zaalnummer + "\nRij: " + selectedSeat.Rij + "\nZitplaatsnummer: " + selectedSeat.Column + "\nZitplaatstype: " + zitplaatstype + "\nZitplaatsprijs: " + selectedSeat.Price + "\nSnacks: " + snack + "\nSnackprijs: " + snackPrice + "\nTotale prijs: " + sumPrice);
 
-            string option = Bestelgegevensjanee.bestelgegevensjanee(prompt, klantnaam, filmtitel, datum, tijd, projectie, zaalnummer, selectedSeat.Rij, selectedSeat.Column, zitplaatstype, selectedSeat.Price, snack, snackPrice, sumPrice);
+            string option = Bestelgegevensjanee.bestelgegevensjanee(prompt, klantnaam, filmtitel, datum, tijd, projectie, zaalnummer, zitplaatstype, snack, snackPrice, sumPrice, selectedseatList, ticketInput);
 
             while (option == "NEE")
             {
                 string wijzigingsoptie = Specifiekebestelinfoaanpassen.specifiekebestelinfoaanpassen();
-                
+
                 if (wijzigingsoptie == "Datum & Tijd")
                 {
                     string datum2 = Datumkiezen.datumkiezen(selectedFilm, ref selectedDate);
@@ -301,46 +332,55 @@ namespace ProjectB.pages
 
                 else if (wijzigingsoptie == "Zitplaats")
                 {
-                    BaseSeat selectedSeat2 = null;
+                    List<BaseSeat> selectedseatList2 = null;
                     if (zaalnummer == 1)
                     {
                         projectie = "2D";
-                        selectedSeat2 = Zitplaatsenkiezen.zitplaatsenkiezen(selectedFilm, datum, tijd);
+                        selectedseatList2 = Zitplaatsenkiezen.zitplaatsenkiezen(selectedFilm, datum, tijd, ticketInput);
                     }
 
                     else if (zaalnummer == 2)
                     {
                         projectie = "3D";
-                        selectedSeat2 = Zitplaatsenkiezen2.zitplaatsenkiezen2(selectedFilm, datum, tijd);
+                        selectedseatList2 = Zitplaatsenkiezen2.zitplaatsenkiezen2(selectedFilm, datum, tijd, ticketInput);
                     }
 
                     else if (zaalnummer == 3)
                     {
                         projectie = "IMAX";
-                        selectedSeat2 = Zitplaatsenkiezen3.zitplaatsenkiezen3(selectedFilm, datum, tijd);
+                        selectedseatList2 = Zitplaatsenkiezen3.zitplaatsenkiezen3(selectedFilm, datum, tijd, ticketInput);
                     }
 
-                    if (selectedSeat2 == null || selectedSeat2.Price == 0.0) // terug gaan
+                    if (selectedseatList2.Count == 0) // terug gaan
                     {
                         option = "NEE";
                     }
                     else
                     {
-                        if (selectedSeat2.Price == 15.00)
+                        for (int i = 0; selectedseatList2.Count > i; i++)
                         {
-                            zitplaatstype = "VIP";
-                        }
+                            if (selectedseatList2[i].Price == 15.00)
+                            {
+                                zitplaatstype = "VIP";
+                            }
 
-                        else if (selectedSeat2.Price == 30.00)
-                        {
-                            zitplaatstype = "MASTER";
-                        }
+                            else if (selectedseatList2[i].Price == 30.00)
+                            {
+                                zitplaatstype = "MASTER";
+                            }
 
-                        else
-                        {
-                            zitplaatstype = "REGULIERE";
+                            else
+                            {
+                                zitplaatstype = "REGULIERE";
+                            }
+                            selectedseatList = selectedseatList2;
                         }
-                        selectedSeat = selectedSeat2;
+                        double ticketpriceSum2 = 0.0;
+                        for (int i = 0; selectedseatList.Count > i; i++)
+                        {
+                            ticketpriceSum2 += selectedseatList[i].Price;
+                        }
+                        ticketpriceSum = ticketpriceSum2;
                     }
                 }
 
@@ -368,13 +408,13 @@ namespace ProjectB.pages
 
                 else if (wijzigingsoptie == "Terug gaan")
                 {
-                    sumPrice = selectedSeat.Price + snackPrice;
+                    sumPrice = ticketpriceSum + snackPrice;
                     //Console.Clear();
                     //Console.WriteLine("\n" + prompt + "Controleer uw bestelgegevens\nDit is de informatie over uw bestelling:\n");
 
                     //Console.WriteLine("\nKlantnaam: " + klantnaam + "\nFilmtitel: " + filmtitel + "\nDatum: " + datum + "\nTijd: " + tijd + "\nProjectie: " + projectie + "\nZaal: " + zaalnummer + "\nRij: " + selectedSeat.Rij + "\nZitplaatsnummer: " + selectedSeat.Column + "\nZitplaatstype: " + zitplaatstype + "\nZitplaatsprijs: " + selectedSeat.Price + "\nSnacks: " + snack + "\nSnackprijs: " + snackPrice + "\nTotale prijs: " + sumPrice);
-                    
-                    option = Bestelgegevensjanee.bestelgegevensjanee(prompt, klantnaam, filmtitel, datum, tijd, projectie, zaalnummer, selectedSeat.Rij, selectedSeat.Column, zitplaatstype, selectedSeat.Price, snack, snackPrice, sumPrice);
+
+                    option = Bestelgegevensjanee.bestelgegevensjanee(prompt, klantnaam, filmtitel, datum, tijd, projectie, zaalnummer, zitplaatstype, snack, snackPrice, sumPrice, selectedseatList, ticketInput);
                 }
             }
 
@@ -388,7 +428,7 @@ namespace ProjectB.pages
                 Tijd = tijd,
                 Projectie = projectie,
                 Zaal = zaalnummer,
-                Seats = selectedSeat,
+                Seats = selectedseatList,
                 Zitplaatstype = zitplaatstype,
                 Snack = snack,
                 Snackprice = snackPrice,
