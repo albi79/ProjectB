@@ -315,7 +315,7 @@ namespace ProjectB.pages
             {
                 string wijzigingsoptie = Specifiekebestelinfoaanpassen.specifiekebestelinfoaanpassen();
 
-                if (wijzigingsoptie == "Datum & Tijd")
+                if (wijzigingsoptie == "Datum & Tijd & Zitplaats")
                 {
                     string datum2 = Datumkiezen.datumkiezen(selectedFilm, ref selectedDate);
                     if (datum2 == "Terug gaan")
