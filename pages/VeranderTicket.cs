@@ -24,7 +24,7 @@ namespace ProjectB.pages
                 {
                     DataStorageHandler.Storage.Reservations[ticketIndex].Snack = "Popcorn Zoet";
                     DataStorageHandler.Storage.Reservations[ticketIndex].Snackprice = 6.5;
-                    DataStorageHandler.Storage.Reservations[ticketIndex].Sumprice = DataStorageHandler.Storage.Reservations[ticketIndex].Snackprice + DataStorageHandler.Storage.Reservations[ticketIndex].Seatprice;
+                    DataStorageHandler.Storage.Reservations[ticketIndex].Sumprice = DataStorageHandler.Storage.Reservations[ticketIndex].Snackprice + DataStorageHandler.Storage.Reservations[ticketIndex].Seatsumprice;
                     DataStorageHandler.SaveChanges();
                     Console.Clear();
                     Console.WriteLine("Aanpassingen zijn opgeslagen\n");
@@ -34,7 +34,7 @@ namespace ProjectB.pages
                 {
                     DataStorageHandler.Storage.Reservations[ticketIndex].Snack = "Popcorn Zout";
                     DataStorageHandler.Storage.Reservations[ticketIndex].Snackprice = 6.5;
-                    DataStorageHandler.Storage.Reservations[ticketIndex].Sumprice = DataStorageHandler.Storage.Reservations[ticketIndex].Snackprice + DataStorageHandler.Storage.Reservations[ticketIndex].Seatprice;
+                    DataStorageHandler.Storage.Reservations[ticketIndex].Sumprice = DataStorageHandler.Storage.Reservations[ticketIndex].Snackprice + DataStorageHandler.Storage.Reservations[ticketIndex].Seatsumprice;
                     DataStorageHandler.SaveChanges();
                     Console.Clear();
                     Console.WriteLine("Aanpassingen zijn opgeslagen\n");
@@ -44,7 +44,7 @@ namespace ProjectB.pages
                 {
                     DataStorageHandler.Storage.Reservations[ticketIndex].Snack = "Popcorn Mix";
                     DataStorageHandler.Storage.Reservations[ticketIndex].Snackprice = 6.5;
-                    DataStorageHandler.Storage.Reservations[ticketIndex].Sumprice = DataStorageHandler.Storage.Reservations[ticketIndex].Snackprice + DataStorageHandler.Storage.Reservations[ticketIndex].Seatprice;
+                    DataStorageHandler.Storage.Reservations[ticketIndex].Sumprice = DataStorageHandler.Storage.Reservations[ticketIndex].Snackprice + DataStorageHandler.Storage.Reservations[ticketIndex].Seatsumprice;
                     DataStorageHandler.SaveChanges();
                     Console.Clear();
                     Console.WriteLine("Aanpassingen zijn opgeslagen\n");
@@ -53,7 +53,7 @@ namespace ProjectB.pages
                 else if (snackKeuze == "4")
                 {
                     DataStorageHandler.Storage.Reservations[ticketIndex].Snack = "Geen";
-                    DataStorageHandler.Storage.Reservations[ticketIndex].Sumprice = DataStorageHandler.Storage.Reservations[ticketIndex].Seatprice;
+                    DataStorageHandler.Storage.Reservations[ticketIndex].Sumprice = DataStorageHandler.Storage.Reservations[ticketIndex].Seatsumprice;
                     DataStorageHandler.Storage.Reservations[ticketIndex].Snackprice = 0;
                     DataStorageHandler.SaveChanges();
                     Console.Clear();

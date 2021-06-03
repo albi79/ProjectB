@@ -120,25 +120,6 @@ namespace ProjectB.pages
                     selectedseatList = Zitplaatsenkiezen3.zitplaatsenkiezen3(selectedFilm, datum, tijd, ticketInput);
                 }
             }
-
-            string zitplaatstype = "";
-            for (int i = 0; selectedseatList.Count > i; i++)
-            {
-                if (selectedseatList[i].Price == 15.00)
-                {
-                    zitplaatstype = "VIP";
-                }
-
-                else if (selectedseatList[i].Price == 30.00)
-                {
-                    zitplaatstype = "MASTER";
-                }
-
-                else
-                {
-                    zitplaatstype = "REGULIERE";
-                }
-            }
             string snack = Snackskiezen.snackskiezen();
 
             while (snack == "Terug gaan")
@@ -199,6 +180,33 @@ namespace ProjectB.pages
                     }
                 }
                 snack = Snackskiezen.snackskiezen();
+            }
+
+            string zitplaatstype = "";
+            for (int i = 0; i < selectedseatList.Count; i++)
+            {
+                if (selectedseatList[i].Price == 15.00)
+                {
+                    zitplaatstype += "VIP";
+                }
+
+                else if (selectedseatList[i].Price == 30.00)
+                {
+                    zitplaatstype += "MASTER";
+                }
+
+                else
+                {
+                    zitplaatstype += "REGULIERE";
+                }
+                if (i < selectedseatList.Count - 1)
+                {
+                    zitplaatstype += ", ";
+                }
+                else
+                {
+                    zitplaatstype += "";
+                }
             }
 
             double snackPrice = 0.0;
@@ -328,6 +336,67 @@ namespace ProjectB.pages
                     {
                         tijd = tijd2;
                     }
+
+                    List<BaseSeat> selectedseatList2 = null;
+                    if (zaalnummer == 1)
+                    {
+                        projectie = "2D";
+                        selectedseatList2 = Zitplaatsenkiezen.zitplaatsenkiezen(selectedFilm, datum, tijd, ticketInput);
+                    }
+
+                    else if (zaalnummer == 2)
+                    {
+                        projectie = "3D";
+                        selectedseatList2 = Zitplaatsenkiezen2.zitplaatsenkiezen2(selectedFilm, datum, tijd, ticketInput);
+                    }
+
+                    else if (zaalnummer == 3)
+                    {
+                        projectie = "IMAX";
+                        selectedseatList2 = Zitplaatsenkiezen3.zitplaatsenkiezen3(selectedFilm, datum, tijd, ticketInput);
+                    }
+
+                    if (selectedseatList2.Count == 0) // terug gaan
+                    {
+                        option = "NEE";
+                    }
+
+                    else
+                    {
+                        zitplaatstype = "";
+                        for (int i = 0; i < selectedseatList2.Count; i++)
+                        {
+                            if (selectedseatList2[i].Price == 15.00)
+                            {
+                                zitplaatstype += "VIP";
+                            }
+
+                            else if (selectedseatList2[i].Price == 30.00)
+                            {
+                                zitplaatstype += "MASTER";
+                            }
+
+                            else
+                            {
+                                zitplaatstype += "REGULIERE";
+                            }
+                            if (i < selectedseatList2.Count - 1)
+                            {
+                                zitplaatstype += ", ";
+                            }
+                            else
+                            {
+                                zitplaatstype += "";
+                            }
+                            selectedseatList = selectedseatList2;
+                        }
+                        double ticketpriceSum2 = 0.0;
+                        for (int i = 0; selectedseatList.Count > i; i++)
+                        {
+                            ticketpriceSum2 += selectedseatList[i].Price;
+                        }
+                        ticketpriceSum = ticketpriceSum2;
+                    }
                 }
 
                 else if (wijzigingsoptie == "Zitplaats")
@@ -355,23 +424,33 @@ namespace ProjectB.pages
                     {
                         option = "NEE";
                     }
+
                     else
                     {
-                        for (int i = 0; selectedseatList2.Count > i; i++)
+                        zitplaatstype = "";
+                        for (int i = 0; i < selectedseatList2.Count; i++)
                         {
                             if (selectedseatList2[i].Price == 15.00)
                             {
-                                zitplaatstype = "VIP";
+                                zitplaatstype += "VIP";
                             }
 
                             else if (selectedseatList2[i].Price == 30.00)
                             {
-                                zitplaatstype = "MASTER";
+                                zitplaatstype += "MASTER";
                             }
 
                             else
                             {
-                                zitplaatstype = "REGULIERE";
+                                zitplaatstype += "REGULIERE";
+                            }
+                            if (i < selectedseatList2.Count - 1)
+                            {
+                                zitplaatstype += ", ";
+                            }
+                            else
+                            {
+                                zitplaatstype += "";
                             }
                             selectedseatList = selectedseatList2;
                         }
@@ -430,7 +509,7 @@ namespace ProjectB.pages
                 Zaal = zaalnummer,
                 Seats = selectedseatList,
                 Zitplaatstype = zitplaatstype,
-                Seatprice = ticketpriceSum,
+                Seatsumprice = ticketpriceSum,
                 Snack = snack,
                 Snackprice = snackPrice,
                 Sumprice = sumPrice,

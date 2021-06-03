@@ -120,12 +120,12 @@ namespace ProjectB
                                 //    res = "[*]";
                                 //}
                             }
-                            for (int l = 0; l < highlightedSeatsRows.Count; l++)
+                        }
+                        for (int l = 0; l < highlightedSeatsRows.Count; l++)
+                        {
+                            if (highlightedSeatsColumns[l] == j && highlightedSeatsRows[l] == i)
                             {
-                                if (highlightedSeatsColumns[l] == j && highlightedSeatsRows[l] == i)
-                                {
-                                    res = "[*]";
-                                }
+                                res = "[*]";
                             }
                         }
                     }
@@ -146,13 +146,13 @@ namespace ProjectB
         {
             ConsoleKey keyPressed = ConsoleKey.B;
             //wanneer de key escape is, dan moet hij uit de while loop
-            while (highlightedSeatsRows.Count < ticketInput || Reservationcheck(selectedRow, selectedColumn, selectedFilm, datum, tijd) == false || Selectedcheck(selectedRow, selectedColumn) || seats[selectedRow][selectedColumn] == null)
+            while (highlightedSeatsRows.Count < ticketInput || Reservationcheck(selectedFilm, datum, tijd) == false || seats[selectedRow][selectedColumn] == null)
             {
                 Clear();
                 Display(selectedFilm, datum, tijd, ticketInput);
                 Console.WriteLine(bioscoopscherm);
                 Console.WriteLine("\nLEGENDA:\n[R] = Reguliere zitplaats\n[V] = VIP zitplaats\n[M] = Master zitplaats\n[ ] = Geen zitplaats\n[_] = Al gereserveerde zitplaats\n\nDruk de ESCAPE toets in om terug te gaan");
-                if (Reservationcheck(selectedRow, selectedColumn, selectedFilm, datum, tijd) == false)
+                if (Reservationcheck(selectedFilm, datum, tijd) == false)
                 {
                     Console.WriteLine("\nOPMERKING: Deze zitplaats is al gereserveerd.\n");
                 }
@@ -201,7 +201,7 @@ namespace ProjectB
                 }
                 if (keyPressed == ConsoleKey.Enter)
                 {
-                    if (highlightedSeatsRows.Count < ticketInput) //dit moet in de selectedcheck gebruikt worden
+                    if (highlightedSeatsRows.Count < ticketInput && Selectedcheck() && Reservationcheck(selectedFilm, datum, tijd)) //dit moet in de selectedcheck gebruikt worden
                     {
                         highlightedSeatsRows.Add(selectedRow);
                         highlightedSeatsColumns.Add(selectedColumn);
@@ -244,7 +244,7 @@ namespace ProjectB
          
             return selectedseatList; // hele array teruggeven
         }
-        public bool Reservationcheck (int selectedRow, int selectedColumn, int selectedFilm, string datum, string tijd)
+        public bool Reservationcheck (int selectedFilm, string datum, string tijd)
         {
             foreach (Reservation reservation in DataStorageHandler.Storage.Reservations.Where(per => per.Datum == datum && per.Tijd == tijd && per.Filmtitel == DataStorageHandler.Storage.Films[selectedFilm].Titel))
             {
@@ -262,7 +262,7 @@ namespace ProjectB
             }
             return true;
         }
-        public bool Selectedcheck(int selectedRow, int selectedColumn)
+        public bool Selectedcheck()
         {
             for (int n = 0; n < highlightedSeatsRows.Count; n++)
             {
@@ -273,54 +273,5 @@ namespace ProjectB
             }
             return true;
         }
-        public void Highlightedcolor(bool SelectedSeat, string res, object currentSeat)
-        {
-            if (SelectedSeat)
-            {
-                ForegroundColor = ConsoleColor.Black;
-                BackgroundColor = ConsoleColor.White;
-
-            }
-            if (!SelectedSeat)
-            {
-                ForegroundColor = ConsoleColor.White;
-                BackgroundColor = ConsoleColor.Black;
-            }
-            if (currentSeat is MasterSeat Mseat)
-            {
-                ForegroundColor = Mseat.SelectedForegroundColor;
-                BackgroundColor = Mseat.SelectedBackgroundColor;
-                if (!SelectedSeat)
-                {
-                    ForegroundColor = Mseat.NotSelectedForegroundColor;
-                    BackgroundColor = Mseat.NotSelectedBackgroundColor;
-                }
-
-                res += Mseat.Icon;
-            }
-            else if (currentSeat is VipSeat seat2)
-            {
-                ForegroundColor = seat2.SelectedForegroundColor;
-                BackgroundColor = seat2.SelectedBackgroundColor;
-                if (!SelectedSeat)
-                {
-                    ForegroundColor = seat2.NotSelectedForegroundColor;
-                    BackgroundColor = seat2.NotSelectedBackgroundColor;
-                }
-                res += seat2.Icon;
-            }
-            else if (currentSeat is RegularSeat seat3)
-            {
-                ForegroundColor = seat3.SelectedForegroundColor;
-                BackgroundColor = seat3.SelectedBackgroundColor;
-                if (!SelectedSeat)
-                {
-                    ForegroundColor = seat3.NotSelectedForegroundColor;
-                    BackgroundColor = seat3.NotSelectedBackgroundColor;
-                }
-                res += seat3.Icon;
-            }
-        }
-
     }
 }
