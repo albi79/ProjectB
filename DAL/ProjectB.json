@@ -11,76 +11,6 @@
       "loginMoment": "0001-01-01T00:00:00"
     },
     {
-      "naam": "",
-      "tussenvoegsel": "",
-      "achternaam": "",
-      "geboortedatum": "",
-      "email": "AdminBios",
-      "gebruikersnaam": "AdminBios",
-      "wachtwoord": "Nimda2021",
-      "loginMoment": "0001-01-01T00:00:00"
-    },
-    {
-      "naam": "",
-      "tussenvoegsel": "",
-      "achternaam": "",
-      "geboortedatum": "",
-      "email": "AdminBios",
-      "gebruikersnaam": "AdminBios",
-      "wachtwoord": "Nimda2021",
-      "loginMoment": "0001-01-01T00:00:00"
-    },
-    {
-      "naam": "",
-      "tussenvoegsel": "",
-      "achternaam": "",
-      "geboortedatum": "",
-      "email": "AdminBios",
-      "gebruikersnaam": "AdminBios",
-      "wachtwoord": "Nimda2021",
-      "loginMoment": "0001-01-01T00:00:00"
-    },
-    {
-      "naam": "",
-      "tussenvoegsel": "",
-      "achternaam": "",
-      "geboortedatum": "",
-      "email": "AdminBios",
-      "gebruikersnaam": "AdminBios",
-      "wachtwoord": "Nimda2021",
-      "loginMoment": "0001-01-01T00:00:00"
-    },
-    {
-      "naam": "",
-      "tussenvoegsel": "",
-      "achternaam": "",
-      "geboortedatum": "",
-      "email": "AdminBios",
-      "gebruikersnaam": "AdminBios",
-      "wachtwoord": "Nimda2021",
-      "loginMoment": "0001-01-01T00:00:00"
-    },
-    {
-      "naam": "",
-      "tussenvoegsel": "",
-      "achternaam": "",
-      "geboortedatum": "",
-      "email": "AdminBios",
-      "gebruikersnaam": "AdminBios",
-      "wachtwoord": "Nimda2021",
-      "loginMoment": "0001-01-01T00:00:00"
-    },
-    {
-      "naam": "",
-      "tussenvoegsel": "",
-      "achternaam": "",
-      "geboortedatum": "",
-      "email": "AdminBios",
-      "gebruikersnaam": "AdminBios",
-      "wachtwoord": "Nimda2021",
-      "loginMoment": "0001-01-01T00:00:00"
-    },
-    {
       "naam": "albert",
       "tussenvoegsel": "",
       "achternaam": "kang",
@@ -183,7 +113,7 @@
   "Reservations": [
     {
       "ID": "0",
-      "Customer": "ad",
+      "Customer": "ab",
       "Filmtitel": "The 'Notorius' Conor Mc Gregor",
       "Datum": "23-05-2021",
       "Tijd": "16:00",
@@ -191,21 +121,26 @@
       "Zaal": 1,
       "Seats": [
         {
-          "Rij": 7,
-          "Column": 6,
-          "Price": 30.0
+          "Rij": 1,
+          "Column": 4,
+          "Price": 7.5
         },
         {
-          "Rij": 7,
+          "Rij": 1,
           "Column": 5,
-          "Price": 30.0
+          "Price": 7.5
+        },
+        {
+          "Rij": 1,
+          "Column": 6,
+          "Price": 7.5
         }
       ],
-      "Zitplaatstype": "MASTER",
-      "Seatprice": 60.0,
-      "Snack": "Geen",
-      "Snackprice": 0.0,
-      "Sumprice": 60.0
+      "Zitplaatstype": "REGULIERE, REGULIERE, REGULIERE",
+      "Seatsumprice": 22.5,
+      "Snack": "Popcorn Mix",
+      "Snackprice": 6.5,
+      "Sumprice": 29.0
     }
   ]
 }
