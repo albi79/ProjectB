@@ -15,9 +15,9 @@ namespace ProjectB.pages
             string selectedseatListColumn = "";
             double totalseatprice = 0.0;
 
-            for (int k = 0; selectedseatList.Count > k; k++)
+            for (int k = 0; k < selectedseatList.Count; k++)
             {
-                if (selectedseatList.Count > k + 1)
+                if (k < selectedseatList.Count - 1)
                 {
                     selectedseatListColumn += selectedseatList[k].Column + ", ";
                 }

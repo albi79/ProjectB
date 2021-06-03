@@ -17,6 +17,7 @@ namespace ProjectB.Classes
         public int Zaal { get; set; } 
         public List<BaseSeat> Seats { get; set; } = new List<BaseSeat>();
         public string Zitplaatstype { get; set; }
+        public double Seatprice { get; set; }
         public string Snack { get; set; }
         public double Snackprice { get; set; }
         public double Sumprice { get; set; }

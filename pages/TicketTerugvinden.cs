@@ -54,20 +54,46 @@ namespace ProjectB.pages
                     else
                         Console.WriteLine("Projectie: €" + totalseatprice);
                     Console.WriteLine("Snack: " + reservation.Snack + "\n--");
+                    Console.Write("-- Typ ");
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.Write(reservation.ID);
+                    Console.ResetColor();
+                    Console.Write(" om deze film te beoordelen\n");
                 }
             }
-            Console.WriteLine("\n\nDruk b om terug te gaan.");
+            Console.WriteLine("\n\nTyp de kaart ID om een film te beoordelen");
+            Console.WriteLine("Druk b om terug te gaan.");
             string Select = Beheer.Input("");
             if (Select == "b")
             {
                 Console.Clear();
-                AdminMenu.adminMenu();
+                ConsoleMenu.consoleMenu(gebruikersnaam);
             }
             else
             {
-                Console.Clear();
-                Console.WriteLine("Er ging iets verkeerd!\n");
-                ticketTerugvinden(gebruikersnaam);
+                try
+                {
+                    int Select2 = 0;
+                    Select2 = Int32.Parse(Select);
+
+                    //NISA & DANI MERGE PARAMETERS PROBLEM
+                    //foreach (Reservation reservation in DataStorageHandler.Storage.Reservations)
+                    //{
+                    //    if (Select == reservation.ID && gebruikersnaam == reservation.Customer)
+                    //    {
+                    //        Beoordeling.beoordeling(Select2, gebruikersnaam);
+                    //    }
+                    //}
+                    Console.Clear();
+                    Console.WriteLine("Er ging iets verkeerd!\n");
+                    ticketTerugvinden(gebruikersnaam);
+                }
+                catch
+                {
+                    Console.Clear();
+                    Console.WriteLine("Er ging iets verkeerd!\n");
+                    ticketTerugvinden(gebruikersnaam);
+                }
             }
         }
     }

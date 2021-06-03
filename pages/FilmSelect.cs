@@ -46,7 +46,6 @@ namespace ProjectB.pages
             if (HuidigOfToekomstig == "HuidigeFilms")
             {
                 Console.WriteLine("U bevindt nu bij de Huidige Films overzicht");
-                //loop door de lijst
                 int filmNummer = 1;
                 foreach (Film filmItem in DataStorageHandler.Storage.Films)
                 {
@@ -72,6 +71,7 @@ namespace ProjectB.pages
                 }
             }
 
+            Console.WriteLine("\n");
             int selectedFilm = Int32.Parse(Beheer.Input("Vul een film nummer in: ")) - 1;
 
             Console.Clear();
@@ -83,13 +83,30 @@ namespace ProjectB.pages
                 Console.WriteLine("Categorie: " + DataStorageHandler.Storage.Films[selectedFilm].Categorie);
                 Console.WriteLine("Minimum leeftijd: " + DataStorageHandler.Storage.Films[selectedFilm].Leeftijd);
                 Console.WriteLine("Beschrijving: " + DataStorageHandler.Storage.Films[selectedFilm].Beschrijving);
-                //Console.WriteLine("Projectie: " + DataStorageHandler.Storage.Films[selectedFilm].Projectie);
                 Console.WriteLine("Taal: " + DataStorageHandler.Storage.Films[selectedFilm].Taal);
                 Console.WriteLine("Ondertiteling: " + DataStorageHandler.Storage.Films[selectedFilm].Ondertiteling);
                 Console.WriteLine("Acteurs: " + DataStorageHandler.Storage.Films[selectedFilm].Acteurs);
-                Console.WriteLine("Regiseur: " + DataStorageHandler.Storage.Films[selectedFilm].Regisseur);
+                Console.WriteLine("Regisseur: " + DataStorageHandler.Storage.Films[selectedFilm].Regisseur);
+
+                int aantalData = DataStorageHandler.Storage.Films[selectedFilm].Projectiemoment.Length;
+
+                string[] datums = new string[aantalData];
+                string datumsdisplay = "";
+
+                for (int x = 0; x < aantalData; x++)
+                {
+                    datums[x] = DataStorageHandler.Storage.Films[selectedFilm].Projectiemoment[x][0];
+                    if (x < aantalData - 1)
+                    {
+                        datumsdisplay += datums[x] + ", ";
+                    }
+                    else
+                    {
+                        datumsdisplay += datums[x];
+                    }
+                }
                 //Console.WriteLine("Speeltijd: " + DataStorageHandler.Storage.Films[selectedFilm].Tijd);
-                //Console.WriteLine("Speelt op: " + DataStorageHandler.Storage.Films[selectedFilm].Data);
+                Console.WriteLine("Speelt op de dagen: " + datumsdisplay);
                 Console.WriteLine("Zaal: " + DataStorageHandler.Storage.Films[selectedFilm].Zaal);
                 if (DataStorageHandler.Storage.Films[selectedFilm].Beoordeling != 0)
                 {
@@ -165,10 +182,6 @@ namespace ProjectB.pages
                         {
                             Reserveren.reserveren(DataStorageHandler.Storage.Films[selectedFilm].Zaal, gebruikersnaam, selectedFilm, HuidigOfToekomstig);
                         }
-                    }
-                    else if (toets2 == "2")
-                    {
-                        filmSelect(gebruikersnaam);
                     }
                 }
                 else if (toets == "2")

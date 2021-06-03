@@ -430,6 +430,7 @@ namespace ProjectB.pages
                 Zaal = zaalnummer,
                 Seats = selectedseatList,
                 Zitplaatstype = zitplaatstype,
+                Seatprice = ticketpriceSum,
                 Snack = snack,
                 Snackprice = snackPrice,
                 Sumprice = sumPrice,

@@ -97,8 +97,8 @@ namespace ProjectB.pages
                 int nieuweInfo = 0;
 
                 try { nieuweInfo = Int32.Parse(Beheer.Input("Wat is de nieuwe minimale leeftijd: ")); }
-                catch { FilmInfoWijzigen.filmInfoWijzigen(selectedFilm);  }
-                
+                catch { FilmInfoWijzigen.filmInfoWijzigen(selectedFilm); }
+
                 DataStorageHandler.Storage.Films[selectedFilm].Leeftijd = nieuweInfo;
                 FilmprogrammaBeheren.filmprogrammaBeheren();
             }
@@ -249,13 +249,12 @@ namespace ProjectB.pages
                 DataStorageHandler.Storage.Films[selectedFilm].Zaal = nZaal;
             }
 
-            else if(infoIndex == "0")
+            else if (infoIndex == "0")
             {
                 FilmprogrammaBeheren.filmprogrammaBeheren();
             }
             if (!correctAntwoord)
                 filmInfoWijzigen(selectedFilm);
-            //
         }
     }
 }

@@ -7,7 +7,8 @@
       "geboortedatum": "",
       "email": "AdminBios",
       "gebruikersnaam": "AdminBios",
-      "wachtwoord": "Nimda2021"
+      "wachtwoord": "Nimda2021",
+      "loginMoment": "0001-01-01T00:00:00"
     },
     {
       "naam": "",
@@ -16,7 +17,8 @@
       "geboortedatum": "",
       "email": "AdminBios",
       "gebruikersnaam": "AdminBios",
-      "wachtwoord": "Nimda2021"
+      "wachtwoord": "Nimda2021",
+      "loginMoment": "0001-01-01T00:00:00"
     },
     {
       "naam": "",
@@ -25,7 +27,8 @@
       "geboortedatum": "",
       "email": "AdminBios",
       "gebruikersnaam": "AdminBios",
-      "wachtwoord": "Nimda2021"
+      "wachtwoord": "Nimda2021",
+      "loginMoment": "0001-01-01T00:00:00"
     },
     {
       "naam": "",
@@ -34,7 +37,8 @@
       "geboortedatum": "",
       "email": "AdminBios",
       "gebruikersnaam": "AdminBios",
-      "wachtwoord": "Nimda2021"
+      "wachtwoord": "Nimda2021",
+      "loginMoment": "0001-01-01T00:00:00"
     },
     {
       "naam": "",
@@ -43,7 +47,8 @@
       "geboortedatum": "",
       "email": "AdminBios",
       "gebruikersnaam": "AdminBios",
-      "wachtwoord": "Nimda2021"
+      "wachtwoord": "Nimda2021",
+      "loginMoment": "0001-01-01T00:00:00"
     },
     {
       "naam": "",
@@ -52,7 +57,8 @@
       "geboortedatum": "",
       "email": "AdminBios",
       "gebruikersnaam": "AdminBios",
-      "wachtwoord": "Nimda2021"
+      "wachtwoord": "Nimda2021",
+      "loginMoment": "0001-01-01T00:00:00"
     },
     {
       "naam": "",
@@ -61,7 +67,8 @@
       "geboortedatum": "",
       "email": "AdminBios",
       "gebruikersnaam": "AdminBios",
-      "wachtwoord": "Nimda2021"
+      "wachtwoord": "Nimda2021",
+      "loginMoment": "0001-01-01T00:00:00"
     },
     {
       "naam": "",
@@ -70,7 +77,8 @@
       "geboortedatum": "",
       "email": "AdminBios",
       "gebruikersnaam": "AdminBios",
-      "wachtwoord": "Nimda2021"
+      "wachtwoord": "Nimda2021",
+      "loginMoment": "0001-01-01T00:00:00"
     },
     {
       "naam": "albert",
@@ -79,7 +87,8 @@
       "geboortedatum": "30-07-1999",
       "email": "albertkang420@gmail.com",
       "gebruikersnaam": "albi79",
-      "wachtwoord": "Albert52855!"
+      "wachtwoord": "Albert52855!",
+      "loginMoment": "0001-01-01T00:00:00"
     }
   ],
   "Films": [
@@ -174,7 +183,7 @@
   "Reservations": [
     {
       "ID": "0",
-      "Customer": "ab",
+      "Customer": "ad",
       "Filmtitel": "The 'Notorius' Conor Mc Gregor",
       "Datum": "23-05-2021",
       "Tijd": "16:00",
@@ -185,32 +194,18 @@
           "Rij": 7,
           "Column": 6,
           "Price": 30.0
+        },
+        {
+          "Rij": 7,
+          "Column": 5,
+          "Price": 30.0
         }
       ],
       "Zitplaatstype": "MASTER",
-      "Snack": "Popcorn Zout",
-      "Snackprice": 6.5,
-      "Sumprice": 36.5
-    },
-    {
-      "ID": "1",
-      "Customer": "ab",
-      "Filmtitel": "The 'Notorius' Conor Mc Gregor",
-      "Datum": "23-05-2021",
-      "Tijd": "16:00",
-      "Projectie": "2D",
-      "Zaal": 1,
-      "Seats": [
-        {
-          "Rij": 6,
-          "Column": 7,
-          "Price": 15.0
-        }
-      ],
-      "Zitplaatstype": "VIP",
-      "Snack": "Popcorn Zoet",
-      "Snackprice": 6.5,
-      "Sumprice": 21.5
+      "Seatprice": 60.0,
+      "Snack": "Geen",
+      "Snackprice": 0.0,
+      "Sumprice": 60.0
     }
   ]
 }

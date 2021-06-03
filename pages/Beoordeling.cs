@@ -11,39 +11,39 @@ namespace ProjectB.pages
 {
     class Beoordeling
     {
-        public static void beoordeling(/*selectedFilm*/string gebruikersnaam)
+        public static void beoordeling(string gebruikersnaam, int selectedFilm)
         {
             int huidigeBeoordeling = 0;
 
-            int selectedFilm = 0;//Tijdelijk
+
             Console.Clear();
 
-            Console.WriteLine("Beoordeling "+ DataStorageHandler.Storage.Films[selectedFilm].Titel + "\n");
+            Console.WriteLine("Beoordeling " + DataStorageHandler.Storage.Films[selectedFilm].Titel + "\n");
             string ShuidigeBeoordeling = Beheer.Input("typ 1(slecht) tot 5(geweldig) om de film te beoordelen: ");
-            try 
-            { 
+            try
+            {
                 huidigeBeoordeling = Int32.Parse(ShuidigeBeoordeling);
 
                 if (huidigeBeoordeling != 1 && huidigeBeoordeling != 2 && huidigeBeoordeling != 3 && huidigeBeoordeling != 4 && huidigeBeoordeling != 5)
                 {
                     Console.WriteLine("Verkeerde input!\n\nTyp Enter");
                     Beheer.Input();
-                    beoordeling(gebruikersnaam);
+                    beoordeling(gebruikersnaam, selectedFilm);
                 }
             }
-            catch {Console.WriteLine("Verkeerde input!\n\nTyp Enter"); Beheer.Input(); beoordeling(gebruikersnaam); }
+            catch { Console.WriteLine("Verkeerde input!\n\nTyp Enter"); Beheer.Input(); beoordeling(gebruikersnaam, selectedFilm); }
 
-            DataStorageHandler.Storage.Films[selectedFilm].AantalBeoordelingen++; 
+            DataStorageHandler.Storage.Films[selectedFilm].AantalBeoordelingen++;
             DataStorageHandler.Storage.Films[selectedFilm].BeoordelingCumulatief += huidigeBeoordeling;
             DataStorageHandler.Storage.Films[selectedFilm].Beoordeling = DataStorageHandler.Storage.Films[selectedFilm].BeoordelingCumulatief / DataStorageHandler.Storage.Films[selectedFilm].AantalBeoordelingen;
 
 
             DataStorageHandler.SaveChanges();
             FilmprogrammaBeheren.filmprogrammaBeheren();
-            
+
             Console.WriteLine("\nBedankt\n\nTyp Enter om terug te gaan naar het menu");
 
-            Console.WriteLine(DataStorageHandler.Storage.Films[selectedFilm].Beoordeling);//Tijdelijk
+            Console.WriteLine(DataStorageHandler.Storage.Films[selectedFilm].Beoordeling);
 
             Beheer.Input();
 
