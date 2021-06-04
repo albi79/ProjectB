@@ -4,6 +4,8 @@ using System.Text;
 using System.IO;
 using Newtonsoft;
 using Newtonsoft.Json;
+using ProjectB.DAL;
+using ProjectB.Classes;
 
 namespace ProjectB.pages
 {
@@ -12,7 +14,6 @@ namespace ProjectB.pages
         public string gebruikersnaam { get; }
         public static void consoleMenu(string gebruikersnaam)
         {
-            Console.Clear();
             string menuinput;
             //int menuchoice;
 
@@ -21,15 +22,25 @@ namespace ProjectB.pages
 
             bool validinputmenu = false;
             bool validinputlogout = false;
+
+           
             Console.Write($"Welkom bij de menu ");
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.Write($"{gebruikersnaam}\n");
+            foreach (Person person in DataStorageHandler.Storage.Persons)
+            {
+                if(gebruikersnaam == person.gebruikersnaam)
+                    Console.Write($"{person.naam}");
+            }
             Console.ResetColor();
-            Console.WriteLine("1. Uitloggen");
+            if (gebruikersnaam != null)
+                Console.WriteLine("\n1. Uitloggen");
+            else
+                Console.WriteLine("\n1. Terug naar startscherm");
             Console.WriteLine("2. Film programma");
             Console.WriteLine("3. Ticket geschiedenis");
-            Console.WriteLine("4. Gebruikergegevens");
-            Console.WriteLine("5. Veelgestelde vragen");
+            Console.WriteLine("4. Veelgestelde vragen");
+            if (gebruikersnaam != null)
+                Console.WriteLine("5. Gebruikergegevens");
             Console.WriteLine("---------------------------");
             Console.WriteLine("Voer uw optienummer in");
 
@@ -41,7 +52,10 @@ namespace ProjectB.pages
                 if (menuinput == "1")
                 {
                     Console.Clear();
-                    Console.WriteLine("Weet u zeker dat u wilt uitloggen?\n1. Ja\n2. Nee");
+                    if (gebruikersnaam != null)
+                        Console.WriteLine("Weet u zeker dat u wilt uitloggen?\n1. Ja\n2. Nee");
+                    else
+                        Console.WriteLine("Weet u zeker dat u terug wilt?\n1. Ja\n2. Nee");
                     validinputmenu = true;
 
                     while (validinputlogout == false)
@@ -92,7 +106,7 @@ namespace ProjectB.pages
                 {
                     Console.Clear();
                     //Console.WriteLine("Hier wordt de sales overview scherm aangeroepen");
-                    Gebruikergegevens.gebruikergegevens(gebruikersnaam);
+                    FAQ.faq(gebruikersnaam);
                     validinputmenu = true;
                 }
 
@@ -100,13 +114,17 @@ namespace ProjectB.pages
                 {
                     Console.Clear();
                     //Console.WriteLine("Hier wordt de sales overview scherm aangeroepen");
-                    FAQ.faq();
+                    Gebruikergegevens.gebruikergegevens(gebruikersnaam);
                     validinputmenu = true;
                 }
 
                 else
                 {
-                    Console.WriteLine("FOUTMELDING: er is een niet bestaande optie gekozen. Kies uit de nummers: 1, 2, 3 of 4");
+                    if (gebruikersnaam != null)
+                        Console.WriteLine("FOUTMELDING: er is een niet bestaande optie gekozen. Kies uit de nummers: 1, 2, 3, 4 of 5");
+                    else
+                        Console.WriteLine("FOUTMELDING: er is een niet bestaande optie gekozen. Kies uit de nummers: 1, 2, 3 of 4");
+
                     validinputmenu = false;
                 }
             }
