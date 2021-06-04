@@ -30,6 +30,7 @@ namespace ProjectB.DAL
             }
             catch(Exception)
             {
+                Console.WriteLine("WARNING: Check deserializeObject & json file of het goed geimporteerd is");
                 Storage = new DataStorage();
             }
         }

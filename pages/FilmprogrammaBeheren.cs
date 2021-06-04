@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
@@ -59,7 +59,7 @@ namespace ProjectB.pages
             Console.WriteLine("2. Film verwijderen");
             Console.WriteLine("3. Film wijzigen");
 
-            
+
             Console.WriteLine("\n");
             string gegeven = Beheer.Input("");
 
@@ -102,10 +102,10 @@ namespace ProjectB.pages
                     }
                 }
 
-                
+
                 int selectedFilm = Int32.Parse(Beheer.Input("\n")) - 1;
                 filmInfoWijzigen(HuidigOfToekomstig, selectedFilm);
-                   
+
             }
         }
 
@@ -581,7 +581,8 @@ namespace ProjectB.pages
                 {
                     string nRelease = Beheer.Input("Wat is de nieuwe Release datum: ");
                     string datum = Beheer.Input("");
-                    if(datum.Length != 10){
+                    if (datum.Length != 10)
+                    {
                         Console.WriteLine("Verkeerde input!\nTyp Enter");
                     }
                     while (datum.Length != 10)
@@ -590,7 +591,7 @@ namespace ProjectB.pages
                         if (datum.Length == 10)
                         {
                             Console.WriteLine("Verkeerde input!\nTyp Enter");
-                            
+
                         }
                     }
                     if (inputCheck(nRelease))
@@ -610,7 +611,7 @@ namespace ProjectB.pages
                 if (!correctAntwoord)
                     filmInfoWijzigen(HuidigOfToekomstig, selectedFilm);
             }
-            
+
         }
 
         public static void verwijderen(string HuidigOfToekomstig)

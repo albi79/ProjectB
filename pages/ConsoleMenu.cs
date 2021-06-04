@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
@@ -23,12 +23,12 @@ namespace ProjectB.pages
             bool validinputmenu = false;
             bool validinputlogout = false;
 
-           
+
             Console.Write($"Welkom bij de menu ");
             Console.ForegroundColor = ConsoleColor.Green;
             foreach (Person person in DataStorageHandler.Storage.Persons)
             {
-                if(gebruikersnaam == person.gebruikersnaam)
+                if (gebruikersnaam == person.gebruikersnaam)
                     Console.Write($"{person.naam}");
             }
             Console.ResetColor();

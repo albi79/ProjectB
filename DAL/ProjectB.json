@@ -7,94 +7,61 @@
       "geboortedatum": "",
       "email": "AdminBios",
       "gebruikersnaam": "AdminBios",
-      "wachtwoord": "Nimda2021"
+      "wachtwoord": "Nimda2021",
+      "loginMoment": "0001-01-01T00:00:00"
     },
     {
-      "naam": "NisaT",
+      "naam": "albert",
       "tussenvoegsel": "",
-      "achternaam": "gebruiker",
+      "achternaam": "kang",
+      "geboortedatum": "30-07-1999",
+      "email": "albertkang420@gmail.com",
+      "gebruikersnaam": "albi79",
+      "wachtwoord": "Albert52855!",
+      "loginMoment": "0001-01-01T00:00:00"
+    },
+    {
+      "naam": "Nisaaa",
+      "tussenvoegsel": "d",
+      "achternaam": "Tutucu",
       "geboortedatum": "09-03-2001",
       "email": "info@nisatutucu.nl",
       "gebruikersnaam": "nisatutucu",
-      "wachtwoord": "Nisa2021"
+      "wachtwoord": "Nisa2001",
+      "loginMoment": "0001-01-01T00:00:00"
+    },
+    {
+      "naam": "",
+      "tussenvoegsel": "",
+      "achternaam": "s",
+      "geboortedatum": "s",
+      "email": "s@s.nl",
+      "gebruikersnaam": "nisatutucu",
+      "wachtwoord": "Nisa2021",
+      "loginMoment": "2021-06-04T22:38:40.311945+02:00"
+    },
+    {
+      "naam": "",
+      "tussenvoegsel": "",
+      "achternaam": "as",
+      "geboortedatum": "020220",
+      "email": "in@in",
+      "gebruikersnaam": "nis",
+      "wachtwoord": "sSssssss12",
+      "loginMoment": "0001-01-01T00:00:00"
+    },
+    {
+      "naam": "b",
+      "tussenvoegsel": "",
+      "achternaam": "s",
+      "geboortedatum": "09-",
+      "email": "w@w",
+      "gebruikersnaam": "ww",
+      "wachtwoord": "wWeErR12",
+      "loginMoment": "0001-01-01T00:00:00"
     }
   ],
   "Films": [
-    {
-      "Titel": "The Little Things",
-      "Categorie": "Thriller",
-      "Leeftijd": 16,
-      "Beschrijving": "Hulpsheriff van Kern County Joe “Deke” Deacon wordt naar Los Angeles gestuurd om bewijs te verzamelen. Dat had een routineklus moeten zijn, maar hij raakt betrokken bij de zoektocht naar een seriemoordenaar die de stad onveilig maakt.",
-      "Taal": "Engels",
-      "Ondertiteling": "Nederlands",
-      "Acteurs": "Denzel Washington, Rami Malek, Jared Leto, Sofia Vassilieva",
-      "Regisseur": "John Lee Hancock",
-      "Zaal": 0,
-      "Projectiemoment": null,
-      "Beoordeling": 0,
-      "AantalBeoordelingen": 0,
-      "BeoordelingCumulatief": 0
-    },
-    {
-      "Titel": "Army of One",
-      "Categorie": "Actie / Thriller",
-      "Leeftijd": 16,
-      "Beschrijving": "Dillion en Brenner gaan wandelen in een bos en vinden daar een drugs- en wapenopslag. Voordat ze het beseffen worden ze betrapt en gemarteld door leden van een drugskartel. Dillion sterft, maar Brenner blijft in leven en zint op wraak.",
-      "Taal": "Engels",
-      "Ondertiteling": "Nederlands",
-      "Acteurs": "Ellen Hollman, Matt Passmore, Geraldine Singer, Stephen Dunlevy",
-      "Regisseur": "Stephen Durham",
-      "Zaal": 0,
-      "Projectiemoment": null,
-      "Beoordeling": 0,
-      "AantalBeoordelingen": 0,
-      "BeoordelingCumulatief": 0
-    },
-    {
-      "Titel": "The Rock",
-      "Categorie": "Actie / Thriller",
-      "Leeftijd": 16,
-      "Beschrijving": "Een groep mariniers bezet Alcatraz en dreigt een dodelijk gas op San Francisco te laten vallen. De enige kans voor de FBI om in te breken in Alcatraz is met hulp van de enige persoon die er ooit succesvol uitbrak.,",
-      "Taal": "Engels",
-      "Ondertiteling": "Nederlands",
-      "Acteurs": "Sean Connery, Nicolas Cage, Ed Harris, John Spencer",
-      "Regisseur": "Michael Bay",
-      "Zaal": 0,
-      "Projectiemoment": null,
-      "Beoordeling": 0,
-      "AantalBeoordelingen": 0,
-      "BeoordelingCumulatief": 0
-    },
-    {
-      "Titel": "Becky",
-      "Categorie": "Actie / Thriller",
-      "Leeftijd": 16,
-      "Beschrijving": "Becky gaat met haar vader een weekendje weg. Na de dood van haar moeder hoop Becky de band met haar vader te versterken. Hij wil haar juist voorstellen aan zijn vriendin. Wanneer er vier criminelen voor de deur staan, loopt alles anders.,",
-      "Taal": "Engels",
-      "Ondertiteling": "Nederlands",
-      "Acteurs": "Kevin James, Lulu Wilson, Joel McHale, Robert Maillet",
-      "Regisseur": "Stephen Durham",
-      "Zaal": 0,
-      "Projectiemoment": null,
-      "Beoordeling": 0,
-      "AantalBeoordelingen": 0,
-      "BeoordelingCumulatief": 0
-    },
-    {
-      "Titel": "Sicario: Day of the Soldado",
-      "Categorie": "Actie / Thriller",
-      "Leeftijd": 16,
-      "Beschrijving": "De Mexicaanse drugsoorlog heeft zich verder verspreid waarbij terroristen over de Amerikaans-Mexicaanse grens verplaatst worden. Matt krijgt van hogerop de taak om in te grijpen.",
-      "Taal": "Engels",
-      "Ondertiteling": "Nederlands",
-      "Acteurs": "Benicio Del Toro, Josh Brolin, Catherine Keener, Jeffrey Donovan",
-      "Regisseur": "Stefano Sollima",
-      "Zaal": 0,
-      "Projectiemoment": null,
-      "Beoordeling": 0,
-      "AantalBeoordelingen": 0,
-      "BeoordelingCumulatief": 0
-    },
     {
       "Titel": "The 'Notorius' Conor Mc Gregor",
       "Categorie": "Documentaire",
@@ -118,12 +85,12 @@
           "16:27"
         ]
       ],
-      "Beoordeling": 0,
-      "AantalBeoordelingen": 0,
-      "BeoordelingCumulatief": 0
+      "Beoordeling": 2,
+      "AantalBeoordelingen": 2,
+      "BeoordelingCumulatief": 5
     },
     {
-      "Titel": "The 'notorious' Conor Mc Gregor",
+      "Titel": "The 'notorious' Conor Mc Gregor2",
       "Categorie": "Documentaire",
       "Leeftijd": 4,
       "Beschrijving": "Zie hoe Conor van schulde, naar multi-millionaire gaat. Dankzij geloof, Wilskracht, discipline & de Mixed Martial Art!",
@@ -181,105 +148,70 @@
       "Leeftijd": 18,
       "Beschrijving": "Heel veel geld",
       "Release": "6 maart"
-    },
-    {
-      "Titel": "Thefwfewe wolf of wallstreet",
-      "Categorie": "Comedy",
-      "Leeftijd": 18,
-      "Beschrijving": "Heel veel geld",
-      "Release": "6 maart"
     }
   ],
   "Reservations": [
     {
       "ID": "0",
-      "Customer": "",
-      "Datum": null,
-      "Projectie": null,
+      "Customer": "nisatutucu",
+      "Filmtitel": "The 'Notorius' Conor Mc Gregor",
+      "Datum": "01-06-2021",
+      "Tijd": "20:00",
+      "Projectie": "2D",
       "Zaal": 1,
-      "Seats": {
-        "Rij": 2,
-        "Column": 2,
-        "Price": 7.5
-      },
-      "Snack": "Popcorn Zout",
+      "Seats": [
+        {
+          "Rij": 1,
+          "Column": 4,
+          "Price": 7.5
+        },
+        {
+          "Rij": 1,
+          "Column": 5,
+          "Price": 7.5
+        },
+        {
+          "Rij": 1,
+          "Column": 6,
+          "Price": 7.5
+        }
+      ],
+      "Zitplaatstype": "REGULIERE, REGULIERE, REGULIERE",
+      "Seatsumprice": 22.5,
+      "Snack": "Popcorn Mix",
       "Snackprice": 6.5,
-      "Sumprice": 14.0
+      "Sumprice": 29.0
     },
     {
       "ID": "1",
-      "Customer": "",
-      "Datum": null,
-      "Projectie": null,
-      "Zaal": 1,
-      "Seats": {
-        "Rij": 0,
-        "Column": 3,
-        "Price": 7.5
-      },
-      "Snack": "Popcorn Mix",
-      "Snackprice": 6.5,
-      "Sumprice": 14.0
-    },
-    {
-      "ID": "2",
-      "Customer": "albi79",
-      "Datum": null,
-      "Projectie": null,
-      "Zaal": 1,
-      "Seats": {
-        "Rij": 0,
-        "Column": 6,
-        "Price": 7.5
-      },
-      "Snack": "Popcorn Zoet",
-      "Snackprice": 6.5,
-      "Sumprice": 14.0
-    },
-    {
-      "ID": "3",
       "Customer": "nisatutucu",
-      "Datum": null,
-      "Projectie": null,
-      "Zaal": 3,
-      "Seats": {
-        "Rij": 4,
-        "Column": 5,
-        "Price": 7.5
-      },
-      "Snack": "Popcorn Zoet",
-      "Snackprice": 6.5,
-      "Sumprice": 14.0
-    },
-    {
-      "ID": "4",
-      "Customer": "nisatutucu",
-      "Datum": null,
+      "Filmtitel": "Xayah",
+      "Datum": "05-06-2021",
+      "Tijd": "23:55",
       "Projectie": "IMAX",
       "Zaal": 3,
-      "Seats": {
-        "Rij": 9,
-        "Column": 12,
-        "Price": 30.0
-      },
-      "Snack": "Popcorn Mix",
+      "Seats": [
+        {
+          "Rij": 11,
+          "Column": 14,
+          "Price": 30.0
+        },
+        {
+          "Rij": 11,
+          "Column": 9,
+          "Price": 15.0
+        },
+        {
+          "Rij": 11,
+          "Column": 5,
+          "Price": 7.5
+        }
+      ],
+      "Zitplaatstype": "MASTER, VIP, REGULIERE",
+      "Seatsumprice": 52.5,
+      "Snack": "Popcorn Zout",
       "Snackprice": 6.5,
-      "Sumprice": 36.5
-    },
-    {
-      "ID": "5",
-      "Customer": "nisatutucu",
-      "Datum": null,
-      "Projectie": "IMAX",
-      "Zaal": 3,
-      "Seats": {
-        "Rij": 7,
-        "Column": 9,
-        "Price": 15.0
-      },
-      "Snack": "Geen",
-      "Snackprice": 0.0,
-      "Sumprice": 15.0
+      "Sumprice": 59.0
     }
   ]
 }

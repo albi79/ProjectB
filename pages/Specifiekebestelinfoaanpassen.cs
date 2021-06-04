@@ -5,14 +5,14 @@ using System.Text;
 
 namespace ProjectB.pages
 {
-    class Snackskiezen
+    class Specifiekebestelinfoaanpassen
     {
-        public static string snackskiezen()
+        public static string specifiekebestelinfoaanpassen()
         {
             DataStorageHandler.SaveChanges();
             Console.Clear();
-            string prompt = "STAP 5: Kies uw snacks";
-            string[] options = { "Popcorn Zoet", "Popcorn Zout", "Popcorn Mix", "Geen", "Terug gaan" };
+            string prompt = "Selecteer welke gegeven u wilt wijzigen:";
+            string[] options = { "Datum & Tijd & Zitplaats", "Zitplaats", "Snacks", "Terug gaan"};
             ConsoleMenu2 StartPagina = new ConsoleMenu2(prompt, options);
             StartPagina.DisplayOptions();
             int selectedIndex = StartPagina.Run();

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.Text.RegularExpressions;
 using ProjectB.Classes;
@@ -135,16 +135,22 @@ namespace ProjectB.pages
             Console.ResetColor();
             Console.WriteLine("Waar wilt u nu naar toe?");
             Console.WriteLine("1. Terug naar startscherm");
-            Console.WriteLine("2. Verder naar het applicatie menu");
+            Console.WriteLine("2. Verder naar het applicatie menu\n");
             string GebruikerInput = Beheer.Input("");
 
             // ga naar het startscherm
             if (GebruikerInput == "1")
+            {
+                Console.Clear();
                 Startscherm.startscherm();
+            }
 
             // ga naar het menu
             else if (GebruikerInput == "2")
+            {
+                Console.Clear();
                 ConsoleMenu.consoleMenu(gebruikersnaam2);
+            }
 
             // user vult een verkeerde input in
             else

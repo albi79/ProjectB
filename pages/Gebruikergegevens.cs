@@ -7,7 +7,7 @@ namespace ProjectB.pages
     public class Gebruikergegevens
     {
         public static void gebruikergegevens(string gebruikersnaam)
-      {
+        {
             // doorloop alle personen in de JSON file
             foreach (Person person in DataStorageHandler.Storage.Persons)
             {
@@ -44,7 +44,7 @@ namespace ProjectB.pages
                     ConsoleMenu.consoleMenu(gebruikersnaam);
                     backingoption = true;
                 }
-                else if(Terug == "1")
+                else if (Terug == "1")
                 {
                     Console.Clear();
                     gebruikergegevensWijzigen(gebruikersnaam);
@@ -85,7 +85,7 @@ namespace ProjectB.pages
                     Console.WriteLine("b. Terug");
 
                     string infoIndex = Beheer.Input("");
-                    if(infoIndex == "b")
+                    if (infoIndex == "b")
                     {
                         Console.Clear();
                         gebruikergegevens(gebruikersnaam);
@@ -264,7 +264,7 @@ namespace ProjectB.pages
                 Console.Clear();
                 Console.WriteLine("Er ging iets mis probeer het opnieuw.");
                 gebruikergegevens(gebruikersnaam);
-                
+
             }
         }
     }

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using ProjectB.Classes;
@@ -30,6 +30,8 @@ namespace ProjectB.pages
                 else if (loginGebruikersnaam == person.gebruikersnaam && loginWachtwoord == person.wachtwoord)
                 {
                     Console.Clear();
+                    person.loginMoment = DateTime.Now;
+                    DataStorageHandler.SaveChanges();
                     ConsoleMenu.consoleMenu(loginGebruikersnaam);
                 }
             }
@@ -39,7 +41,7 @@ namespace ProjectB.pages
             string foutGebruiker = Beheer.Input("");
 
             if (foutGebruiker == "1")
-                Login.login();
+                Login.login(); 
 
             else if (foutGebruiker == "2")
                 Registreren.registreren();

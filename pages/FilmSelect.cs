@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Globalization;
 using System.Collections.Generic;
 using System.Text;
@@ -46,14 +46,13 @@ namespace ProjectB.pages
             if (HuidigOfToekomstig == "HuidigeFilms")
             {
                 Console.WriteLine("U bevindt nu bij de Huidige Films overzicht");
-                //loop door de lijst
                 int filmNummer = 1;
                 foreach (Film filmItem in DataStorageHandler.Storage.Films)
                 {
                     Console.ForegroundColor = ConsoleColor.Blue;
-                    Console.WriteLine($"\n------------------ Film nummer {filmNummer} ------------------");
+                    Console.WriteLine($"------------------ Film nummer {filmNummer} ------------------");
                     Console.ResetColor();
-                    Console.WriteLine($"     {filmItem.Leeftijd}+     {filmItem.Titel}\n     {filmItem.Categorie}");
+                    Console.WriteLine($"     {filmItem.Leeftijd}+     {filmItem.Titel}\n     {filmItem.Categorie}\n\n");
                     filmNummer++;
                 }
             }
@@ -65,12 +64,13 @@ namespace ProjectB.pages
                 foreach (ToekomstigeFilm filmItem in DataStorageHandler.Storage.ToekomstigeFilms)
                 {
                     Console.ForegroundColor = ConsoleColor.Blue;
-                    Console.WriteLine($"\n------------------ Film nummer {filmNummer} ------------------");
+                    Console.WriteLine($"------------------ Film nummer {filmNummer} ------------------");
                     Console.ResetColor();
-                    Console.WriteLine($"     {filmItem.Leeftijd}+     {filmItem.Titel}\n     {filmItem.Categorie}\n     Release datum: {filmItem.Release}");
+                    Console.WriteLine($"     {filmItem.Leeftijd}+     {filmItem.Titel}\n     {filmItem.Categorie}\n     Release datum: {filmItem.Release}\n\n");
                     filmNummer++;
                 }
             }
+
             Console.WriteLine("\n");
             int selectedFilm = Int32.Parse(Beheer.Input("Vul een film nummer in: ")) - 1;
 
@@ -83,13 +83,30 @@ namespace ProjectB.pages
                 Console.WriteLine("Categorie: " + DataStorageHandler.Storage.Films[selectedFilm].Categorie);
                 Console.WriteLine("Minimum leeftijd: " + DataStorageHandler.Storage.Films[selectedFilm].Leeftijd);
                 Console.WriteLine("Beschrijving: " + DataStorageHandler.Storage.Films[selectedFilm].Beschrijving);
-                //Console.WriteLine("Projectie: " + DataStorageHandler.Storage.Films[selectedFilm].Projectie);
                 Console.WriteLine("Taal: " + DataStorageHandler.Storage.Films[selectedFilm].Taal);
                 Console.WriteLine("Ondertiteling: " + DataStorageHandler.Storage.Films[selectedFilm].Ondertiteling);
                 Console.WriteLine("Acteurs: " + DataStorageHandler.Storage.Films[selectedFilm].Acteurs);
-                Console.WriteLine("Regiseur: " + DataStorageHandler.Storage.Films[selectedFilm].Regisseur);
+                Console.WriteLine("Regisseur: " + DataStorageHandler.Storage.Films[selectedFilm].Regisseur);
+
+                int aantalData = DataStorageHandler.Storage.Films[selectedFilm].Projectiemoment.Length;
+
+                string[] datums = new string[aantalData];
+                string datumsdisplay = "";
+
+                for (int x = 0; x < aantalData; x++)
+                {
+                    datums[x] = DataStorageHandler.Storage.Films[selectedFilm].Projectiemoment[x][0];
+                    if (x < aantalData - 1)
+                    {
+                        datumsdisplay += datums[x] + ", ";
+                    }
+                    else
+                    {
+                        datumsdisplay += datums[x];
+                    }
+                }
                 //Console.WriteLine("Speeltijd: " + DataStorageHandler.Storage.Films[selectedFilm].Tijd);
-                //Console.WriteLine("Speelt op: " + DataStorageHandler.Storage.Films[selectedFilm].Data);
+                Console.WriteLine("Speelt op de dagen: " + datumsdisplay);
                 Console.WriteLine("Zaal: " + DataStorageHandler.Storage.Films[selectedFilm].Zaal);
                 if (DataStorageHandler.Storage.Films[selectedFilm].Beoordeling != 0)
                 {
@@ -128,7 +145,7 @@ namespace ProjectB.pages
                                 if (ageinput == "1")
                                 {
                                     Console.Clear();
-                                    Reserveren.reserveren(DataStorageHandler.Storage.Films[selectedFilm].Zaal, gebruikersnaam, selectedFilm);
+                                    Reserveren.reserveren(DataStorageHandler.Storage.Films[selectedFilm].Zaal, gebruikersnaam, selectedFilm, HuidigOfToekomstig);
                                     agecheck = true;
                                 }
 
@@ -163,7 +180,7 @@ namespace ProjectB.pages
                         }
                         else
                         {
-                            Reserveren.reserveren(DataStorageHandler.Storage.Films[selectedFilm].Zaal, gebruikersnaam, selectedFilm);
+                            Reserveren.reserveren(DataStorageHandler.Storage.Films[selectedFilm].Zaal, gebruikersnaam, selectedFilm, HuidigOfToekomstig);
                         }
                     }
                 }
@@ -192,7 +209,7 @@ namespace ProjectB.pages
 
                 if (toets == "1")
                 {
-                    Console.WriteLine("LET OP: U moet minimaal 12 jaar oud zijn om te mogen reserveren.\nAls u doorgaat, gaat u akkoord met deze voorwaarden.\n");
+                    Console.WriteLine("\nLET OP: U moet minimaal 12 jaar oud zijn om te mogen reserveren.\nAls u doorgaat, gaat u akkoord met deze voorwaarden.\n");
                     Console.WriteLine("1. Doorgaan\n2. Terug");
                     string toets2 = Beheer.Input("");
                     if (toets2 == "1")
@@ -214,7 +231,7 @@ namespace ProjectB.pages
                                 if (ageinput == "1")
                                 {
                                     Console.Clear();
-                                    Reserveren.reserveren(DataStorageHandler.Storage.Films[selectedFilm].Zaal, gebruikersnaam, selectedFilm);
+                                    Reserveren.reserveren(DataStorageHandler.Storage.Films[selectedFilm].Zaal, gebruikersnaam, selectedFilm, HuidigOfToekomstig);
                                     agecheck = true;
                                 }
 
@@ -249,7 +266,7 @@ namespace ProjectB.pages
                         }
                         else
                         {
-                            Reserveren.reserveren(DataStorageHandler.Storage.Films[selectedFilm].Zaal, gebruikersnaam, selectedFilm);
+                            Reserveren.reserveren(DataStorageHandler.Storage.Films[selectedFilm].Zaal, gebruikersnaam, selectedFilm, HuidigOfToekomstig);
                         }
                     }
                 }

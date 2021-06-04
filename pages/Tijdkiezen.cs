@@ -7,24 +7,35 @@ namespace ProjectB.pages
 {
     class Tijdkiezen
     {
-        public static string tijdkiezen(int selectedfilm)
+        public static string tijdkiezen(int selectedfilm, int selectedDate)
         {
+            int datumIndex = selectedDate;
+
             DataStorageHandler.SaveChanges();
             Console.Clear();
-            string prompt = "Kies uw datum en tijd";
-            int aantalData = DataStorageHandler.Storage.Films[selectedfilm].Projectiemoment.Length;
+            string prompt = "STAP 2: Kies uw tijd";
+            
+            int aantalTijden = DataStorageHandler.Storage.Films[selectedfilm].Projectiemoment[datumIndex].Length;
+            string[] tijdenOptions = new string[aantalTijden];
 
-            string[] dataOptions = new string[aantalData];
-
-            for (int x = 0; x < DataStorageHandler.Storage.Films[selectedfilm].Projectiemoment.Length; x++)
+            for(int i = 0; i < aantalTijden; i++)
             {
-                dataOptions[x] = DataStorageHandler.Storage.Films[selectedfilm].Projectiemoment[x][0];
+                if (i < aantalTijden - 1)
+                {
+                    tijdenOptions[i] = DataStorageHandler.Storage.Films[selectedfilm].Projectiemoment[datumIndex][i + 1];
+                }
+                else
+                {
+                    tijdenOptions[i] = "Terug gaan";
+                }
             }
 
-            ConsoleMenu2 StartPagina = new ConsoleMenu2(prompt, dataOptions);
+            //string[] terugoptie = { "Terug gaan" };
+            //tijdenOptions = tijdenOptions + terugoptie;
+            ConsoleMenu2 StartPagina = new ConsoleMenu2(prompt, tijdenOptions);
             StartPagina.DisplayOptions();
             int selectedIndex = StartPagina.Run();
-            return dataOptions[selectedIndex];
+            return tijdenOptions[selectedIndex];
         }
     }
 }

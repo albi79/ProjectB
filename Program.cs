@@ -11,7 +11,7 @@ namespace ProjectB
         {
             DataStorageHandler.Init("../../../DAL/ProjectB.json");
             Startscherm.startscherm();
-
+            //Startscherm.startscherm();
         }
     }
 }
