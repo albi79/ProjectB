@@ -52,7 +52,12 @@ namespace ProjectB.pages
                     Console.ForegroundColor = ConsoleColor.Blue;
                     Console.WriteLine($"------------------ Film nummer {filmNummer} ------------------");
                     Console.ResetColor();
-                    Console.WriteLine($"     {filmItem.Leeftijd}+     {filmItem.Titel}\n     {filmItem.Categorie}\n\n");
+                    Console.WriteLine($"     {filmItem.Leeftijd}+     {filmItem.Titel}\n     {filmItem.Categorie}");
+                    Console.Write("Film beoordeling: ");
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.Write($"{filmItem.Beoordeling}");
+                    Console.ResetColor();
+                    Console.Write($" van de {filmItem.AantalBeoordelingen} beoordelingen\n\n");
                     filmNummer++;
                 }
             }

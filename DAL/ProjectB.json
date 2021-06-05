@@ -38,7 +38,7 @@
       "email": "s@s.nl",
       "gebruikersnaam": "nisatutucu",
       "wachtwoord": "Nisa2021",
-      "loginMoment": "2021-06-04T22:38:40.311945+02:00"
+      "loginMoment": "2021-06-05T19:46:16.415291+02:00"
     },
     {
       "naam": "",
@@ -58,6 +58,26 @@
       "email": "w@w",
       "gebruikersnaam": "ww",
       "wachtwoord": "wWeErR12",
+      "loginMoment": "0001-01-01T00:00:00"
+    },
+    {
+      "naam": "s",
+      "tussenvoegsel": "s",
+      "achternaam": "s",
+      "geboortedatum": "s",
+      "email": "s@s",
+      "gebruikersnaam": "Nisaa",
+      "wachtwoord": "Nisa2021",
+      "loginMoment": "0001-01-01T00:00:00"
+    },
+    {
+      "naam": "s",
+      "tussenvoegsel": "s",
+      "achternaam": "s",
+      "geboortedatum": "s",
+      "email": "s@s",
+      "gebruikersnaam": "Nisa12",
+      "wachtwoord": "Nisa2222",
       "loginMoment": "0001-01-01T00:00:00"
     }
   ],
@@ -86,8 +106,8 @@
         ]
       ],
       "Beoordeling": 2,
-      "AantalBeoordelingen": 2,
-      "BeoordelingCumulatief": 5
+      "AantalBeoordelingen": 3,
+      "BeoordelingCumulatief": 7
     },
     {
       "Titel": "The 'notorious' Conor Mc Gregor2",
@@ -186,8 +206,8 @@
       "ID": "1",
       "Customer": "nisatutucu",
       "Filmtitel": "Xayah",
-      "Datum": "05-06-2021",
-      "Tijd": "23:55",
+      "Datum": "30-08-2021",
+      "Tijd": "12:20",
       "Projectie": "IMAX",
       "Zaal": 3,
       "Seats": [
@@ -209,9 +229,9 @@
       ],
       "Zitplaatstype": "MASTER, VIP, REGULIERE",
       "Seatsumprice": 52.5,
-      "Snack": "Popcorn Zout",
-      "Snackprice": 6.5,
-      "Sumprice": 59.0
+      "Snack": "Geen",
+      "Snackprice": 0.0,
+      "Sumprice": 52.5
     }
   ]
 }

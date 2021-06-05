@@ -15,7 +15,6 @@ namespace ProjectB.pages
         {
             Console.WriteLine("1. Huidige films beheren");
             Console.WriteLine("2. Toekomstige films beheren");
-            Console.WriteLine("3. Film uit huidige films bewerken");
             Console.WriteLine("b. Om terug te gaan");
 
             string HuidigOfToekomstig = Beheer.Input("");
@@ -48,16 +47,38 @@ namespace ProjectB.pages
             Console.Clear();
             if (HuidigOfToekomstig == "HuidigeFilms")
             {
-                Console.WriteLine("U bevindt nu bij de Huidige Films overzicht");
+                Console.WriteLine("U bevindt nu bij de Huidige Films overzicht\n\n");
+
+                foreach (Film filmItem in DataStorageHandler.Storage.Films)
+                {
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.WriteLine($"{filmItem.Leeftijd}+   {filmItem.Titel}\n      {filmItem.Categorie}");
+                    Console.ResetColor();
+                    Console.Write("Film beoordeling: ");
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.Write($"{filmItem.Beoordeling}");
+                    Console.ResetColor();
+                    Console.Write($" van de {filmItem.AantalBeoordelingen} beoordelingen\n\n"); ;
+                }
+
+                Console.WriteLine("\n1. Film toevoegen");
+                Console.WriteLine("2. Film verwijderen");
+                Console.WriteLine("3. Film wijzigen");
             }
             else
             {
-                Console.WriteLine("U bevindt nu bij de Toekomstige Films overzicht");
+                Console.WriteLine("U bevindt nu bij de Toekomstige Films overzicht\n\n");
+
+                foreach (ToekomstigeFilm filmItem in DataStorageHandler.Storage.ToekomstigeFilms)
+                {
+                    Console.WriteLine($"{filmItem.Leeftijd}+   {filmItem.Titel}\n      {filmItem.Categorie}\n"); ;
+                }
+
+                Console.WriteLine("\n1. Film toevoegen");
+                Console.WriteLine("2. Film verwijderen");
+                Console.WriteLine("3. Film wijzigen");
             }
 
-            Console.WriteLine("1. Film toevoegen");
-            Console.WriteLine("2. Film verwijderen");
-            Console.WriteLine("3. Film wijzigen");
 
 
             Console.WriteLine("\n");
@@ -85,7 +106,11 @@ namespace ProjectB.pages
                         Console.WriteLine($"\n------------------ Film nummer {filmNummer} ------------------");
                         Console.ResetColor();
                         Console.WriteLine($"     {filmItem.Leeftijd}+     {filmItem.Titel}\n     {filmItem.Categorie}");
-                        filmNummer++;
+                        Console.Write("Film beoordeling: ");
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.Write($"{filmItem.Beoordeling}");
+                        Console.ResetColor();
+                        Console.Write($" van de {filmItem.AantalBeoordelingen} beoordelingen\n\n"); filmNummer++;
                     }
                 }
                 if (HuidigOfToekomstig == "ToekomstigeFilms")

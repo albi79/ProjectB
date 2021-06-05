@@ -138,7 +138,9 @@ namespace ProjectB.pages
                 catch
                 {
                     Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Er ging iets verkeerd!\n");
+                    Console.ResetColor();
                     ticketTerugvinden(gebruikersnaam);
                 }
             }

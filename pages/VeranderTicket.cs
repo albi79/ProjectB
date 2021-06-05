@@ -12,14 +12,22 @@ namespace ProjectB.pages
 {
     class VeranderTicket
     {
-        public static void veranderTicket(string gebruikersnaam, string keuze, int ticketIndex, int indexOfGebruiker)
+        public static void veranderTicket(string gebruikersnaam, string keuze, int ticketIndex)
         {
-            if (keuze == "1")
+            if (keuze == "0")
+            {
+                Console.Clear();
+                TicketTerugvinden.ticketTerugvinden(gebruikersnaam);
+            }
+            else if (keuze == "1")
             {
                 Console.WriteLine($"U heeft nu {DataStorageHandler.Storage.Reservations[ticketIndex].Snack} als snack geselecteerd, naar wat wilt u dit veranderen?\n0. Wijzeging annuleren\n1. Popcorn zoet\n2. Popcorn zout\n3. Popcorn mix\n4. Geen");
                 string snackKeuze = Beheer.Input("");
                 if (snackKeuze == "0")
+                { 
+                    Console.Clear();
                     TicketTerugvinden.ticketTerugvinden(gebruikersnaam);
+                }
                 else if (snackKeuze == "1")
                 {
                     DataStorageHandler.Storage.Reservations[ticketIndex].Snack = "Popcorn Zoet";
@@ -28,6 +36,7 @@ namespace ProjectB.pages
                     DataStorageHandler.SaveChanges();
                     Console.Clear();
                     Console.WriteLine("Aanpassingen zijn opgeslagen\n");
+                    Console.ResetColor();
                     TicketTerugvinden.ticketTerugvinden(gebruikersnaam);
                 }
                 else if (snackKeuze == "2")
@@ -37,7 +46,9 @@ namespace ProjectB.pages
                     DataStorageHandler.Storage.Reservations[ticketIndex].Sumprice = DataStorageHandler.Storage.Reservations[ticketIndex].Snackprice + DataStorageHandler.Storage.Reservations[ticketIndex].Seatsumprice;
                     DataStorageHandler.SaveChanges();
                     Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("Aanpassingen zijn opgeslagen\n");
+                    Console.ResetColor();
                     TicketTerugvinden.ticketTerugvinden(gebruikersnaam);
                 }
                 else if (snackKeuze == "3")
@@ -47,7 +58,9 @@ namespace ProjectB.pages
                     DataStorageHandler.Storage.Reservations[ticketIndex].Sumprice = DataStorageHandler.Storage.Reservations[ticketIndex].Snackprice + DataStorageHandler.Storage.Reservations[ticketIndex].Seatsumprice;
                     DataStorageHandler.SaveChanges();
                     Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("Aanpassingen zijn opgeslagen\n");
+                    Console.ResetColor();
                     TicketTerugvinden.ticketTerugvinden(gebruikersnaam);
                 }
                 else if (snackKeuze == "4")
@@ -57,7 +70,9 @@ namespace ProjectB.pages
                     DataStorageHandler.Storage.Reservations[ticketIndex].Snackprice = 0;
                     DataStorageHandler.SaveChanges();
                     Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("Aanpassingen zijn opgeslagen\n");
+                    Console.ResetColor();
                     TicketTerugvinden.ticketTerugvinden(gebruikersnaam);
                 }
             }
@@ -131,8 +146,25 @@ namespace ProjectB.pages
 
                 int outerIndex = 0;
 
-                try { outerIndex = Int32.Parse(Beheer.Input("Welke datum wilt u selecteren? ")); if (outerIndex > teller + 1) VeranderTicket.veranderTicket(gebruikersnaam, keuze, ticketIndex, indexOfGebruiker); }
-                catch { Console.Clear(); Console.WriteLine("Er ging iets fout!"); VeranderTicket.veranderTicket(gebruikersnaam, keuze, ticketIndex, indexOfGebruiker); }
+                try {
+                    outerIndex = Int32.Parse(Beheer.Input("Welke datum wilt u selecteren? "));
+                    if (outerIndex > teller + 1)
+                    {
+                        Console.Clear();
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Er ging iets fout!");
+                        Console.ResetColor();
+                        VeranderTicket.veranderTicket(gebruikersnaam, keuze, ticketIndex);
+                    }
+                }
+                catch
+                {
+                    Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Er ging iets fout!");
+                    Console.ResetColor();
+                    VeranderTicket.veranderTicket(gebruikersnaam, keuze, ticketIndex);
+                }
 
                 Console.WriteLine("\nKies uw nieuwe tijd:");
 
@@ -142,14 +174,34 @@ namespace ProjectB.pages
 
                 int innerIndex = 0;
 
-                try { innerIndex = Int32.Parse(Beheer.Input("\nWelk tijdstip wilt u selecteren ")); if (innerIndex > teller2) VeranderTicket.veranderTicket(gebruikersnaam, keuze, ticketIndex, indexOfGebruiker); }
-                catch { Console.Clear(); Console.WriteLine("Er ging iets fout!"); VeranderTicket.veranderTicket(gebruikersnaam, keuze, ticketIndex, indexOfGebruiker); }
+                try
+                {
+                    innerIndex = Int32.Parse(Beheer.Input("\nWelk tijdstip wilt u selecteren "));
+                    if (innerIndex > teller2)
+                    {
+                        Console.Clear();
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Er ging iets fout!");
+                        Console.ResetColor();
+                        VeranderTicket.veranderTicket(gebruikersnaam, keuze, ticketIndex);
+                    }
+                }
+                catch
+                {
+                    Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Er ging iets fout!");
+                    Console.ResetColor();
+                    VeranderTicket.veranderTicket(gebruikersnaam, keuze, ticketIndex);
+                }
 
                 DataStorageHandler.Storage.Reservations[ticketIndex].Datum = DataStorageHandler.Storage.Films[filmIndex].Projectiemoment[outerIndex + datumIndexTeller - 1][0];
                 DataStorageHandler.Storage.Reservations[ticketIndex].Tijd = DataStorageHandler.Storage.Films[filmIndex].Projectiemoment[outerIndex + datumIndexTeller - 1][innerIndex];
                 DataStorageHandler.SaveChanges();
                 Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Aanpassingen zijn opgeslagen\n");
+                Console.ResetColor();
                 TicketTerugvinden.ticketTerugvinden(gebruikersnaam);
             }
 

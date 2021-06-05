@@ -68,7 +68,7 @@ namespace ProjectB.pages
             }
 
             string gebruikersnaam2 = Beheer.Input("Gebruikersnaam: ");
-            gebruikersnaam2 = Beheer.ControlEmpty(gebruikersnaam2);
+            gebruikersnaam2 = uniekGebruikersnaam(Beheer.ControlEmpty(gebruikersnaam2));
 
             // geef de user een melding in het Geel zodat het opvalt (kleur oranje zit er niet standaard bij)
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -309,6 +309,53 @@ namespace ProjectB.pages
             }
             // return de meegegeven variable
             return var;
+        }
+
+        private static string uniekGebruikersnaam(string gebruikersnaam)
+        {
+            bool BestaandeGebruikersnaam = false;
+            foreach (Person person in DataStorageHandler.Storage.Persons)
+            {
+                if (gebruikersnaam == person.gebruikersnaam)
+                {
+                    BestaandeGebruikersnaam = true;
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("De gebruikersnaam die u heeft ingevoetd is jammer genoeg niet meer beschikbaar");
+                    Console.ResetColor();
+                    Console.WriteLine("Vul a.u.b. een unieke gebruikersnaam in.\n");
+                    break;
+                }
+            }
+            while (BestaandeGebruikersnaam)
+            {
+
+                foreach (Person person in DataStorageHandler.Storage.Persons)
+                {
+                    if (gebruikersnaam == person.gebruikersnaam)
+                    {
+                        
+                        BestaandeGebruikersnaam = true;
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("De gebruikersnaam die u heeft ingevoetd is jammer genoeg niet meer beschikbaar");
+                        Console.ResetColor();
+                        Console.WriteLine("Vul a.u.b. een unieke gebruikersnaam in.\n");
+                        gebruikersnaam = Beheer.Input("Gebruikersnaam: ");
+                        break;
+                    }
+                    else
+                    {
+                        BestaandeGebruikersnaam = false;
+                    }
+                }
+
+            }
+            if (BestaandeGebruikersnaam == false)
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("U heeft een uniek gebruikersnaam ingevoerd!\n");
+                Console.ResetColor();
+            }
+            return gebruikersnaam;
         }
     }
 }
