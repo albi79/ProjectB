@@ -17,7 +17,7 @@ namespace ProjectB.pages
 
             string antwoord = "";
 
-            while (antwoord != "b")
+            while(antwoord != "b")
             {
                 antwoord = Beheer.Input("Druk b om terug te gaan: ");
                 if (antwoord == "b")

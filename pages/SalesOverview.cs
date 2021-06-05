@@ -33,15 +33,14 @@ namespace ProjectB.pages
             string Select = Beheer.Input("");
             int SelectSale = 0;
             if (Select == "b")
-            {
+            { 
                 Console.Clear();
                 AdminMenu.adminMenu();
             }
-            else
-            {
+            else { 
                 try
                 {
-                    SelectSale = Int32.Parse(Select) - 1;
+                    SelectSale = Int32.Parse(Select)-1;
                 }
                 catch
                 {
@@ -67,9 +66,9 @@ namespace ProjectB.pages
                     break;
                 }
             }
-            Console.WriteLine("Zaal: " + DataStorageHandler.Storage.Reservations[SelectSale].Zaal);
+            Console.WriteLine("Zaal: " + DataStorageHandler.Storage.Reservations[SelectSale].Hall);
             Console.WriteLine("Projectie: ");
-            Console.WriteLine("Rij: " + DataStorageHandler.Storage.Reservations[SelectSale].Seats.Rij);
+            Console.WriteLine("Rij: " + DataStorageHandler.Storage.Reservations[SelectSale].Seats.Row);
             Console.WriteLine("Stoelnumer: " + DataStorageHandler.Storage.Reservations[SelectSale].Seats.Column);
             if (DataStorageHandler.Storage.Reservations[SelectSale].Seats.Price == (int)DataStorageHandler.Storage.Reservations[SelectSale].Seats.Price)
                 Console.WriteLine("Projectie: €" + DataStorageHandler.Storage.Reservations[SelectSale].Seats.Price + ",-");

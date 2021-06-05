@@ -13,33 +13,32 @@ namespace ProjectB.pages
     {
         public static void filmprogrammaBeheren()
         {
+            Console.WriteLine("1. Huidige films beheren");
+            Console.WriteLine("2. Toekomstige films beheren"); 
+            Console.WriteLine("b. Om terug te gaan");
+
+            string HuidigOfToekomstig = Beheer.Input("");
+            if (HuidigOfToekomstig == "b")
+            {
+                Console.Clear();
+                Startscherm.startscherm();
+            }
+
+            while (HuidigOfToekomstig != "1" && HuidigOfToekomstig != "2" && HuidigOfToekomstig != "b")
+            {
+                Console.WriteLine("Er ging iets mis, kunt u uit de volgende keuzes kiezen:");
                 Console.WriteLine("1. Huidige films beheren");
                 Console.WriteLine("2. Toekomstige films beheren");
-                Console.WriteLine("3. Film uit huidige films bewerken");
                 Console.WriteLine("b. Om terug te gaan");
-
-                string HuidigOfToekomstig = Beheer.Input("");
+                HuidigOfToekomstig = Beheer.Input("");
                 if (HuidigOfToekomstig == "b")
                 {
                     Console.Clear();
-                    AdminMenu.adminMenu();
+                    Startscherm.startscherm();
                 }
-
-                while (HuidigOfToekomstig != "1" && HuidigOfToekomstig != "2" && HuidigOfToekomstig != "b")
-                {
-                    Console.WriteLine("Er ging iets mis, kunt u uit de volgende keuzes kiezen:");
-                    Console.WriteLine("1. Huidige films beheren");
-                    Console.WriteLine("2. Toekomstige films beheren");
-                    Console.WriteLine("b. Om terug te gaan");
-                    HuidigOfToekomstig = Beheer.Input("");
-                    if (HuidigOfToekomstig == "b")
-                    {
-                        Console.Clear();
-                        AdminMenu.adminMenu();
-                }
-                }
-                HuidigOfToekomstig = ("1" == HuidigOfToekomstig) ? "HuidigeFilms" : "ToekomstigeFilms";
-                Overzicht(HuidigOfToekomstig);
+            }
+            HuidigOfToekomstig = ("1" == HuidigOfToekomstig) ? "HuidigeFilms" : "ToekomstigeFilms";
+            Overzicht(HuidigOfToekomstig);
 
         }
         public static void Overzicht(string HuidigOfToekomstig)
@@ -92,141 +91,37 @@ namespace ProjectB.pages
 
             else if (gegeven == "2")
                 verwijderen(HuidigOfToekomstig);
-
-            //WIJZIGEN NOG NIET KUNNEN SAMENVOEGEN(DANI & NISA)
-            else if(gegeven == "3")
-            {
-                Console.Clear();
-                Console.WriteLine("Film info bewerken\n\nWelke film wilt u wijzigen:\n");
-
-                int filmNummer = 1;
-                foreach (var film in DataStorageHandler.Storage.Films)
-                {
-                    Console.WriteLine($"{filmNummer}: {film.Titel}");
-                    filmNummer++;
-                }
-                int selectedFilm = Int32.Parse(Beheer.Input("\n")) -1;
-
-                try
-                {
-                    FilmInfoWijzigen.filmInfoWijzigen(selectedFilm);
-                  }
-                catch
-                {
-                    FilmprogrammaBeheren.filmprogrammaBeheren();
-                }
-            }
         }
         public static void toevoegen(string HuidigOfToekomstig)
         {
             Console.Clear();
             string nTitel = Beheer.Input("Wat is de titel van de nieuwe film?\n");
-            string nCategorie = Beheer.Input("\nWat is de categorie van de nieuwe film?\n");
-            int nLeeftijd = Convert.ToInt32(Beheer.Input("\nWat is de minimum leeftijd van de nieuwe film?\n"));
-            string nBeschrijving = Beheer.Input("\nSchrijf een korte filmbeschrijving\n");
-
-
+            string nCategorie = Beheer.Input("Wat is de categorie van de nieuwe film?\n");
+            int nLeeftijd = Convert.ToInt32(Beheer.Input("Wat is de minimum leeftijd van de nieuwe film?\n"));
+            string nBeschrijving = Beheer.Input("Schrijf een korte filmbeschrijving\n");
+            
+            
             {
                 //TODO: FOUTMELDING
 
                 if (HuidigOfToekomstig == "HuidigeFilms")
                 {
-                        
-                    string nTaal = Beheer.Input("\nWat is de Hoofdtaal van de film?\n");
-                    string nOndertiteling = Beheer.Input("\nIn welke taal is de ondertiteling?\n");
-                    string nActeurs = Beheer.Input("\nWelke grote acteurs spelen in de film?\n");
-                    string nRegisseur = Beheer.Input("\nWie is de regiseur van de film?\n");
-
-                    int nZaal = 0;
-                    while (nZaal != 1 && nZaal != 2 && nZaal != 3)
-                    {
-                        Console.WriteLine("\nIn welke zaal speelt de film?\nZaal 1(2D), Zaal 2(3D) of Zaal 3(IMAX)\n");
-                        string sZaal = Beheer.Input("Typ 1, 2 of 3: ");
-                        try
-                        {
-                            nZaal = Int32.Parse(sZaal);
-                        }
-                        catch { Console.WriteLine("Verkeerde zaal input!\nTyp Enter"); Beheer.Input(); }
-                    }
-
-                    int hoeveelDagen = 0;
-                    bool dagenInput = false;
-                    while (dagenInput != true)
-                    {
-                        try
-                        {
-                            hoeveelDagen = Int32.Parse(Beheer.Input("\nOp hoeveel dagen totaal wordt de film gedraaid? \n"));
-                            dagenInput = true;
-                        }
-                        catch { Console.WriteLine("\nVerkeerde input!\nTyp Enter"); Beheer.Input(); }
-                    }
-                    string[][] nProjectiemoment = new string[hoeveelDagen][];
-
-                    for (int i = 0; i < hoeveelDagen; i++)
-                    {
-                        string datum = "";
-                        bool datumInput = false;
-                        while (datumInput != true)
-                        {
-                            Console.WriteLine($"\nWelke datum is de {i + 1}e projectie?\n(DD-MM-JJJJ)");
-                            datum = Beheer.Input("");
-                            if (datum.Length == 10)
-                                datumInput = true;
-                            else
-                            {
-                                Console.WriteLine("\nVerkeerde input!\nTyp Enter");
-                                Beheer.Input();
-                            }
-                        }
-
-                        int hoeveelTijden = 0;
-                        bool tijdenInput = false;
-                        while (tijdenInput != true)
-                        {
-                            try
-                            {
-                                hoeveelTijden = Int32.Parse(Beheer.Input($"\nHoe vaak wordt de film op {datum} gedraaid? \n"));
-                                nProjectiemoment[i] = new string[hoeveelTijden + 1];
-                                nProjectiemoment[i][0] = datum;
-                                tijdenInput = true;
-                            }
-                            catch { Console.WriteLine("\nVerkeerde input!\nTyp Enter"); Beheer.Input(); }
-                        }
-
-
-                        for (int x = 1; x < hoeveelTijden + 1; x++)
-                        {
-                            bool huidigeTijdInput = false;
-                            while (huidigeTijdInput != true)
-                            {
-                                Console.WriteLine($"\nOp welk tijdstip begint de {x}e projectie op {nProjectiemoment[i][0]}\n(HH:MM) ?");
-                                string huidigeTijd = Beheer.Input("");
-                                if (huidigeTijd.Length == 5)
-                                {
-                                    huidigeTijdInput = true;
-                                    nProjectiemoment[i][x] = huidigeTijd;
-                                }
-                                else
-                                {
-                                    Console.WriteLine("\nVerkeerde input!\nTyp Enter");
-                                    Beheer.Input();
-                                }
-                            }
-                        }
-                    }
-
+                    string nProjectie = Beheer.Input("Wat voor projectie heeft de film? (2D/3D/IMAX)\n");
+                    string nTaal = Beheer.Input("Wat is de Hoofdtaal van de film?\n");
+                    string nOndertiteling = Beheer.Input("In welke taal is de ondertiteling?\n");
+                    string nActeurs = Beheer.Input("Welke grote acteurs spelen in de film?\n");
+                    string nRegisseur = Beheer.Input("Wie is de regiseur van de film?\n");
                     Film nieuweFilm = new Film
                     {
                         Titel = nTitel,
                         Categorie = nCategorie,
                         Leeftijd = nLeeftijd,
                         Beschrijving = nBeschrijving,
+                        Projectie = nProjectie,
                         Taal = nTaal,
                         Ondertiteling = nOndertiteling,
                         Acteurs = nActeurs,
                         Regisseur = nRegisseur,
-                        Zaal = nZaal,
-                        Projectiemoment = nProjectiemoment
                     };
 
                     DataStorageHandler.Storage.Films.Add(nieuweFilm);

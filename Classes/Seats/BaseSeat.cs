@@ -7,13 +7,14 @@ namespace ProjectB.Classes.Seats
     public class BaseSeat
     {
 
-        public int Rij;
+        public int Row;
         public int Column;
         public double Price;
 
-        public BaseSeat( int rij, int column, double price)
+        public BaseSeat(int row, int column, double price)
         {
-            Rij = rij;
+            //Customer = customer;
+            Row = row;
             Column = column;
             Price = price;
         }
