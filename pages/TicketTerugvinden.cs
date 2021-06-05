@@ -131,7 +131,7 @@ namespace ProjectB.pages
                     else
                     {
                         Console.Clear();
-                        Console.WriteLine("Ze film speelt binnen 24 uur. U kunt deze film niet aanpassen of verwijderen.\n");
+                        Console.WriteLine("De film speelt binnen 24 uur. U kunt deze film niet aanpassen of verwijderen.\n");
                         ticketTerugvinden(gebruikersnaam);
                     }
                 }

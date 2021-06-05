@@ -25,6 +25,7 @@ namespace ProjectB.pages
             Console.WriteLine("1. Uitloggen");
             Console.WriteLine("2. Sales overview en tickets terug vinden");
             Console.WriteLine("3. Filmprogramma beheren");
+            Console.WriteLine("4. Tickets wijzigen");
             Console.WriteLine("---------------------------");
             Console.WriteLine("Voer uw optienummer in");
 
@@ -76,6 +77,13 @@ namespace ProjectB.pages
                     Console.Clear();
                     FilmprogrammaBeheren.filmprogrammaBeheren();
                     validinputmenu = true;
+                }
+
+                else if (menuinput == "4")
+                {
+                    Console.Clear();
+                    validinputmenu = true;
+                    AdminTicketWijzigen.tussen();
                 }
 
                 else
