@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using ProjectB.Classes;
@@ -30,19 +30,21 @@ namespace ProjectB.pages
                 else if (loginGebruikersnaam == person.gebruikersnaam && loginWachtwoord == person.wachtwoord)
                 {
                     Console.Clear();
+                    person.loginMoment = DateTime.Now;
+                    DataStorageHandler.SaveChanges();
                     ConsoleMenu.consoleMenu(loginGebruikersnaam);
                 }
             }
 
             Console.Clear();
-            Console.WriteLine("Gebruikersnaam en/of Wachtwoord komen niet overeen.\n\nKlik: '1' voor opnieuw registreren\nKlik: '2' voor opnieuw inloggen\nKlik: '3' voor terug naar het startscherm.");
+            Console.WriteLine("Gebruikersnaam en/of Wachtwoord komen niet overeen.\n\nKlik: '1' voor opnieuw inloggen\nKlik: '2' voor opnieuw registreren\nKlik: '3' voor terug naar het startscherm.");
             string foutGebruiker = Beheer.Input("");
 
             if (foutGebruiker == "1")
-                Registreren.registreren();
+                Login.login(); 
 
             else if (foutGebruiker == "2")
-                Login.login();
+                Registreren.registreren();
 
             else if (foutGebruiker == "3")
                 Startscherm.startscherm();
@@ -51,13 +53,13 @@ namespace ProjectB.pages
             {
                 while (foutGebruiker != "i" || foutGebruiker != "r" || foutGebruiker != "m")
                 {
-                    Console.WriteLine("Er ging iets fout, probeer het opnieuw. Keuze uit 1 (registreren), 2 (inloggen) en 3 (startscherm)."); ;
+                    Console.WriteLine("Er ging iets fout, probeer het opnieuw. Keuze uit 1 (inloggen), 2 (registreren) en 3 (startscherm)."); ;
                     foutGebruiker = Beheer.Input("");
                     if (foutGebruiker == "1")
-                        Registreren.registreren();
+                        Login.login();
 
                     else if (foutGebruiker == "2")
-                        Login.login();
+                        Registreren.registreren();
 
                     else if (foutGebruiker == "3")
                         Startscherm.startscherm();

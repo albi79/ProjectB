@@ -9,7 +9,7 @@ namespace ProjectB.pages
 {
     class Zitplaatsenkiezen
     {
-        public static BaseSeat zitplaatsenkiezen()
+        public static List<BaseSeat> zitplaatsenkiezen(int selectedFilm , string datum, string tijd, int ticketInput)
         {
             object[][] seats150 = new object[][]
             {
@@ -29,27 +29,34 @@ namespace ProjectB.pages
             new object[]{ null, null, new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), null, null },
             new object[]{ null, null, new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), null, null },
             };
-            string prompt = "Selecteer uw zitplaats in Zaal1";
-            SeatsMenu zaal1 = new SeatsMenu(prompt, seats150);
-            zaal1.Display();
-            BaseSeat selectedSeat = zaal1.Run();
-
-            try
+            string prompt = "STAP 4: Selecteer uw zitplaats in Zaal1\n";
+            int totaalColumn = 12 * 3 - 2;
+            string bioscoopscherm = "";
+            for (int i = 0; i < totaalColumn; i++)
             {
-
-                foreach (var item in DataStorageHandler.Storage.Reservations)
-                {
-                    if (selectedSeat.Rij == item.Seats.Rij && selectedSeat.Column == item.Seats.Column)
-                    {
-                        selectedSeat = null;
-                        zitplaatsenkiezen();
-                    }
-                }
-
+                bioscoopscherm += "=";
             }
-            catch (Exception) { };
+            bioscoopscherm = "\n|" + bioscoopscherm + "|" + "\n           BIOSCOOPSCHERM";
+            SeatsMenu zaal1 = new SeatsMenu(prompt, seats150, ticketInput);
+            zaal1.Display(selectedFilm, datum, tijd, ticketInput);
+            List<BaseSeat> selectedseatList = zaal1.Run(selectedFilm, datum, tijd, bioscoopscherm, ticketInput);
 
-            return selectedSeat;
+            //try
+            //{
+
+            //    foreach (var item in DataStorageHandler.Storage.Reservations)
+            //    {
+            //        if (selectedSeat.Rij == item.Seats.Rij && selectedSeat.Column == item.Seats.Column)
+            //        {
+            //            selectedSeat = null;
+            //            zitplaatsenkiezen(selectedFilm, datum, tijd);
+            //        }
+            //    }
+
+            //}
+            //catch (Exception) { };
+
+            return selectedseatList;
         }
     }
 }

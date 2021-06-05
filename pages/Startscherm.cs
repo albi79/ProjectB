@@ -10,8 +10,10 @@ namespace ProjectB.pages
 {
     class Startscherm
     {
+
         public static void startscherm()
         {
+            //Beoordeling.beoordeling();
             string menuinput;
             //int menuchoice;
 
@@ -21,7 +23,7 @@ namespace ProjectB.pages
             bool validinputmenu = false;
             bool vldinptwthaccount = false;
 
-            Console.WriteLine("Welkom bij de bioscoop app!\nKies uw nummer uit de volgende opties:\n1. Inloggen\n2. Registreren\n3. Verder gaan zonder account");
+            Console.WriteLine("Welkom bij de bioscoop app!\n\nKies uw nummer uit de volgende opties:\n1. Inloggen\n2. Registreren\n3. Verder gaan zonder account\n");
 
             while (validinputmenu == false)
             {
@@ -48,7 +50,7 @@ namespace ProjectB.pages
                 else if (menuinput == "3")
                 {
                     Console.Clear();
-                    Console.WriteLine("Weet u zeker dat u zonder account verder wilt gaan?\nMet een account kunt u gemakkelijker reserveren.\n1. Ja \n2. Nee");
+                    Console.WriteLine("Weet u zeker dat u zonder account verder wilt gaan?\nMet een account kunt u gemakkelijker reserveren.\n1. JA\n2. NEE");
                     validinputmenu = true;
 
                     while (vldinptwthaccount == false)
@@ -60,7 +62,7 @@ namespace ProjectB.pages
                         {
                             Console.Clear();
                             //Console.WriteLine("Hier wordt de welkomscherm aangeroepen");
-                            ConsoleMenu.consoleMenu("");
+                            ConsoleMenu.consoleMenu(null);
                             vldinptwthaccount = true;
                         }
 
@@ -87,5 +89,4 @@ namespace ProjectB.pages
             }
         }
     }
-
 }

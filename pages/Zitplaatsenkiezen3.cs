@@ -9,7 +9,7 @@ namespace ProjectB.pages
 {
     class Zitplaatsenkiezen3
     {
-        public static BaseSeat zitplaatsenkiezen3()
+        public static List<BaseSeat> zitplaatsenkiezen3(int selectedFilm, string datum, string tijd, int ticketInput)
         {
             object[][] seats500 = new object[][]
             {
@@ -34,27 +34,34 @@ namespace ProjectB.pages
             new object[]{ null, null, null, null, null, null, null, new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), null, null, null, null, null, null, null },
             new object[]{ null, null, null, null, null, null, null, null, new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), new RegularSeat(), null, null, null, null, null, null, null, null }
             };
-            string prompt3 = "Selecteer uw zitplaats in Zaal3";
-            SeatsMenu zaal3 = new SeatsMenu(prompt3, seats500);
-            zaal3.Display();
-            BaseSeat selectedSeat3 = zaal3.Run();
-
-            try
+            string prompt3 = "STAP 4: Selecteer uw zitplaats in Zaal3\n";
+            int totaalColumn = 30 * 3 - 2;
+            string bioscoopscherm = "";
+            for (int i = 0; i < totaalColumn; i++)
             {
-
-                foreach (var item in DataStorageHandler.Storage.Reservations)
-                {
-                    if (selectedSeat3.Rij == item.Seats.Rij && selectedSeat3.Column == item.Seats.Column)
-                    {
-                        selectedSeat3 = null;
-                        zitplaatsenkiezen3();
-                    }
-                }
-
+                bioscoopscherm += "=";
             }
-            catch (Exception) { };
+            bioscoopscherm = "\n|" + bioscoopscherm + "|" + "\n                             BIOSCOOPSCHERM";
+            SeatsMenu zaal3 = new SeatsMenu(prompt3, seats500, ticketInput);
+            zaal3.Display(selectedFilm, datum, tijd, ticketInput);
+            List<BaseSeat> selectedseatList3 = zaal3.Run(selectedFilm, datum, tijd, bioscoopscherm, ticketInput);
 
-            return selectedSeat3;
+            //try
+            //{
+
+            //    foreach (var item in DataStorageHandler.Storage.Reservations)
+            //    {
+            //        if (selectedSeat3.Rij == item.Seats.Rij && selectedSeat3.Column == item.Seats.Column)
+            //        {
+            //            selectedSeat3 = null;
+            //            zitplaatsenkiezen3(selectedFilm, datum, tijd);
+            //        }
+            //    }
+
+            //}
+            //catch (Exception) { };
+
+            return selectedseatList3;
         }
     }
 }
