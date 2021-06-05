@@ -64,7 +64,6 @@ namespace ProjectB.pages
             if (HuidigOfToekomstig == "ToekomstigeFilms")
             {
                 Console.WriteLine("U bevindt nu bij de Toekomstige Films overzicht");
-                //loop door de lijst
                 int filmNummer = 1;
                 foreach (ToekomstigeFilm filmItem in DataStorageHandler.Storage.ToekomstigeFilms)
                 {
@@ -110,7 +109,6 @@ namespace ProjectB.pages
                         datumsdisplay += datums[x];
                     }
                 }
-                //Console.WriteLine("Speeltijd: " + DataStorageHandler.Storage.Films[selectedFilm].Tijd);
                 Console.WriteLine("Speelt op de dagen: " + datumsdisplay);
                 Console.WriteLine("Zaal: " + DataStorageHandler.Storage.Films[selectedFilm].Zaal);
                 if (DataStorageHandler.Storage.Films[selectedFilm].Beoordeling != 0)

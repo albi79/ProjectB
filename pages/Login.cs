@@ -12,13 +12,10 @@ namespace ProjectB.pages
         {
             Console.Clear();
 
-            //Input krijgen
             Console.WriteLine("Login-scherm\n");
             string loginGebruikersnaam = Beheer.Input("Gebruikersnaam: ");
             string loginWachtwoord = Beheer.Input("Wachtwoord: ");
 
-
-            //Check of input correct is
             foreach (Person person in DataStorageHandler.Storage.Persons)
             {
                 if (loginGebruikersnaam == "AdminBios" && loginWachtwoord == "Nimda2021")

@@ -15,10 +15,8 @@ namespace ProjectB.pages
         {
             Console.Clear();
             string menuinput;
-            //int menuchoice;
 
             string menuexit;
-            //int menuExit;
 
             bool validinputmenu = false;
             bool validinputlogout = false;
@@ -34,9 +32,6 @@ namespace ProjectB.pages
             {
                 menuinput = Console.ReadLine();
 
-                // convert to integer
-                // menuchoice = Convert.ToInt32(menuinput);
-
                 if (menuinput == "1")
                 {
                     Console.Clear();
@@ -46,12 +41,10 @@ namespace ProjectB.pages
                     while (validinputlogout == false)
                     {
                         menuexit = Console.ReadLine();
-                        //menuExit = Convert.ToInt32(menuexit);
 
                         if (menuexit == "1")
                         {
                             Console.Clear();
-                            //Console.WriteLine("Hier wordt de welkomscherm aangeroepen");
                             Startscherm.startscherm();
                             validinputlogout = true;
                         }
@@ -74,7 +67,6 @@ namespace ProjectB.pages
                 else if (menuinput == "2")
                 {
                     Console.Clear();
-                    //Console.WriteLine("Hier wordt de sales overview scherm aangeroepen");
                     SalesOverview.salesOverview();
                     validinputmenu = true;
                 }
@@ -82,7 +74,6 @@ namespace ProjectB.pages
                 else if (menuinput == "3")
                 {
                     Console.Clear();
-                    //Console.WriteLine("Hier wordt de filmprogramma scherm aangeroepen");
                     FilmprogrammaBeheren.filmprogrammaBeheren();
                     validinputmenu = true;
                 }

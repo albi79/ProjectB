@@ -147,12 +147,7 @@ namespace ProjectB.pages
     }
         public static string filmAfgelopen(string gebruikersnaam, int ticketIndex)
         {
-            DateTime moment = DateTime.Now;
-            //if (wijzigOfniet == 24)
-            //{
-            //    moment = DateTime.Now.AddDays(+1);
-            //}
-            
+            DateTime moment = DateTime.Now;            
 
             string afgelopen = "";
 

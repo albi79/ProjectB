@@ -29,7 +29,6 @@ namespace ProjectB.pages
         public static void opleeftijd()
         {
             Console.Clear();
-            //omdat het intparse heeft moet er nog een foutmelding gemaakt worden voor de intparse
             int leeftijd = Int32.Parse(Beheer.Input("\nWat moet de minimale leeftijd van de films zijn?(VOER EEN GETAL IN)\n"));
             int filmNummer = 1;
             foreach (Film filmItem in DataStorageHandler.Storage.Films)

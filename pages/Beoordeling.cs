@@ -37,7 +37,6 @@ namespace ProjectB.pages
             DataStorageHandler.Storage.Films[selectedFilm].BeoordelingCumulatief += huidigeBeoordeling;
             DataStorageHandler.Storage.Films[selectedFilm].Beoordeling = DataStorageHandler.Storage.Films[selectedFilm].BeoordelingCumulatief / DataStorageHandler.Storage.Films[selectedFilm].AantalBeoordelingen;
 
-
             DataStorageHandler.SaveChanges();
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Green;
