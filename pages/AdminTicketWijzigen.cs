@@ -13,7 +13,7 @@ namespace ProjectB.pages
     {
         public static void tussen()
         {
-            Console.WriteLine("Maak uw keuze:\n0. Terug\n1. Ticket wijzigen\n2. Ticket verwijedren\n");
+            Console.WriteLine("Maak uw keuze:\n1. Ticket wijzigen\n2. Ticket verwijedren\n0. Terug\n");
             string antwoord = Beheer.Input("");
 
             if (antwoord == "1")
@@ -66,19 +66,44 @@ namespace ProjectB.pages
                         {
                             if (Select == reservation.ID)
                             {
-                                /*
-                                 Gegevens van ticket wijzigen
-                                    Misschien nieuwe functie maken
-                                        Ik doe dit morgen
-                                 */
-                            }
+                                int ticketIndex = DataStorageHandler.Storage.Reservations.IndexOf(reservation);
+                                
+                                Console.Clear();
+                                Console.WriteLine("Wat wilt u aan uw ticket veranderen\n1. Snacks\n2. Datum / Tijd\n0. Terug\n");
+                                string veranderInput = Beheer.Input("");
+
+                                if (veranderInput == "1")
+                                {
+                                    adminSnacksWijzigen(ticketIndex);
+                                }
+                                else if (veranderInput == "2")
+                                {
+                                    adminTijdWijzigen(ticketIndex);
+                                }
+                                else if (veranderInput == "0")
+                                {
+
+                                }
+                                else
+                                {
+                                    Console.Clear();
+                                    Console.ForegroundColor = ConsoleColor.Red;
+                                    Console.WriteLine("Er ging iets verkeerd!\nTyp Enter");
+                                    Console.ResetColor();
+                                    Beheer.Input();
+                                    AdminMenu.adminMenu();
+                                }
+                            }                            
                         }
 
                     }
                     else
                     {
                         Console.Clear();
-                        Console.WriteLine("De film speelt binnen 24 uur. U kunt deze film niet aanpassen of verwijderen.\nTyp Enter");
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("De film speelt binnen 24 uur. U kunt deze film niet aanpassen of verwijderen.");
+                        Console.ResetColor();
+                        Console.WriteLine("\nTyp Enter");
                         Beheer.Input();
                         AdminMenu.adminMenu();
                     }
@@ -220,6 +245,211 @@ namespace ProjectB.pages
                     AdminMenu.adminMenu();
                 }
             }
+        }
+        public static void adminSnacksWijzigen(int ticketIndex)
+        {
+            Console.WriteLine($"U heeft nu {DataStorageHandler.Storage.Reservations[ticketIndex].Snack} als snack geselecteerd, naar wat wilt u dit veranderen?\n0. Wijzeging annuleren\n1. Popcorn zoet\n2. Popcorn zout\n3. Popcorn mix\n4. Geen");
+            string snackKeuze = Beheer.Input("");
+            if (snackKeuze == "0")
+            {
+                Console.Clear();
+                AdminMenu.adminMenu();
+            }
+            else if (snackKeuze == "1")
+            {
+                DataStorageHandler.Storage.Reservations[ticketIndex].Snack = "Popcorn Zoet";
+                DataStorageHandler.Storage.Reservations[ticketIndex].Snackprice = 6.5;
+                DataStorageHandler.Storage.Reservations[ticketIndex].Sumprice = DataStorageHandler.Storage.Reservations[ticketIndex].Snackprice + DataStorageHandler.Storage.Reservations[ticketIndex].Seatsumprice;
+                DataStorageHandler.SaveChanges();
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Aanpassingen zijn opgeslagen\n");
+                Console.ResetColor();
+                Console.WriteLine("\nTyp Enter");
+                Beheer.Input();
+                AdminMenu.adminMenu();
+            }
+            else if (snackKeuze == "2")
+            {
+                DataStorageHandler.Storage.Reservations[ticketIndex].Snack = "Popcorn Zout";
+                DataStorageHandler.Storage.Reservations[ticketIndex].Snackprice = 6.5;
+                DataStorageHandler.Storage.Reservations[ticketIndex].Sumprice = DataStorageHandler.Storage.Reservations[ticketIndex].Snackprice + DataStorageHandler.Storage.Reservations[ticketIndex].Seatsumprice;
+                DataStorageHandler.SaveChanges();
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Aanpassingen zijn opgeslagen\n");
+                Console.ResetColor();
+                Console.WriteLine("\nTyp Enter");
+                Beheer.Input();
+                AdminMenu.adminMenu();
+            }
+            else if (snackKeuze == "3")
+            {
+                DataStorageHandler.Storage.Reservations[ticketIndex].Snack = "Popcorn Mix";
+                DataStorageHandler.Storage.Reservations[ticketIndex].Snackprice = 6.5;
+                DataStorageHandler.Storage.Reservations[ticketIndex].Sumprice = DataStorageHandler.Storage.Reservations[ticketIndex].Snackprice + DataStorageHandler.Storage.Reservations[ticketIndex].Seatsumprice;
+                DataStorageHandler.SaveChanges();
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Aanpassingen zijn opgeslagen\n");
+                Console.ResetColor();
+                Console.WriteLine("\nTyp Enter");
+                Beheer.Input();
+                AdminMenu.adminMenu();
+            }
+            else if (snackKeuze == "4")
+            {
+                DataStorageHandler.Storage.Reservations[ticketIndex].Snack = "Geen";
+                DataStorageHandler.Storage.Reservations[ticketIndex].Sumprice = DataStorageHandler.Storage.Reservations[ticketIndex].Seatsumprice;
+                DataStorageHandler.Storage.Reservations[ticketIndex].Snackprice = 0;
+                DataStorageHandler.SaveChanges();
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Aanpassingen zijn opgeslagen\n");
+                Console.ResetColor();
+                Console.WriteLine("\nTyp Enter");
+                Beheer.Input();
+                AdminMenu.adminMenu();
+            }
+            else
+            {
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Er ging iets verkeerd!\nTyp Enter");
+                Console.ResetColor();
+                Beheer.Input();
+                adminSnacksWijzigen(ticketIndex);
+            }
+        }
+        public static void adminTijdWijzigen(int ticketIndex)
+        {
+            int filmIndex = 0;
+            foreach (Film filmItem in DataStorageHandler.Storage.Films)
+                if (DataStorageHandler.Storage.Reservations[ticketIndex].Filmtitel == filmItem.Titel)
+                    filmIndex = DataStorageHandler.Storage.Films.IndexOf(filmItem);
+
+            int teller = 0;
+            int datumIndexTeller = 0;
+
+            Console.WriteLine("Kies uw nieuwe datum:\n");
+
+            foreach (var projectiemoment in DataStorageHandler.Storage.Films[filmIndex].Projectiemoment)
+            {
+                bool geweest = true;
+                string datum = projectiemoment[0];
+                int dag = Int32.Parse($"{datum[0]}{datum[1]}");
+                int maand = Int32.Parse($"{datum[3]}{datum[4]}");
+                int jaar = Int32.Parse($"{datum[6]}{datum[7]}{datum[8]}{datum[9]}");
+
+                if (jaar < DateTime.Now.Year)
+                {
+                    geweest = false;
+                }
+                else if (jaar > DateTime.Now.Year)
+                {
+                    geweest = true;
+                }
+                else
+                {
+                    if (maand < DateTime.Now.Month)
+                    {
+                        geweest = true;
+                    }
+                    else if (maand > DateTime.Now.Month)
+                    {
+                        geweest = false;
+                    }
+                    else
+                    {
+                        if (dag <= DateTime.Now.Day)
+                        {
+                            geweest = true;
+                        }
+                        if (dag > DateTime.Now.Day)
+                        {
+                            geweest = false;
+                        }
+                    }
+                }
+
+                if (geweest == false)
+                {
+                    Console.WriteLine($"{teller + 1}. {datum}\n");
+                    teller++;
+                }
+                else
+                    datumIndexTeller++;
+            }
+
+            if (teller == 0)
+            {
+                Console.Clear();
+                Console.WriteLine("Er zijn geen andere data beschikbaar!!!\n");
+                adminTicketWijzigen();
+            }
+
+            int outerIndex = 0;
+
+            try
+            {
+                outerIndex = Int32.Parse(Beheer.Input("Welke datum wilt u selecteren? "));
+                if (outerIndex > teller + 1)
+                {
+                    Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Er ging iets fout!");
+                    Console.ResetColor();
+                    adminTijdWijzigen(ticketIndex);
+                }
+            }
+            catch
+            {
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Er ging iets fout!");
+                Console.ResetColor();
+                adminTijdWijzigen(ticketIndex);
+            }
+
+            Console.WriteLine("\nKies uw nieuwe tijd:");
+
+            int teller2 = 1;
+            for (int i = 0; i < DataStorageHandler.Storage.Films[filmIndex].Projectiemoment[outerIndex + datumIndexTeller - 1].Length - 1; i++, teller2++)
+                Console.WriteLine($"\n{teller2}. {DataStorageHandler.Storage.Films[filmIndex].Projectiemoment[outerIndex + datumIndexTeller - 1][i + 1]}");
+
+            int innerIndex = 0;
+
+            try
+            {
+                innerIndex = Int32.Parse(Beheer.Input("\nWelk tijdstip wilt u selecteren "));
+                if (innerIndex > teller2)
+                {
+                    Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Er ging iets fout!");
+                    Console.ResetColor();
+                    adminTijdWijzigen(ticketIndex);
+                }
+            }
+            catch
+            {
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Er ging iets fout!");
+                Console.ResetColor();
+                adminTijdWijzigen(ticketIndex);
+            }
+
+            DataStorageHandler.Storage.Reservations[ticketIndex].Datum = DataStorageHandler.Storage.Films[filmIndex].Projectiemoment[outerIndex + datumIndexTeller - 1][0];
+            DataStorageHandler.Storage.Reservations[ticketIndex].Tijd = DataStorageHandler.Storage.Films[filmIndex].Projectiemoment[outerIndex + datumIndexTeller - 1][innerIndex];
+            DataStorageHandler.SaveChanges();
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Aanpassingen zijn opgeslagen\n");
+            Console.ResetColor();
+            Console.WriteLine("\nTyp Enter");
+            Beheer.Input();
+            AdminMenu.adminMenu();
         }
     }
 }
