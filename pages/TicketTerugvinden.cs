@@ -131,7 +131,7 @@ namespace ProjectB.pages
                     else
                     {
                         Console.Clear();
-                        Console.WriteLine("Ze film speelt binnen 24 uur. U kunt deze film niet aanpassen of verwijderen.\n");
+                        Console.WriteLine("De film speelt binnen 24 uur. U kunt deze film niet aanpassen of verwijderen.\n");
                         ticketTerugvinden(gebruikersnaam);
                     }
                 }
@@ -147,12 +147,7 @@ namespace ProjectB.pages
     }
         public static string filmAfgelopen(string gebruikersnaam, int ticketIndex)
         {
-            DateTime moment = DateTime.Now;
-            //if (wijzigOfniet == 24)
-            //{
-            //    moment = DateTime.Now.AddDays(+1);
-            //}
-            
+            DateTime moment = DateTime.Now;            
 
             string afgelopen = "";
 

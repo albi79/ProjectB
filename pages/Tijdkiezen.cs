@@ -29,9 +29,6 @@ namespace ProjectB.pages
                     tijdenOptions[i] = "Terug gaan";
                 }
             }
-
-            //string[] terugoptie = { "Terug gaan" };
-            //tijdenOptions = tijdenOptions + terugoptie;
             ConsoleMenu2 StartPagina = new ConsoleMenu2(prompt, tijdenOptions);
             StartPagina.DisplayOptions();
             int selectedIndex = StartPagina.Run();

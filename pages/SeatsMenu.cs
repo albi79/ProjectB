@@ -36,7 +36,7 @@ namespace ProjectB
                 string row = "";
                 for(int j =0; j < seats[i].Length; j++)
                 {
-                    bool SelectedSeat = i == selectedRow && j == selectedColumn; // for loop j++, array opslaan
+                    bool SelectedSeat = i == selectedRow && j == selectedColumn;
 
                     object currentSeat = seats[i][j];
                     row += currentSeat;
@@ -86,24 +86,6 @@ namespace ProjectB
                         }
                         res += seat3.Icon;
                     }
-                    //int filmdatumIndex = 0;
-                    //int filmtijdIndex = 0;
-
-                    //for (int k = 0; k < DataStorageHandler.Storage.Films[selectedFilm].Projectiemoment.Length; k++)
-                    //{ 
-                    //    if (DataStorageHandler.Storage.Films[selectedFilm].Projectiemoment[k][0] == datum) 
-                    //    {
-                    //        filmdatumIndex = k;
-                    //    }
-                    //}
-
-                    //for (int l = 0; l < DataStorageHandler.Storage.Films[selectedFilm].Projectiemoment[filmdatumIndex].Length; l++)
-                    //{
-                    //    if (DataStorageHandler.Storage.Films[selectedFilm].Projectiemoment[filmdatumIndex][l] == tijd)
-                    //    {
-                    //        filmtijdIndex = l;
-                    //    }
-                    //}
 
                     if (currentSeat is VipSeat || currentSeat is MasterSeat || currentSeat is RegularSeat)
                     {
@@ -115,10 +97,6 @@ namespace ProjectB
                                 {
                                     res = "[_]";
                                 }
-                                //else if (highlightedSeatsColumns[0] == j && highlightedSeatsRows[0] == i)
-                                //{
-                                //    res = "[*]";
-                                //}
                             }
                         }
                         for (int l = 0; l < highlightedSeatsRows.Count; l++)
@@ -145,7 +123,6 @@ namespace ProjectB
         public List<BaseSeat> Run(int selectedFilm, string datum, string tijd, string bioscoopscherm, int ticketInput)
         {
             ConsoleKey keyPressed = ConsoleKey.B;
-            //wanneer de key escape is, dan moet hij uit de while loop
             while (highlightedSeatsRows.Count < ticketInput || Reservationcheck(selectedFilm, datum, tijd) == false || seats[selectedRow][selectedColumn] == null)
             {
                 Clear();
@@ -222,9 +199,6 @@ namespace ProjectB
 
                 if (keyPressed == ConsoleKey.Escape)
                 {
-                    //if (obj is RegularSeat) { RegularSeat s = (RegularSeat)obj; p = 0.0; }
-                    //else if (obj is VipSeat) { VipSeat s = (VipSeat)obj; p = 0.0; }
-                    //else if (obj is MasterSeat) { MasterSeat s = (MasterSeat)obj; p = 0.0; }
                     return null;
                 }
                 else
@@ -232,7 +206,7 @@ namespace ProjectB
                     if (obj is RegularSeat) { RegularSeat s = (RegularSeat)obj; p = s.Price; }
                     if (obj is VipSeat) { VipSeat s = (VipSeat)obj; p = s.Price; }
                     if (obj is MasterSeat) { MasterSeat s = (MasterSeat)obj; p = s.Price; }
-                    BaseSeat selectedseat = new BaseSeat //for loop 
+                    BaseSeat selectedseat = new BaseSeat
                     (
                         highlightedSeatsRows[l],
                         highlightedSeatsColumns[l],
@@ -242,7 +216,7 @@ namespace ProjectB
                 }
             }
          
-            return selectedseatList; // hele array teruggeven
+            return selectedseatList;
         }
         public bool Reservationcheck (int selectedFilm, string datum, string tijd)
         {
@@ -250,14 +224,10 @@ namespace ProjectB
             {
                 for (int m = 0; m < reservation.Seats.Count; m++)
                 {
-                    if (reservation.Seats[m].Column == selectedColumn && reservation.Seats[m].Rij == selectedRow) // checken of het gereserveerd is
+                    if (reservation.Seats[m].Column == selectedColumn && reservation.Seats[m].Rij == selectedRow)
                     {
                         return false;
                     }  
-                    //else if (highlightedSeatsColumns[m] == selectedColumn && highlightedSeatsRows[m] == selectedRow) //checken of het al o
-                    //{
-                    //    return false;
-                    //}
                 }
             }
             return true;

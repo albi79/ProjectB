@@ -76,7 +76,6 @@ namespace ProjectB.pages
                     TicketTerugvinden.ticketTerugvinden(gebruikersnaam);
                 }
             }
-            //"2" -> datum & tijd veranderen //ALBERTS OPMERKING: DAN MOETEN WE HET IN DE GATEN HOUDEN MET DE AVAILABLE SEATS
             else if (keuze == "2")
             {
                 int filmIndex = 0;

@@ -54,7 +54,6 @@ namespace ProjectB.pages
             {
                 ticketInput = number;
             }
-            // <<hier moet ticketinput in een integer veranderen en daarom is ticketInput de number>>
             Console.Clear();
             string projectie = "";
             List<BaseSeat> selectedseatList = null;
@@ -77,7 +76,7 @@ namespace ProjectB.pages
                 selectedseatList = Zitplaatsenkiezen3.zitplaatsenkiezen3(selectedFilm, datum, tijd, ticketInput);
             }
 
-            while (selectedseatList.Count == 0) //als een stap teruggaat van zitplaatskiezen
+            while (selectedseatList.Count == 0)
             {
                 ticketinput = Aantalticketkiezen.aantalticketkiezen();
                 isParse = Int32.TryParse(ticketinput, out number);
@@ -219,7 +218,6 @@ namespace ProjectB.pages
             {
                 snackPrice = 0.0;
             }
-            //checkt hoeveel reserveringen er zijn. Vervolgens wordt er naar de laatste ID gezocht met "counter - 1" omdat ID vanaf 0 start.
             int reservationcounter = DataStorageHandler.Storage.Reservations.Count;
             string reservationstring = "";
 
@@ -305,10 +303,6 @@ namespace ProjectB.pages
                 prompt = "STAP 7: ";
             }
 
-            //Console.WriteLine("\n" + prompt + "Controleer uw bestelgegevens\nDit is de informatie over uw bestelling:\n");
-
-            //Console.WriteLine("\nKlantnaam: " + klantnaam + "\nFilmtitel: " + filmtitel + "\nDatum: " + datum + "\nTijd: " + tijd + "\nProjectie: " + projectie + "\nZaal: " + zaalnummer + "\nRij: " + selectedSeat.Rij + "\nZitplaatsnummer: " + selectedSeat.Column + "\nZitplaatstype: " + zitplaatstype + "\nZitplaatsprijs: " + selectedSeat.Price + "\nSnacks: " + snack + "\nSnackprijs: " + snackPrice + "\nTotale prijs: " + sumPrice);
-
             string option = Bestelgegevensjanee.bestelgegevensjanee(prompt, klantnaam, filmtitel, datum, tijd, projectie, zaalnummer, zitplaatstype, snack, snackPrice, sumPrice, selectedseatList, ticketInput);
 
             while (option == "NEE")
@@ -356,7 +350,7 @@ namespace ProjectB.pages
                         selectedseatList2 = Zitplaatsenkiezen3.zitplaatsenkiezen3(selectedFilm, datum, tijd, ticketInput);
                     }
 
-                    if (selectedseatList2.Count == 0) // terug gaan
+                    if (selectedseatList2.Count == 0)
                     {
                         option = "NEE";
                     }
@@ -420,7 +414,7 @@ namespace ProjectB.pages
                         selectedseatList2 = Zitplaatsenkiezen3.zitplaatsenkiezen3(selectedFilm, datum, tijd, ticketInput);
                     }
 
-                    if (selectedseatList2.Count == 0) // terug gaan
+                    if (selectedseatList2.Count == 0)
                     {
                         option = "NEE";
                     }
@@ -488,11 +482,6 @@ namespace ProjectB.pages
                 else if (wijzigingsoptie == "Terug gaan")
                 {
                     sumPrice = ticketpriceSum + snackPrice;
-                    //Console.Clear();
-                    //Console.WriteLine("\n" + prompt + "Controleer uw bestelgegevens\nDit is de informatie over uw bestelling:\n");
-
-                    //Console.WriteLine("\nKlantnaam: " + klantnaam + "\nFilmtitel: " + filmtitel + "\nDatum: " + datum + "\nTijd: " + tijd + "\nProjectie: " + projectie + "\nZaal: " + zaalnummer + "\nRij: " + selectedSeat.Rij + "\nZitplaatsnummer: " + selectedSeat.Column + "\nZitplaatstype: " + zitplaatstype + "\nZitplaatsprijs: " + selectedSeat.Price + "\nSnacks: " + snack + "\nSnackprijs: " + snackPrice + "\nTotale prijs: " + sumPrice);
-
                     option = Bestelgegevensjanee.bestelgegevensjanee(prompt, klantnaam, filmtitel, datum, tijd, projectie, zaalnummer, zitplaatstype, snack, snackPrice, sumPrice, selectedseatList, ticketInput);
                 }
             }

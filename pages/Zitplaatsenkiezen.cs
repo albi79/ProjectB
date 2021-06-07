@@ -41,21 +41,6 @@ namespace ProjectB.pages
             zaal1.Display(selectedFilm, datum, tijd, ticketInput);
             List<BaseSeat> selectedseatList = zaal1.Run(selectedFilm, datum, tijd, bioscoopscherm, ticketInput);
 
-            //try
-            //{
-
-            //    foreach (var item in DataStorageHandler.Storage.Reservations)
-            //    {
-            //        if (selectedSeat.Rij == item.Seats.Rij && selectedSeat.Column == item.Seats.Column)
-            //        {
-            //            selectedSeat = null;
-            //            zitplaatsenkiezen(selectedFilm, datum, tijd);
-            //        }
-            //    }
-
-            //}
-            //catch (Exception) { };
-
             return selectedseatList;
         }
     }

@@ -53,18 +53,21 @@ namespace ProjectB.pages
                     Console.WriteLine($"------------------ Film nummer {filmNummer} ------------------");
                     Console.ResetColor();
                     Console.WriteLine($"     {filmItem.Leeftijd}+     {filmItem.Titel}\n     {filmItem.Categorie}");
-                    Console.Write("Film beoordeling: ");
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.Write($"{filmItem.Beoordeling}");
-                    Console.ResetColor();
-                    Console.Write($" van de {filmItem.AantalBeoordelingen} beoordelingen\n\n");
+                    if (filmItem.Beoordeling != 0)
+                    {
+                        Console.Write("     Beoordeling: ");
+                        for (int i = 0; i < filmItem.Beoordeling; i++)
+                            Console.Write("*");
+                        Console.Write(" / *****");
+                        Console.WriteLine();
+                    }
+
                     filmNummer++;
                 }
             }
             if (HuidigOfToekomstig == "ToekomstigeFilms")
             {
                 Console.WriteLine("U bevindt nu bij de Toekomstige Films overzicht");
-                //loop door de lijst
                 int filmNummer = 1;
                 foreach (ToekomstigeFilm filmItem in DataStorageHandler.Storage.ToekomstigeFilms)
                 {
@@ -110,7 +113,6 @@ namespace ProjectB.pages
                         datumsdisplay += datums[x];
                     }
                 }
-                //Console.WriteLine("Speeltijd: " + DataStorageHandler.Storage.Films[selectedFilm].Tijd);
                 Console.WriteLine("Speelt op de dagen: " + datumsdisplay);
                 Console.WriteLine("Zaal: " + DataStorageHandler.Storage.Films[selectedFilm].Zaal);
                 if (DataStorageHandler.Storage.Films[selectedFilm].Beoordeling != 0)

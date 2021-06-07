@@ -38,7 +38,7 @@
       "email": "s@s.nl",
       "gebruikersnaam": "nisatutucu",
       "wachtwoord": "Nisa2021",
-      "loginMoment": "2021-06-05T19:46:16.415291+02:00"
+      "loginMoment": "2021-06-07T07:45:03.761545+02:00"
     },
     {
       "naam": "",
@@ -79,6 +79,16 @@
       "gebruikersnaam": "Nisa12",
       "wachtwoord": "Nisa2222",
       "loginMoment": "0001-01-01T00:00:00"
+    },
+    {
+      "naam": "Daniel",
+      "tussenvoegsel": "",
+      "achternaam": "Jong",
+      "geboortedatum": "22-03-2001",
+      "email": "0997226@hr.nl",
+      "gebruikersnaam": "dkbj22",
+      "wachtwoord": "Daniel22",
+      "loginMoment": "2021-06-06T09:20:25.0909439+02:00"
     }
   ],
   "Films": [
@@ -203,35 +213,25 @@
       "Sumprice": 29.0
     },
     {
-      "ID": "1",
+      "ID": "2",
       "Customer": "nisatutucu",
       "Filmtitel": "Xayah",
-      "Datum": "30-08-2021",
+      "Datum": "08-06-2021",
       "Tijd": "12:20",
       "Projectie": "IMAX",
       "Zaal": 3,
       "Seats": [
         {
-          "Rij": 11,
-          "Column": 14,
+          "Rij": 10,
+          "Column": 15,
           "Price": 30.0
-        },
-        {
-          "Rij": 11,
-          "Column": 9,
-          "Price": 15.0
-        },
-        {
-          "Rij": 11,
-          "Column": 5,
-          "Price": 7.5
         }
       ],
-      "Zitplaatstype": "MASTER, VIP, REGULIERE",
-      "Seatsumprice": 52.5,
+      "Zitplaatstype": "MASTER",
+      "Seatsumprice": 30.0,
       "Snack": "Geen",
       "Snackprice": 0.0,
-      "Sumprice": 52.5
+      "Sumprice": 30.0
     }
   ]
 }

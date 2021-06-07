@@ -13,13 +13,8 @@ namespace ProjectB.pages
 
         public static void startscherm()
         {
-            //Beoordeling.beoordeling();
             string menuinput;
-            //int menuchoice;
-
             string menuenter;
-            //int menuEnter;
-
             bool validinputmenu = false;
             bool vldinptwthaccount = false;
 
@@ -28,9 +23,6 @@ namespace ProjectB.pages
             while (validinputmenu == false)
             {
                 menuinput = Console.ReadLine();
-
-                // convert to integer
-                //menuchoice = Convert.ToInt32(menuinput);
 
                 if (menuinput == "1")
                 {
@@ -42,7 +34,6 @@ namespace ProjectB.pages
                 else if (menuinput == "2")
                 {
                     Console.Clear();
-                    //Console.WriteLine("Hier wordt de registratie scherm aangeroepen");
                     Registreren.registreren();
                     validinputmenu = true;
                 }
@@ -56,12 +47,10 @@ namespace ProjectB.pages
                     while (vldinptwthaccount == false)
                     {
                         menuenter = Console.ReadLine();
-                        //menuEnter = Convert.ToInt32(menuenter);
 
                         if (menuenter == "1")
                         {
                             Console.Clear();
-                            //Console.WriteLine("Hier wordt de welkomscherm aangeroepen");
                             ConsoleMenu.consoleMenu(null);
                             vldinptwthaccount = true;
                         }

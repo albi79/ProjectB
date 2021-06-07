@@ -91,14 +91,12 @@ namespace ProjectB.pages
             else if (gegeven == "2")
                 verwijderen(HuidigOfToekomstig);
 
-            //WIJZIGEN NOG NIET KUNNEN SAMENVOEGEN(DANI & NISA)
             else if (gegeven == "3")
             {
                 Console.Clear();
                 Console.WriteLine("Film info bewerken\n\nWelke film wilt u wijzigen:\n");
                 if (HuidigOfToekomstig == "HuidigeFilms")
                 {
-                    //loop door de lijst
                     int filmNummer = 1;
                     foreach (Film filmItem in DataStorageHandler.Storage.Films)
                     {
@@ -115,7 +113,6 @@ namespace ProjectB.pages
                 }
                 if (HuidigOfToekomstig == "ToekomstigeFilms")
                 {
-                    //loop door de lijst
                     int filmNummer = 1;
                     foreach (ToekomstigeFilm filmItem in DataStorageHandler.Storage.ToekomstigeFilms)
                     {
@@ -144,8 +141,6 @@ namespace ProjectB.pages
 
 
             {
-                //TODO: FOUTMELDING
-
                 if (HuidigOfToekomstig == "HuidigeFilms")
                 {
 
@@ -165,17 +160,6 @@ namespace ProjectB.pages
                         }
                         catch { Console.WriteLine("Verkeerde zaal input!\nTyp Enter"); Beheer.Input(); }
                     }
-
-                    //Bij verkeerde tijd input moet je via de app bewerken filmInfoWijzigen()
-                    /*int hoeveelTijden = Int32.Parse(Beheer.Input("\nHoe vaak wordt de film op een dag gedraaid? "));
-                    string[] nTijd = new string[hoeveelTijden];
-                    for (int i = 0; i < hoeveelTijden; i++)
-                    {
-                        Console.WriteLine($"\nOp welk tijdstip begint de {i + 1}e projectie (HH:MM) ?");
-                        nTijd[i] = Beheer.Input("");
-                    }
-                    */
-                    //string nData = Beheer.Input("\nOp welke data/datum draait de film?\n");
 
                     int hoeveelDagen = 0;
                     bool dagenInput = false;
