@@ -49,7 +49,7 @@ namespace ProjectB.pages
                     Console.Clear();
                     DataStorageHandler.Storage.Reservations.RemoveAt(ticketIndex);
                     Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine("\nUw ticket is succesvol verwijdert.\n");
+                    Console.WriteLine("\nUw ticket is succesvol verwijderd.\n");
                     Console.ResetColor();
                     DataStorageHandler.SaveChanges();
 
