@@ -12,7 +12,7 @@ namespace ProjectB.pages
             DataStorageHandler.SaveChanges();
             Console.Clear();
             string prompt = "Selecteer welke gegeven u wilt wijzigen:";
-            string[] options = { "Datum & Tijd & Zitplaats", "Zitplaats", "Snacks", "Terug gaan"};
+            string[] options = { "Datum & Tijd & Zitplaats", "Zitplaats", "Snacks", "Terug gaan", "Annuleren"};
             ConsoleMenu2 StartPagina = new ConsoleMenu2(prompt, options);
             StartPagina.DisplayOptions();
             int selectedIndex = StartPagina.Run();

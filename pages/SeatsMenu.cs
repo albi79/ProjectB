@@ -43,14 +43,14 @@ namespace ProjectB
                     string res = "";
                     if (SelectedSeat)
                     {
-                        ForegroundColor = ConsoleColor.Black;
-                        BackgroundColor = ConsoleColor.White;
+                        ForegroundColor = ConsoleColor.White;
+                        BackgroundColor = ConsoleColor.Blue;
 
                     }
                     if (!SelectedSeat)
                     {
-                        ForegroundColor = ConsoleColor.White;
-                        BackgroundColor = ConsoleColor.Black;
+                        ForegroundColor = ConsoleColor.Black;
+                        BackgroundColor = ConsoleColor.White;
                     }
                     if (currentSeat is MasterSeat Mseat)
                     {

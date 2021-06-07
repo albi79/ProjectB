@@ -11,84 +11,24 @@
       "loginMoment": "0001-01-01T00:00:00"
     },
     {
-      "naam": "albert",
+      "naam": "Nisa",
       "tussenvoegsel": "",
-      "achternaam": "kang",
-      "geboortedatum": "30-07-1999",
-      "email": "albertkang420@gmail.com",
-      "gebruikersnaam": "albi79",
-      "wachtwoord": "Albert52855!",
-      "loginMoment": "0001-01-01T00:00:00"
-    },
-    {
-      "naam": "Nisaaa",
-      "tussenvoegsel": "d",
       "achternaam": "Tutucu",
       "geboortedatum": "09-03-2001",
       "email": "info@nisatutucu.nl",
-      "gebruikersnaam": "nisatutucu",
+      "gebruikersnaam": "nisa",
       "wachtwoord": "Nisa2001",
       "loginMoment": "0001-01-01T00:00:00"
     },
     {
-      "naam": "",
+      "naam": "Nisaaa",
       "tussenvoegsel": "",
-      "achternaam": "s",
-      "geboortedatum": "s",
-      "email": "s@s.nl",
+      "achternaam": "Tutucu",
+      "geboortedatum": "09-03-2001",
+      "email": "info@nisatutucu.nl",
       "gebruikersnaam": "nisatutucu",
       "wachtwoord": "Nisa2021",
-      "loginMoment": "2021-06-07T07:45:03.761545+02:00"
-    },
-    {
-      "naam": "",
-      "tussenvoegsel": "",
-      "achternaam": "as",
-      "geboortedatum": "020220",
-      "email": "in@in",
-      "gebruikersnaam": "nis",
-      "wachtwoord": "sSssssss12",
-      "loginMoment": "0001-01-01T00:00:00"
-    },
-    {
-      "naam": "b",
-      "tussenvoegsel": "",
-      "achternaam": "s",
-      "geboortedatum": "09-",
-      "email": "w@w",
-      "gebruikersnaam": "ww",
-      "wachtwoord": "wWeErR12",
-      "loginMoment": "0001-01-01T00:00:00"
-    },
-    {
-      "naam": "s",
-      "tussenvoegsel": "s",
-      "achternaam": "s",
-      "geboortedatum": "s",
-      "email": "s@s",
-      "gebruikersnaam": "Nisaa",
-      "wachtwoord": "Nisa2021",
-      "loginMoment": "0001-01-01T00:00:00"
-    },
-    {
-      "naam": "s",
-      "tussenvoegsel": "s",
-      "achternaam": "s",
-      "geboortedatum": "s",
-      "email": "s@s",
-      "gebruikersnaam": "Nisa12",
-      "wachtwoord": "Nisa2222",
-      "loginMoment": "0001-01-01T00:00:00"
-    },
-    {
-      "naam": "Daniel",
-      "tussenvoegsel": "",
-      "achternaam": "Jong",
-      "geboortedatum": "22-03-2001",
-      "email": "0997226@hr.nl",
-      "gebruikersnaam": "dkbj22",
-      "wachtwoord": "Daniel22",
-      "loginMoment": "2021-06-06T09:20:25.0909439+02:00"
+      "loginMoment": "2021-06-07T23:29:15.801842+02:00"
     }
   ],
   "Films": [
@@ -112,7 +52,7 @@
           "01-06-2021",
           "09:10",
           "13:40",
-          "16:27"
+          "16:30"
         ]
       ],
       "Beoordeling": 2,
@@ -177,61 +117,94 @@
       "Categorie": "Comedy",
       "Leeftijd": 18,
       "Beschrijving": "Heel veel geld",
-      "Release": "6 maart"
+      "Release": "06-03-2022"
+    },
+    {
+      "Titel": "AYA AND THE WITCH",
+      "Categorie": "Comedy",
+      "Leeftijd": 6,
+      "Beschrijving": "Heel veel geld",
+      "Release": "24-06-2021"
     }
   ],
   "Reservations": [
     {
       "ID": "0",
       "Customer": "nisatutucu",
-      "Filmtitel": "The 'Notorius' Conor Mc Gregor",
-      "Datum": "01-06-2021",
-      "Tijd": "20:00",
-      "Projectie": "2D",
-      "Zaal": 1,
-      "Seats": [
-        {
-          "Rij": 1,
-          "Column": 4,
-          "Price": 7.5
-        },
-        {
-          "Rij": 1,
-          "Column": 5,
-          "Price": 7.5
-        },
-        {
-          "Rij": 1,
-          "Column": 6,
-          "Price": 7.5
-        }
-      ],
-      "Zitplaatstype": "REGULIERE, REGULIERE, REGULIERE",
-      "Seatsumprice": 22.5,
-      "Snack": "Popcorn Mix",
-      "Snackprice": 6.5,
-      "Sumprice": 29.0
-    },
-    {
-      "ID": "2",
-      "Customer": "nisatutucu",
       "Filmtitel": "Xayah",
-      "Datum": "08-06-2021",
-      "Tijd": "12:20",
+      "Datum": "30-07-2021",
+      "Tijd": "12:40",
       "Projectie": "IMAX",
       "Zaal": 3,
       "Seats": [
         {
-          "Rij": 10,
-          "Column": 15,
+          "Rij": 11,
+          "Column": 17,
+          "Price": 30.0
+        },
+        {
+          "Rij": 11,
+          "Column": 18,
+          "Price": 30.0
+        }
+      ],
+      "Zitplaatstype": "MASTER, MASTER",
+      "Seatsumprice": 60.0,
+      "Snack": "Geen",
+      "Snackprice": 0.0,
+      "Sumprice": 60.0
+    },
+    {
+      "ID": "1",
+      "Customer": "NisaTutucu",
+      "Filmtitel": "The 'Notorius' Conor Mc Gregor",
+      "Datum": "23-05-2021",
+      "Tijd": "23:30",
+      "Projectie": "2D",
+      "Zaal": 1,
+      "Seats": [
+        {
+          "Rij": 7,
+          "Column": 6,
+          "Price": 30.0
+        },
+        {
+          "Rij": 7,
+          "Column": 5,
+          "Price": 30.0
+        },
+        {
+          "Rij": 7,
+          "Column": 4,
+          "Price": 15.0
+        }
+      ],
+      "Zitplaatstype": "MASTER, MASTER, VIP",
+      "Seatsumprice": 75.0,
+      "Snack": "Groot Popcorn Zoet",
+      "Snackprice": 7.5,
+      "Sumprice": 82.5
+    },
+    {
+      "ID": "2",
+      "Customer": "nisatutucu",
+      "Filmtitel": "The 'Notorius' Conor Mc Gregor",
+      "Datum": "23-05-2021",
+      "Tijd": "16:00",
+      "Projectie": "2D",
+      "Zaal": 1,
+      "Seats": [
+        {
+          "Rij": 7,
+          "Column": 6,
           "Price": 30.0
         }
       ],
       "Zitplaatstype": "MASTER",
       "Seatsumprice": 30.0,
-      "Snack": "Geen",
-      "Snackprice": 0.0,
-      "Sumprice": 30.0
+      "Snack": "Groot Popcorn Zoet",
+      "Snackprice": 7.5,
+      "Sumprice": 37.5
     }
   ]
 }

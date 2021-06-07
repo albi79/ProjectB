@@ -18,7 +18,12 @@ namespace ProjectB.pages
             bool validinputmenu = false;
             bool vldinptwthaccount = false;
 
-            Console.WriteLine("Welkom bij de bioscoop app!\n\nKies uw nummer uit de volgende opties:\n1. Inloggen\n2. Registreren\n3. Verder gaan zonder account\n");
+            Console.Write("Welkom bij de ");
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.Write("Nimda Bioscoop");
+            Console.ResetColor();
+            Console.Write(" applicatie!");
+            Console.WriteLine("\n\nKies uw nummer uit de volgende opties:\n1. Inloggen\n2. Registreren\n3. Verder gaan zonder account\n");
 
             while (validinputmenu == false)
             {

@@ -209,10 +209,13 @@ namespace ProjectB.pages
             }
 
             double snackPrice = 0.0;
-
-            if (snack.Contains("Popcorn"))
+            if (snack.Contains("Groot Popcorn"))
             {
-                snackPrice = 6.50;
+                snackPrice = 7.50;
+            }
+            else if (snack.Contains("Popcorn"))
+            {
+                snackPrice = 3.50;
             }
             else if (snack == "Geen")
             {
@@ -460,10 +463,15 @@ namespace ProjectB.pages
                 else if (wijzigingsoptie == "Snacks")
                 {
                     string snack2 = Snackskiezen.snackskiezen();
-                    if (snack2.Contains("Popcorn"))
+                    if (snack2.Contains("Groot Popcorn"))
                     {
                         snack = snack2;
-                        snackPrice = 6.50;
+                        snackPrice = 7.50;
+                    }
+                    else if (snack2.Contains("Popcorn"))
+                    {
+                        snack = snack2;
+                        snackPrice = 3.50;
                     }
 
                     else if (snack2 == "Geen")
@@ -483,6 +491,14 @@ namespace ProjectB.pages
                 {
                     sumPrice = ticketpriceSum + snackPrice;
                     option = Bestelgegevensjanee.bestelgegevensjanee(prompt, klantnaam, filmtitel, datum, tijd, projectie, zaalnummer, zitplaatstype, snack, snackPrice, sumPrice, selectedseatList, ticketInput);
+                }
+                else if (wijzigingsoptie == "Annuleren")
+                {
+                    Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    Console.WriteLine("Wat jammer dat u uw bestelling heeft geannuleerd!\n");
+                    Console.ResetColor();
+                    ConsoleMenu.consoleMenu(gebruikersnaam);
                 }
             }
 

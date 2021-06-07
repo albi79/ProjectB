@@ -15,21 +15,27 @@ namespace ProjectB.pages
         {
             Console.Write($"Welkom bij uw Ticket geschiedenis, ");
             Console.ForegroundColor = ConsoleColor.Magenta;
-            Console.Write($"{gebruikersnaam}\n");
+            foreach (Person person in DataStorageHandler.Storage.Persons)
+            {
+                if (gebruikersnaam == person.gebruikersnaam)
+                    Console.Write($"{person.naam}\n");
+            }
             Console.ResetColor();
+            bool TicketAanwezig = false;
             foreach (Reservation reservation in DataStorageHandler.Storage.Reservations)
             {
                 if (gebruikersnaam == reservation.Customer)
                 {
+                    TicketAanwezig = true;
                     Console.ForegroundColor = ConsoleColor.DarkBlue;
                     Console.Write($"\nReservering ID {reservation.ID}:");
                     Console.ForegroundColor = ConsoleColor.DarkMagenta;
                     Console.WriteLine("\nFilmgegevens:");
-                    
+
 
                     foreach (Film film in DataStorageHandler.Storage.Films)
                     {
-                        if(film.Titel == reservation.Filmtitel)
+                        if (film.Titel == reservation.Filmtitel)
                         {
                             Console.WriteLine("- Titel: " + film.Titel);
                             Console.WriteLine("- Categorie: " + film.Categorie);
@@ -79,7 +85,7 @@ namespace ProjectB.pages
                         Console.ResetColor();
                         Console.Write(" om deze film te beoordelen");
                     }
-                    else if(filmAfgelopen(gebruikersnaam, Int32.Parse(reservation.ID)) == "wijzigbaar")
+                    else if (filmAfgelopen(gebruikersnaam, Int32.Parse(reservation.ID)) == "wijzigbaar")
                     {
                         Console.Write("-- Typ ");
                         Console.ForegroundColor = ConsoleColor.Green;
@@ -95,9 +101,31 @@ namespace ProjectB.pages
 
                 }
             }
-            Console.WriteLine("\n\nTyp een kaart ID");
-            Console.WriteLine("Druk b om terug te gaan.");
-            string Select = Beheer.Input("");
+            string Select = "";
+            if (TicketAanwezig == true)
+            {   Console.WriteLine("\n\nTyp een kaart ID");
+                Console.WriteLine("Druk b om terug te gaan.");
+                Select = Beheer.Input("");
+            }
+            else
+            { 
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Console.WriteLine("\nU heeft nog geen ticket gereserveerd.\n");
+                Console.ResetColor();
+                Console.WriteLine("1. Huidige Films programma en bestel uw eerste ticket!");
+                Console.WriteLine("b. Terug");
+                Select = Beheer.Input("");
+                if (Select == "1")
+                {
+                    Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("Bestel uw eerste ticket!");
+                    Console.ResetColor();
+                    FilmSelect.Overzicht("HuidigeFilms", gebruikersnaam);
+                }
+            }
+            
+            
             if (Select == "b")
             {
                 Console.Clear();

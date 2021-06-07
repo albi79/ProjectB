@@ -30,14 +30,14 @@ namespace ProjectB.pages
                 if (i == SelectedIndex)
                 {
 
-                    ForegroundColor = ConsoleColor.Black;
-                    BackgroundColor = ConsoleColor.White;
+                    ForegroundColor = ConsoleColor.White;
+                    BackgroundColor = ConsoleColor.Blue;
                 }
                 else
                 {
 
-                    ForegroundColor = ConsoleColor.White;
-                    BackgroundColor = ConsoleColor.Black;
+                    ForegroundColor = ConsoleColor.Black;
+                    BackgroundColor = ConsoleColor.White;
                 }
                 WriteLine($"  << {currentOption} >>");
             }

@@ -12,7 +12,7 @@ namespace ProjectB.pages
             DataStorageHandler.SaveChanges();
             Console.Clear();
             string prompt = "STAP 5: Kies uw snacks";
-            string[] options = { "Popcorn Zoet", "Popcorn Zout", "Popcorn Mix", "Geen", "Terug gaan" };
+            string[] options = { "Popcorn Zoet", "Popcorn Zout", "Popcorn Mix", "Groot Popcorn Zoet", "Groot Popcorn Zout", "Groot Popcorn Mix", "Geen", "Terug gaan" };
             ConsoleMenu2 StartPagina = new ConsoleMenu2(prompt, options);
             StartPagina.DisplayOptions();
             int selectedIndex = StartPagina.Run();

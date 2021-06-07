@@ -59,7 +59,7 @@ namespace ProjectB.pages
             string gebruikersnaam2 = Beheer.Input("Gebruikersnaam: ");
             gebruikersnaam2 = uniekGebruikersnaam(Beheer.ControlEmpty(gebruikersnaam2));
 
-            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine("Wachtwoord moet voldoen aan de volgende eisen, minimaal achter characters, één hoofdletter, één kleine letter en één cijfer bevatten.");
             Console.ResetColor();
 
@@ -275,22 +275,9 @@ namespace ProjectB.pages
 
         private static string uniekGebruikersnaam(string gebruikersnaam)
         {
-            bool BestaandeGebruikersnaam = false;
-            foreach (Person person in DataStorageHandler.Storage.Persons)
-            {
-                if (gebruikersnaam == person.gebruikersnaam)
-                {
-                    BestaandeGebruikersnaam = true;
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("De gebruikersnaam die u heeft ingevoetd is jammer genoeg niet meer beschikbaar");
-                    Console.ResetColor();
-                    Console.WriteLine("Vul a.u.b. een unieke gebruikersnaam in.\n");
-                    break;
-                }
-            }
+            bool BestaandeGebruikersnaam = true;
             while (BestaandeGebruikersnaam)
             {
-
                 foreach (Person person in DataStorageHandler.Storage.Persons)
                 {
                     if (gebruikersnaam == person.gebruikersnaam)
