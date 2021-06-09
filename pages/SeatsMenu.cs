@@ -210,7 +210,15 @@ namespace ProjectB
                 ResetColor();
                 if (keyPressed == ConsoleKey.Escape)
                 {
-                    break;
+                    if(highlightedSeatsRows.Count > 0)
+                    {
+                        highlightedSeatsRows.RemoveAt(highlightedSeatsRows.Count - 1);
+                        highlightedSeatsColumns.RemoveAt(highlightedSeatsColumns.Count - 1);
+                    }
+                    else
+                    {
+                        break;
+                    }
                 }
 
             }
