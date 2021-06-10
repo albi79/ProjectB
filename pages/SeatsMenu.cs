@@ -11,10 +11,10 @@ namespace ProjectB
 {
     public class SeatsMenu
     {
-        public  int selectedRow;
-        public  int selectedColumn;
-        public  object[][] seats;
-        public readonly  string Prompt;
+        public int selectedRow;
+        public int selectedColumn;
+        public object[][] seats;
+        public readonly string Prompt;
         public List<int> highlightedSeatsRows;
         public List<int> highlightedSeatsColumns;
 
@@ -31,26 +31,26 @@ namespace ProjectB
         public void Display(int selectedFilm, string datum, string tijd, int ticketInput)
         {
             WriteLine(Prompt);
-            for (int i =0; i < seats.Length; i++)
+            for (int i = 0; i < seats.Length; i++)
             {
                 string row = "";
-                for(int j =0; j < seats[i].Length; j++)
+                for (int j = 0; j < seats[i].Length; j++)
                 {
-                    bool SelectedSeat = i == selectedRow && j == selectedColumn;
+                    bool SelectedSeat = i == selectedRow && j == selectedColumn; // for loop j++, array opslaan
 
                     object currentSeat = seats[i][j];
                     row += currentSeat;
                     string res = "";
                     if (SelectedSeat)
                     {
-                        ForegroundColor = ConsoleColor.White;
-                        BackgroundColor = ConsoleColor.Blue;
+                        ForegroundColor = ConsoleColor.Black;
+                        BackgroundColor = ConsoleColor.White;
 
                     }
                     if (!SelectedSeat)
                     {
-                        ForegroundColor = ConsoleColor.Black;
-                        BackgroundColor = ConsoleColor.White;
+                        ForegroundColor = ConsoleColor.White;
+                        BackgroundColor = ConsoleColor.Black;
                     }
                     if (currentSeat is MasterSeat Mseat)
                     {
@@ -86,6 +86,24 @@ namespace ProjectB
                         }
                         res += seat3.Icon;
                     }
+                    //int filmdatumIndex = 0;
+                    //int filmtijdIndex = 0;
+
+                    //for (int k = 0; k < DataStorageHandler.Storage.Films[selectedFilm].Projectiemoment.Length; k++)
+                    //{
+                    // if (DataStorageHandler.Storage.Films[selectedFilm].Projectiemoment[k][0] == datum)
+                    // {
+                    // filmdatumIndex = k;
+                    // }
+                    //}
+
+                    //for (int l = 0; l < DataStorageHandler.Storage.Films[selectedFilm].Projectiemoment[filmdatumIndex].Length; l++)
+                    //{
+                    // if (DataStorageHandler.Storage.Films[selectedFilm].Projectiemoment[filmdatumIndex][l] == tijd)
+                    // {
+                    // filmtijdIndex = l;
+                    // }
+                    //}
 
                     if (currentSeat is VipSeat || currentSeat is MasterSeat || currentSeat is RegularSeat)
                     {
@@ -97,6 +115,10 @@ namespace ProjectB
                                 {
                                     res = "[_]";
                                 }
+                                //else if (highlightedSeatsColumns[0] == j && highlightedSeatsRows[0] == i)
+                                //{
+                                // res = "[*]";
+                                //}
                             }
                         }
                         for (int l = 0; l < highlightedSeatsRows.Count; l++)
@@ -117,12 +139,12 @@ namespace ProjectB
                 }
                 WriteLine("");
             }
-           
         }
 
         public List<BaseSeat> Run(int selectedFilm, string datum, string tijd, string bioscoopscherm, int ticketInput)
         {
             ConsoleKey keyPressed = ConsoleKey.B;
+            //wanneer de key escape is, dan moet hij uit de while loop
             while (highlightedSeatsRows.Count < ticketInput || Reservationcheck(selectedFilm, datum, tijd) == false || seats[selectedRow][selectedColumn] == null)
             {
                 Clear();
@@ -171,9 +193,9 @@ namespace ProjectB
                 if (keyPressed == ConsoleKey.RightArrow)
                 {
                     selectedColumn++;
-                    if (selectedColumn > seats.Length -1)
+                    if (selectedColumn > seats.Length - 1)
                     {
-                        selectedColumn %= 30 ;
+                        selectedColumn %= 30;
                     }
                 }
                 if (keyPressed == ConsoleKey.Enter)
@@ -187,7 +209,15 @@ namespace ProjectB
                 ResetColor();
                 if (keyPressed == ConsoleKey.Escape)
                 {
-                    break;
+                    if (highlightedSeatsRows.Count > 0)
+                    {
+                        highlightedSeatsRows.RemoveAt(highlightedSeatsRows.Count - 1);
+                        highlightedSeatsColumns.RemoveAt(highlightedSeatsColumns.Count - 1);
+                    }
+                    else
+                    {
+                        break;
+                    }
                 }
 
             }
@@ -199,6 +229,9 @@ namespace ProjectB
 
                 if (keyPressed == ConsoleKey.Escape)
                 {
+                    //if (obj is RegularSeat) { RegularSeat s = (RegularSeat)obj; p = 0.0; }
+                    //else if (obj is VipSeat) { VipSeat s = (VipSeat)obj; p = 0.0; }
+                    //else if (obj is MasterSeat) { MasterSeat s = (MasterSeat)obj; p = 0.0; }
                     return null;
                 }
                 else
@@ -206,28 +239,31 @@ namespace ProjectB
                     if (obj is RegularSeat) { RegularSeat s = (RegularSeat)obj; p = s.Price; }
                     if (obj is VipSeat) { VipSeat s = (VipSeat)obj; p = s.Price; }
                     if (obj is MasterSeat) { MasterSeat s = (MasterSeat)obj; p = s.Price; }
-                    BaseSeat selectedseat = new BaseSeat
+                    BaseSeat selectedseat = new BaseSeat //for loop
                     (
-                        highlightedSeatsRows[l],
-                        highlightedSeatsColumns[l],
-                        p
+                    highlightedSeatsRows[l],
+                    highlightedSeatsColumns[l],
+                    p
                     );
                     selectedseatList.Add(selectedseat);
                 }
             }
-         
-            return selectedseatList;
+            return selectedseatList; // hele array teruggeven
         }
-        public bool Reservationcheck (int selectedFilm, string datum, string tijd)
+        public bool Reservationcheck(int selectedFilm, string datum, string tijd)
         {
             foreach (Reservation reservation in DataStorageHandler.Storage.Reservations.Where(per => per.Datum == datum && per.Tijd == tijd && per.Filmtitel == DataStorageHandler.Storage.Films[selectedFilm].Titel))
             {
                 for (int m = 0; m < reservation.Seats.Count; m++)
                 {
-                    if (reservation.Seats[m].Column == selectedColumn && reservation.Seats[m].Rij == selectedRow)
+                    if (reservation.Seats[m].Column == selectedColumn && reservation.Seats[m].Rij == selectedRow) // checken of het gereserveerd is
                     {
                         return false;
-                    }  
+                    }
+                    //else if (highlightedSeatsColumns[m] == selectedColumn && highlightedSeatsRows[m] == selectedRow) //checken of het al o
+                    //{
+                    // return false;
+                    //}
                 }
             }
             return true;

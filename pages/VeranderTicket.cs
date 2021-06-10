@@ -21,7 +21,7 @@ namespace ProjectB.pages
             }
             else if (keuze == "1")
             {
-                Console.WriteLine($"U heeft nu {DataStorageHandler.Storage.Reservations[ticketIndex].Snack} als snack geselecteerd, naar wat wilt u dit veranderen?\n0. Wijzeging annuleren\n1. Popcorn zoet\n2. Popcorn zout\n3. Popcorn mix\n4. Geen");
+                Console.WriteLine($"U heeft nu {DataStorageHandler.Storage.Reservations[ticketIndex].Snack} als snack geselecteerd, naar wat wilt u dit veranderen?\n0. Wijzeging annuleren\n1. Popcorn zoet\n2. Popcorn zout\n3.Popcorn mix\n4. Groot Popcorn zoet\n5. Groot Popcorn zout\n6. Groot Popcorn mix\n7. Geen");
                 string snackKeuze = Beheer.Input("");
                 if (snackKeuze == "0")
                 { 
@@ -31,7 +31,7 @@ namespace ProjectB.pages
                 else if (snackKeuze == "1")
                 {
                     DataStorageHandler.Storage.Reservations[ticketIndex].Snack = "Popcorn Zoet";
-                    DataStorageHandler.Storage.Reservations[ticketIndex].Snackprice = 6.5;
+                    DataStorageHandler.Storage.Reservations[ticketIndex].Snackprice = 3.5;
                     DataStorageHandler.Storage.Reservations[ticketIndex].Sumprice = DataStorageHandler.Storage.Reservations[ticketIndex].Snackprice + DataStorageHandler.Storage.Reservations[ticketIndex].Seatsumprice;
                     DataStorageHandler.SaveChanges();
                     Console.Clear();
@@ -42,7 +42,7 @@ namespace ProjectB.pages
                 else if (snackKeuze == "2")
                 {
                     DataStorageHandler.Storage.Reservations[ticketIndex].Snack = "Popcorn Zout";
-                    DataStorageHandler.Storage.Reservations[ticketIndex].Snackprice = 6.5;
+                    DataStorageHandler.Storage.Reservations[ticketIndex].Snackprice = 3.5;
                     DataStorageHandler.Storage.Reservations[ticketIndex].Sumprice = DataStorageHandler.Storage.Reservations[ticketIndex].Snackprice + DataStorageHandler.Storage.Reservations[ticketIndex].Seatsumprice;
                     DataStorageHandler.SaveChanges();
                     Console.Clear();
@@ -54,7 +54,7 @@ namespace ProjectB.pages
                 else if (snackKeuze == "3")
                 {
                     DataStorageHandler.Storage.Reservations[ticketIndex].Snack = "Popcorn Mix";
-                    DataStorageHandler.Storage.Reservations[ticketIndex].Snackprice = 6.5;
+                    DataStorageHandler.Storage.Reservations[ticketIndex].Snackprice = 3.5;
                     DataStorageHandler.Storage.Reservations[ticketIndex].Sumprice = DataStorageHandler.Storage.Reservations[ticketIndex].Snackprice + DataStorageHandler.Storage.Reservations[ticketIndex].Seatsumprice;
                     DataStorageHandler.SaveChanges();
                     Console.Clear();
@@ -64,6 +64,42 @@ namespace ProjectB.pages
                     TicketTerugvinden.ticketTerugvinden(gebruikersnaam);
                 }
                 else if (snackKeuze == "4")
+                {
+                    DataStorageHandler.Storage.Reservations[ticketIndex].Snack = "Groot Popcorn Zoet";
+                    DataStorageHandler.Storage.Reservations[ticketIndex].Snackprice = 7.5;
+                    DataStorageHandler.Storage.Reservations[ticketIndex].Sumprice = DataStorageHandler.Storage.Reservations[ticketIndex].Snackprice + DataStorageHandler.Storage.Reservations[ticketIndex].Seatsumprice;
+                    DataStorageHandler.SaveChanges();
+                    Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("Aanpassingen zijn opgeslagen\n");
+                    Console.ResetColor();
+                    TicketTerugvinden.ticketTerugvinden(gebruikersnaam);
+                }
+                else if (snackKeuze == "5")
+                {
+                    DataStorageHandler.Storage.Reservations[ticketIndex].Snack = "Groot Popcorn Zout";
+                    DataStorageHandler.Storage.Reservations[ticketIndex].Snackprice = 7.5;
+                    DataStorageHandler.Storage.Reservations[ticketIndex].Sumprice = DataStorageHandler.Storage.Reservations[ticketIndex].Snackprice + DataStorageHandler.Storage.Reservations[ticketIndex].Seatsumprice;
+                    DataStorageHandler.SaveChanges();
+                    Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("Aanpassingen zijn opgeslagen\n");
+                    Console.ResetColor();
+                    TicketTerugvinden.ticketTerugvinden(gebruikersnaam);
+                }
+                else if (snackKeuze == "6")
+                {
+                    DataStorageHandler.Storage.Reservations[ticketIndex].Snack = "Groot Popcorn Mix";
+                    DataStorageHandler.Storage.Reservations[ticketIndex].Snackprice = 7.5;
+                    DataStorageHandler.Storage.Reservations[ticketIndex].Sumprice = DataStorageHandler.Storage.Reservations[ticketIndex].Snackprice + DataStorageHandler.Storage.Reservations[ticketIndex].Seatsumprice;
+                    DataStorageHandler.SaveChanges();
+                    Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("Aanpassingen zijn opgeslagen\n");
+                    Console.ResetColor();
+                    TicketTerugvinden.ticketTerugvinden(gebruikersnaam);
+                }
+                else if (snackKeuze == "7")
                 {
                     DataStorageHandler.Storage.Reservations[ticketIndex].Snack = "Geen";
                     DataStorageHandler.Storage.Reservations[ticketIndex].Sumprice = DataStorageHandler.Storage.Reservations[ticketIndex].Seatsumprice;

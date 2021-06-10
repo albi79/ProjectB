@@ -13,6 +13,7 @@ namespace ProjectB.pages
     {
         public static void ticketTerugvinden(string gebruikersnaam)
         {
+            // welkom heten en groet de klant bij zijn/haar naam
             Console.Write($"Welkom bij uw Ticket geschiedenis, ");
             Console.ForegroundColor = ConsoleColor.Magenta;
             foreach (Person person in DataStorageHandler.Storage.Persons)
@@ -22,8 +23,10 @@ namespace ProjectB.pages
             }
             Console.ResetColor();
             bool TicketAanwezig = false;
+            // loop door alle bestellingen
             foreach (Reservation reservation in DataStorageHandler.Storage.Reservations)
             {
+                // toon alleen de tickets aan die de zelfde gebruikersnaam heeft
                 if (gebruikersnaam == reservation.Customer)
                 {
                     TicketAanwezig = true;
@@ -32,11 +35,13 @@ namespace ProjectB.pages
                     Console.ForegroundColor = ConsoleColor.DarkMagenta;
                     Console.WriteLine("\nFilmgegevens:");
 
-
+                    // filmgegevens
+                    bool filmgevonden = false;
                     foreach (Film film in DataStorageHandler.Storage.Films)
                     {
                         if (film.Titel == reservation.Filmtitel)
                         {
+                            filmgevonden = true;
                             Console.WriteLine("- Titel: " + film.Titel);
                             Console.WriteLine("- Categorie: " + film.Categorie);
                             Console.WriteLine("- Minimum leeftijd: " + film.Leeftijd);
@@ -47,6 +52,25 @@ namespace ProjectB.pages
                             Console.WriteLine("- Regiseur: " + film.Regisseur);
                         }
                     }
+                    // als de film is verwijderd uit de actieve film list
+                    if(filmgevonden == false)
+                    {
+                        foreach (VerwijderdeFilm film in DataStorageHandler.Storage.VerwijderdeFilms)
+                        {
+                            if (film.Titel == reservation.Filmtitel)
+                            {
+                                Console.WriteLine("- Titel: " + film.Titel);
+                                Console.WriteLine("- Categorie: " + film.Categorie);
+                                Console.WriteLine("- Minimum leeftijd: " + film.Leeftijd);
+                                Console.WriteLine("- Beschrijving: " + film.Beschrijving);
+                                Console.WriteLine("- Taal: " + film.Taal);
+                                Console.WriteLine("- Ondertiteling: " + film.Ondertiteling);
+                                Console.WriteLine("- Acteurs: " + film.Acteurs);
+                                Console.WriteLine("- Regiseur: " + film.Regisseur);
+                            }
+                        }
+                    }
+                    // reserveringgevens
                     Console.ResetColor();
                     Console.WriteLine("Datum: " + reservation.Datum);
                     Console.WriteLine("Tijd: " + reservation.Tijd);
@@ -67,7 +91,7 @@ namespace ProjectB.pages
                         {
                             selectedseatListColumn += reservation.Seats[i].Column;
                         }
-                        totalseatprice += reservation.Seats[i].Price;
+                        totalseatprice = (double)reservation.Sumprice;
                     }
                     Console.WriteLine("Stoelnummer(s): " + selectedseatListColumn);
                     if (totalseatprice == (int)totalseatprice)
@@ -77,6 +101,7 @@ namespace ProjectB.pages
                     else
                         Console.WriteLine("Totaal prijs: €" + totalseatprice);
                     Console.WriteLine("Snack: " + reservation.Snack + "");
+                    // als de film al is afgelopen kan de klant de film beoordelen
                     if (filmAfgelopen(gebruikersnaam, Int32.Parse(reservation.ID)) == "afgelopen")
                     {
                         Console.Write("-- Typ ");
@@ -85,6 +110,7 @@ namespace ProjectB.pages
                         Console.ResetColor();
                         Console.Write(" om deze film te beoordelen");
                     }
+                    // als de film voor 24 uur of langer afspeeld
                     else if (filmAfgelopen(gebruikersnaam, Int32.Parse(reservation.ID)) == "wijzigbaar")
                     {
                         Console.Write("-- Typ ");
@@ -93,12 +119,12 @@ namespace ProjectB.pages
                         Console.ResetColor();
                         Console.Write(" om de reservering te annuleren/bewerken\n   (minimaal 24 uur voordat de film draait).");
                     }
+                    // als de film binnen 24 uur valt
                     else
                     {
                         Console.Write("-- Deze film begint binnen 24 uur, mis het niet!");
                     }
                     Console.WriteLine("\n---------------------\n");
-
                 }
             }
             string Select = "";
@@ -204,7 +230,7 @@ namespace ProjectB.pages
                 }
                 else if (HuidigeMaand == maand)
                 {
-                    if (HuidigeDag < dag)
+                    if (HuidigeDag+1 == dag)
                     {
                         if (HuidigeUur > uur)
                         {
@@ -214,6 +240,10 @@ namespace ProjectB.pages
                         {
                             afgelopen = "wijzigbaar";
                         }
+                    }
+                    else if (HuidigeDag + 1 < dag)
+                    {
+                        afgelopen = "wijzigbaar";
                     }
                     else if(HuidigeDag == dag)
                     {

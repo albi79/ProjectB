@@ -11,30 +11,31 @@ namespace ProjectB.pages
 {
     class SalesOverview
     {
+        // alleen de admin kan hier bij
         public static void salesOverview()
         {
             Console.WriteLine("Welkom bij de Sales Overview!\n");
-
+            double totalPrice = 0;
             foreach (Reservation reservation in DataStorageHandler.Storage.Reservations)
             {
                 Console.ForegroundColor = ConsoleColor.DarkBlue;
                 Console.Write($"Reservering ID {reservation.ID}:");
                 Console.ResetColor();
 
-                double currenttotalseatprice = 0.0;
-
-                for (int i = 0; i < reservation.Seats.Count; i++)
-                {
-                    currenttotalseatprice += reservation.Seats[i].Price;
-                }
-
-                if (currenttotalseatprice == (int)currenttotalseatprice)
-                    Console.Write($"   €{currenttotalseatprice},-     {reservation.Customer} \n");
-                else if (currenttotalseatprice == Math.Round(currenttotalseatprice, 1))
-                    Console.Write($"   €{currenttotalseatprice}0    {reservation.Customer} \n");
+                if (reservation.Sumprice == (int)reservation.Sumprice)
+                    Console.Write($"   €{reservation.Sumprice},-     {reservation.Customer} \n");
+                else if (reservation.Sumprice == Math.Round(reservation.Sumprice, 1))
+                    Console.Write($"   €{reservation.Sumprice}0    {reservation.Customer} \n");
                 else
-                    Console.Write($"   €{currenttotalseatprice}    {reservation.Customer} \n");
+                    Console.Write($"   €{reservation.Sumprice}    {reservation.Customer} \n");
+                totalPrice += (double)reservation.Sumprice;
             }
+            if (totalPrice == (int)totalPrice)
+                Console.Write($"Totaal afgerond:    €{totalPrice},- \n");
+            else if (totalPrice == Math.Round(totalPrice, 1))
+                Console.Write($"Totaal afgerond:    €{totalPrice}0 \n");
+            else
+                Console.Write($"Totaal afgerond:    €{totalPrice} \n");
             Console.WriteLine("\nWelk ID wilt u selecteren?\nDruk b om terug te gaan.");
             string Select = Beheer.Input("");
             int SelectSale = 0;

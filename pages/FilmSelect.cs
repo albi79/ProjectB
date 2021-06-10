@@ -11,33 +11,42 @@ namespace ProjectB.pages
     {
         public static void filmSelect(string gebruikersnaam)
         {
+            // alle keuzes
             Console.WriteLine("1. Huidige films");
             Console.WriteLine("2. Toekomstige films");
             Console.WriteLine("b. Om terug te gaan");
 
-            string HuidigOfToekomstig = Beheer.Input("");
-            Console.WriteLine(HuidigOfToekomstig);
+            // user maakt de keuze
+            string HuidigOfToekomstig = Beheer.Input("\nMaak een keuze: ");
+            // ga terug als de user "b" invoerd
             if (HuidigOfToekomstig == "b")
             {
                 Console.Clear();
                 ConsoleMenu.consoleMenu(gebruikersnaam);
             }
-
+            // als de user een verkeerde input geeft door loopen tot het een goede input is
             while (HuidigOfToekomstig != "1" && HuidigOfToekomstig != "2" && HuidigOfToekomstig != "b")
             {
-                Console.WriteLine("Er ging iets mis, kunt u uit de volgende keuzes kiezen:");
+                // waarschuwen bij verkeerd input
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Console.WriteLine("\nEr ging iets mis, kunt u uit de volgende keuzes kiezen: ");
+                Console.ResetColor();
+                // opnieuw de keuzes
                 Console.WriteLine("1. Huidige films");
                 Console.WriteLine("2. Toekomstige films");
                 Console.WriteLine("b. Om terug te gaan");
-                HuidigOfToekomstig = Beheer.Input("");
+                // laat de gebruiker een nieuwe input geven
+                HuidigOfToekomstig = Beheer.Input("Maak opnieuw een keuze: ");
                 if (HuidigOfToekomstig == "b")
                 {
                     Console.Clear();
                     ConsoleMenu.consoleMenu(gebruikersnaam);
                 }
             }
+            // geef de nummers een waarde, zodat we kunnen bepalen of het huidige of toekomstige films zijn
             HuidigOfToekomstig = ("1" == HuidigOfToekomstig) ? "HuidigeFilms" : "ToekomstigeFilms";
             Console.Clear();
+            // stuur door naar het overzicht
             Overzicht(HuidigOfToekomstig, gebruikersnaam);
         }
         public static void Overzicht(string HuidigOfToekomstig, string gebruikersnaam)
@@ -78,13 +87,23 @@ namespace ProjectB.pages
                 }
             }
             string toets = "";
-            Console.WriteLine("\nb. Terug\nVul een film nummer in: ");
+            if (HuidigOfToekomstig == "HuidigeFilms")
+                Console.WriteLine("\nz. Film zoeken ");
+            Console.WriteLine("b. Terug\nVul een film nummer in: ");
             string selectedFilmString = Beheer.Input("");
             int selectedFilm = 0;
             if (selectedFilmString == "b")
             {
                 Console.Clear();
                 ConsoleMenu.consoleMenu(gebruikersnaam);
+            }
+            if (HuidigOfToekomstig == "HuidigeFilms")
+            {
+                if (selectedFilmString == "z")
+                {
+                    Console.Clear();
+                    Filmzoeken.filmzoeken(gebruikersnaam);
+                }
             }
             try
             {
@@ -97,6 +116,7 @@ namespace ProjectB.pages
                     Console.WriteLine("Titel: " + DataStorageHandler.Storage.Films[selectedFilm].Titel);
                     Console.WriteLine("Categorie: " + DataStorageHandler.Storage.Films[selectedFilm].Categorie);
                     Console.WriteLine("Minimum leeftijd: " + DataStorageHandler.Storage.Films[selectedFilm].Leeftijd);
+                    Console.WriteLine("Film duur (in min): " + DataStorageHandler.Storage.Films[selectedFilm].FilmDuur);
                     Console.WriteLine("Beschrijving: " + DataStorageHandler.Storage.Films[selectedFilm].Beschrijving);
                     Console.WriteLine("Taal: " + DataStorageHandler.Storage.Films[selectedFilm].Taal);
                     Console.WriteLine("Ondertiteling: " + DataStorageHandler.Storage.Films[selectedFilm].Ondertiteling);
@@ -137,6 +157,7 @@ namespace ProjectB.pages
                     Console.WriteLine("Informatie geselecteerde Toekomstige film");
                     Console.WriteLine();
                     Console.WriteLine("Titel: " + DataStorageHandler.Storage.ToekomstigeFilms[selectedFilm].Titel);
+                    Console.WriteLine("Film duur (in min): " + DataStorageHandler.Storage.ToekomstigeFilms[selectedFilm].FilmDuur);
                     Console.WriteLine("Categorie: " + DataStorageHandler.Storage.ToekomstigeFilms[selectedFilm].Categorie);
                     Console.WriteLine("Minimum leeftijd: " + DataStorageHandler.Storage.ToekomstigeFilms[selectedFilm].Leeftijd);
                     Console.WriteLine("Beschrijving: " + DataStorageHandler.Storage.ToekomstigeFilms[selectedFilm].Beschrijving);

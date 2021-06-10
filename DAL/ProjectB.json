@@ -18,7 +18,7 @@
       "email": "info@nisatutucu.nl",
       "gebruikersnaam": "nisa",
       "wachtwoord": "Nisa2001",
-      "loginMoment": "0001-01-01T00:00:00"
+      "loginMoment": "2021-06-10T00:15:02.258444+02:00"
     },
     {
       "naam": "Nisaaa",
@@ -28,14 +28,15 @@
       "email": "info@nisatutucu.nl",
       "gebruikersnaam": "nisatutucu",
       "wachtwoord": "Nisa2021",
-      "loginMoment": "2021-06-07T23:29:15.801842+02:00"
+      "loginMoment": "0001-01-01T00:00:00"
     }
   ],
   "Films": [
     {
       "Titel": "The 'Notorius' Conor Mc Gregor",
       "Categorie": "Documentaire",
-      "Leeftijd": 4,
+      "Leeftijd": 6,
+      "FilmDuur": 98,
       "Beschrijving": "Zie hoe een mixed martial artist van diep in schulde naar multi-millionair gaat dankzij wilskracht, geloof & discipline",
       "Taal": "Iers",
       "Ondertiteling": "Nederlands",
@@ -55,29 +56,31 @@
           "16:30"
         ]
       ],
-      "Beoordeling": 2,
-      "AantalBeoordelingen": 3,
-      "BeoordelingCumulatief": 7
+      "Beoordeling": 3,
+      "AantalBeoordelingen": 4,
+      "BeoordelingCumulatief": 12
     },
     {
-      "Titel": "The 'notorious' Conor Mc Gregor2",
-      "Categorie": "Documentaire",
-      "Leeftijd": 4,
-      "Beschrijving": "Zie hoe Conor van schulde, naar multi-millionaire gaat. Dankzij geloof, Wilskracht, discipline & de Mixed Martial Art!",
-      "Taal": "Iers",
-      "Ondertiteling": "Nederlands",
-      "Acteurs": "Conor Mc Gregor",
-      "Regisseur": "Ali Baba",
-      "Zaal": 1,
+      "Titel": "BON BINI: JUDESKA IN DA HOUSE",
+      "Categorie": "Comedy",
+      "Leeftijd": 9,
+      "FilmDuur": 81,
+      "Beschrijving": "Tante Judeska levert net haar nichtje Gabri?lla af op het landgoed van haar nieuwe vriend Lucas, als zijn vader - een prominente politicus en de Minister van Binnenlandse Zaken - een landelijke lockdown afkondigt.,",
+      "Taal": "Nederlands",
+      "Ondertiteling": "geen",
+      "Acteurs": "John",
+      "Regisseur": "Baba",
+      "Zaal": 3,
       "Projectiemoment": [
         [
-          "23-05-2021",
-          "18:00",
-          "23:20"
+          "20-07-2021",
+          "11:30",
+          "13:40",
+          "17:40"
         ],
         [
-          "01-06-2021",
-          "21:05"
+          "25-07-2021",
+          "12:20"
         ]
       ],
       "Beoordeling": 0,
@@ -88,6 +91,7 @@
       "Titel": "Xayah",
       "Categorie": "Actie",
       "Leeftijd": 12,
+      "FilmDuur": 120,
       "Beschrijving": "Xayah en rakan",
       "Taal": "Nederlands",
       "Ondertiteling": "geen",
@@ -109,102 +113,89 @@
       "Beoordeling": 0,
       "AantalBeoordelingen": 0,
       "BeoordelingCumulatief": 0
+    },
+    {
+      "Titel": "DE SLAG OM DE SCHELDE",
+      "Categorie": "Drama",
+      "Leeftijd": 16,
+      "FilmDuur": 126,
+      "Beschrijving": "Op het Zeeuwse Walcheren in 1944 vechten tienduizenden geallieerden en Duitsers tegen elkaar. We volgen de wegen van een Nederlandse jongen, een Zeeuws meisje en een verdwaalde Engelse gliderpiloot.",
+      "Taal": "Engels",
+      "Ondertiteling": "Nederlands",
+      "Acteurs": "De heer",
+      "Regisseur": "De koning",
+      "Zaal": 2,
+      "Projectiemoment": [
+        [
+          "21-07-2021",
+          "09:30",
+          "15:15"
+        ]
+      ],
+      "Beoordeling": 0,
+      "AantalBeoordelingen": 0,
+      "BeoordelingCumulatief": 0
     }
   ],
+  "VerwijderdeFilms": [],
   "ToekomstigeFilms": [
     {
       "Titel": "The wolf of wallstreet",
       "Categorie": "Comedy",
       "Leeftijd": 18,
-      "Beschrijving": "Heel veel geld",
+      "FilmDuur": 92,
+      "Beschrijving": "Over de wolven",
       "Release": "06-03-2022"
     },
     {
       "Titel": "AYA AND THE WITCH",
       "Categorie": "Comedy",
       "Leeftijd": 6,
+      "FilmDuur": 123,
       "Beschrijving": "Heel veel geld",
-      "Release": "24-06-2021"
+      "Release": "24-08-2021"
+    },
+    {
+      "Titel": "SPIRAL: FROM THE LEGACY OF SAW ",
+      "Categorie": "Horror",
+      "Leeftijd": 16,
+      "FilmDuur": 93,
+      "Beschrijving": "Een sadistisch genie hanteert een eigen gestoorde vorm van gerechtigheid in Spiral, het angstaanjagende nieuwe hoofdstuk uit de Saw-reeks.",
+      "Release": "24-10-2021"
     }
   ],
+  "VerwijderdeToekomstigeFilms": [],
   "Reservations": [
     {
       "ID": "0",
       "Customer": "nisatutucu",
       "Filmtitel": "Xayah",
       "Datum": "30-07-2021",
-      "Tijd": "12:40",
+      "Tijd": "11:40",
       "Projectie": "IMAX",
       "Zaal": 3,
       "Seats": [
         {
-          "Rij": 11,
+          "Rij": 12,
+          "Column": 16,
+          "Price": 30.0
+        },
+        {
+          "Rij": 12,
           "Column": 17,
-          "Price": 30.0
+          "Price": 15.0
         },
         {
-          "Rij": 11,
+          "Rij": 12,
           "Column": 18,
-          "Price": 30.0
-        }
-      ],
-      "Zitplaatstype": "MASTER, MASTER",
-      "Seatsumprice": 60.0,
-      "Snack": "Geen",
-      "Snackprice": 0.0,
-      "Sumprice": 60.0
-    },
-    {
-      "ID": "1",
-      "Customer": "NisaTutucu",
-      "Filmtitel": "The 'Notorius' Conor Mc Gregor",
-      "Datum": "23-05-2021",
-      "Tijd": "23:30",
-      "Projectie": "2D",
-      "Zaal": 1,
-      "Seats": [
-        {
-          "Rij": 7,
-          "Column": 6,
-          "Price": 30.0
-        },
-        {
-          "Rij": 7,
-          "Column": 5,
-          "Price": 30.0
-        },
-        {
-          "Rij": 7,
-          "Column": 4,
           "Price": 15.0
         }
       ],
-      "Zitplaatstype": "MASTER, MASTER, VIP",
-      "Seatsumprice": 75.0,
-      "Snack": "Groot Popcorn Zoet",
+      "Zitplaatstype": "MASTER, VIP, VIP",
+      "Seatsumprice": 60.0,
+      "Snack": "Groot Popcorn Zout",
       "Snackprice": 7.5,
-      "Sumprice": 82.5
-    },
-    {
-      "ID": "2",
-      "Customer": "nisatutucu",
-      "Filmtitel": "The 'Notorius' Conor Mc Gregor",
-      "Datum": "23-05-2021",
-      "Tijd": "16:00",
-      "Projectie": "2D",
-      "Zaal": 1,
-      "Seats": [
-        {
-          "Rij": 7,
-          "Column": 6,
-          "Price": 30.0
-        }
-      ],
-      "Zitplaatstype": "MASTER",
-      "Seatsumprice": 30.0,
-      "Snack": "Groot Popcorn Zoet",
-      "Snackprice": 7.5,
-      "Sumprice": 37.5
+      "Sumprice": 67.5
     }
   ]
 }

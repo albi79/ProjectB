@@ -272,7 +272,6 @@ namespace ProjectB.pages
             }
             return var;
         }
-
         private static string uniekGebruikersnaam(string gebruikersnaam)
         {
             bool BestaandeGebruikersnaam = true;

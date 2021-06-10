@@ -9,82 +9,111 @@ using ProjectB.DAL;
 
 namespace ProjectB.pages
 {
+    // pagina alleen te zien voor de admin
     class FilmprogrammaBeheren
     {
         public static void filmprogrammaBeheren()
         {
+            // Keuze opties voor de admin user
             Console.WriteLine("1. Huidige films beheren");
             Console.WriteLine("2. Toekomstige films beheren");
             Console.WriteLine("b. Om terug te gaan");
 
-            string HuidigOfToekomstig = Beheer.Input("");
+            string HuidigOfToekomstig = Beheer.Input("Voer uw keuze in: ");
+
+            // terug naar admin menu
             if (HuidigOfToekomstig == "b")
             {
                 Console.Clear();
                 AdminMenu.adminMenu();
             }
 
+            // als er een verkeerd input is gegeven
             while (HuidigOfToekomstig != "1" && HuidigOfToekomstig != "2" && HuidigOfToekomstig != "b")
             {
                 Console.WriteLine("Er ging iets mis, kunt u uit de volgende keuzes kiezen:");
                 Console.WriteLine("1. Huidige films beheren");
                 Console.WriteLine("2. Toekomstige films beheren");
                 Console.WriteLine("b. Om terug te gaan");
-                HuidigOfToekomstig = Beheer.Input("");
+                HuidigOfToekomstig = Beheer.Input("Voer uw keuze in: ");
                 if (HuidigOfToekomstig == "b")
                 {
                     Console.Clear();
                     AdminMenu.adminMenu();
                 }
             }
+            // ga naar het overzicht pagina met de als paramater de string
+            // als er gedrukt is op 1 krijgt het ovezicht
+            // de parameter "HuidigeFilms" en anders de parameter "ToekomstigeFilms"
+            // hierdoor kan de programma 1 functie gebruiken voor beide filmcategorieen
             HuidigOfToekomstig = ("1" == HuidigOfToekomstig) ? "HuidigeFilms" : "ToekomstigeFilms";
             Overzicht(HuidigOfToekomstig);
-
         }
 
         public static void Overzicht(string HuidigOfToekomstig)
         {
             Console.Clear();
+            // als de admin in de filmprogrammaBeheren() de huidige films overzicht heeft gekozen
             if (HuidigOfToekomstig == "HuidigeFilms")
             {
-                Console.WriteLine("U bevindt nu bij de Huidige Films overzicht\n\n");
+                Console.WriteLine("U bevindt nu bij de Huidige Films overzicht\n");
 
+                // toon alle huidige films 
                 foreach (Film filmItem in DataStorageHandler.Storage.Films)
                 {
                     Console.ForegroundColor = ConsoleColor.Blue;
-                    Console.WriteLine($"{filmItem.Leeftijd}+   {filmItem.Titel}\n      {filmItem.Categorie}");
+                    Console.Write($"{filmItem.Leeftijd}+   {filmItem.Titel}\n      {filmItem.Categorie}");
                     Console.ResetColor();
-                    Console.Write("Film beoordeling: ");
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.Write($"{filmItem.Beoordeling}");
-                    Console.ResetColor();
-                    Console.Write($" van de {filmItem.AantalBeoordelingen} beoordelingen\n\n"); ;
+                    if (filmItem.AantalBeoordelingen > 0)
+                    {
+                        Console.Write("\nFilm beoordeling: ");
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        for (int i = 0; i < filmItem.Beoordeling; i++)
+                            Console.Write("*");
+                        Console.ResetColor();
+                        Console.Write(" / *****");
+                        Console.Write($" van de {filmItem.AantalBeoordelingen} beoordelingen");
+                    }
+                    Console.Write("\n\n");
+
                 }
 
-                Console.WriteLine("\n1. Film toevoegen");
+                // alle keuzes
+                Console.WriteLine("1. Film toevoegen");
                 Console.WriteLine("2. Film verwijderen");
                 Console.WriteLine("3. Film wijzigen");
+                Console.WriteLine("b. Terug");
             }
+            // als de admin in de filmprogrammaBeheren() de toekomstige films overzicht heeft gekozen
             else
             {
-                Console.WriteLine("U bevindt nu bij de Toekomstige Films overzicht\n\n");
+                Console.WriteLine("U bevindt nu bij de Toekomstige Films overzicht\n");
 
+                // toon alle toekomsite films 
                 foreach (ToekomstigeFilm filmItem in DataStorageHandler.Storage.ToekomstigeFilms)
                 {
-                    Console.WriteLine($"{filmItem.Leeftijd}+   {filmItem.Titel}\n      {filmItem.Categorie}\n"); ;
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.WriteLine($"{filmItem.Leeftijd}+   {filmItem.Titel}\n      {filmItem.Categorie}\n"); 
+                    Console.ResetColor();
                 }
 
+                // alle keuzes
                 Console.WriteLine("\n1. Film toevoegen");
                 Console.WriteLine("2. Film verwijderen");
                 Console.WriteLine("3. Film wijzigen");
+                Console.WriteLine("b. Terug");
             }
 
+            // maak keuze uit de erder getoonde keuzes
+            string gegeven = Beheer.Input("\nMaak een keus: ");
 
+            if (gegeven == "b")
+            {
+                Console.Clear();
+                filmprogrammaBeheren();
+            }
 
-            Console.WriteLine("\n");
-            string gegeven = Beheer.Input("");
-
-            if (gegeven == "1")
+            else if (gegeven == "1")
                 toevoegen(HuidigOfToekomstig);
 
 
@@ -93,15 +122,17 @@ namespace ProjectB.pages
 
             else if (gegeven == "3")
             {
+                int filmNummer = 1;
                 Console.Clear();
-                Console.WriteLine("Film info bewerken\n\nWelke film wilt u wijzigen:\n");
+                Console.WriteLine("Film info bewerken\n\nWelke film wilt u wijzigen:");
+                // Overzicht van de huidige films, die de admin kan wijzigen 
                 if (HuidigOfToekomstig == "HuidigeFilms")
                 {
-                    int filmNummer = 1;
+                    //int filmNummer = 1;
                     foreach (Film filmItem in DataStorageHandler.Storage.Films)
                     {
                         Console.ForegroundColor = ConsoleColor.Blue;
-                        Console.WriteLine($"\n------------------ Film nummer {filmNummer} ------------------");
+                        Console.WriteLine($"------------------ Film nummer {filmNummer} ------------------");
                         Console.ResetColor();
                         Console.WriteLine($"     {filmItem.Leeftijd}+     {filmItem.Titel}\n     {filmItem.Categorie}");
                         Console.Write("Film beoordeling: ");
@@ -111,23 +142,46 @@ namespace ProjectB.pages
                         Console.Write($" van de {filmItem.AantalBeoordelingen} beoordelingen\n\n"); filmNummer++;
                     }
                 }
+                // Overzicht van de toekomtige films, die de admin kan wijzigen 
                 if (HuidigOfToekomstig == "ToekomstigeFilms")
                 {
-                    int filmNummer = 1;
+                    //int filmNummer = 1;
                     foreach (ToekomstigeFilm filmItem in DataStorageHandler.Storage.ToekomstigeFilms)
                     {
                         Console.ForegroundColor = ConsoleColor.Blue;
-                        Console.WriteLine($"\n------------------ Film nummer {filmNummer} ------------------");
+                        Console.WriteLine($"------------------ Film nummer {filmNummer} ------------------");
                         Console.ResetColor();
-                        Console.WriteLine($"     {filmItem.Leeftijd}+     {filmItem.Titel}\n     {filmItem.Categorie}\n     Release datum: {filmItem.Release}");
+                        Console.WriteLine($"     {filmItem.Leeftijd}+     {filmItem.Titel}\n     {filmItem.Categorie}\n     Release datum: {filmItem.Release}\n\n");
                         filmNummer++;
                     }
                 }
 
-
-                int selectedFilm = Int32.Parse(Beheer.Input("\n")) - 1;
+                bool mislukt = true;
+                int selectedFilm = -1;
+                while (mislukt)
+                {
+                    try
+                    {
+                        selectedFilm = Int32.Parse(Beheer.Input("Maak een keus: ")) - 1;
+                        if (selectedFilm > -1 && selectedFilm < filmNummer-1)
+                        {
+                            mislukt = false;
+                        }
+                        else
+                        {
+                            Console.ForegroundColor = ConsoleColor.DarkYellow;
+                            Console.WriteLine("\nHet is niet gelukt... Voer een bestaande film nummer in.");
+                            Console.ResetColor();
+                        }
+                    }
+                    catch
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
+                        Console.WriteLine("\nHet is niet gelukt... Voer cijfer in.");
+                        Console.ResetColor();
+                    }
+                }
                 filmInfoWijzigen(HuidigOfToekomstig, selectedFilm);
-
             }
         }
 
@@ -136,7 +190,38 @@ namespace ProjectB.pages
             Console.Clear();
             string nTitel = Beheer.Input("Wat is de titel van de nieuwe film?\n");
             string nCategorie = Beheer.Input("Wat is de categorie van de nieuwe film?\n");
-            int nLeeftijd = Convert.ToInt32(Beheer.Input("Wat is de minimum leeftijd van de nieuwe film?\n"));
+            bool mislukt = true;
+            int nLeeftijd = -1;
+            while (mislukt)
+            {
+                try
+                { 
+                    nLeeftijd = Convert.ToInt32(Beheer.Input("Wat is de minimum leeftijd van de nieuwe film?\n"));
+                    mislukt = false;
+                }
+                catch
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    Console.WriteLine("Het is niet gelukt... Voer een cijfer in.");
+                    Console.ResetColor();
+                }
+            }
+            int nDuur = 0;
+            mislukt = true;
+            while (mislukt)
+            {
+                try
+                {
+                    nDuur = Convert.ToInt32(Beheer.Input("Wat is de film duur?\n"));
+                    mislukt = false;
+                }
+                catch
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    Console.WriteLine("Het is niet gelukt... Voer een cijfer in.");
+                    Console.ResetColor();
+                }
+            }
             string nBeschrijving = Beheer.Input("Schrijf een korte filmbeschrijving\n");
 
 
@@ -232,6 +317,7 @@ namespace ProjectB.pages
                         Titel = nTitel,
                         Categorie = nCategorie,
                         Leeftijd = nLeeftijd,
+                        FilmDuur = nDuur,
                         Beschrijving = nBeschrijving,
                         Taal = nTaal,
                         Ondertiteling = nOndertiteling,
@@ -253,6 +339,7 @@ namespace ProjectB.pages
                         Titel = nTitel,
                         Categorie = nCategorie,
                         Leeftijd = nLeeftijd,
+                        FilmDuur = nDuur,
                         Beschrijving = nBeschrijving,
                         Release = nRelease
                     };
@@ -268,8 +355,10 @@ namespace ProjectB.pages
         public static bool inputCheck(string wat)
         {
             Console.Clear();
+            // vraag of admin het zeker weet
             Console.WriteLine("Klopt de nieuwe informatie die u wilt toevoegen?");
             Console.WriteLine();
+            // de meegegeven parameter dus de nieuwe informatie
             Console.WriteLine(wat);
             Console.WriteLine("\n1. Ja\n2. Annuleren");
 
@@ -281,6 +370,7 @@ namespace ProjectB.pages
                 return false;
 
             Console.Clear();
+            // als de gegeven input geen 1 of 2 is
             Console.WriteLine("Er ging iets fout");
             Console.WriteLine();
             Console.WriteLine("Wilt u deze informatie definitief aan de film informatie toevoegen?");
@@ -294,6 +384,8 @@ namespace ProjectB.pages
                 return true;
             else if (antwoord == "2")
                 return false;
+            // als de admin nogsteeds niet geaccepteerd of geannuleerd heeft
+            // stuur de admin opnieuw naar de inputCheck functie
             else
                 inputCheck(wat);
 
@@ -317,11 +409,12 @@ namespace ProjectB.pages
                 Console.WriteLine("8: Acteurs: " + DataStorageHandler.Storage.Films[selectedFilm].Acteurs);
                 Console.WriteLine("9: Regiseur: " + DataStorageHandler.Storage.Films[selectedFilm].Regisseur);
                 Console.WriteLine("10: Zaal: " + DataStorageHandler.Storage.Films[selectedFilm].Zaal);
+                Console.WriteLine("11: Film duur (in min): " + DataStorageHandler.Storage.Films[selectedFilm].FilmDuur);
                 Console.WriteLine();
                 Console.WriteLine("0. Terug naar filmprogramma beheren");
 
                 string infoIndex = Beheer.Input("");
-                bool correctAntwoord = infoIndex == "1" || infoIndex == "2" || infoIndex == "3" || infoIndex == "4" || infoIndex == "5" || infoIndex == "6" || infoIndex == "7" || infoIndex == "8" || infoIndex == "9";
+                bool correctAntwoord = infoIndex == "1" || infoIndex == "2" || infoIndex == "3" || infoIndex == "4" || infoIndex == "5" || infoIndex == "6" || infoIndex == "7" || infoIndex == "8" || infoIndex == "9" || infoIndex == "10" || infoIndex == "11" || infoIndex == "0";
 
                 if (infoIndex == "1")
                 {
@@ -330,6 +423,7 @@ namespace ProjectB.pages
                     if (inputCheck(nieuweInfo))
                     {
                         DataStorageHandler.Storage.Films[selectedFilm].Titel = nieuweInfo;
+                        DataStorageHandler.SaveChanges();
                         FilmprogrammaBeheren.filmprogrammaBeheren();
                     }
                     else
@@ -342,6 +436,7 @@ namespace ProjectB.pages
                     if (inputCheck(nieuweInfo))
                     {
                         DataStorageHandler.Storage.Films[selectedFilm].Categorie = nieuweInfo;
+                        DataStorageHandler.SaveChanges();
                         FilmprogrammaBeheren.filmprogrammaBeheren();
                     }
                     else
@@ -360,6 +455,7 @@ namespace ProjectB.pages
                     }
 
                     DataStorageHandler.Storage.Films[selectedFilm].Leeftijd = nieuweInfo;
+                    DataStorageHandler.SaveChanges();
                     FilmprogrammaBeheren.filmprogrammaBeheren();
                 }
 
@@ -369,6 +465,7 @@ namespace ProjectB.pages
                     if (inputCheck(nieuweInfo))
                     {
                         DataStorageHandler.Storage.Films[selectedFilm].Beschrijving = nieuweInfo;
+                        DataStorageHandler.SaveChanges();
                         FilmprogrammaBeheren.filmprogrammaBeheren();
                     }
                     else
@@ -444,6 +541,8 @@ namespace ProjectB.pages
                         }
                     }
                     DataStorageHandler.Storage.Films[selectedFilm].Projectiemoment = nProjectiemoment;
+                    DataStorageHandler.SaveChanges();
+
                 }
 
                 else if (infoIndex == "6")
@@ -452,6 +551,7 @@ namespace ProjectB.pages
                     if (inputCheck(nieuweInfo))
                     {
                         DataStorageHandler.Storage.Films[selectedFilm].Taal = nieuweInfo;
+                        DataStorageHandler.SaveChanges();
                         FilmprogrammaBeheren.filmprogrammaBeheren();
                     }
                     else
@@ -464,6 +564,7 @@ namespace ProjectB.pages
                     if (inputCheck(nieuweInfo))
                     {
                         DataStorageHandler.Storage.Films[selectedFilm].Ondertiteling = nieuweInfo;
+                        DataStorageHandler.SaveChanges();
                         FilmprogrammaBeheren.filmprogrammaBeheren();
                     }
                     else
@@ -476,6 +577,7 @@ namespace ProjectB.pages
                     if (inputCheck(nieuweInfo))
                     {
                         DataStorageHandler.Storage.Films[selectedFilm].Acteurs = nieuweInfo;
+                        DataStorageHandler.SaveChanges();
                         FilmprogrammaBeheren.filmprogrammaBeheren();
                     }
                     else
@@ -488,6 +590,7 @@ namespace ProjectB.pages
                     if (inputCheck(nieuweInfo))
                     {
                         DataStorageHandler.Storage.Films[selectedFilm].Regisseur = nieuweInfo;
+                        DataStorageHandler.SaveChanges();
                         FilmprogrammaBeheren.filmprogrammaBeheren();
                     }
                     else
@@ -509,9 +612,23 @@ namespace ProjectB.pages
                     }
                     DataStorageHandler.Storage.Films[selectedFilm].Zaal = nZaal;
                 }
+                else if (infoIndex == "11")
+                {
+                    int nieuweInfo = 0;
 
+                    try { nieuweInfo = Int32.Parse(Beheer.Input("Wat is de nieuwe filmduur: ")); }
+                    catch
+                    {
+                        filmInfoWijzigen(HuidigOfToekomstig, selectedFilm);
+                    }
+
+                    DataStorageHandler.Storage.Films[selectedFilm].FilmDuur = nieuweInfo;
+                    DataStorageHandler.SaveChanges();
+                    FilmprogrammaBeheren.filmprogrammaBeheren();
+                }
                 else if (infoIndex == "0")
                 {
+                    DataStorageHandler.SaveChanges();
                     DataStorageHandler.SaveChanges();
                     FilmprogrammaBeheren.filmprogrammaBeheren();
                 }
@@ -527,11 +644,12 @@ namespace ProjectB.pages
                 Console.WriteLine("3: Minimum leeftijd: " + DataStorageHandler.Storage.ToekomstigeFilms[selectedFilm].Leeftijd);
                 Console.WriteLine("4: Beschrijving: " + DataStorageHandler.Storage.ToekomstigeFilms[selectedFilm].Beschrijving);
                 Console.WriteLine("5: Release: " + DataStorageHandler.Storage.ToekomstigeFilms[selectedFilm].Release);
+                Console.WriteLine("6: Film duur (in min): " + DataStorageHandler.Storage.ToekomstigeFilms[selectedFilm].FilmDuur);
                 Console.WriteLine();
                 Console.WriteLine("0. Terug naar filmprogramma beheren");
 
                 string infoIndex = Beheer.Input("");
-                bool correctAntwoord = infoIndex == "1" || infoIndex == "2" || infoIndex == "3" || infoIndex == "4" || infoIndex == "5" || infoIndex == "6" || infoIndex == "7" || infoIndex == "8" || infoIndex == "9";
+                bool correctAntwoord = infoIndex == "1" || infoIndex == "2" || infoIndex == "3" || infoIndex == "4" || infoIndex == "5" || infoIndex == "6" || infoIndex == "0";
 
                 if (infoIndex == "1")
                 {
@@ -540,6 +658,7 @@ namespace ProjectB.pages
                     if (inputCheck(nieuweInfo))
                     {
                         DataStorageHandler.Storage.ToekomstigeFilms[selectedFilm].Titel = nieuweInfo;
+                        DataStorageHandler.SaveChanges();
                         FilmprogrammaBeheren.filmprogrammaBeheren();
                     }
                     else
@@ -552,6 +671,7 @@ namespace ProjectB.pages
                     if (inputCheck(nieuweInfo))
                     {
                         DataStorageHandler.Storage.ToekomstigeFilms[selectedFilm].Categorie = nieuweInfo;
+                        DataStorageHandler.SaveChanges();
                         FilmprogrammaBeheren.filmprogrammaBeheren();
                     }
                     else
@@ -570,6 +690,7 @@ namespace ProjectB.pages
                     }
 
                     DataStorageHandler.Storage.ToekomstigeFilms[selectedFilm].Leeftijd = nieuweInfo;
+                    DataStorageHandler.SaveChanges();
                     FilmprogrammaBeheren.filmprogrammaBeheren();
                 }
 
@@ -579,6 +700,7 @@ namespace ProjectB.pages
                     if (inputCheck(nieuweInfo))
                     {
                         DataStorageHandler.Storage.ToekomstigeFilms[selectedFilm].Beschrijving = nieuweInfo;
+                        DataStorageHandler.SaveChanges();
                         FilmprogrammaBeheren.filmprogrammaBeheren();
                     }
                     else
@@ -586,7 +708,7 @@ namespace ProjectB.pages
 
                 }
 
-                else if (infoIndex == "10")
+                else if (infoIndex == "5")
                 {
                     string nRelease = Beheer.Input("Wat is de nieuwe Release datum: ");
                     string datum = Beheer.Input("");
@@ -606,14 +728,29 @@ namespace ProjectB.pages
                     if (inputCheck(nRelease))
                     {
                         DataStorageHandler.Storage.ToekomstigeFilms[selectedFilm].Beschrijving = nRelease;
+                        DataStorageHandler.SaveChanges();
                         FilmprogrammaBeheren.filmprogrammaBeheren();
                     }
                     else
                         filmInfoWijzigen(HuidigOfToekomstig, selectedFilm);
                 }
+                else if (infoIndex == "6")
+                {
+                    int nieuweInfo = 0;
 
+                    try { nieuweInfo = Int32.Parse(Beheer.Input("Wat is de nieuwe filmduur: ")); }
+                    catch
+                    {
+                        filmInfoWijzigen(HuidigOfToekomstig, selectedFilm);
+                    }
+
+                    DataStorageHandler.Storage.ToekomstigeFilms[selectedFilm].FilmDuur = nieuweInfo;
+                    DataStorageHandler.SaveChanges();
+                    FilmprogrammaBeheren.filmprogrammaBeheren();
+                }
                 else if (infoIndex == "0")
                 {
+                    DataStorageHandler.SaveChanges();
                     DataStorageHandler.SaveChanges();
                     FilmprogrammaBeheren.filmprogrammaBeheren();
                 }
@@ -628,15 +765,34 @@ namespace ProjectB.pages
             Console.Clear();
 
             string nTitel = Beheer.Input("Welke film wilt u verwijderen? (VOER EXACT TITEL IN) \n");
-
+            bool gevonden = false;
             if (HuidigOfToekomstig == "HuidigeFilms")
             {
                 foreach (Film filmItem in DataStorageHandler.Storage.Films)
                 {
                     if (nTitel == filmItem.Titel)
                     {
+                        VerwijderdeFilm nieuweFilm = new VerwijderdeFilm
+                        {
+                            Titel = filmItem.Titel,
+                            Categorie = filmItem.Categorie,
+                            Leeftijd = filmItem.Leeftijd,
+                            FilmDuur = filmItem.FilmDuur,
+                            Beschrijving = filmItem.Beschrijving,
+                            Taal = filmItem.Taal,
+                            Ondertiteling = filmItem.Ondertiteling,
+                            Acteurs = filmItem.Acteurs,
+                            Regisseur = filmItem.Regisseur,
+                            Zaal = filmItem.Zaal,
+                            Projectiemoment = filmItem.Projectiemoment
+                        };
+                        DataStorageHandler.Storage.VerwijderdeFilms.Add(nieuweFilm);
                         DataStorageHandler.Storage.Films.Remove(filmItem);
                         DataStorageHandler.SaveChanges();
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("Het is met succes verwijderd!");
+                        Console.ResetColor();
+                        gevonden = true;
                         break;
                     }
                 }
@@ -647,13 +803,33 @@ namespace ProjectB.pages
                 {
                     if (nTitel == toekomstigeFilm.Titel)
                     {
+                        VerwijderdeToekomstigeFilm nieuweFilm = new VerwijderdeToekomstigeFilm
+                        {
+
+                            Titel = toekomstigeFilm.Titel,
+                            Categorie = toekomstigeFilm.Categorie,
+                            Leeftijd = toekomstigeFilm.Leeftijd,
+                            FilmDuur = toekomstigeFilm.FilmDuur,
+                            Beschrijving = toekomstigeFilm.Beschrijving,
+                            Release = toekomstigeFilm.Release
+                        };
+                        DataStorageHandler.Storage.VerwijderdeToekomstigeFilms.Add(nieuweFilm);
                         DataStorageHandler.Storage.ToekomstigeFilms.Remove(toekomstigeFilm);
                         DataStorageHandler.SaveChanges();
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("Het is met succes verwijderd!\n");
+                        Console.ResetColor();
+                        gevonden = true;
                         break;
                     }
                 }
             }
-
+            if(gevonden == false)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Het is niet gelukt.. Probeer het opneiuw.\n");
+                Console.ResetColor();
+            }
             FilmprogrammaBeheren.filmprogrammaBeheren();
         }
     }

@@ -5,7 +5,7 @@ namespace ProjectB.pages
     {
         public static void faq(string gebruikersnaam)
         {
-            Console.WriteLine("VEELGESTELD VRAGEN\n\n");
+            Console.WriteLine("VEELGESTELDE VRAGEN\n\n");
 
             Console.WriteLine("Wat is de cappiciteit van de zalen?\n- Wij beschikken over 3 zalen. De eerste zaal heeft een cappiciteit van 150 personen, de tweede van 300 en tot slot de derde zaal met een cappiciteit van 500 personen.\n\n");
 

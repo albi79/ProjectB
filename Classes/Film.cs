@@ -11,6 +11,7 @@ namespace ProjectB.Classes
         public string Titel { get; set; }
         public string Categorie { get; set; }
         public int Leeftijd { get; set; }
+        public int FilmDuur { get; set; }
         public string Beschrijving { get; set; }
         public string Taal { get; set; }
         public string Ondertiteling { get; set; }
@@ -21,13 +22,42 @@ namespace ProjectB.Classes
         public int Beoordeling { get; set; }
         public int AantalBeoordelingen { get; set; }
         public int BeoordelingCumulatief { get; set; }
-
     }
+
     public class ToekomstigeFilm
     {
         public string Titel { get; set; }
         public string Categorie { get; set; }
         public int Leeftijd { get; set; }
+        public int FilmDuur { get; set; }
+        public string Beschrijving { get; set; }
+        public string Release { get; set; }
+    }
+
+    public class VerwijderdeFilm
+    {
+        public string Titel { get; set; }
+        public string Categorie { get; set; }
+        public int Leeftijd { get; set; }
+        public int FilmDuur { get; set; }
+        public string Beschrijving { get; set; }
+        public string Taal { get; set; }
+        public string Ondertiteling { get; set; }
+        public string Acteurs { get; set; }
+        public string Regisseur { get; set; }
+        public int Zaal { get; set; }
+        public string[][] Projectiemoment { get; set; }
+        public int Beoordeling { get; set; }
+        public int AantalBeoordelingen { get; set; }
+        public int BeoordelingCumulatief { get; set; }
+    }
+
+    public class VerwijderdeToekomstigeFilm
+    {
+        public string Titel { get; set; }
+        public string Categorie { get; set; }
+        public int Leeftijd { get; set; }
+        public int FilmDuur { get; set; }
         public string Beschrijving { get; set; }
         public string Release { get; set; }
     }
