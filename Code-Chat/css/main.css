@@ -1,0 +1,129 @@
+body{
+    padding: 3vw;
+    background-color: #C3D9EA;
+    font-family: 'Montserrat';
+}
+/* homepage */
+#drop-zone {
+background-color: #B1C2D0;
+width: 80%;
+margin-top: 10vh;
+    margin-left: auto;
+    margin-right: auto;  
+padding: 30px;
+}
+#drop{
+    min-height: 50vh;
+    border: 4px dashed grey;
+    padding: 30px;
+}
+#drop-zone p{
+    margin-top: 12vh;
+    text-align: center;
+    font-size: 2em;
+    color: #2C3E50;
+}
+#drop-zone span{
+    font-weight: bold;
+}
+#drop-zone img{
+    display: block;
+  width: 15%;
+  margin: 6vh auto;
+}
+
+.banner{
+    display: flex;
+    margin-top: 4vh;
+    margin-bottom: 15vh;
+    /* background-image: url('./img/big-picture.png');
+    background-repeat: no-repeat;
+  background-size: contain; */
+}
+.banner img{
+    margin-left: -6vw !important;
+    width: 100%;
+}
+.banner .left{
+    width: 65vw;
+}
+.banner .right{
+    width: 40vw;
+}
+.banner .right .title{
+    margin-top: 15vh;
+}
+.banner .right p{
+    margin-top: 20px;
+    color: #94221A;
+    font-size: 60px;
+    font-weight: 800;
+    text-align: right;
+}
+
+.banner .right a{
+    margin-top: 22px;
+    float: right;
+}
+.title{
+    text-align: right;
+    color: #10264D;
+    text-decoration-style: solid;
+    text-size-adjust: 100;
+    font-size: 90px;
+    font-weight: 800;
+
+}
+.proces img{
+    margin-left: auto;
+    margin-right: auto;  
+    display: block;
+    margin-top: 8vh;
+}
+.proces h2{
+    color: #10264D;
+    text-align: center;
+    font-weight: 800;
+    font-size: 67px;
+}
+/* codeer page */
+.header{
+    display: flex;
+}
+.linkbalk{
+    background-color: #9EB9D0;
+    padding: 15px 20px;
+    width: 70% !important;
+    margin-left: auto;
+    order: 2;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: 500;
+    font-size: 20px;
+}
+.link{
+    display: flex;
+}
+.link p{
+    margin-top: 12px;
+}
+.link button{
+    margin-left: auto;
+    order: 2;
+}
+.content{
+    margin-top: 4%
+}
+.dot {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    display: inline-block;
+    text-align: center;
+    font-size: 22px;
+    display:table-cell;
+    vertical-align:middle;
+    color: white;
+    font-weight: bold;
+    border: 5px solid #C3D9EA !important;
+}
